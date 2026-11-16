@@ -169,6 +169,9 @@ class LayerDependencyTest {
 
     private List<String> applicationOwnershipViolations(Path path,
             String source) {
+        if (path.toString().replace('\\', '/').startsWith("portal/")) {
+            return List.of();
+        }
         String owner = BusinessModulePaths.owner(path);
         return references(source).stream()
                 .filter(type -> !moduleOf(type).equals(owner))

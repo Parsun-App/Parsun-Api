@@ -7,4 +7,8 @@ import com.cashly.cashly_api.platform.auth.authentication.domain.entity.Authenti
 public interface AuthenticableResolver {
 
     Optional<Authenticable> resolveByEmail(String email);
+
+    default Optional<Authenticable> resolveByRif(String rif) {
+        return Optional.empty();
+    }
 }

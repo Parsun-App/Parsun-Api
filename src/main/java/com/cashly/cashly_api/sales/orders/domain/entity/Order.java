@@ -65,6 +65,15 @@ public class Order {
                 OrderStatus.DRAFT);
     }
 
+    public static Order createCustomerDraft(OrderNumber orderNumber,
+            UUID customerId, String customerName, String customerRif,
+            UUID createdBy, String createdByName, String notes,
+            List<OrderLine> lines) {
+        return createWithStatus(orderNumber, customerId, customerName,
+                customerRif, createdBy, createdByName, notes, lines,
+                OrderStatus.CUSTOMER_DRAFT);
+    }
+
     private static Order createWithStatus(OrderNumber orderNumber,
             UUID customerId, String customerName, String customerRif,
             UUID createdBy, String createdByName, String notes,
@@ -164,7 +173,8 @@ public class Order {
     }
 
     private boolean isInDraftState() {
-        return this.status == OrderStatus.DRAFT;
+        return this.status == OrderStatus.DRAFT
+                || this.status == OrderStatus.CUSTOMER_DRAFT;
     }
 
     private BigDecimal calculateSubtotal() {

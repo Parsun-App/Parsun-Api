@@ -6,6 +6,7 @@ import com.cashly.cashly_api.sales.orders.application.ports.out.OrderActorGatewa
 import com.cashly.cashly_api.sales.orders.application.ports.out.OrderCustomerGateway;
 import com.cashly.cashly_api.sales.orders.application.ports.out.OrderInventoryGateway;
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityNotificationRecorder;
+import com.cashly.cashly_api.platform.notifications.application.ports.in.CustomerNotificationRecorder;
 import com.cashly.cashly_api.sales.orders.application.ports.out.OrderProductCatalogGateway;
 import com.cashly.cashly_api.sales.orders.application.ports.out.StockAvailabilityGateway;
 
@@ -37,6 +38,8 @@ class OrderConfigTest {
     private CustomerCreditGateway credit;
     @Mock
     private InvoiceCreationGateway invoices;
+    @Mock
+    private CustomerNotificationRecorder customerNotifications;
 
     @Test
     void createsOrderUseCasesFromContracts() {
@@ -49,12 +52,12 @@ class OrderConfigTest {
         assertNotNull(config.getOrdersUseCase(orders, products));
         assertNotNull(config.updateOrderUseCase(orders, products, inventory,
                 activityNotifications));
-        assertNotNull(
-                config.confirmOrderUseCase(orders, inventory, activityNotifications));
-        assertNotNull(
-                config.cancelOrderUseCase(orders, inventory, activityNotifications));
+        assertNotNull(config.confirmOrderUseCase(orders, inventory,
+                activityNotifications, customerNotifications));
+        assertNotNull(config.cancelOrderUseCase(orders, inventory,
+                activityNotifications, customerNotifications));
         assertNotNull(config.convertToInvoiceUseCase(orders, invoices,
-                activityNotifications));
+                activityNotifications, customerNotifications));
         assertNotNull(config.deleteOrderUseCase(orders, inventory,
                 activityNotifications));
         assertNotNull(config.getProductsForOrderUseCase(customers, products));

@@ -106,7 +106,7 @@ class QuoteControllerTest {
         QuoteListResponse quote = new QuoteListResponse(UUID.randomUUID(),
                 "2026-0001", UUID.randomUUID(), "Customer", "J-12345678-9",
                 "DRAFT", LocalDate.now(), BigDecimal.TEN, UUID.randomUUID(),
-                "Creator", Instant.now(), Instant.now());
+                "Creator", Instant.now(), Instant.now(), true);
 
         when(getQuotesUseCase.executePage(null, null, null, null, null, null,
                 null, 0, 100, "createdAt", "desc", null))

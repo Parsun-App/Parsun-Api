@@ -67,7 +67,17 @@ public class OrderMapper {
                 order.getOrderNumber().value(), order.getCustomerId(),
                 order.getCustomerName(), order.getStatus().name(),
                 order.getSubtotal(), order.getLines().size(),
-                order.getInvoiceId(), order.getCreatedAt());
+                order.getInvoiceId(), order.getCreatedAt(),
+                stockAssigned(order));
+    }
+
+    private static boolean stockAssigned(Order order) {
+        return !order.getLines().isEmpty() && order.getLines().stream()
+                .allMatch(line -> !line.getAllocations().isEmpty()
+                        && line.getAllocations().stream()
+                                .map(com.cashly.cashly_api.sales.orders.domain.entity.OrderLineAllocation::getAllocated)
+                                .reduce(java.math.BigDecimal.ZERO, java.math.BigDecimal::add)
+                                .compareTo(line.getQuantity()) == 0);
     }
 
     private static OrderDetailResponse.OrderLineDetailResponse toLineDetailResponse(

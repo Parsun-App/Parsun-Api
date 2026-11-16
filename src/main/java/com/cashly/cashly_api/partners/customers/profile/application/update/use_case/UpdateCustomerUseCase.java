@@ -1,5 +1,6 @@
 package com.cashly.cashly_api.partners.customers.profile.application.update.use_case;
 
+import com.cashly.cashly_api.partners.customers.profile.application.ports.out.PortalPasswordEncoder;
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityEvent;
 
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityNotificationRecorder;
@@ -29,17 +30,25 @@ public class UpdateCustomerUseCase {
 
     private final CustomerRepository customerRepository;
     private final CustomerMapper customerMapper;
+    private final PortalPasswordEncoder passwordEncoder;
 
     private final ActivityNotificationRecorder activityNotifications;
 
     public UpdateCustomerUseCase(CustomerRepository customerRepository,
-            CustomerMapper customerMapper,
+            CustomerMapper customerMapper, PortalPasswordEncoder passwordEncoder,
             ActivityNotificationRecorder activityNotifications) {
         this.activityNotifications = activityNotifications != null
                 ? activityNotifications
                 : ActivityNotificationRecorder.NONE;
         this.customerRepository = customerRepository;
         this.customerMapper = customerMapper;
+        this.passwordEncoder = passwordEncoder;
+    }
+
+    public UpdateCustomerUseCase(CustomerRepository customerRepository,
+            CustomerMapper customerMapper,
+            ActivityNotificationRecorder activityNotifications) {
+        this(customerRepository, customerMapper, null, activityNotifications);
     }
 
     @Transactional
@@ -72,6 +81,8 @@ public class UpdateCustomerUseCase {
             customer.deactivate();
         }
 
+        applyPortalAccess(customer, rif, request.portalAccess());
+
         customer.clearEmails();
         customer.clearPhones();
         customer.clearAddresses();
@@ -91,5 +102,27 @@ public class UpdateCustomerUseCase {
                 saved.getLegalName().getValue(), null));
         return customerMapper.toDetailResponse(saved,
                 !customerRepository.hasAssociatedRecords(customer.getId()));
+    }
+
+    private void applyPortalAccess(Customer customer, Rif rif,
+            Boolean portalAccess) {
+        if (portalAccess == null) {
+            return;
+        }
+        if (!portalAccess) {
+            customer.disablePortalAccess();
+            return;
+        }
+        if (customer.getPortalPassword() == null
+                || customer.getPortalPassword().isBlank()) {
+            if (passwordEncoder == null) {
+                throw new IllegalStateException(
+                        "Password encoder is required to enable portal access");
+            }
+            customer.enablePortalAccess(
+                    passwordEncoder.encode(rif.getValue()));
+        } else {
+            customer.enablePortalAccess(customer.getPortalPassword());
+        }
     }
 }

@@ -40,6 +40,8 @@ class JwtAuthenticationFilterUnitTest {
     @Mock
     private AccessService access;
     @Mock
+    private com.cashly.cashly_api.platform.auth.authentication.application.ports.out.PortalCustomerQuery portalCustomers;
+    @Mock
     private HttpServletRequest request;
     @Mock
     private HttpServletResponse response;
@@ -50,7 +52,8 @@ class JwtAuthenticationFilterUnitTest {
     @BeforeEach
     void setUp() {
         SecurityContextHolder.clearContext();
-        filter = new JwtAuthenticationFilter(tokens, users, access);
+        filter = new JwtAuthenticationFilter(tokens, users, portalCustomers,
+                access);
     }
 
     @AfterEach

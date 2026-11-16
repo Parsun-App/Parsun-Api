@@ -50,6 +50,13 @@ public class WebSocketNotificationDeliveryAdapter
 
     private void send(Notification notification) {
         if (notification.getUserId() == null) {
+            if (notification.getCustomerId() != null) {
+                messagingTemplate.convertAndSend(
+                        "/topic/notifications/customer/"
+                                + notification.getCustomerId(),
+                        translator.render(notification,
+                                java.util.Locale.forLanguageTag("es")));
+            }
             return;
         }
         String destination = "/topic/notifications/user/"

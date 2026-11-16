@@ -30,6 +30,8 @@ public class Customer {
     private CreditDays creditDays;
     private CreditLimit creditLimit;
     private boolean active;
+    private boolean portalAccess;
+    private String portalPassword;
     private final LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private List<CustomerEmail> emails;
@@ -41,6 +43,7 @@ public class Customer {
     private Customer(CustomerId id, CustomerCode code, LegalName legalName,
             CustomerType type, Rif rif, CustomerAlias alias,
             CreditDays creditDays, CreditLimit creditLimit, boolean active,
+            boolean portalAccess, String portalPassword,
             LocalDateTime createdAt, LocalDateTime updatedAt,
             List<CustomerEmail> emails, List<CustomerPhone> phones,
             List<CustomerAddress> addresses, String notes, UUID priceTypeId) {
@@ -53,6 +56,8 @@ public class Customer {
         this.creditDays = creditDays;
         this.creditLimit = creditLimit;
         this.active = active;
+        this.portalAccess = portalAccess;
+        this.portalPassword = portalPassword;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.emails = new ArrayList<>(emails != null ? emails : List.of());
@@ -68,7 +73,7 @@ public class Customer {
             CreditDays creditDays, CreditLimit creditLimit) {
         LocalDateTime now = LocalDateTime.now();
         return new Customer(CustomerId.generate(), code, legalName, type, rif,
-                alias, creditDays, creditLimit, true, now, now,
+                alias, creditDays, creditLimit, true, false, null, now, now,
                 new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), null,
                 null);
     }
@@ -79,9 +84,21 @@ public class Customer {
             boolean active, LocalDateTime createdAt, LocalDateTime updatedAt,
             List<CustomerEmail> emails, List<CustomerPhone> phones,
             List<CustomerAddress> addresses, String notes, UUID priceTypeId) {
+        return reconstitute(id, code, legalName, type, rif, alias, creditDays,
+                creditLimit, active, false, null, createdAt, updatedAt, emails,
+                phones, addresses, notes, priceTypeId);
+    }
+
+    public static Customer reconstitute(CustomerId id, CustomerCode code,
+            LegalName legalName, CustomerType type, Rif rif,
+            CustomerAlias alias, CreditDays creditDays, CreditLimit creditLimit,
+            boolean active, boolean portalAccess, String portalPassword,
+            LocalDateTime createdAt, LocalDateTime updatedAt,
+            List<CustomerEmail> emails, List<CustomerPhone> phones,
+            List<CustomerAddress> addresses, String notes, UUID priceTypeId) {
         return new Customer(id, code, legalName, type, rif, alias, creditDays,
-                creditLimit, active, createdAt, updatedAt, emails, phones,
-                addresses, notes, priceTypeId);
+                creditLimit, active, portalAccess, portalPassword, createdAt,
+                updatedAt, emails, phones, addresses, notes, priceTypeId);
     }
 
     public void updateLegalName(LegalName legalName) {
@@ -186,6 +203,30 @@ public class Customer {
         this.updatedAt = LocalDateTime.now();
     }
 
+    public void enablePortalAccess(String encodedPassword) {
+        if (encodedPassword == null || encodedPassword.isBlank()) {
+            throw new IllegalArgumentException(
+                    "Portal password cannot be empty");
+        }
+        this.portalAccess = true;
+        this.portalPassword = encodedPassword;
+        this.updatedAt = LocalDateTime.now();
+    }
+
+    public void disablePortalAccess() {
+        this.portalAccess = false;
+        this.updatedAt = LocalDateTime.now();
+    }
+
+    public void changePortalPassword(String encodedPassword) {
+        if (encodedPassword == null || encodedPassword.isBlank()) {
+            throw new IllegalArgumentException(
+                    "Portal password cannot be empty");
+        }
+        this.portalPassword = encodedPassword;
+        this.updatedAt = LocalDateTime.now();
+    }
+
     public PaymentType getPaymentType() {
         return creditLimit.getValue().compareTo(java.math.BigDecimal.ZERO) > 0
                 ? PaymentType.CREDIT
@@ -218,6 +259,12 @@ public class Customer {
     }
     public boolean isActive() {
         return active;
+    }
+    public boolean isPortalAccess() {
+        return portalAccess;
+    }
+    public String getPortalPassword() {
+        return portalPassword;
     }
     public LocalDateTime getCreatedAt() {
         return createdAt;

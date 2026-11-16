@@ -25,7 +25,16 @@ public class QuoteMapper {
                 quote.getStatus().name(), quote.getExpiryDate(),
                 quote.getSubtotal(), quote.getCreatedBy(),
                 quote.getCreatedByName(), quote.getCreatedAt(),
-                quote.getUpdatedAt());
+                quote.getUpdatedAt(), stockAssigned(quote));
+    }
+
+    private static boolean stockAssigned(Quote quote) {
+        return !quote.getLines().isEmpty() && quote.getLines().stream()
+                .allMatch(line -> !line.getAllocations().isEmpty()
+                        && line.getAllocations().stream()
+                                .map(com.cashly.cashly_api.sales.quotes.domain.entity.QuoteAllocation::getAllocatedQuantity)
+                                .reduce(java.math.BigDecimal.ZERO, java.math.BigDecimal::add)
+                                .compareTo(line.getQuantity()) == 0);
     }
 
     public static QuoteDetailResponse toDetailResponse(Quote quote) {

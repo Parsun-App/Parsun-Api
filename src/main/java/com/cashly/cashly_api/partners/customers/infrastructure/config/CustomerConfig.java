@@ -1,5 +1,6 @@
 package com.cashly.cashly_api.partners.customers.infrastructure.config;
 
+import com.cashly.cashly_api.partners.customers.profile.application.ports.out.PortalPasswordEncoder;
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityNotificationRecorder;
 import com.cashly.cashly_api.partners.customers.profile.application.mappers.CustomerMapper;
 import com.cashly.cashly_api.partners.customers.credit.application.ports.out.CreditValidationGateway;
@@ -14,6 +15,7 @@ import com.cashly.cashly_api.partners.customers.profile.application.get.use_case
 import com.cashly.cashly_api.partners.customers.warehouse_access.application.grant.use_case.GrantWarehouseAccessUseCase;
 import com.cashly.cashly_api.partners.customers.warehouse_access.application.list.use_case.ListCustomerWarehousesUseCase;
 import com.cashly.cashly_api.partners.customers.profile.application.list.use_case.ListCustomersUseCase;
+import com.cashly.cashly_api.partners.customers.profile.application.portal.use_case.ChangeCustomerPortalPasswordUseCase;
 import com.cashly.cashly_api.partners.customers.balance.application.refund.use_case.RefundCustomerBalanceUseCase;
 import com.cashly.cashly_api.partners.customers.profile.application.register.use_case.RegisterCustomerUseCase;
 import com.cashly.cashly_api.partners.customers.warehouse_access.application.revoke.use_case.RevokeWarehouseAccessUseCase;
@@ -50,10 +52,20 @@ public class CustomerConfig {
             CustomerMapper customerMapper,
             CustomerWarehouseAccessRepository warehouseAccessRepository,
             WarehouseDirectoryGateway warehouseDirectory,
+            PortalPasswordEncoder passwordEncoder,
             ActivityNotificationRecorder activityNotifications) {
         return new RegisterCustomerUseCase(customerRepository,
                 customerCodeGenerator, customerMapper,
-                warehouseAccessRepository, warehouseDirectory, activityNotifications);
+                warehouseAccessRepository, warehouseDirectory, passwordEncoder,
+                activityNotifications);
+    }
+
+    @Bean
+    public ChangeCustomerPortalPasswordUseCase changeCustomerPortalPasswordUseCase(
+            CustomerRepository customerRepository,
+            PortalPasswordEncoder passwordEncoder) {
+        return new ChangeCustomerPortalPasswordUseCase(customerRepository,
+                passwordEncoder);
     }
 
     @Bean
@@ -74,8 +86,10 @@ public class CustomerConfig {
     public UpdateCustomerUseCase updateCustomerUseCase(
             CustomerRepository customerRepository,
             CustomerMapper customerMapper,
+            PortalPasswordEncoder passwordEncoder,
             ActivityNotificationRecorder activityNotifications) {
-        return new UpdateCustomerUseCase(customerRepository, customerMapper, activityNotifications);
+        return new UpdateCustomerUseCase(customerRepository, customerMapper,
+                passwordEncoder, activityNotifications);
     }
 
     @Bean

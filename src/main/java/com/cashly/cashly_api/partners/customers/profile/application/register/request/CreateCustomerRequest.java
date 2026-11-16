@@ -30,6 +30,8 @@ public record CreateCustomerRequest(
 
         @NotNull(message = "Active status is required") Boolean active,
 
+        Boolean portalAccess,
+
         @Valid List<EmailRequest> emails,
 
         @Valid List<PhoneRequest> phones,
@@ -41,4 +43,14 @@ public record CreateCustomerRequest(
         String notes,
 
         UUID priceTypeId) {
+
+    public CreateCustomerRequest(String legalName, String type, String rif,
+            String alias, Integer creditDays, BigDecimal creditLimit,
+            Boolean active, List<EmailRequest> emails, List<PhoneRequest> phones,
+            List<AddressRequest> addresses, List<UUID> warehouseIds,
+            String notes, UUID priceTypeId) {
+        this(legalName, type, rif, alias, creditDays, creditLimit, active,
+                null, emails, phones, addresses, warehouseIds, notes,
+                priceTypeId);
+    }
 }

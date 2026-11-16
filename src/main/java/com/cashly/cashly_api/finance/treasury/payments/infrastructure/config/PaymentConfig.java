@@ -127,18 +127,20 @@ public class PaymentConfig {
             PaymentInvoiceGateway invoiceGateway,
             CashRegisterGateway cashRegisterGateway,
             PaymentAllocationService paymentAllocationService,
+            com.cashly.cashly_api.platform.notifications.application.ports.in.CustomerNotificationRecorder notificationService,
             ActivityNotificationRecorder activityNotifications) {
         return new ApprovePaymentUseCase(paymentRepository,
                 allocationRepository, invoiceGateway,
                 cashRegisterGateway, paymentAllocationService,
-                activityNotifications);
+                notificationService, activityNotifications);
     }
 
     @Bean
     public RejectPaymentUseCase rejectPaymentUseCase(
             PaymentRepository paymentRepository,
+            com.cashly.cashly_api.platform.notifications.application.ports.in.CustomerNotificationRecorder notificationService,
             ActivityNotificationRecorder activityNotifications) {
-        return new RejectPaymentUseCase(paymentRepository,
+        return new RejectPaymentUseCase(paymentRepository, notificationService,
                 activityNotifications);
     }
 

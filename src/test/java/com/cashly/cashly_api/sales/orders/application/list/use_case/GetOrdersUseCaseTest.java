@@ -140,7 +140,7 @@ class GetOrdersUseCaseTest {
         getOrdersUseCase.execute(null, null, null, "ALL", null, null,
                 "createdAt", "desc",
                 com.cashly.cashly_api.shared.domain.valueobjects.DocumentAction.EDIT);
-        verify(orderRepository).findAllWithFilters(null, null, null, "DRAFT",
+        verify(orderRepository).findAllWithFilters(null, null, null, "DRAFTS",
                 null, null, java.util.Set.of(), "createdAt", "desc");
     }
 
@@ -149,7 +149,7 @@ class GetOrdersUseCaseTest {
         getOrdersUseCase.execute(null, null, null, "ALL", null, null,
                 "createdAt", "desc",
                 com.cashly.cashly_api.shared.domain.valueobjects.DocumentAction.CONFIRM);
-        verify(orderRepository).findAllWithFilters(null, null, null, "DRAFT",
+        verify(orderRepository).findAllWithFilters(null, null, null, "DRAFTS",
                 null, null, java.util.Set.of(), "createdAt", "desc");
     }
 

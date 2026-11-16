@@ -100,7 +100,7 @@ class OrderControllerTest {
     void should_get_all_orders_and_return_200() {
         OrderListResponse order = new OrderListResponse(UUID.randomUUID(),
                 "ORD-00001", UUID.randomUUID(), "Customer", "PENDING",
-                BigDecimal.TEN, 2, null, LocalDateTime.now());
+                BigDecimal.TEN, 2, null, LocalDateTime.now(), true);
 
         when(getOrdersUseCase.executePage(null, null, null, null, null, null,
                 null, 0, 100, "createdAt", "desc", null))

@@ -36,7 +36,7 @@ public interface QuoteJpaRepository
             SELECT DISTINCT q FROM QuoteJpaEntity q
             LEFT JOIN FETCH q.lines l LEFT JOIN FETCH l.categorySnapshot
             WHERE q.id = :id
-            AND q.status = 'DRAFT'
+            AND q.status IN ('DRAFT', 'CUSTOMER_DRAFT')
             AND NOT EXISTS (
                 SELECT 1 FROM InvoiceEntity invoice
                 JOIN invoice.quoteIds linkedQuoteId
@@ -57,7 +57,7 @@ public interface QuoteJpaRepository
             WHERE (:dateFrom IS NULL OR q.createdAt >= :dateFrom)
             AND (:dateTo IS NULL OR q.createdAt <= :dateTo)
             AND (:customerId IS NULL OR q.customerId = :customerId)
-            AND (:status = 'ALL' OR q.status = :status OR (:status IS NULL AND q.status = 'DRAFT'))
+            AND (:status = 'ALL' OR q.status = :status OR (:status = 'DRAFTS' AND q.status IN ('DRAFT', 'CUSTOMER_DRAFT')) OR (:status IS NULL AND q.status IN ('DRAFT', 'CUSTOMER_DRAFT')))
             AND (:productId IS NULL OR EXISTS (
                 SELECT 1 FROM QuoteLineJpaEntity ql WHERE ql.quote = q AND ql.productId = :productId
             ))
@@ -80,7 +80,7 @@ public interface QuoteJpaRepository
             WHERE (:dateFrom IS NULL OR q.createdAt >= :dateFrom)
             AND (:dateTo IS NULL OR q.createdAt <= :dateTo)
             AND (:customerId IS NULL OR q.customerId = :customerId)
-            AND (:status = 'ALL' OR q.status = :status OR (:status IS NULL AND q.status = 'DRAFT'))
+            AND (:status = 'ALL' OR q.status = :status OR (:status = 'DRAFTS' AND q.status IN ('DRAFT', 'CUSTOMER_DRAFT')) OR (:status IS NULL AND q.status IN ('DRAFT', 'CUSTOMER_DRAFT')))
             AND (:productId IS NULL OR EXISTS (
                 SELECT 1 FROM QuoteLineJpaEntity ql WHERE ql.quote = q AND ql.productId = :productId
             ))
@@ -96,7 +96,7 @@ public interface QuoteJpaRepository
             WHERE (:dateFrom IS NULL OR q.createdAt >= :dateFrom)
             AND (:dateTo IS NULL OR q.createdAt <= :dateTo)
             AND (:customerId IS NULL OR q.customerId = :customerId)
-            AND (:status = 'ALL' OR q.status = :status OR (:status IS NULL AND q.status = 'DRAFT'))
+            AND (:status = 'ALL' OR q.status = :status OR (:status = 'DRAFTS' AND q.status IN ('DRAFT', 'CUSTOMER_DRAFT')) OR (:status IS NULL AND q.status IN ('DRAFT', 'CUSTOMER_DRAFT')))
             AND (:productId IS NULL OR EXISTS (
                 SELECT 1 FROM QuoteLineJpaEntity ql WHERE ql.quote = q AND ql.productId = :productId
             ))
@@ -128,11 +128,11 @@ public interface QuoteJpaRepository
     @Query("""
             SELECT DISTINCT q FROM QuoteJpaEntity q
             LEFT JOIN FETCH q.lines l LEFT JOIN FETCH l.categorySnapshot
-            WHERE q.status = 'DRAFT'
+            WHERE q.status IN ('DRAFT', 'CUSTOMER_DRAFT')
             AND (:dateFrom IS NULL OR q.createdAt >= :dateFrom)
             AND (:dateTo IS NULL OR q.createdAt <= :dateTo)
             AND (:customerId IS NULL OR q.customerId = :customerId)
-            AND (:status = 'ALL' OR :status IS NULL OR q.status = :status)
+            AND (:status = 'ALL' OR :status IS NULL OR (:status = 'DRAFTS' AND q.status IN ('DRAFT', 'CUSTOMER_DRAFT')) OR q.status = :status)
             AND (:productId IS NULL OR EXISTS (
                 SELECT 1 FROM QuoteLineJpaEntity ql WHERE ql.quote = q AND ql.productId = :productId
             ))

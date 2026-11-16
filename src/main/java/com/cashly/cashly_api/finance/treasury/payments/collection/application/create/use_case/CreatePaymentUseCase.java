@@ -75,7 +75,8 @@ public class CreatePaymentUseCase {
         Payment payment = Payment.create(paymentNumber, request.customerId(),
                 request.amount(), request.paymentMethodId(),
                 request.referenceNumber(), request.paymentDate(),
-                request.notes(), createdById, createdByName, status);
+                request.notes(), createdById, createdByName, status,
+                request.targetInvoiceId(), request.voucherPath());
 
         Payment saved = paymentRepository.save(payment);
         recordCashMovement(saved);

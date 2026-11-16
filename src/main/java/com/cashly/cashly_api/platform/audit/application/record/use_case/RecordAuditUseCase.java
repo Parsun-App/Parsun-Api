@@ -61,6 +61,9 @@ public class RecordAuditUseCase implements AuditRecorder {
         Optional<AuditActorGateway.ActorSnapshot> actor = actorId == null
                 ? Optional.empty()
                 : actors.find(actorId);
+        if (actor.isEmpty()) {
+            actorId = null;
+        }
         UUID companyId = actor
                 .map(AuditActorGateway.ActorSnapshot::companyId)
                 .orElse(fallbackCompanyId);

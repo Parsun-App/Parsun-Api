@@ -8,5 +8,15 @@ import java.util.UUID;
 public record PaymentListResponse(UUID id, String paymentNumber,
         UUID customerId, BigDecimal amount, UUID paymentMethodId,
         String referenceNumber, LocalDate paymentDate, String status,
-        BigDecimal appliedAmount, LocalDateTime createdAt) {
+        BigDecimal appliedAmount, LocalDateTime createdAt, UUID targetInvoiceId,
+        String voucherUrl) {
+
+    public PaymentListResponse(UUID id, String paymentNumber, UUID customerId,
+            BigDecimal amount, UUID paymentMethodId, String referenceNumber,
+            LocalDate paymentDate, String status, BigDecimal appliedAmount,
+            LocalDateTime createdAt) {
+        this(id, paymentNumber, customerId, amount, paymentMethodId,
+                referenceNumber, paymentDate, status, appliedAmount, createdAt,
+                null, null);
+    }
 }

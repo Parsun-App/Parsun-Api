@@ -35,6 +35,8 @@ public class PaymentJpaMapper {
         entity.setVerifiedBy(payment.getVerifiedBy());
         entity.setVerifiedByName(payment.getVerifiedByName());
         entity.setVerifiedAt(payment.getVerifiedAt());
+        entity.setTargetInvoiceId(payment.getTargetInvoiceId());
+        entity.setVoucherPath(payment.getVoucherPath());
         return entity;
     }
 
@@ -52,6 +54,7 @@ public class PaymentJpaMapper {
                 entity.getCreatedByName(), entity.getCreatedAt(),
                 entity.getUpdatedAt(), entity.getCancelledReason(),
                 entity.getVerifiedBy(), entity.getVerifiedByName(),
-                entity.getVerifiedAt());
+                entity.getVerifiedAt(), entity.getTargetInvoiceId(),
+                entity.getVoucherPath());
     }
 }

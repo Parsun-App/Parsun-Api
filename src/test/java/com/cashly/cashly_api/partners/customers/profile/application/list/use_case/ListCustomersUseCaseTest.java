@@ -55,7 +55,7 @@ class ListCustomersUseCaseTest {
 
         when(customerRepository.findAllWithFilters(eq("search"), eq("J-123"),
                 eq("BUSINESS"), eq(true), isNull(), isNull(), isNull(),
-                isNull(), eq(0), eq(10), isNull(), isNull())).thenReturn(page);
+                isNull(), isNull(), eq(0), eq(10), isNull(), isNull())).thenReturn(page);
         when(mapper.toListResponse(eq(customer), anyBoolean()))
                 .thenReturn(listResponse);
 
@@ -68,7 +68,8 @@ class ListCustomersUseCaseTest {
         assertEquals(1L, response.totalElements());
         assertEquals("Test", response.content().get(0).alias());
         verify(customerRepository).findAllWithFilters("search", "J-123",
-                "BUSINESS", true, null, null, null, null, 0, 10, null, null);
+                "BUSINESS", true, null, null, null, null, null, 0, 10, null,
+                null);
     }
 
     @Test
@@ -78,8 +79,8 @@ class ListCustomersUseCaseTest {
                 0, true, true, true);
 
         when(customerRepository.findAllWithFilters(isNull(), isNull(), isNull(),
-                eq(true), isNull(), isNull(), isNull(), isNull(), eq(0), eq(10),
-                isNull(), isNull())).thenReturn(page);
+                eq(true), isNull(), isNull(), isNull(), isNull(), isNull(),
+                eq(0), eq(10), isNull(), isNull())).thenReturn(page);
 
         PageResponse<CustomerListResponse> response = useCase.execute(null,
                 null, null, null, null, null, null, null, 0, 10, null, null);
@@ -87,7 +88,7 @@ class ListCustomersUseCaseTest {
         assertNotNull(response);
         assertTrue(response.empty());
         verify(customerRepository).findAllWithFilters(null, null, null, true,
-                null, null, null, null, 0, 10, null, null);
+                null, null, null, null, null, 0, 10, null, null);
     }
 
     @Test
@@ -97,8 +98,8 @@ class ListCustomersUseCaseTest {
                 0, true, true, true);
 
         when(customerRepository.findAllWithFilters(any(), any(), any(),
-                anyBoolean(), any(), any(), any(), any(), anyInt(), anyInt(),
-                any(), any())).thenReturn(page);
+                anyBoolean(), any(), any(), any(), any(), any(), anyInt(),
+                anyInt(), any(), any())).thenReturn(page);
 
         PageResponse<CustomerListResponse> response = useCase.execute(null,
                 null, null, true, null, null, null, null, 0, 10, null, null);

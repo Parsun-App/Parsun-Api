@@ -1,5 +1,6 @@
 package com.cashly.cashly_api.partners.customers.profile.application.register.use_case;
 
+import com.cashly.cashly_api.partners.customers.profile.application.ports.out.PortalPasswordEncoder;
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityEvent;
 
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityNotificationRecorder;
@@ -23,6 +24,7 @@ import com.cashly.cashly_api.partners.customers.profile.domain.valueobjects.Lega
 import com.cashly.cashly_api.partners.customers.profile.domain.valueobjects.PhoneNumber;
 import com.cashly.cashly_api.partners.customers.profile.domain.valueobjects.Rif;
 import com.cashly.cashly_api.partners.customers.warehouse_access.application.ports.out.WarehouseDirectoryGateway;
+import com.cashly.cashly_api.partners.customers.profile.application.ports.out.PortalPasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
@@ -35,6 +37,7 @@ public class RegisterCustomerUseCase {
     private final CustomerMapper customerMapper;
     private final CustomerWarehouseAccessRepository warehouseAccessRepository;
     private final WarehouseDirectoryGateway warehouseDirectory;
+    private final PortalPasswordEncoder passwordEncoder;
 
     private final ActivityNotificationRecorder activityNotifications;
 
@@ -43,6 +46,7 @@ public class RegisterCustomerUseCase {
             CustomerMapper customerMapper,
             CustomerWarehouseAccessRepository warehouseAccessRepository,
             WarehouseDirectoryGateway warehouseDirectory,
+            PortalPasswordEncoder passwordEncoder,
             ActivityNotificationRecorder activityNotifications) {
         this.activityNotifications = activityNotifications != null
                 ? activityNotifications
@@ -52,6 +56,18 @@ public class RegisterCustomerUseCase {
         this.customerMapper = customerMapper;
         this.warehouseAccessRepository = warehouseAccessRepository;
         this.warehouseDirectory = warehouseDirectory;
+        this.passwordEncoder = passwordEncoder;
+    }
+
+    public RegisterCustomerUseCase(CustomerRepository customerRepository,
+            CustomerCodeGenerator customerCodeGenerator,
+            CustomerMapper customerMapper,
+            CustomerWarehouseAccessRepository warehouseAccessRepository,
+            WarehouseDirectoryGateway warehouseDirectory,
+            ActivityNotificationRecorder activityNotifications) {
+        this(customerRepository, customerCodeGenerator, customerMapper,
+                warehouseAccessRepository, warehouseDirectory, null,
+                activityNotifications);
     }
 
     @Transactional
@@ -74,6 +90,14 @@ public class RegisterCustomerUseCase {
 
         if (!request.active()) {
             customer.deactivate();
+        }
+
+        if (Boolean.TRUE.equals(request.portalAccess())) {
+            if (passwordEncoder == null) {
+                throw new IllegalStateException(
+                        "Password encoder is required to enable portal access");
+            }
+            customer.enablePortalAccess(passwordEncoder.encode(rif.getValue()));
         }
 
         customer.updateNotes(request.notes());

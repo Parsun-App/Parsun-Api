@@ -14,17 +14,29 @@ public interface CustomerRepository {
     Customer save(Customer customer);
     Optional<Customer> findById(CustomerId id);
     Optional<Customer> findByRif(Rif rif);
+    Optional<Customer> findActivePortalCustomerByRif(Rif rif);
     boolean existsByRif(Rif rif);
     boolean existsByRifAndIdNot(Rif rif, CustomerId id);
     List<Customer> findAll();
     boolean hasAssociatedRecords(CustomerId id);
     Set<UUID> findIdsWithAssociatedRecords(Set<UUID> ids);
     PageResponse<Customer> findAllWithFilters(String search, String rif,
+            String type, Boolean active, Boolean portalAccess, String state,
+            String municipality, String postalCode,
+            Boolean hasActiveWarehouse, int page, int size, String orderBy,
+            String orderDir);
+
+    default PageResponse<Customer> findAllWithFilters(String search, String rif,
             String type, Boolean active, String state, String municipality,
             String postalCode, Boolean hasActiveWarehouse, int page, int size,
-            String orderBy, String orderDir);
+            String orderBy, String orderDir) {
+        return findAllWithFilters(search, rif, type, active, null, state,
+                municipality, postalCode, hasActiveWarehouse, page, size,
+                orderBy, orderDir);
+    }
     void delete(CustomerId id);
     boolean existsById(CustomerId id);
     boolean isActive(CustomerId id);
+    boolean isActivePortalAccess(CustomerId id);
     long getNextCode();
 }

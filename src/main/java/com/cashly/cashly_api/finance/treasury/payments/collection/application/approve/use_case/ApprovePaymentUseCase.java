@@ -4,6 +4,7 @@ import com.cashly.cashly_api.platform.notifications.application.ports.in.Activit
 
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityNotificationRecorder;
 
+import com.cashly.cashly_api.platform.notifications.application.ports.in.CustomerNotificationRecorder;
 import com.cashly.cashly_api.finance.treasury.payments.collection.application.ports.out.CashRegisterGateway;
 import com.cashly.cashly_api.finance.treasury.payments.collection.application.ports.out.PaymentInvoiceGateway;
 import com.cashly.cashly_api.finance.treasury.payments.collection.application.approve.request.ApprovePaymentRequest;
@@ -30,6 +31,7 @@ public class ApprovePaymentUseCase {
     private final PaymentInvoiceGateway invoices;
     private final CashRegisterGateway cashRegister;
     private final PaymentAllocationService paymentAllocationService;
+    private final CustomerNotificationRecorder notificationService;
 
     private final ActivityNotificationRecorder activityNotifications;
 
@@ -38,6 +40,7 @@ public class ApprovePaymentUseCase {
             PaymentInvoiceGateway invoices,
             CashRegisterGateway cashRegister,
             PaymentAllocationService paymentAllocationService,
+            CustomerNotificationRecorder notificationService,
             ActivityNotificationRecorder activityNotifications) {
         this.activityNotifications = activityNotifications != null
                 ? activityNotifications
@@ -47,6 +50,17 @@ public class ApprovePaymentUseCase {
         this.invoices = invoices;
         this.cashRegister = cashRegister;
         this.paymentAllocationService = paymentAllocationService;
+        this.notificationService = notificationService;
+    }
+
+    public ApprovePaymentUseCase(PaymentRepository paymentRepository,
+            PaymentAllocationRepository allocationRepository,
+            PaymentInvoiceGateway invoices,
+            CashRegisterGateway cashRegister,
+            PaymentAllocationService paymentAllocationService,
+            ActivityNotificationRecorder activityNotifications) {
+        this(paymentRepository, allocationRepository, invoices, cashRegister,
+                paymentAllocationService, null, activityNotifications);
     }
 
     @Transactional
@@ -60,7 +74,11 @@ public class ApprovePaymentUseCase {
         cashRegister.requireOpenRegister();
         payment.approve(request.reason(), userId, userName);
 
-        applyToUnpaidInvoicesOldestFirst(payment);
+        if (payment.getTargetInvoiceId() != null) {
+            applyToInvoice(payment, payment.getTargetInvoiceId());
+        } else {
+            applyToUnpaidInvoicesOldestFirst(payment);
+        }
 
         Payment saved = paymentRepository.save(payment);
         cashRegister.recordMovement(new CashRegisterGateway.Movement(
@@ -72,8 +90,23 @@ public class ApprovePaymentUseCase {
         activityNotifications.record(ActivityEvent.of("FINANCE_TREASURY_RECEIVABLES",
                 "APPROVE_PAYMENT", "PAYMENT",
                 saved.getId().value(), saved.getPaymentNumber().value(), userId));
-
+        if (notificationService != null) {
+            notificationService.paymentApproved(
+                    payment.getCustomerId(), id);
+        }
         return PaymentMapper.toResponse(saved);
+    }
+
+    private void applyToInvoice(Payment payment, UUID invoiceId) {
+        invoices.findById(invoiceId)
+                .orElseThrow(() -> new IllegalArgumentException(
+                        "Invoice not found: " + invoiceId));
+
+        PaymentAllocation allocation = PaymentAllocation.create(
+                payment.getId().value(), invoiceId, payment.getAmount());
+        allocationRepository.save(allocation);
+        payment.apply(payment.getAmount());
+        invoices.recalculateStatus(invoiceId);
     }
 
     private void applyToUnpaidInvoicesOldestFirst(Payment payment) {

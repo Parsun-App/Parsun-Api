@@ -3,6 +3,7 @@ package com.cashly.cashly_api.sales.invoices.invoices.application.create.use_cas
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityEvent;
 
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityNotificationRecorder;
+import com.cashly.cashly_api.platform.notifications.application.ports.in.CustomerNotificationRecorder;
 
 import com.cashly.cashly_api.sales.invoices.invoices.application.ports.out.ActorIdentityGateway;
 import com.cashly.cashly_api.sales.invoices.invoices.application.ports.out.CustomerCreditTermsGateway;
@@ -24,6 +25,7 @@ import com.cashly.cashly_api.sales.invoices.invoices.domain.repository.InvoiceRe
 import com.cashly.cashly_api.sales.invoices.invoices.domain.valueobjects.InvoiceNumber;
 import com.cashly.cashly_api.sales.invoices.invoices.domain.valueobjects.PaymentType;
 import jakarta.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -45,6 +47,7 @@ public class CreateInvoiceUseCase {
     private final InvoiceQuoteGateway quotes;
 
     private final ActivityNotificationRecorder activityNotifications;
+    private final CustomerNotificationRecorder customerNotifications;
 
     public CreateInvoiceUseCase(InvoiceRepository invoices,
             InvoiceOrderGateway orders, InvoiceCustomerGateway customers,
@@ -53,6 +56,19 @@ public class CreateInvoiceUseCase {
             InventoryGateway inventory, IssueInvoiceService issuance,
             InvoiceQuoteGateway quotes,
             ActivityNotificationRecorder activityNotifications) {
+        this(invoices, orders, customers, customerCreditTerms, actors, catalog,
+                inventory, issuance, quotes, activityNotifications, null);
+    }
+
+    @Autowired
+    public CreateInvoiceUseCase(InvoiceRepository invoices,
+            InvoiceOrderGateway orders, InvoiceCustomerGateway customers,
+            CustomerCreditTermsGateway customerCreditTerms,
+            ActorIdentityGateway actors, InvoiceCatalogGateway catalog,
+            InventoryGateway inventory, IssueInvoiceService issuance,
+            InvoiceQuoteGateway quotes,
+            ActivityNotificationRecorder activityNotifications,
+            CustomerNotificationRecorder customerNotifications) {
         this.activityNotifications = activityNotifications != null
                 ? activityNotifications
                 : ActivityNotificationRecorder.NONE;
@@ -65,6 +81,7 @@ public class CreateInvoiceUseCase {
         this.inventory = inventory;
         this.issuance = issuance;
         this.quotes = quotes;
+        this.customerNotifications = customerNotifications;
     }
 
     @Transactional
@@ -168,6 +185,11 @@ public class CreateInvoiceUseCase {
         activityNotifications.record(ActivityEvent.of("SALES_INVOICES_INVOICES",
                 "CREATE", "INVOICE", saved.getId().value(),
                 saved.getInvoiceNumber().value(), authenticatedUserId));
+        if (customerNotifications != null) {
+            customerNotifications.invoiceCreated(saved.getCustomerId(),
+                    saved.getId().value(),
+                    saved.getInvoiceNumber().value());
+        }
         return InvoiceMapper.toDetailResponse(saved);
     }
 

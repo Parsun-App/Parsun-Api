@@ -82,8 +82,10 @@ public class QuoteConfig {
     @Bean
     public CancelQuoteUseCase cancelQuoteUseCase(
             QuoteRepository quoteRepository,
-            ActivityNotificationRecorder activityNotifications) {
-        return new CancelQuoteUseCase(quoteRepository, activityNotifications);
+            ActivityNotificationRecorder activityNotifications,
+            com.cashly.cashly_api.platform.notifications.application.ports.in.CustomerNotificationRecorder customerNotifications) {
+        return new CancelQuoteUseCase(quoteRepository, activityNotifications,
+                customerNotifications);
     }
 
     @Bean
@@ -104,18 +106,20 @@ public class QuoteConfig {
             QuoteRepository quoteRepository,
             com.cashly.cashly_api.sales.quotes.application.ports.out.OrderCreationGateway orders,
             com.cashly.cashly_api.sales.quotes.application.ports.out.ActorIdentityGateway actors,
-            ActivityNotificationRecorder activityNotifications) {
+            ActivityNotificationRecorder activityNotifications,
+            com.cashly.cashly_api.platform.notifications.application.ports.in.CustomerNotificationRecorder customerNotifications) {
         return new ConvertQuoteToOrderUseCase(quoteRepository, orders, actors,
-                activityNotifications);
+                activityNotifications, customerNotifications);
     }
 
     @Bean
     public ConvertQuoteToInvoiceUseCase convertQuoteToInvoiceUseCase(
             QuoteRepository quoteRepository,
             com.cashly.cashly_api.sales.quotes.application.ports.out.InvoiceCreationGateway invoices,
-            ActivityNotificationRecorder activityNotifications) {
+            ActivityNotificationRecorder activityNotifications,
+            com.cashly.cashly_api.platform.notifications.application.ports.in.CustomerNotificationRecorder customerNotifications) {
         return new ConvertQuoteToInvoiceUseCase(quoteRepository, invoices,
-                activityNotifications);
+                activityNotifications, customerNotifications);
     }
 
     @Bean

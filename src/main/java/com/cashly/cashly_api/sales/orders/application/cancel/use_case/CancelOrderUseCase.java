@@ -3,6 +3,7 @@ package com.cashly.cashly_api.sales.orders.application.cancel.use_case;
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityEvent;
 
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityNotificationRecorder;
+import com.cashly.cashly_api.platform.notifications.application.ports.in.CustomerNotificationRecorder;
 
 import com.cashly.cashly_api.sales.orders.application.ports.out.OrderInventoryGateway;
 import com.cashly.cashly_api.sales.orders.application.cancel.request.CancelOrderRequest;
@@ -23,16 +24,26 @@ public class CancelOrderUseCase {
     private final OrderRepository orderRepository;
     private final OrderInventoryGateway inventory;
 
+    private final CustomerNotificationRecorder customerNotifications;
+
     private final ActivityNotificationRecorder activityNotifications;
 
     public CancelOrderUseCase(OrderRepository orderRepository,
             OrderInventoryGateway inventory,
             ActivityNotificationRecorder activityNotifications) {
+        this(orderRepository, inventory, activityNotifications, null);
+    }
+
+    public CancelOrderUseCase(OrderRepository orderRepository,
+            OrderInventoryGateway inventory,
+            ActivityNotificationRecorder activityNotifications,
+            CustomerNotificationRecorder customerNotifications) {
         this.activityNotifications = activityNotifications != null
                 ? activityNotifications
                 : ActivityNotificationRecorder.NONE;
         this.orderRepository = orderRepository;
         this.inventory = inventory;
+        this.customerNotifications = customerNotifications;
     }
 
     @Transactional
@@ -49,6 +60,10 @@ public class CancelOrderUseCase {
         activityNotifications.record(ActivityEvent.of("SALES_ORDERS",
                 "CANCEL", "ORDER", saved.getId().value(),
                 saved.getOrderNumber().value(), null));
+        if (customerNotifications != null) {
+            customerNotifications.orderCancelled(saved.getCustomerId(),
+                    saved.getId().value(), request.reason());
+        }
         return OrderMapper.toDetailResponse(saved);
     }
 

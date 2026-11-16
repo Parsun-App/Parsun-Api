@@ -77,6 +77,26 @@ public class CreateOrderUseCase {
         return OrderMapper.toDetailResponse(saved);
     }
 
+    @Transactional
+    public OrderDetailResponse executeCustomerDraft(
+            CreateOrderRequest request) {
+        var customer = customers.findById(request.customerId())
+                .orElseThrow(() -> new IllegalArgumentException(
+                        "Customer not found: " + request.customerId()));
+
+        List<OrderLine> lines = buildOrderLines(request);
+
+        int year = LocalDate.now().getYear();
+        int sequence = orderRepository.getNextSequenceForYear(year);
+        OrderNumber orderNumber = OrderNumber.of(year, sequence);
+
+        Order order = Order.createCustomerDraft(orderNumber, customer.id(),
+                customer.legalName(), customer.rif(), customer.id(),
+                customer.legalName(), request.notes(), lines);
+
+        return OrderMapper.toDetailResponse(orderRepository.save(order));
+    }
+
     private List<OrderLine> buildOrderLines(CreateOrderRequest request) {
         return request.lines().stream().map(lineRequest -> {
             var product = products.findProduct(lineRequest.productId())
