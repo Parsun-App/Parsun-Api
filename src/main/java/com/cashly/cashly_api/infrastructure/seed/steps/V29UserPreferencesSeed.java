@@ -1,6 +1,7 @@
 package com.cashly.cashly_api.infrastructure.seed.steps;
 
 import static com.cashly.cashly_api.infrastructure.seed.SeedIds.ADMIN_USER;
+import static com.cashly.cashly_api.infrastructure.seed.SeedIds.ADMIN_USER_ALT;
 import static com.cashly.cashly_api.infrastructure.seed.SeedIds.OPERATOR_USER;
 
 import com.cashly.cashly_api.infrastructure.seed.SeedStep;
@@ -21,6 +22,8 @@ public class V29UserPreferencesSeed implements SeedStep {
     @Override
     public void seed() {
         repository.save(ADMIN_USER, new UserPreferences("dark", "minimal",
+                false, false, "es"));
+        repository.save(ADMIN_USER_ALT, new UserPreferences("dark", "minimal",
                 false, false, "es"));
         repository.save(OPERATOR_USER, new UserPreferences("system", "minimal",
                 true, false, "es"));

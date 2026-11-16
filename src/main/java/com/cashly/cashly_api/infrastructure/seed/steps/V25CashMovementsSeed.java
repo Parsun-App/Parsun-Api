@@ -30,7 +30,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class V25CashMovementsSeed implements SeedStep {
 
-    private static final String ADMIN_NAME = "Cashly Administrator";
+    private static final String ADMIN_NAME = "Parsun Administrator";
 
     private final EntityManager entityManager;
 

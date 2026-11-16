@@ -76,7 +76,7 @@ public class V19DebitNotesSeed implements SeedStep {
         note.setAmount(amount);
         note.setReason("Seed service adjustment");
         note.setCreatedBy(ADMIN_USER);
-        note.setCreatedByName("Cashly Administrator");
+        note.setCreatedByName("Parsun Administrator");
         note.setCreatedAt(createdAt);
         note.setUpdatedAt(createdAt);
         entityManager.persist(note);

@@ -22,9 +22,9 @@ import java.util.UUID;
 @Component
 public class V30AuditSeed implements SeedStep {
 
-    private static final String ADMIN = "Cashly Administrator";
+    private static final String ADMIN = "Parsun Administrator";
     private static final String OPERATOR = "Sales Operator";
-    private static final String COMPANY_LABEL = "Cashly Demo, C.A.";
+    private static final String COMPANY_LABEL = "Parsun Demo, C.A.";
 
 
     private final EntityManager entityManager;
@@ -67,8 +67,8 @@ public class V30AuditSeed implements SeedStep {
         create("company", "platform", AuditEntityType.COMPANY, COMPANY,
                 COMPANY_LABEL, ADMIN_USER, ADMIN, "ACTIVE");
         edit("company-edit", "platform", AuditEntityType.COMPANY, COMPANY,
-                COMPANY_LABEL, ADMIN_USER, ADMIN, "tradeName", "Cashly Demo",
-                "Cashly Demo, C.A.");
+                COMPANY_LABEL, ADMIN_USER, ADMIN, "tradeName", "Parsun Demo",
+                "Parsun Demo, C.A.");
     }
 
     private void catalog() {

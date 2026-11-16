@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class V20CashRegistersSeed implements SeedStep {
 
-    private static final String ADMIN_NAME = "Cashly Administrator";
+    private static final String ADMIN_NAME = "Parsun Administrator";
     private static final String OPERATOR_NAME = "Sales Operator";
 
     private final EntityManager entityManager;

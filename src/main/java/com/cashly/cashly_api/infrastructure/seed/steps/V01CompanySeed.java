@@ -22,9 +22,9 @@ public class V01CompanySeed implements SeedStep {
     @Override
     public void seed() {
         companies.createIfAbsent(new Company(
-                Company.INSTALLATION_ID, "Cashly Demo, C.A.", "Cashly Demo",
-                "J-00000000-0", "hello@cashly.local", "+58-212-0000000",
-                "https://cashly.local", new Company.Address("Avenida Principal",
+                Company.INSTALLATION_ID, "Parsun Demo, C.A.", "Parsun Demo",
+                "J-00000000-0", "hello@parsun.local", "+58-212-0000000",
+                "https://parsun.local", new Company.Address("Avenida Principal",
                         "Caracas", "Distrito Capital", "Venezuela", "1010"),
                 null, null));
     }

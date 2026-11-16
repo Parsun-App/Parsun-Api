@@ -86,7 +86,7 @@ public class V13InvoicesSeed implements SeedStep {
         invoice.setCustomerName(customerName);
         invoice.setCustomerRif(rif);
         invoice.setCreatedBy(ADMIN_USER);
-        invoice.setCreatedByName("Cashly Administrator");
+        invoice.setCreatedByName("Parsun Administrator");
         invoice.setOrderId(orderId);
         invoice.setOrderNumber(orderNumber);
         invoice.setStatus("PENDING_PAYMENT");
