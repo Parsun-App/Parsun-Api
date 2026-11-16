@@ -37,7 +37,7 @@ public class ListPortalInvoicesUseCase {
                                                     String orderBy, String orderDir) {
         UUID customerId = portalAuthorizationService.getCurrentCustomerId();
         List<String> effectiveStatuses = statuses == null || statuses.isEmpty()
-                ? List.of("ALL")
+                ? List.of("PENDING_PAYMENT", "PARTIALLY_PAID")
                 : statuses;
         List<InvoiceListResponse> invoices = getInvoicesUseCase.execute(dateFrom, dateTo, customerId, effectiveStatuses,
                 returnStatus, productId, categoryId, orderBy, orderDir);

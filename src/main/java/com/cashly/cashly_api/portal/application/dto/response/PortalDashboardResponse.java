@@ -8,7 +8,8 @@ public record PortalDashboardResponse(
     long confirmedOrders,
     long pendingInvoices,
     BigDecimal pendingAmount,
-    List<RecentActivityItem> recentActivity
+    List<RecentActivityItem> recentActivity,
+    long pendingOrders
 ) {
     public record RecentActivityItem(
         String type,

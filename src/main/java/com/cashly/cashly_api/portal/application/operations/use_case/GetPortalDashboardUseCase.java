@@ -5,11 +5,13 @@ import com.cashly.cashly_api.sales.invoices.debit_notes.domain.repository.DebitN
 import com.cashly.cashly_api.sales.invoices.invoices.domain.entity.Invoice;
 import com.cashly.cashly_api.sales.invoices.invoices.domain.repository.InvoiceRepository;
 import com.cashly.cashly_api.sales.orders.domain.entity.Order;
+import com.cashly.cashly_api.sales.orders.domain.valueobjects.OrderStatus;
 import com.cashly.cashly_api.sales.orders.domain.repository.OrderRepository;
 import com.cashly.cashly_api.finance.treasury.payments.collection.domain.repository.PaymentAllocationRepository;
 import com.cashly.cashly_api.portal.application.dto.response.PortalDashboardResponse;
 import com.cashly.cashly_api.portal.application.services.PortalAuthorizationService;
 import com.cashly.cashly_api.sales.quotes.domain.entity.Quote;
+import com.cashly.cashly_api.sales.quotes.domain.valueobjects.QuoteStatus;
 import com.cashly.cashly_api.sales.quotes.domain.repository.QuoteRepository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -60,8 +62,17 @@ public class GetPortalDashboardUseCase {
         List<Invoice> pendingInvoices = invoiceRepository.findAllWithFilters(
                 null, null, customerId, PENDING_STATUSES, null, null, null, null, null);
 
-        long quoteCount = quotes.size();
-        long orderCount = orders.size();
+        long quoteCount = quotes.stream()
+                .filter(quote -> quote.getStatus() == QuoteStatus.DRAFT
+                        || quote.getStatus() == QuoteStatus.CUSTOMER_DRAFT)
+                .count();
+        long orderCount = orders.stream()
+                .filter(order -> order.getStatus() == OrderStatus.CONFIRMED)
+                .count();
+        long pendingOrderCount = orders.stream()
+                .filter(order -> order.getStatus() == OrderStatus.DRAFT
+                        || order.getStatus() == OrderStatus.CUSTOMER_DRAFT)
+                .count();
         long pendingInvoiceCount = pendingInvoices.size();
         BigDecimal totalPendingAmount = calculateTotalPendingAmount(pendingInvoices);
         List<PortalDashboardResponse.RecentActivityItem> recentActivity = buildRecentActivity(quotes, orders, pendingInvoices);
@@ -71,7 +82,8 @@ public class GetPortalDashboardUseCase {
                 orderCount,
                 pendingInvoiceCount,
                 totalPendingAmount,
-                recentActivity
+                recentActivity,
+                pendingOrderCount
         );
     }
 
