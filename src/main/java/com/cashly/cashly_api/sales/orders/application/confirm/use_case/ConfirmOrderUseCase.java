@@ -12,6 +12,7 @@ import com.cashly.cashly_api.sales.orders.domain.entity.Order;
 import com.cashly.cashly_api.sales.orders.domain.exceptions.OrderNotFoundException;
 import com.cashly.cashly_api.sales.orders.domain.repository.OrderRepository;
 import com.cashly.cashly_api.sales.orders.domain.valueobjects.OrderId;
+import com.cashly.cashly_api.sales.orders.domain.valueobjects.OrderStatus;
 import jakarta.transaction.Transactional;
 
 import java.util.UUID;
@@ -49,6 +50,13 @@ public class ConfirmOrderUseCase {
     public OrderDetailResponse execute(UUID id) {
         Order order = orderRepository.findById(OrderId.of(id))
                 .orElseThrow(() -> new OrderNotFoundException(id));
+
+        if (order.getStatus() == OrderStatus.CUSTOMER_DRAFT
+                && order.getLines().stream()
+                        .anyMatch(line -> line.getAllocations().isEmpty())) {
+            throw new IllegalStateException(
+                    "Customer draft order requires warehouse stock assignment before confirmation");
+        }
 
         order.confirm();
         inventory.deductReservations(

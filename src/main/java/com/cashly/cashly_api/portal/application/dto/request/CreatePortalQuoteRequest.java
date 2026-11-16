@@ -12,32 +12,25 @@ import java.util.List;
 import java.util.UUID;
 
 public record CreatePortalQuoteRequest(
-    LocalDate expiryDate,
+        LocalDate expiryDate,
 
-    @Size(max = 1000, message = "Notes must be at most 1000 characters")
-    String notes,
+        @Size(max = 1000, message = "Notes must be at most 1000 characters")
+        String notes,
 
-    @NotEmpty(message = "At least one quote line is required")
-    @Valid
-    List<PortalQuoteLineRequest> lines
+        @NotEmpty(message = "At least one quote line is required")
+        @Valid
+        List<PortalQuoteLineRequest> lines
 ) {
     public record PortalQuoteLineRequest(
-        @NotNull(message = "Product is required")
-        UUID productId,
+            @NotNull(message = "Product is required")
+            UUID productId,
 
-        @NotNull(message = "Quantity is required")
-        @DecimalMin(value = "0.0001", message = "Quantity must be greater than zero")
-        BigDecimal quantity,
+            @NotNull(message = "Quantity is required")
+            @DecimalMin(value = "0.0001", message = "Quantity must be greater than zero")
+            BigDecimal quantity,
 
-        @NotNull(message = "Unit price is required")
-        @DecimalMin(value = "0.01", message = "Unit price must be greater than zero")
-        BigDecimal unitPrice,
-
-        UUID warehouseId
-    ) {
-        public PortalQuoteLineRequest(UUID productId, BigDecimal quantity,
-                BigDecimal unitPrice) {
-            this(productId, quantity, unitPrice, null);
-        }
-    }
+            @NotNull(message = "Unit price is required")
+            @DecimalMin(value = "0.01", message = "Unit price must be greater than zero")
+            BigDecimal unitPrice
+    ) {}
 }

@@ -35,18 +35,9 @@ public class UpdatePortalQuoteUseCase {
         UpdateQuoteRequest internalRequest = new UpdateQuoteRequest(
                 request.expiryDate(), request.notes(),
                 request.lines().stream()
-                        .map(line -> {
-                            UUID warehouseId = portalAuthorizationService
-                                    .resolveWarehouse(line.productId(),
-                                            line.quantity(),
-                                            line.warehouseId());
-                            return new CreateQuoteRequest.QuoteLineRequest(
-                                    line.productId(), line.quantity(),
-                                    line.unitPrice(), List.of(
-                                            new CreateQuoteRequest.WarehouseAllocationRequest(
-                                                    warehouseId,
-                                                    line.quantity())));
-                        })
+                        .map(line -> new CreateQuoteRequest.QuoteLineRequest(
+                                line.productId(), line.quantity(),
+                                line.unitPrice(), List.of()))
                         .toList());
 
         return updateQuoteUseCase.execute(id, internalRequest);

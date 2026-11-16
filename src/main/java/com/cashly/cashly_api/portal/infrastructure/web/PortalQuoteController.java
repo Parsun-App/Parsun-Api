@@ -3,14 +3,12 @@ package com.cashly.cashly_api.portal.infrastructure.web;
 import com.cashly.cashly_api.portal.application.dto.request.CancelPortalQuoteRequest;
 import com.cashly.cashly_api.portal.application.dto.request.CreatePortalQuoteRequest;
 import com.cashly.cashly_api.portal.application.dto.request.UpdatePortalQuoteRequest;
-import com.cashly.cashly_api.portal.application.dto.request.ReassignWarehouseRequest;
 import com.cashly.cashly_api.portal.application.operations.use_case.CancelPortalQuoteUseCase;
 import com.cashly.cashly_api.portal.application.operations.use_case.ConvertPortalQuoteToOrderUseCase;
 import com.cashly.cashly_api.portal.application.operations.use_case.CreatePortalQuoteUseCase;
 import com.cashly.cashly_api.portal.application.operations.use_case.GetPortalQuoteUseCase;
 import com.cashly.cashly_api.portal.application.operations.use_case.ListPortalQuotesUseCase;
 import com.cashly.cashly_api.portal.application.operations.use_case.UpdatePortalQuoteUseCase;
-import com.cashly.cashly_api.portal.application.operations.use_case.ReassignPortalQuoteWarehouseUseCase;
 import com.cashly.cashly_api.sales.quotes.application.convert_to_order.response.QuoteConvertedToOrderResponse;
 import com.cashly.cashly_api.sales.quotes.application.dto.response.QuoteDetailResponse;
 import com.cashly.cashly_api.sales.quotes.application.dto.response.QuoteListResponse;
@@ -43,22 +41,19 @@ public class PortalQuoteController {
     private final CancelPortalQuoteUseCase cancelPortalQuoteUseCase;
     private final ConvertPortalQuoteToOrderUseCase convertPortalQuoteToOrderUseCase;
     private final UpdatePortalQuoteUseCase updatePortalQuoteUseCase;
-    private final ReassignPortalQuoteWarehouseUseCase reassignPortalQuoteWarehouseUseCase;
 
     public PortalQuoteController(ListPortalQuotesUseCase listPortalQuotesUseCase,
                                   GetPortalQuoteUseCase getPortalQuoteUseCase,
                                   CreatePortalQuoteUseCase createPortalQuoteUseCase,
                                   CancelPortalQuoteUseCase cancelPortalQuoteUseCase,
                                   ConvertPortalQuoteToOrderUseCase convertPortalQuoteToOrderUseCase,
-                                  UpdatePortalQuoteUseCase updatePortalQuoteUseCase,
-                                  ReassignPortalQuoteWarehouseUseCase reassignPortalQuoteWarehouseUseCase) {
+                                  UpdatePortalQuoteUseCase updatePortalQuoteUseCase) {
         this.listPortalQuotesUseCase = listPortalQuotesUseCase;
         this.getPortalQuoteUseCase = getPortalQuoteUseCase;
         this.createPortalQuoteUseCase = createPortalQuoteUseCase;
         this.cancelPortalQuoteUseCase = cancelPortalQuoteUseCase;
         this.convertPortalQuoteToOrderUseCase = convertPortalQuoteToOrderUseCase;
         this.updatePortalQuoteUseCase = updatePortalQuoteUseCase;
-        this.reassignPortalQuoteWarehouseUseCase = reassignPortalQuoteWarehouseUseCase;
     }
 
     @GetMapping
@@ -93,14 +88,6 @@ public class PortalQuoteController {
             @PathVariable UUID id,
             @Valid @RequestBody UpdatePortalQuoteRequest request) {
         return ResponseEntity.ok(updatePortalQuoteUseCase.execute(id, request));
-    }
-
-    @PutMapping("/{id}/warehouse")
-    public ResponseEntity<QuoteDetailResponse> reassignWarehouse(
-            @PathVariable UUID id,
-            @Valid @RequestBody ReassignWarehouseRequest request) {
-        return ResponseEntity.ok(reassignPortalQuoteWarehouseUseCase.execute(
-                id, request.warehouseId()));
     }
 
     @PatchMapping("/{id}/cancel")

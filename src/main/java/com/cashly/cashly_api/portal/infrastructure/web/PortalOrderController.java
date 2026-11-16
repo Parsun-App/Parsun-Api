@@ -5,14 +5,12 @@ import com.cashly.cashly_api.sales.orders.application.dto.response.OrderListResp
 import com.cashly.cashly_api.portal.application.dto.request.CancelPortalOrderRequest;
 import com.cashly.cashly_api.portal.application.dto.request.CreatePortalOrderRequest;
 import com.cashly.cashly_api.portal.application.dto.request.UpdatePortalOrderRequest;
-import com.cashly.cashly_api.portal.application.dto.request.ReassignWarehouseRequest;
 import com.cashly.cashly_api.portal.application.operations.use_case.CancelPortalOrderUseCase;
 import com.cashly.cashly_api.portal.application.operations.use_case.ConfirmPortalOrderUseCase;
 import com.cashly.cashly_api.portal.application.operations.use_case.CreatePortalOrderUseCase;
 import com.cashly.cashly_api.portal.application.operations.use_case.GetPortalOrderUseCase;
 import com.cashly.cashly_api.portal.application.operations.use_case.ListPortalOrdersUseCase;
 import com.cashly.cashly_api.portal.application.operations.use_case.UpdatePortalOrderUseCase;
-import com.cashly.cashly_api.portal.application.operations.use_case.ReassignPortalOrderWarehouseUseCase;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -40,7 +38,6 @@ public class PortalOrderController {
     private final GetPortalOrderUseCase getPortalOrderUseCase;
     private final CreatePortalOrderUseCase createPortalOrderUseCase;
     private final UpdatePortalOrderUseCase updatePortalOrderUseCase;
-    private final ReassignPortalOrderWarehouseUseCase reassignPortalOrderWarehouseUseCase;
     private final ConfirmPortalOrderUseCase confirmPortalOrderUseCase;
     private final CancelPortalOrderUseCase cancelPortalOrderUseCase;
 
@@ -48,14 +45,12 @@ public class PortalOrderController {
                                   GetPortalOrderUseCase getPortalOrderUseCase,
                                   CreatePortalOrderUseCase createPortalOrderUseCase,
                                   UpdatePortalOrderUseCase updatePortalOrderUseCase,
-                                  ReassignPortalOrderWarehouseUseCase reassignPortalOrderWarehouseUseCase,
                                   ConfirmPortalOrderUseCase confirmPortalOrderUseCase,
                                   CancelPortalOrderUseCase cancelPortalOrderUseCase) {
         this.listPortalOrdersUseCase = listPortalOrdersUseCase;
         this.getPortalOrderUseCase = getPortalOrderUseCase;
         this.createPortalOrderUseCase = createPortalOrderUseCase;
         this.updatePortalOrderUseCase = updatePortalOrderUseCase;
-        this.reassignPortalOrderWarehouseUseCase = reassignPortalOrderWarehouseUseCase;
         this.confirmPortalOrderUseCase = confirmPortalOrderUseCase;
         this.cancelPortalOrderUseCase = cancelPortalOrderUseCase;
     }
@@ -93,14 +88,6 @@ public class PortalOrderController {
             @Valid @RequestBody UpdatePortalOrderRequest request) {
         OrderDetailResponse response = updatePortalOrderUseCase.execute(id, request);
         return ResponseEntity.ok(response);
-    }
-
-    @PutMapping("/{id}/warehouse")
-    public ResponseEntity<OrderDetailResponse> reassignWarehouse(
-            @PathVariable UUID id,
-            @Valid @RequestBody ReassignWarehouseRequest request) {
-        return ResponseEntity.ok(reassignPortalOrderWarehouseUseCase.execute(
-                id, request.warehouseId()));
     }
 
     @PatchMapping("/{id}/confirm")

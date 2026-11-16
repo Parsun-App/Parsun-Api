@@ -29,18 +29,9 @@ public class UpdatePortalOrderUseCase {
         UpdateOrderRequest internalRequest = new UpdateOrderRequest(
                 request.notes(),
                 request.lines().stream()
-                        .map(line -> {
-                            UUID warehouseId = portalAuthorizationService
-                                    .resolveWarehouse(line.productId(),
-                                            line.quantity(),
-                                            line.warehouseId());
-                            return new UpdateOrderRequest.OrderLineRequest(
-                                    line.productId(), line.quantity(),
-                                    line.unitPrice(), List.of(
-                                            new UpdateOrderRequest.WarehouseAllocationRequest(
-                                                    warehouseId,
-                                                    line.quantity())));
-                        })
+                        .map(line -> new UpdateOrderRequest.OrderLineRequest(
+                                line.productId(), line.quantity(),
+                                line.unitPrice(), List.of()))
                         .toList()
         );
 

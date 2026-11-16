@@ -52,8 +52,6 @@ import com.cashly.cashly_api.portal.application.operations.use_case.ListPortalPa
 import com.cashly.cashly_api.portal.application.operations.use_case.ListPortalQuotesUseCase;
 import com.cashly.cashly_api.portal.application.operations.use_case.ListProductsUseCase;
 import com.cashly.cashly_api.portal.application.operations.use_case.UpdatePortalOrderUseCase;
-import com.cashly.cashly_api.portal.application.operations.use_case.ReassignPortalOrderWarehouseUseCase;
-import com.cashly.cashly_api.portal.application.operations.use_case.ReassignPortalQuoteWarehouseUseCase;
 import com.cashly.cashly_api.portal.application.operations.use_case.UpdatePortalQuoteUseCase;
 import com.cashly.cashly_api.portal.application.operations.use_case.PayPortalAllDebtUseCase;
 import com.cashly.cashly_api.portal.application.operations.use_case.PayPortalInvoiceUseCase;
@@ -234,24 +232,6 @@ public class PortalBeanConfig {
             PortalAuthorizationService portalAuthorizationService) {
         return new UpdatePortalOrderUseCase(updateOrderUseCase, getPortalOrderUseCase,
                 portalAuthorizationService);
-    }
-
-    @Bean
-    public ReassignPortalOrderWarehouseUseCase reassignPortalOrderWarehouseUseCase(
-            UpdateOrderUseCase updateOrderUseCase,
-            GetPortalOrderUseCase getPortalOrderUseCase,
-            PortalAuthorizationService portalAuthorizationService) {
-        return new ReassignPortalOrderWarehouseUseCase(updateOrderUseCase,
-                getPortalOrderUseCase, portalAuthorizationService);
-    }
-
-    @Bean
-    public ReassignPortalQuoteWarehouseUseCase reassignPortalQuoteWarehouseUseCase(
-            com.cashly.cashly_api.sales.quotes.application.update.use_case.UpdateQuoteUseCase updateQuoteUseCase,
-            GetPortalQuoteUseCase getPortalQuoteUseCase,
-            PortalAuthorizationService portalAuthorizationService) {
-        return new ReassignPortalQuoteWarehouseUseCase(updateQuoteUseCase,
-                getPortalQuoteUseCase, portalAuthorizationService);
     }
 
     @Bean

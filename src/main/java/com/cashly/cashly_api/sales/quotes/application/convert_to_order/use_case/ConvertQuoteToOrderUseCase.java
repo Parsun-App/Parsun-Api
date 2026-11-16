@@ -53,6 +53,12 @@ public class ConvertQuoteToOrderUseCase {
             throw new IllegalStateException(
                     "Only DRAFT quotes can be converted to orders");
         }
+        if (quote.getStatus() == QuoteStatus.CUSTOMER_DRAFT
+                && quote.getLines().stream()
+                        .anyMatch(line -> line.getAllocations().isEmpty())) {
+            throw new IllegalStateException(
+                    "Customer draft quote requires warehouse stock assignment before conversion");
+        }
         var actor = authenticatedUserId == null
                 ? null
                 : actors.requireActor(authenticatedUserId);

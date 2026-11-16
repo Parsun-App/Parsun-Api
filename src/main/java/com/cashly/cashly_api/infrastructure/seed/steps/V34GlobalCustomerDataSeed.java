@@ -72,7 +72,8 @@ public class V34GlobalCustomerDataSeed implements SeedStep {
         quote(QUOTE_CUSTOMER_DRAFT, "PRE-2026-9001", "CUSTOMER_DRAFT",
                 CUSTOMER_GLOBAL, CUSTOMER_NAME, "Cotización creada desde el portal",
                 LocalDate.of(2026, 12, 15), createdAt, PRODUCT_COFFEE,
-                "Ground coffee", "PRD-0001", new BigDecimal("3"), COFFEE_PRICE);
+                "Ground coffee", "PRD-0001", new BigDecimal("3"), COFFEE_PRICE,
+                false);
     }
 
     private void operatorDraftQuote() {
@@ -80,7 +81,8 @@ public class V34GlobalCustomerDataSeed implements SeedStep {
         quote(QUOTE_DRAFT, "PRE-2026-9002", "DRAFT", OPERATOR_USER,
                 "Sales Operator", "Cotización preparada por ventas",
                 LocalDate.of(2026, 12, 5), createdAt, PRODUCT_WATER,
-                "Mineral water", "PRD-0002", new BigDecimal("5"), WATER_PRICE);
+                "Mineral water", "PRD-0002", new BigDecimal("5"), WATER_PRICE,
+                true);
     }
 
     private void customerDraftOrder() {
@@ -88,7 +90,7 @@ public class V34GlobalCustomerDataSeed implements SeedStep {
         order(ORDER_CUSTOMER_DRAFT, "ORD-2026-9001", "CUSTOMER_DRAFT",
                 CUSTOMER_GLOBAL, CUSTOMER_NAME, "Pedido creado desde el portal",
                 createdAt, PRODUCT_COFFEE, "Ground coffee", "PRD-0001",
-                new BigDecimal("2"), COFFEE_PRICE, true);
+                new BigDecimal("2"), COFFEE_PRICE, false);
     }
 
     private void confirmedOrder() {
@@ -163,7 +165,8 @@ public class V34GlobalCustomerDataSeed implements SeedStep {
     private void quote(UUID id, String number, String status, UUID createdBy,
             String createdByName, String notes, LocalDate expiryDate,
             Instant createdAt, UUID productId, String productName,
-            String productCode, BigDecimal quantity, BigDecimal unitPrice) {
+            String productCode, BigDecimal quantity, BigDecimal unitPrice,
+            boolean allocate) {
         if (entityManager.find(QuoteJpaEntity.class, id) != null) {
             return;
         }
@@ -194,15 +197,17 @@ public class V34GlobalCustomerDataSeed implements SeedStep {
         line.setLineTotal(total);
         line.setCategorySnapshot(CATEGORY_DRINKS);
 
-        var allocation = new QuoteAllocationJpaEntity();
-        allocation.setId(id("global-quote-allocation." + number));
-        allocation.setQuoteLine(line);
-        allocation.setQuoteId(id);
-        allocation.setProductId(productId);
-        allocation.setWarehouseId(WAREHOUSE_MAIN);
-        allocation.setWarehouseName("Main warehouse");
-        allocation.setAllocatedQuantity(quantity);
-        line.getAllocations().add(allocation);
+        if (allocate) {
+            var allocation = new QuoteAllocationJpaEntity();
+            allocation.setId(id("global-quote-allocation." + number));
+            allocation.setQuoteLine(line);
+            allocation.setQuoteId(id);
+            allocation.setProductId(productId);
+            allocation.setWarehouseId(WAREHOUSE_MAIN);
+            allocation.setWarehouseName("Main warehouse");
+            allocation.setAllocatedQuantity(quantity);
+            line.getAllocations().add(allocation);
+        }
 
         quote.getLines().add(line);
         entityManager.persist(quote);

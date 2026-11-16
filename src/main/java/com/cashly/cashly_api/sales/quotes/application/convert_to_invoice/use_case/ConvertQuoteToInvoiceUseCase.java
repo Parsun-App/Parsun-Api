@@ -51,6 +51,12 @@ public class ConvertQuoteToInvoiceUseCase {
             throw new IllegalStateException(
                     "Only DRAFT quotes can be converted to invoices");
         }
+        if (quote.getStatus() == QuoteStatus.CUSTOMER_DRAFT
+                && quote.getLines().stream()
+                        .anyMatch(line -> line.getAllocations().isEmpty())) {
+            throw new IllegalStateException(
+                    "Customer draft quote requires warehouse stock assignment before conversion");
+        }
         var lines = quote.getLines().stream()
                 .map(line -> new InvoiceCreationGateway.Line(
                         line.getProductId(), line.getProductName(),

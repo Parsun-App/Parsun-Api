@@ -28,13 +28,6 @@ public record CreatePortalOrderRequest(
 
             @NotNull(message = "Unit price is required")
             @DecimalMin(value = "0.01", message = "Unit price must be greater than zero")
-            BigDecimal unitPrice,
-
-            UUID warehouseId
-    ) {
-        public PortalOrderLineRequest(UUID productId, BigDecimal quantity,
-                BigDecimal unitPrice) {
-            this(productId, quantity, unitPrice, null);
-        }
-    }
+            BigDecimal unitPrice
+    ) {}
 }

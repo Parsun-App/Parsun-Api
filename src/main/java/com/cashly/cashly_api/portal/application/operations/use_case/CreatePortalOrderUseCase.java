@@ -34,18 +34,9 @@ public class CreatePortalOrderUseCase {
                 customerId,
                 request.notes(),
                 request.lines().stream()
-                        .map(line -> {
-                            UUID warehouseId = portalAuthorizationService
-                                    .resolveWarehouse(line.productId(),
-                                            line.quantity(),
-                                            line.warehouseId());
-                            return new CreateOrderRequest.OrderLineRequest(
-                                    line.productId(), line.quantity(),
-                                    line.unitPrice(), List.of(
-                                            new CreateOrderRequest.WarehouseAllocationRequest(
-                                                    warehouseId,
-                                                    line.quantity().intValue())));
-                        })
+                        .map(line -> new CreateOrderRequest.OrderLineRequest(
+                                line.productId(), line.quantity(),
+                                line.unitPrice(), List.of()))
                         .toList()
         );
 
