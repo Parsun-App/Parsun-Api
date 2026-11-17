@@ -25,7 +25,7 @@ public record CreatePaymentRequest(
 
         @Size(max = 1000, message = "Notes must be at most 1000 characters") String notes,
 
-        UUID targetInvoiceId,
+        @NotNull(message = "Target invoice is required") UUID targetInvoiceId,
 
         @Size(max = 500, message = "Voucher path must be at most 500 characters") String voucherPath
 

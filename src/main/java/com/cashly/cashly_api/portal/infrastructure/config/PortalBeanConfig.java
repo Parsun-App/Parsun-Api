@@ -31,6 +31,9 @@ import com.cashly.cashly_api.finance.treasury.payments.collection.application.pa
 import com.cashly.cashly_api.finance.treasury.payments.collection.application.pay_partial_debt.use_case.PayPartialDebtUseCase;
 import com.cashly.cashly_api.finance.treasury.payments.collection.domain.repository.PaymentAllocationRepository;
 import com.cashly.cashly_api.finance.treasury.payments.collection.domain.repository.PaymentRepository;
+import com.cashly.cashly_api.finance.treasury.payments.collection.application.ports.out.PaymentInvoiceGateway;
+import com.cashly.cashly_api.finance.treasury.payments.collection.domain.services.PaymentAllocationService;
+import com.cashly.cashly_api.portal.application.services.DebtPaymentPlanService;
 import com.cashly.cashly_api.portal.application.operations.use_case.CancelPortalOrderUseCase;
 import com.cashly.cashly_api.portal.application.operations.use_case.CancelPortalQuoteUseCase;
 import com.cashly.cashly_api.portal.application.operations.use_case.ConfirmPortalOrderUseCase;
@@ -275,24 +278,39 @@ public class PortalBeanConfig {
     }
 
     @Bean
+    public DebtPaymentPlanService debtPaymentPlanService(
+            PaymentInvoiceGateway paymentInvoiceGateway,
+            PaymentAllocationRepository paymentAllocationRepository,
+            PaymentRepository paymentRepository,
+            PaymentAllocationService paymentAllocationService) {
+        return new DebtPaymentPlanService(paymentInvoiceGateway,
+                paymentAllocationRepository, paymentRepository,
+                paymentAllocationService);
+    }
+
+    @Bean
     public PayPortalAllDebtUseCase payPortalAllDebtUseCase(
             CreatePaymentUseCase createPaymentUseCase,
+            DebtPaymentPlanService debtPaymentPlanService,
             PortalAuthorizationService portalAuthorizationService,
             NotificationService notificationService,
             CustomerRepository customerRepository,
             FileStorageService fileStorageService) {
-        return new PayPortalAllDebtUseCase(createPaymentUseCase, portalAuthorizationService,
+        return new PayPortalAllDebtUseCase(createPaymentUseCase,
+                debtPaymentPlanService, portalAuthorizationService,
                 notificationService, customerRepository, fileStorageService);
     }
 
     @Bean
     public PayPortalPartialDebtUseCase payPortalPartialDebtUseCase(
             CreatePaymentUseCase createPaymentUseCase,
+            DebtPaymentPlanService debtPaymentPlanService,
             PortalAuthorizationService portalAuthorizationService,
             NotificationService notificationService,
             CustomerRepository customerRepository,
             FileStorageService fileStorageService) {
-        return new PayPortalPartialDebtUseCase(createPaymentUseCase, portalAuthorizationService,
+        return new PayPortalPartialDebtUseCase(createPaymentUseCase,
+                debtPaymentPlanService, portalAuthorizationService,
                 notificationService, customerRepository, fileStorageService);
     }
 

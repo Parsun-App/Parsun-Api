@@ -35,10 +35,9 @@ public class GetPendingPortalPaymentsUseCase {
     }
 
     private boolean appliesToQuery(Payment payment, UUID invoiceId) {
-        UUID targetInvoiceId = payment.getTargetInvoiceId();
         if (invoiceId == null) {
-            return targetInvoiceId == null;
+            return true;
         }
-        return targetInvoiceId == null || invoiceId.equals(targetInvoiceId);
+        return invoiceId.equals(payment.getTargetInvoiceId());
     }
 }

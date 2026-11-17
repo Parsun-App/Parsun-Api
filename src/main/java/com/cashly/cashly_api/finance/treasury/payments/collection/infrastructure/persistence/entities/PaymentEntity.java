@@ -82,7 +82,7 @@ public class PaymentEntity {
     @Column(name = "verified_at")
     private LocalDateTime verifiedAt;
 
-    @Column(name = "target_invoice_id", columnDefinition = "BINARY(16)")
+    @Column(name = "target_invoice_id", columnDefinition = "BINARY(16)", nullable = false)
     @JdbcTypeCode(SqlTypes.BINARY)
     private UUID targetInvoiceId;
 

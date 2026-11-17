@@ -11,7 +11,7 @@ CREATE INDEX `idx_notifications_customer_id` ON `notifications` (`customer_id`);
 CREATE INDEX `idx_notifications_customer_read` ON `notifications` (`customer_id`, `is_read`);
 
 ALTER TABLE `payments`
-  ADD COLUMN `target_invoice_id` binary(16) DEFAULT NULL,
+  ADD COLUMN `target_invoice_id` binary(16) NOT NULL,
   ADD COLUMN `voucher_path` varchar(500) DEFAULT NULL;
 
 ALTER TABLE `payments`

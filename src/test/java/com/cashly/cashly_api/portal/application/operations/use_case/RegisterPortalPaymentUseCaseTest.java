@@ -63,6 +63,7 @@ class RegisterPortalPaymentUseCaseTest {
     private final UUID customerId = UUID.randomUUID();
     private final UUID paymentId = UUID.randomUUID();
     private final UUID paymentMethodId = UUID.randomUUID();
+    private final UUID invoiceId = UUID.randomUUID();
 
     @BeforeEach
     void setUp() {
@@ -74,7 +75,7 @@ class RegisterPortalPaymentUseCaseTest {
     }
 
     private RegisterPortalPaymentRequest request() {
-        return new RegisterPortalPaymentRequest(new BigDecimal("500.00"), paymentMethodId,
+        return new RegisterPortalPaymentRequest(invoiceId, new BigDecimal("500.00"), paymentMethodId,
                 LocalDate.now(), "REF-001", "Some notes");
     }
 
@@ -131,10 +132,10 @@ class RegisterPortalPaymentUseCaseTest {
     }
 
     @Test
-    void should_LeaveTargetInvoiceIdNull_When_RegisteringPayment() {
+    void should_SetTargetInvoiceId_When_RegisteringPayment() {
         useCase.execute(request(), null);
 
         verify(createPaymentUseCase).execute(requestCaptor.capture(), isNull());
-        assertNull(requestCaptor.getValue().targetInvoiceId());
+        assertEquals(invoiceId, requestCaptor.getValue().targetInvoiceId());
     }
 }

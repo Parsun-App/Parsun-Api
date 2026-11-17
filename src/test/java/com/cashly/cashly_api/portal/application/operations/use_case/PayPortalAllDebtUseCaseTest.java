@@ -7,7 +7,9 @@ import com.cashly.cashly_api.platform.notifications.application.services.Notific
 import com.cashly.cashly_api.finance.treasury.payments.collection.application.create.request.CreatePaymentRequest;
 import com.cashly.cashly_api.finance.treasury.payments.collection.application.dto.response.PaymentResponse;
 import com.cashly.cashly_api.finance.treasury.payments.collection.application.create.use_case.CreatePaymentUseCase;
+import com.cashly.cashly_api.finance.treasury.payments.collection.domain.services.PaymentAllocationService;
 import com.cashly.cashly_api.portal.application.dto.request.PayPortalDebtRequest;
+import com.cashly.cashly_api.portal.application.services.DebtPaymentPlanService;
 import com.cashly.cashly_api.portal.application.services.PortalAuthorizationService;
 import com.cashly.cashly_api.shared.storage.domain.services.FileStorageService;
 import org.junit.jupiter.api.BeforeEach;
@@ -23,6 +25,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -31,6 +34,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.isNull;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -40,6 +44,9 @@ class PayPortalAllDebtUseCaseTest {
 
     @Mock
     private CreatePaymentUseCase createPaymentUseCase;
+
+    @Mock
+    private DebtPaymentPlanService planService;
 
     @Mock
     private PortalAuthorizationService portalAuthorizationService;
@@ -61,15 +68,24 @@ class PayPortalAllDebtUseCaseTest {
     private final UUID customerId = UUID.randomUUID();
     private final UUID paymentId = UUID.randomUUID();
     private final UUID paymentMethodId = UUID.randomUUID();
+    private final UUID firstInvoiceId = UUID.randomUUID();
+    private final UUID secondInvoiceId = UUID.randomUUID();
 
     @BeforeEach
     void setUp() {
-        useCase = new PayPortalAllDebtUseCase(createPaymentUseCase, portalAuthorizationService,
-                notificationService, customerRepository, fileStorageService);
+        useCase = new PayPortalAllDebtUseCase(createPaymentUseCase, planService,
+                portalAuthorizationService, notificationService,
+                customerRepository, fileStorageService);
         when(portalAuthorizationService.getCurrentCustomerId()).thenReturn(customerId);
         Customer customer = mock(Customer.class);
         when(customer.getLegalName()).thenReturn(new com.cashly.cashly_api.partners.customers.profile.domain.valueobjects.LegalName("Test Customer"));
         when(customerRepository.findById(new CustomerId(customerId))).thenReturn(Optional.of(customer));
+        when(planService.outstanding(customerId)).thenReturn(new BigDecimal("500.00"));
+        when(planService.plan(customerId, new BigDecimal("500.00"))).thenReturn(List.of(
+                new PaymentAllocationService.AllocationPlan(firstInvoiceId,
+                        new BigDecimal("300.00")),
+                new PaymentAllocationService.AllocationPlan(secondInvoiceId,
+                        new BigDecimal("200.00"))));
         when(createPaymentUseCase.execute(any(), isNull())).thenReturn(stubbedResponse());
     }
 
@@ -85,11 +101,16 @@ class PayPortalAllDebtUseCaseTest {
     }
 
     @Test
-    void should_LeaveTargetInvoiceIdNull_When_PayingAllDebt() {
+    void should_CreateOnePaymentPerInvoice_When_PayingAllDebt() {
         useCase.execute(request(), null);
 
-        verify(createPaymentUseCase).execute(requestCaptor.capture(), isNull());
-        assertNull(requestCaptor.getValue().targetInvoiceId());
+        verify(createPaymentUseCase, times(2)).execute(requestCaptor.capture(), isNull());
+        assertEquals(firstInvoiceId, requestCaptor.getAllValues().get(0).targetInvoiceId());
+        assertEquals(new BigDecimal("300.00"),
+                requestCaptor.getAllValues().get(0).amount());
+        assertEquals(secondInvoiceId, requestCaptor.getAllValues().get(1).targetInvoiceId());
+        assertEquals(new BigDecimal("200.00"),
+                requestCaptor.getAllValues().get(1).amount());
     }
 
     @Test
@@ -100,15 +121,16 @@ class PayPortalAllDebtUseCaseTest {
 
         useCase.execute(request(), justificante);
 
-        verify(createPaymentUseCase).execute(requestCaptor.capture(), isNull());
-        assertEquals("payments/justificantes/stored.pdf", requestCaptor.getValue().voucherPath());
+        verify(createPaymentUseCase, times(2)).execute(requestCaptor.capture(), isNull());
+        assertEquals("payments/justificantes/stored.pdf",
+                requestCaptor.getAllValues().get(0).voucherPath());
     }
 
     @Test
     void should_LeaveVoucherPathNull_When_NoFileProvided() {
         useCase.execute(request(), null);
 
-        verify(createPaymentUseCase).execute(requestCaptor.capture(), isNull());
-        assertNull(requestCaptor.getValue().voucherPath());
+        verify(createPaymentUseCase, times(2)).execute(requestCaptor.capture(), isNull());
+        assertNull(requestCaptor.getAllValues().get(0).voucherPath());
     }
 }

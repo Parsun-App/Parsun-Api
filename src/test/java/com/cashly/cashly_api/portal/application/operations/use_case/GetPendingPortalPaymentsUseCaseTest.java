@@ -73,14 +73,15 @@ class GetPendingPortalPaymentsUseCaseTest {
     }
 
     @Test
-    void should_IncludeGeneralDebtPayment_When_QueryingByAnyInvoiceId() {
-        Payment generalDebt = pendingPayment(null);
+    void should_IncludeTargetedPayment_When_QueryingWithMatchingInvoiceId() {
+        Payment targeted = pendingPayment(invoiceId);
         when(paymentRepository.findAllWithFilters(null, null, customerId, "PENDING"))
-                .thenReturn(List.of(generalDebt));
+                .thenReturn(List.of(targeted));
 
         List<PaymentListResponse> result = useCase.execute(invoiceId);
 
         assertEquals(1, result.size());
+        assertEquals(invoiceId, result.getFirst().targetInvoiceId());
     }
 
     @Test
@@ -95,14 +96,14 @@ class GetPendingPortalPaymentsUseCaseTest {
     }
 
     @Test
-    void should_OnlyIncludeGeneralDebtPayments_When_QueryingWithoutInvoiceId() {
-        Payment generalDebt = pendingPayment(null);
-        Payment targeted = pendingPayment(invoiceId);
+    void should_ReturnEveryPendingPayment_When_QueryingWithoutInvoiceId() {
+        Payment first = pendingPayment(invoiceId);
+        Payment second = pendingPayment(otherInvoiceId);
         when(paymentRepository.findAllWithFilters(null, null, customerId, "PENDING"))
-                .thenReturn(List.of(generalDebt, targeted));
+                .thenReturn(List.of(first, second));
 
         List<PaymentListResponse> result = useCase.execute(null);
 
-        assertEquals(1, result.size());
+        assertEquals(2, result.size());
     }
 }

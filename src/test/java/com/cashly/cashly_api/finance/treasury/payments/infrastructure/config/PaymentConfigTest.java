@@ -3,6 +3,7 @@ package com.cashly.cashly_api.finance.treasury.payments.infrastructure.config;
 import com.cashly.cashly_api.finance.treasury.payments.collection.application.ports.out.CashRegisterGateway;
 import com.cashly.cashly_api.finance.treasury.payments.collection.application.ports.out.PaymentActorGateway;
 import com.cashly.cashly_api.finance.treasury.payments.collection.application.ports.out.PaymentCustomerGateway;
+import com.cashly.cashly_api.finance.treasury.payments.collection.application.ports.out.PaymentInvoiceGateway;
 import com.cashly.cashly_api.finance.treasury.payments.collection.application.create.use_case.CreatePaymentUseCase;
 import com.cashly.cashly_api.finance.treasury.payments.collection.application.delete.use_case.DeletePaymentUseCase;
 import com.cashly.cashly_api.finance.treasury.payments.collection.application.queries.use_case.GetAllPaymentsUseCase;
@@ -32,6 +33,8 @@ class PaymentConfigTest {
     private PaymentActorGateway actorGateway;
     @Mock
     private CashRegisterGateway cashRegisterGateway;
+    @Mock
+    private PaymentInvoiceGateway paymentInvoiceGateway;
 
     @Test
     void should_CreateCreatePaymentUseCase() {
@@ -39,7 +42,7 @@ class PaymentConfigTest {
 
         CreatePaymentUseCase useCase = config.createPaymentUseCase(
                 paymentRepository, customerGateway, actorGateway,
-                cashRegisterGateway, org.mockito.Mockito.mock(com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityNotificationRecorder.class));
+                paymentInvoiceGateway, cashRegisterGateway, org.mockito.Mockito.mock(com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityNotificationRecorder.class));
 
         assertNotNull(useCase);
     }

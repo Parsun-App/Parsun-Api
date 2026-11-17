@@ -3,6 +3,7 @@ package com.cashly.cashly_api.finance.treasury.payments.collection.application.c
 import com.cashly.cashly_api.finance.treasury.payments.collection.application.ports.out.CashRegisterGateway;
 import com.cashly.cashly_api.finance.treasury.payments.collection.application.ports.out.PaymentActorGateway;
 import com.cashly.cashly_api.finance.treasury.payments.collection.application.ports.out.PaymentCustomerGateway;
+import com.cashly.cashly_api.finance.treasury.payments.collection.application.ports.out.PaymentInvoiceGateway;
 import com.cashly.cashly_api.finance.treasury.payments.collection.application.create.request.CreatePaymentRequest;
 import com.cashly.cashly_api.finance.treasury.payments.collection.domain.entity.Payment;
 import com.cashly.cashly_api.finance.treasury.payments.collection.domain.repository.PaymentRepository;
@@ -44,20 +45,27 @@ class CreatePaymentUseCaseUnitTest {
     @Mock
     private CashRegisterGateway cashMovementService;
 
+    @Mock
+    private PaymentInvoiceGateway invoices;
+
     private CreatePaymentUseCase useCase;
 
     private final UUID customerId = UUID.randomUUID();
     private final UUID userId = UUID.randomUUID();
     private final UUID paymentMethodId = UUID.randomUUID();
+    private final UUID invoiceId = UUID.randomUUID();
 
     @BeforeEach
     void setUp() {
         useCase = new CreatePaymentUseCase(paymentRepository,
-                customerRepository, userRepository, cashMovementService, org.mockito.Mockito.mock(com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityNotificationRecorder.class));
+                customerRepository, userRepository, invoices, cashMovementService, org.mockito.Mockito.mock(com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityNotificationRecorder.class));
 
         when(customerRepository.exists(customerId)).thenReturn(true);
         when(userRepository.findName(userId))
                 .thenReturn(Optional.of("Test User"));
+        when(invoices.findById(invoiceId)).thenReturn(Optional.of(
+                new PaymentInvoiceGateway.InvoiceSnapshot(invoiceId, customerId,
+                        "INV-2026-00001", new BigDecimal("100.00"))));
     }
 
     @Test
@@ -169,12 +177,12 @@ class CreatePaymentUseCaseUnitTest {
     private CreatePaymentRequest refundRequest(BigDecimal amount) {
         return new CreatePaymentRequest(customerId, PaymentStatus.REFUND.name(),
                 amount, paymentMethodId, "REFUND-001", LocalDate.now(),
-                "Devolucion por cualquier concepto");
+                "Devolucion por cualquier concepto", invoiceId, null);
     }
 
     private CreatePaymentRequest paymentRequest(PaymentStatus status) {
         return new CreatePaymentRequest(customerId, status.name(),
                 new BigDecimal("50.00"), paymentMethodId, "PAYMENT-001",
-                LocalDate.now(), "Pago de prueba");
+                LocalDate.now(), "Pago de prueba", invoiceId, null);
     }
 }

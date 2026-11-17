@@ -35,10 +35,12 @@ public class PaymentConfig {
             PaymentRepository paymentRepository,
             PaymentCustomerGateway customerGateway,
             PaymentActorGateway actorGateway,
+            PaymentInvoiceGateway invoiceGateway,
             CashRegisterGateway cashRegisterGateway,
             ActivityNotificationRecorder activityNotifications) {
         return new CreatePaymentUseCase(paymentRepository, customerGateway,
-                actorGateway, cashRegisterGateway, activityNotifications);
+                actorGateway, invoiceGateway, cashRegisterGateway,
+                activityNotifications);
     }
 
     @Bean

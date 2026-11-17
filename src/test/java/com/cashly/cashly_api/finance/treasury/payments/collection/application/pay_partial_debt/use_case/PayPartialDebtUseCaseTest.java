@@ -212,9 +212,14 @@ class PayPartialDebtUseCaseTest {
         useCase.execute(customerId, request, authenticatedUserId,
                 authenticatedUserName);
 
-        verify(paymentRepository, org.mockito.Mockito.times(2))
+        verify(paymentRepository, org.mockito.Mockito.times(4))
                 .save(paymentCaptor.capture());
-        Payment saved = paymentCaptor.getAllValues().get(1);
-        assertEquals(new BigDecimal("400.00"), saved.getAmount());
+        List<Payment> savedPayments = paymentCaptor.getAllValues();
+        assertEquals(new BigDecimal("300.00"),
+                savedPayments.get(0).getAmount());
+        assertEquals(invoice1Id, savedPayments.get(0).getTargetInvoiceId());
+        assertEquals(new BigDecimal("100.00"),
+                savedPayments.get(2).getAmount());
+        assertEquals(invoice2Id, savedPayments.get(2).getTargetInvoiceId());
     }
 }

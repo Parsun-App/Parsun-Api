@@ -10,6 +10,9 @@ import java.util.UUID;
 
 public record RegisterPortalPaymentRequest(
 
+        @NotNull(message = "Invoice is required")
+        UUID invoiceId,
+
         @NotNull(message = "Amount is required")
         @Positive(message = "Amount must be greater than zero")
         BigDecimal amount,

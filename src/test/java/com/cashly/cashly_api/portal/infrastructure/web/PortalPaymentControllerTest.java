@@ -122,9 +122,9 @@ class PortalPaymentControllerTest {
         PayPortalDebtRequest request = new PayPortalDebtRequest(paymentMethodId, "REF-001",
                 LocalDate.now(), new BigDecimal("500.00"), false, null);
         when(payPortalAllDebtUseCase.execute(eq(request), any(MultipartFile.class)))
-                .thenReturn(stubbedResponse());
+                .thenReturn(List.of(stubbedResponse()));
 
-        ResponseEntity<PaymentResponse> result = controller.payAllDebt(request, justificante);
+        ResponseEntity<List<PaymentResponse>> result = controller.payAllDebt(request, justificante);
 
         assertEquals(HttpStatus.CREATED, result.getStatusCode());
         verify(payPortalAllDebtUseCase).execute(request, justificante);
@@ -135,9 +135,9 @@ class PortalPaymentControllerTest {
         PayPortalDebtRequest request = new PayPortalDebtRequest(paymentMethodId, "REF-001",
                 LocalDate.now(), new BigDecimal("500.00"), false, null);
         when(payPortalAllDebtUseCase.execute(eq(request), isNull()))
-                .thenReturn(stubbedResponse());
+                .thenReturn(List.of(stubbedResponse()));
 
-        ResponseEntity<PaymentResponse> result = controller.payAllDebt(request, null);
+        ResponseEntity<List<PaymentResponse>> result = controller.payAllDebt(request, null);
 
         assertEquals(HttpStatus.CREATED, result.getStatusCode());
         verify(payPortalAllDebtUseCase).execute(request, null);
@@ -150,9 +150,9 @@ class PortalPaymentControllerTest {
         PayPortalPartialDebtRequest request = new PayPortalPartialDebtRequest(paymentMethodId, "REF-001",
                 LocalDate.now(), new BigDecimal("250.00"), false, null);
         when(payPortalPartialDebtUseCase.execute(eq(request), any(MultipartFile.class)))
-                .thenReturn(stubbedResponse());
+                .thenReturn(List.of(stubbedResponse()));
 
-        ResponseEntity<PaymentResponse> result = controller.payPartialDebt(request, justificante);
+        ResponseEntity<List<PaymentResponse>> result = controller.payPartialDebt(request, justificante);
 
         assertEquals(HttpStatus.CREATED, result.getStatusCode());
         verify(payPortalPartialDebtUseCase).execute(request, justificante);
@@ -163,9 +163,9 @@ class PortalPaymentControllerTest {
         PayPortalPartialDebtRequest request = new PayPortalPartialDebtRequest(paymentMethodId, "REF-001",
                 LocalDate.now(), new BigDecimal("250.00"), false, null);
         when(payPortalPartialDebtUseCase.execute(eq(request), isNull()))
-                .thenReturn(stubbedResponse());
+                .thenReturn(List.of(stubbedResponse()));
 
-        ResponseEntity<PaymentResponse> result = controller.payPartialDebt(request, null);
+        ResponseEntity<List<PaymentResponse>> result = controller.payPartialDebt(request, null);
 
         assertEquals(HttpStatus.CREATED, result.getStatusCode());
         verify(payPortalPartialDebtUseCase).execute(request, null);
@@ -176,7 +176,7 @@ class PortalPaymentControllerTest {
         MultipartFile justificante = new MockMultipartFile("justificante", "receipt.pdf",
                 "application/pdf", "data".getBytes());
         RegisterPortalPaymentRequest request = new RegisterPortalPaymentRequest(
-                new BigDecimal("500.00"), paymentMethodId, LocalDate.now(), "REF-001", null);
+                invoiceId, new BigDecimal("500.00"), paymentMethodId, LocalDate.now(), "REF-001", null);
         when(registerPortalPaymentUseCase.execute(eq(request), any(MultipartFile.class)))
                 .thenReturn(stubbedResponse());
 
@@ -189,7 +189,7 @@ class PortalPaymentControllerTest {
     @Test
     void should_ReturnCreated_When_RegisteringPaymentWithoutFile() {
         RegisterPortalPaymentRequest request = new RegisterPortalPaymentRequest(
-                new BigDecimal("500.00"), paymentMethodId, LocalDate.now(), "REF-001", null);
+                invoiceId, new BigDecimal("500.00"), paymentMethodId, LocalDate.now(), "REF-001", null);
         when(registerPortalPaymentUseCase.execute(eq(request), isNull()))
                 .thenReturn(stubbedResponse());
 

@@ -56,7 +56,7 @@ class ReturnPaymentOperationsServiceTest {
         var payment = Payment.create(PaymentNumber.of(2026, 1),
                 UUID.randomUUID(), new BigDecimal("25"), UUID.randomUUID(),
                 null, LocalDate.now(), "Payment", UUID.randomUUID(), "Operator",
-                PaymentStatus.PENDING);
+                PaymentStatus.PENDING, invoiceId, null);
         payment.cancel("Return created");
         UUID id = payment.getId().value();
         when(payments.findById(PaymentId.of(id)))

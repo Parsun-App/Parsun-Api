@@ -64,7 +64,7 @@ public class RegisterPortalPaymentUseCase {
                 request.referenceNumber(),
                 request.paymentDate(),
                 request.notes(),
-                null,
+                request.invoiceId(),
                 storedJustificantePath
         );
 

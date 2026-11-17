@@ -94,18 +94,18 @@ public class PortalPaymentController {
     }
 
     @PostMapping(value = "/debt/pay", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<PaymentResponse> payAllDebt(
+    public ResponseEntity<List<PaymentResponse>> payAllDebt(
             @Valid @RequestPart("request") PayPortalDebtRequest request,
             @RequestPart(value = "justificante", required = false) MultipartFile justificante) {
-        PaymentResponse response = payPortalAllDebtUseCase.execute(request, justificante);
+        List<PaymentResponse> response = payPortalAllDebtUseCase.execute(request, justificante);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
     @PostMapping(value = "/debt/pay-partial", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<PaymentResponse> payPartialDebt(
+    public ResponseEntity<List<PaymentResponse>> payPartialDebt(
             @Valid @RequestPart("request") PayPortalPartialDebtRequest request,
             @RequestPart(value = "justificante", required = false) MultipartFile justificante) {
-        PaymentResponse response = payPortalPartialDebtUseCase.execute(request, justificante);
+        List<PaymentResponse> response = payPortalPartialDebtUseCase.execute(request, justificante);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 

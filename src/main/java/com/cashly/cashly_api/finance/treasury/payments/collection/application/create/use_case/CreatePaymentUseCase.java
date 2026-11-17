@@ -7,6 +7,7 @@ import com.cashly.cashly_api.platform.notifications.application.ports.in.Activit
 import com.cashly.cashly_api.finance.treasury.payments.collection.application.ports.out.CashRegisterGateway;
 import com.cashly.cashly_api.finance.treasury.payments.collection.application.ports.out.PaymentActorGateway;
 import com.cashly.cashly_api.finance.treasury.payments.collection.application.ports.out.PaymentCustomerGateway;
+import com.cashly.cashly_api.finance.treasury.payments.collection.application.ports.out.PaymentInvoiceGateway;
 import com.cashly.cashly_api.finance.treasury.payments.collection.application.create.request.CreatePaymentRequest;
 import com.cashly.cashly_api.finance.treasury.payments.collection.application.dto.response.PaymentResponse;
 import com.cashly.cashly_api.finance.treasury.payments.collection.application.mappers.PaymentMapper;
@@ -26,13 +27,14 @@ public class CreatePaymentUseCase {
     private final PaymentRepository paymentRepository;
     private final PaymentCustomerGateway customers;
     private final PaymentActorGateway actors;
+    private final PaymentInvoiceGateway invoices;
     private final CashRegisterGateway cashRegister;
 
     private final ActivityNotificationRecorder activityNotifications;
 
     public CreatePaymentUseCase(PaymentRepository paymentRepository,
             PaymentCustomerGateway customers, PaymentActorGateway actors,
-            CashRegisterGateway cashRegister,
+            PaymentInvoiceGateway invoices, CashRegisterGateway cashRegister,
             ActivityNotificationRecorder activityNotifications) {
         this.activityNotifications = activityNotifications != null
                 ? activityNotifications
@@ -40,6 +42,7 @@ public class CreatePaymentUseCase {
         this.paymentRepository = paymentRepository;
         this.customers = customers;
         this.actors = actors;
+        this.invoices = invoices;
         this.cashRegister = cashRegister;
     }
 
@@ -50,6 +53,20 @@ public class CreatePaymentUseCase {
         if (!customers.exists(request.customerId())) {
             throw new IllegalArgumentException(
                     "Customer not found: " + request.customerId());
+        }
+
+        if (request.targetInvoiceId() == null) {
+            throw new IllegalArgumentException("Target invoice is required");
+        }
+
+        PaymentInvoiceGateway.InvoiceSnapshot invoice = invoices
+                .findById(request.targetInvoiceId())
+                .orElseThrow(() -> new IllegalArgumentException(
+                        "Invoice not found: " + request.targetInvoiceId()));
+        if (!invoice.customerId().equals(request.customerId())) {
+            throw new IllegalArgumentException(
+                    "Invoice does not belong to customer: "
+                            + request.customerId());
         }
 
         UUID createdById = null;

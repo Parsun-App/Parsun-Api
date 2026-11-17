@@ -74,11 +74,12 @@ public class ApprovePaymentUseCase {
         cashRegister.requireOpenRegister();
         payment.approve(request.reason(), userId, userName);
 
-        if (payment.getTargetInvoiceId() != null) {
-            applyToInvoice(payment, payment.getTargetInvoiceId());
-        } else {
-            applyToUnpaidInvoicesOldestFirst(payment);
+        UUID targetInvoiceId = payment.getTargetInvoiceId();
+        if (targetInvoiceId == null) {
+            throw new IllegalStateException(
+                    "Payment has no target invoice: " + id);
         }
+        applyToInvoice(payment, targetInvoiceId);
 
         Payment saved = paymentRepository.save(payment);
         cashRegister.recordMovement(new CashRegisterGateway.Movement(
@@ -107,40 +108,5 @@ public class ApprovePaymentUseCase {
         allocationRepository.save(allocation);
         payment.apply(payment.getAmount());
         invoices.recalculateStatus(invoiceId);
-    }
-
-    private void applyToUnpaidInvoicesOldestFirst(Payment payment) {
-        List<PaymentInvoiceGateway.InvoiceSnapshot> unpaidInvoices = invoices
-                .findUnpaidByCustomerId(payment.getCustomerId());
-
-        List<InvoiceRemainingBalance> balances = unpaidInvoices.stream()
-                .map(invoice -> new InvoiceRemainingBalance(invoice.id(),
-                        invoiceRemainingBalance(invoice)))
-                .toList();
-
-        List<PaymentAllocation> allocations = paymentAllocationService
-                .allocateOldestFirst(payment.getId().value(), balances,
-                        payment.getAmount());
-
-        BigDecimal allocatedTotal = BigDecimal.ZERO;
-        for (PaymentAllocation allocation : allocations) {
-            allocationRepository.save(allocation);
-            invoices.recalculateStatus(allocation.getInvoiceId());
-            allocatedTotal = allocatedTotal
-                    .add(allocation.getAllocatedAmount());
-        }
-
-        if (allocatedTotal.compareTo(BigDecimal.ZERO) > 0) {
-            payment.apply(allocatedTotal);
-        }
-    }
-
-    private BigDecimal invoiceRemainingBalance(
-            PaymentInvoiceGateway.InvoiceSnapshot invoice) {
-        BigDecimal alreadyAllocated = allocationRepository
-                .findByInvoiceId(invoice.id()).stream()
-                .map(PaymentAllocation::getAllocatedAmount)
-                .reduce(BigDecimal.ZERO, BigDecimal::add);
-        return invoice.total().subtract(alreadyAllocated);
     }
 }

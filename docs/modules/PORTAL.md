@@ -23,4 +23,5 @@ The portal is the customer-facing adapter for authentication, catalog, orders, q
 - Portal login resolves only active customers with portal access, so inactive historical records with the same RIF cannot block authentication.
 - Portal reads are restricted to the authenticated customer.
 - Payments may include a multipart proof file and require back-office validation.
+- Every payment must reference exactly one invoice. Debt-total and partial-debt payments are split oldest-first into one payment per affected invoice.
 - Portal adapters reuse domain/application use cases without exposing internal admin endpoints.

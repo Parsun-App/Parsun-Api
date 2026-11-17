@@ -39,6 +39,7 @@ public class V16PaymentsSeed implements SeedStep {
         method("card", "CARD", "Credit/Debit card");
         method("mobile", "MOBILE_PAYMENT", "Mobile payment");
         method("check", "CHECK", "Check");
+        entityManager.flush();
         payment(PAYMENT_ONE, "PAY-2026-0001", CUSTOMER_ONE, INVOICE_ONE, "cash",
                 "10.00");
         payment(PAYMENT_TWO, "PAY-2026-0002", CUSTOMER_TWO, INVOICE_TWO,
@@ -96,6 +97,7 @@ public class V16PaymentsSeed implements SeedStep {
             payment.setNotes("Deterministic seed payment");
             payment.setStatus(PaymentStatus.APPLIED.name());
             payment.setAppliedAmount(amount);
+            payment.setTargetInvoiceId(invoiceId);
             payment.setCreatedBy(ADMIN_USER);
             payment.setCreatedByName("Parsun Administrator");
             payment.setCreatedAt(CREATED_AT);
@@ -136,6 +138,7 @@ public class V16PaymentsSeed implements SeedStep {
             payment.setReferenceNumber(sample.documentNumber("SEED"));
             payment.setPaymentDate(sample.date());
             payment.setStatus(PaymentStatus.APPLIED.name());
+            payment.setTargetInvoiceId(invoice.getId());
             payment.setNotes(SCENARIO_NOTES);
             payment.setCreatedBy(ADMIN_USER);
             payment.setCreatedByName("Parsun Administrator");

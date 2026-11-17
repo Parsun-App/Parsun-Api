@@ -114,6 +114,8 @@ public class Payment {
         }
         Objects.requireNonNull(paymentDate, "Payment date cannot be null");
         Objects.requireNonNull(status, "Payment status cannot be null");
+        Objects.requireNonNull(targetInvoiceId,
+                "Target invoice is required for every payment");
 
         LocalDateTime now = LocalDateTime.now();
         return new Payment(PaymentId.generate(), paymentNumber, customerId,
