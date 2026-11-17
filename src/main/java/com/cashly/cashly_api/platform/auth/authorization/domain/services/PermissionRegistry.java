@@ -114,6 +114,18 @@ public final class PermissionRegistry {
                 VIEW_DETAIL, EDIT, DELETE, CREATE));
         result.put(PermissionModule.COMPANY, EnumSet.of(VIEW, EDIT));
         result.put(PermissionModule.AUDIT_TRAIL, EnumSet.of(VIEW_LIST));
+        result.put(PermissionModule.PORTAL_DASHBOARD, EnumSet.of(VIEW));
+        result.put(PermissionModule.PORTAL_PRODUCTS, EnumSet.of(VIEW_LIST,
+                COMMERCIAL_CATALOG_PDF));
+        result.put(PermissionModule.PORTAL_QUOTES, EnumSet.of(VIEW_LIST,
+                VIEW_DETAIL, CREATE, EDIT, CANCEL, CONVERT_TO_ORDER));
+        result.put(PermissionModule.PORTAL_ORDERS, EnumSet.of(VIEW_LIST,
+                VIEW_DETAIL, CREATE, EDIT, CONFIRM, CANCEL));
+        result.put(PermissionModule.PORTAL_INVOICES, EnumSet.of(VIEW_LIST,
+                VIEW_DETAIL));
+        result.put(PermissionModule.PORTAL_PAYMENTS, EnumSet.of(VIEW_LIST,
+                VIEW_DETAIL, CREATE, PAY_ALL, PARTIAL_PAYMENT, PAY_DIRECT));
+        result.put(PermissionModule.PORTAL_PROFILE, EnumSet.of(VIEW_LIST, EDIT));
         return Collections.unmodifiableMap(result);
     }
 
