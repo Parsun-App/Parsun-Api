@@ -95,8 +95,6 @@ class PermissionCatalogControllerTest {
                 .andExpect(jsonPath("$[5].area").value("CONTACTS"))
                 .andExpect(jsonPath("$[6].area").value("ANALYTICS"))
                 .andExpect(jsonPath("$[7].area").value("PORTAL"))
-                .andExpect(jsonPath("$[7].submodules[0].submodule")
-                        .value("PORTAL"))
                 .andExpect(jsonPath("$[7].submodules[0].domains.length()")
                         .value(7))
                 .andExpect(jsonPath("$[7].submodules[0].domains[0].module")

@@ -220,13 +220,14 @@ class ReturnsFinancialRollbackMySqlIT {
                 "Return rollback product", "RET-" + fixture.productId());
         jdbc.update(
                 """
-                        INSERT INTO payments (id, payment_number, customer_id, amount, payment_date, status,
+                        INSERT INTO payments (id, payment_number, customer_id, target_invoice_id, amount, payment_date, status,
                             applied_amount, created_by, created_by_name)
-                        VALUES (UUID_TO_BIN(?), ?, UUID_TO_BIN(?), 100.00, ?, 'APPLIED', 100.00, UUID_TO_BIN(?), ?)
+                        VALUES (UUID_TO_BIN(?), ?, UUID_TO_BIN(?), UUID_TO_BIN(?), 100.00, ?, 'APPLIED', 100.00, UUID_TO_BIN(?), ?)
                         """,
                 fixture.paymentId().toString(),
                 shortNumber("PAY", fixture.paymentId()),
-                fixture.customerId().toString(), LocalDate.now(),
+                fixture.customerId().toString(),
+                fixture.invoiceId().toString(), LocalDate.now(),
                 fixture.actorId().toString(), "Rollback Operator");
         jdbc.update(
                 """
