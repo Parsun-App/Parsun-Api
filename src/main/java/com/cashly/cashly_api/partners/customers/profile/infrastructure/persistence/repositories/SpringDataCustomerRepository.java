@@ -1,6 +1,8 @@
 package com.cashly.cashly_api.partners.customers.profile.infrastructure.persistence.repositories;
 
 import com.cashly.cashly_api.partners.customers.profile.infrastructure.persistence.entities.CustomerEntity;
+import com.cashly.cashly_api.partners.customers.balance.infrastructure.persistence.entities.CustomerBalanceEntity;
+import com.cashly.cashly_api.partners.customers.warehouse_access.infrastructure.persistence.entities.CustomerWarehouseAccessEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -82,6 +84,8 @@ public interface SpringDataCustomerRepository
               OR EXISTS (SELECT 1 FROM CreditNoteEntity cn WHERE cn.customerId = c.id)
               OR EXISTS (SELECT 1 FROM DebitNoteEntity dn WHERE dn.customerId = c.id)
               OR EXISTS (SELECT 1 FROM BalanceTransactionEntity bt WHERE bt.customerId = c.id)
+              OR EXISTS (SELECT 1 FROM CustomerBalanceEntity cb WHERE cb.customerId = c.id)
+              OR EXISTS (SELECT 1 FROM CustomerWarehouseAccessEntity cwa WHERE cwa.customerId = c.id)
             )
             """)
     Set<UUID> findIdsWithAssociatedRecords(@Param("ids") Set<UUID> ids);

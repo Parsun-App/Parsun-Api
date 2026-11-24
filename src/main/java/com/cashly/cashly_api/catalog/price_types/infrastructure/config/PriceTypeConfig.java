@@ -40,8 +40,9 @@ public class PriceTypeConfig {
 
     @Bean
     public GetPriceTypeUseCase getPriceTypeUseCase(
-            PriceTypeRepository priceTypeRepository) {
-        return new GetPriceTypeUseCase(priceTypeRepository);
+            PriceTypeRepository priceTypeRepository,
+            com.cashly.cashly_api.catalog.price_types.application.ports.out.PriceTypeUsageGateway usageGateway) {
+        return new GetPriceTypeUseCase(priceTypeRepository, usageGateway);
     }
 
     @Bean

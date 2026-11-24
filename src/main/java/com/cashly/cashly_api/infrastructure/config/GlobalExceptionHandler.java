@@ -477,6 +477,14 @@ public class GlobalExceptionHandler {
                         "Warehouse has active stock", ex.getMessage()));
     }
 
+    @ExceptionHandler(com.cashly.cashly_api.inventory.warehouses.management.application.delete.services.WarehouseHasAssociatedRecordsException.class)
+    public ResponseEntity<Map<String, Object>> handleWarehouseHasAssociatedRecords(
+            com.cashly.cashly_api.inventory.warehouses.management.application.delete.services.WarehouseHasAssociatedRecordsException ex) {
+        return ResponseEntity.status(HttpStatus.CONFLICT)
+                .body(createErrorResponse(HttpStatus.CONFLICT,
+                        "Warehouse has associated records", ex.getMessage()));
+    }
+
     @ExceptionHandler(WarehouseNotFoundException.class)
     public ResponseEntity<Map<String, Object>> handleWarehouseNotFound(
             WarehouseNotFoundException ex) {

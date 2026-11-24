@@ -291,6 +291,7 @@ final class BusinessErrorMessages {
                     "inventory.warehouses.stock.errors.allocationQuantityMustBePositive"),
             Map.entry("Stock quantity must be positive",
                     "inventory.warehouses.stock.errors.stockQuantityMustBePositive"),
+            Map.entry("Warehouse ", "inventory.warehouses.management.errors.theWarehouseCannotBeDeletedBecauseItHasAssociatedRecords"),
             Map.entry("Warehouse code cannot be blank",
                     "inventory.warehouses.management.errors.warehouseCodeCannotBeBlank"),
             Map.entry("Warehouse code cannot exceed 50 characters",

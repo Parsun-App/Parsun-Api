@@ -23,6 +23,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -45,6 +46,9 @@ class GetProductUseCaseTest {
     @Mock
     private ProductMapper productMapper;
 
+    @Mock
+    private com.cashly.cashly_api.catalog.products.application.ports.out.ProductReferenceGateway references;
+
     private GetProductUseCase useCase;
 
     @BeforeEach
@@ -55,7 +59,7 @@ class GetProductUseCaseTest {
                 new LocalProductPriceTypeGatewayAdapter(
                         new RepositoryProductPriceTypeQuery(
                                 priceTypeRepository)),
-                productMapper);
+                productMapper, references);
     }
 
     @Test
@@ -76,8 +80,9 @@ class GetProductUseCaseTest {
         when(productRepository.findById(id)).thenReturn(Optional.of(product));
         when(categoryRepository.findById(categoryId))
                 .thenReturn(Optional.of(category));
-        when(productMapper.toDetailResponse(any(), anyString(), any(), any()))
-                .thenReturn(expectedResponse);
+        when(references.findReferencedProductIds(any())).thenReturn(Set.of());
+        when(productMapper.toDetailResponse(any(), anyString(), any(), any(),
+                anyBoolean())).thenReturn(expectedResponse);
 
         ProductDetailResponse result = useCase.execute(id);
 

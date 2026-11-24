@@ -30,6 +30,13 @@ public class ProductMapper {
     public ProductDetailResponse toDetailResponse(Product product,
             String categoryName, Map<UUID, Product> componentProducts,
             Map<UUID, String> priceTypeNames) {
+        return toDetailResponse(product, categoryName, componentProducts,
+                priceTypeNames, true);
+    }
+
+    public ProductDetailResponse toDetailResponse(Product product,
+            String categoryName, Map<UUID, Product> componentProducts,
+            Map<UUID, String> priceTypeNames, boolean deletable) {
         List<ComponentResponse> components = product.getComponents().stream()
                 .map(c -> {
                     Product comp = componentProducts
@@ -59,7 +66,8 @@ public class ProductMapper {
         return new ProductDetailResponse(product.getId().toString(),
                 product.getCode(), product.getName(), product.getDescription(),
                 product.getCategoryId().toString(), categoryName,
-                product.isComposite(), product.isActive(), product.getPhoto(),
+                product.isComposite(), product.isActive(), deletable,
+                product.getPhoto(),
                 product.getPurchasePrice(), components, productPrices,
                 product.getCreatedAt(), product.getUpdatedAt());
     }

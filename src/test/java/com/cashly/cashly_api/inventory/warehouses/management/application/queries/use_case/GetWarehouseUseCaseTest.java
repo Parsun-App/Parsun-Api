@@ -44,7 +44,7 @@ class GetWarehouseUseCaseTest {
 
         when(warehouseRepository.findById(warehouseId))
                 .thenReturn(Optional.of(existing));
-        when(warehouseRepository.findIdsWithActiveStock(Set.of(warehouseId)))
+        when(warehouseRepository.findIdsWithAssociatedRecords(Set.of(warehouseId)))
                 .thenReturn(Set.of());
 
         WarehouseDetailResponse response = useCase.execute(warehouseId);
@@ -60,18 +60,18 @@ class GetWarehouseUseCaseTest {
         assertTrue(response.active());
         assertTrue(response.deletable());
         verify(warehouseRepository).findById(warehouseId);
-        verify(warehouseRepository).findIdsWithActiveStock(Set.of(warehouseId));
+        verify(warehouseRepository).findIdsWithAssociatedRecords(Set.of(warehouseId));
     }
 
     @Test
-    @DisplayName("marks warehouse as non-deletable when it has active stock")
+    @DisplayName("marks warehouse as non-deletable when it has associated records")
     void shouldMarkWarehouseAsNonDeletableWhenItHasActiveStock() {
         Warehouse existing = Warehouse.reconstitute(warehouseId, "WH-001",
                 "Main Warehouse", "123 Main St", "State A", "Municipality B",
                 "10001", true, LocalDateTime.now(), LocalDateTime.now());
         when(warehouseRepository.findById(warehouseId))
                 .thenReturn(Optional.of(existing));
-        when(warehouseRepository.findIdsWithActiveStock(Set.of(warehouseId)))
+        when(warehouseRepository.findIdsWithAssociatedRecords(Set.of(warehouseId)))
                 .thenReturn(Set.of(warehouseId));
 
         WarehouseDetailResponse response = useCase.execute(warehouseId);

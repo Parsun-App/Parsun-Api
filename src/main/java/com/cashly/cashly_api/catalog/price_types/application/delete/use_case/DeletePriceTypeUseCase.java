@@ -36,7 +36,8 @@ public class DeletePriceTypeUseCase {
         if (!priceTypeRepository.existsById(id)) {
             throw new PriceTypeNotFoundException(id);
         }
-        if (usageGateway.isInUseByProducts(id)) {
+        if (usageGateway.isInUseByProducts(id)
+                || usageGateway.isInUseByCustomers(id)) {
             throw new PriceTypeInUseException(id);
         }
         String priceTypeName = priceTypeRepository.findById(id)

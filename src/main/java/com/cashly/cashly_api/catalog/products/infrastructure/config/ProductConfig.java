@@ -44,9 +44,10 @@ public class ProductConfig {
             ProductRepository productRepository,
             ProductCategoryGateway categoryRepository,
             ProductPriceTypeGateway priceTypeRepository,
-            ProductMapper productMapper) {
+            ProductMapper productMapper,
+            com.cashly.cashly_api.catalog.products.application.ports.out.ProductReferenceGateway references) {
         return new GetProductUseCase(productRepository, categoryRepository,
-                priceTypeRepository, productMapper);
+                priceTypeRepository, productMapper, references);
     }
 
     @Bean

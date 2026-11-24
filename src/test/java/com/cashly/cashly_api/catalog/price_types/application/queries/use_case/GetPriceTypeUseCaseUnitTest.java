@@ -25,6 +25,9 @@ class GetPriceTypeUseCaseUnitTest {
     @Mock
     private PriceTypeRepository priceTypeRepository;
 
+    @Mock
+    private com.cashly.cashly_api.catalog.price_types.application.ports.out.PriceTypeUsageGateway usageGateway;
+
     @InjectMocks
     private GetPriceTypeUseCase getPriceTypeUseCase;
 
@@ -37,6 +40,8 @@ class GetPriceTypeUseCaseUnitTest {
 
         when(priceTypeRepository.findById(id))
                 .thenReturn(Optional.of(priceType));
+        when(usageGateway.isInUseByProducts(id)).thenReturn(false);
+        when(usageGateway.isInUseByCustomers(id)).thenReturn(false);
 
         PriceTypeResponse response = getPriceTypeUseCase.execute(id);
 
@@ -68,6 +73,8 @@ class GetPriceTypeUseCaseUnitTest {
 
         when(priceTypeRepository.findById(id))
                 .thenReturn(Optional.of(priceType));
+        when(usageGateway.isInUseByProducts(id)).thenReturn(false);
+        when(usageGateway.isInUseByCustomers(id)).thenReturn(false);
 
         PriceTypeResponse response = getPriceTypeUseCase.execute(id);
 
