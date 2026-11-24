@@ -16,7 +16,7 @@ public class V03UsersSeed implements SeedStep {
     private static final LocalDateTime CREATED_AT = LocalDateTime.of(2026, 1, 1,
             8, 0);
     private static final String ADMIN_PASSWORD_HASH = "$2a$10$WTOBvAu4GKi0O13UQiL3n.62XjcFaQvBiC0awMpv8t.biw7zBR1J.";
-    private static final String ALT_ADMIN_PASSWORD_HASH = "$2a$10$9uTlMmcJwp5d9GYo8jGHneff9npGu8J58j2s33wf6COOi/4aMPBy.";
+    private static final String ALT_ADMIN_PASSWORD_HASH = "$2a$10$ajqNUk4j9zWhV716ql04xex16et.X0RI93qP1ObIleotPP1wGKztK";
     private static final String OPERATOR_PASSWORD_HASH = "$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy";
     private final EntityManager entityManager;
 
