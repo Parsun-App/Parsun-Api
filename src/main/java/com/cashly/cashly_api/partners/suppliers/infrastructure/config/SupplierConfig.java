@@ -58,7 +58,7 @@ public class SupplierConfig {
     public UpdateSupplierUseCase updateSupplierUseCase(
             SupplierRepository supplierRepository,
             SupplierMapper supplierMapper,
-            com.cashly.cashly_api.platform.auth.authorization.application.services.AccessService access,
+            com.cashly.cashly_api.shared.application.ports.in.ActiveTogglePermission access,
             PurchaseUsageGateway purchaseUsage,
             ActivityNotificationRecorder activityNotifications) {
         return new UpdateSupplierUseCase(supplierRepository, supplierMapper,

@@ -24,7 +24,7 @@ public class PriceTypeConfig {
     @Bean
     public UpdatePriceTypeUseCase updatePriceTypeUseCase(
             PriceTypeRepository priceTypeRepository,
-            com.cashly.cashly_api.platform.auth.authorization.application.services.AccessService access,
+            com.cashly.cashly_api.shared.application.ports.in.ActiveTogglePermission access,
             ActivityNotificationRecorder activityNotifications) {
         return new UpdatePriceTypeUseCase(priceTypeRepository, access,
                 activityNotifications);

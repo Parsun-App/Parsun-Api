@@ -1,6 +1,6 @@
 package com.cashly.cashly_api.partners.customers.profile.application.update.use_case;
 
-import com.cashly.cashly_api.platform.auth.authorization.application.services.AccessService;
+import com.cashly.cashly_api.shared.application.ports.in.ActiveTogglePermission;
 import com.cashly.cashly_api.partners.customers.profile.application.ports.out.PortalPasswordEncoder;
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityEvent;
 
@@ -32,13 +32,13 @@ public class UpdateCustomerUseCase {
     private final CustomerRepository customerRepository;
     private final CustomerMapper customerMapper;
     private final PortalPasswordEncoder passwordEncoder;
-    private final AccessService access;
+    private final ActiveTogglePermission access;
 
     private final ActivityNotificationRecorder activityNotifications;
 
     public UpdateCustomerUseCase(CustomerRepository customerRepository,
             CustomerMapper customerMapper, PortalPasswordEncoder passwordEncoder,
-            AccessService access,
+            ActiveTogglePermission access,
             ActivityNotificationRecorder activityNotifications) {
         this.activityNotifications = activityNotifications != null
                 ? activityNotifications

@@ -51,7 +51,7 @@ public class CategoryConfig {
     public UpdateCategoryUseCase updateCategoryUseCase(
             CategoryRepository categoryRepository,
             CategoryMapper categoryMapper,
-            com.cashly.cashly_api.platform.auth.authorization.application.services.AccessService access,
+            com.cashly.cashly_api.shared.application.ports.in.ActiveTogglePermission access,
             ActivityNotificationRecorder activityNotifications) {
         return new UpdateCategoryUseCase(categoryRepository, categoryMapper,
                 access, activityNotifications);

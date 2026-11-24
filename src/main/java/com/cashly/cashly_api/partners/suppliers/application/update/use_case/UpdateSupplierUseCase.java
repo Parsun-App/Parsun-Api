@@ -1,6 +1,6 @@
 package com.cashly.cashly_api.partners.suppliers.application.update.use_case;
 
-import com.cashly.cashly_api.platform.auth.authorization.application.services.AccessService;
+import com.cashly.cashly_api.shared.application.ports.in.ActiveTogglePermission;
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityEvent;
 
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityNotificationRecorder;
@@ -28,13 +28,13 @@ public class UpdateSupplierUseCase {
 
     private final SupplierRepository supplierRepository;
     private final SupplierMapper supplierMapper;
-    private final AccessService access;
+    private final ActiveTogglePermission access;
     private final PurchaseUsageGateway purchaseUsage;
 
     private final ActivityNotificationRecorder activityNotifications;
 
     public UpdateSupplierUseCase(SupplierRepository supplierRepository,
-            SupplierMapper supplierMapper, AccessService access,
+            SupplierMapper supplierMapper, ActiveTogglePermission access,
             PurchaseUsageGateway purchaseUsage,
             ActivityNotificationRecorder activityNotifications) {
         this.activityNotifications = activityNotifications != null

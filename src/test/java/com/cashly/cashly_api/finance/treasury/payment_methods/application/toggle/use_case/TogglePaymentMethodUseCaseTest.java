@@ -32,6 +32,9 @@ class TogglePaymentMethodUseCaseTest {
     @Mock
     private PaymentMethodUsageGateway usageGateway;
 
+    @Mock
+    private com.cashly.cashly_api.shared.application.ports.in.ActiveTogglePermission access;
+
     @InjectMocks
     private TogglePaymentMethodUseCase useCase;
 

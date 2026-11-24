@@ -1,6 +1,6 @@
 package com.cashly.cashly_api.catalog.price_types.application.update.use_case;
 
-import com.cashly.cashly_api.platform.auth.authorization.application.services.AccessService;
+import com.cashly.cashly_api.shared.application.ports.in.ActiveTogglePermission;
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityEvent;
 
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityNotificationRecorder;
@@ -19,12 +19,12 @@ import com.cashly.cashly_api.platform.audit.application.ports.in.Audited;
 public class UpdatePriceTypeUseCase {
 
     private final PriceTypeRepository priceTypeRepository;
-    private final AccessService access;
+    private final ActiveTogglePermission access;
 
     private final ActivityNotificationRecorder activityNotifications;
 
     public UpdatePriceTypeUseCase(PriceTypeRepository priceTypeRepository,
-            AccessService access,
+            ActiveTogglePermission access,
             ActivityNotificationRecorder activityNotifications) {
         this.activityNotifications = activityNotifications != null
                 ? activityNotifications

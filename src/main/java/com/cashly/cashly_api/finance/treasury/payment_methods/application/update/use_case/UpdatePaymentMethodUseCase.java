@@ -11,7 +11,7 @@ import com.cashly.cashly_api.finance.treasury.payment_methods.domain.entity.Paym
 import com.cashly.cashly_api.finance.treasury.payment_methods.application.ports.out.PaymentMethodUsageGateway;
 import com.cashly.cashly_api.finance.treasury.payment_methods.domain.repository.PaymentMethodRepository;
 import com.cashly.cashly_api.finance.treasury.payment_methods.domain.valueobjects.PaymentMethodId;
-import com.cashly.cashly_api.platform.auth.authorization.application.services.AccessService;
+import com.cashly.cashly_api.shared.application.ports.in.ActiveTogglePermission;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
@@ -23,12 +23,12 @@ public class UpdatePaymentMethodUseCase {
 
     private final PaymentMethodRepository repository;
     private final PaymentMethodUsageGateway usageGateway;
-    private final AccessService access;
+    private final ActiveTogglePermission access;
 
     private final ActivityNotificationRecorder activityNotifications;
 
     public UpdatePaymentMethodUseCase(PaymentMethodRepository repository,
-            PaymentMethodUsageGateway usageGateway, AccessService access,
+            PaymentMethodUsageGateway usageGateway, ActiveTogglePermission access,
             ActivityNotificationRecorder activityNotifications) {
         this.activityNotifications = activityNotifications != null
                 ? activityNotifications

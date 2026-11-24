@@ -75,7 +75,7 @@ class CategoryConfigTest {
 
         UpdateCategoryUseCase useCase = config
                 .updateCategoryUseCase(categoryRepository, categoryMapper,
-                        org.mockito.Mockito.mock(com.cashly.cashly_api.platform.auth.authorization.application.services.AccessService.class),
+                        org.mockito.Mockito.mock(com.cashly.cashly_api.shared.application.ports.in.ActiveTogglePermission.class),
                         org.mockito.Mockito.mock(com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityNotificationRecorder.class));
 
         assertNotNull(useCase);

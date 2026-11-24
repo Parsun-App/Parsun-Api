@@ -1,6 +1,6 @@
 package com.cashly.cashly_api.catalog.products.application.update.use_case;
 
-import com.cashly.cashly_api.platform.auth.authorization.application.services.AccessService;
+import com.cashly.cashly_api.shared.application.ports.in.ActiveTogglePermission;
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityEvent;
 
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityNotificationRecorder;
@@ -34,14 +34,14 @@ public class UpdateProductUseCase {
     private final ProductCategoryGateway categoryRepository;
     private final ProductPriceTypeGateway priceTypeRepository;
     private final ProductMapper productMapper;
-    private final AccessService access;
+    private final ActiveTogglePermission access;
 
     private final ActivityNotificationRecorder activityNotifications;
 
     public UpdateProductUseCase(ProductRepository productRepository,
             ProductCategoryGateway categoryRepository,
             ProductPriceTypeGateway priceTypeRepository,
-            ProductMapper productMapper, AccessService access,
+            ProductMapper productMapper, ActiveTogglePermission access,
             ActivityNotificationRecorder activityNotifications) {
         this.activityNotifications = activityNotifications != null
                 ? activityNotifications

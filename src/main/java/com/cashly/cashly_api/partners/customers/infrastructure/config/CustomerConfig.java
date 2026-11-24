@@ -87,7 +87,7 @@ public class CustomerConfig {
             CustomerRepository customerRepository,
             CustomerMapper customerMapper,
             PortalPasswordEncoder passwordEncoder,
-            com.cashly.cashly_api.platform.auth.authorization.application.services.AccessService access,
+            com.cashly.cashly_api.shared.application.ports.in.ActiveTogglePermission access,
             ActivityNotificationRecorder activityNotifications) {
         return new UpdateCustomerUseCase(customerRepository, customerMapper,
                 passwordEncoder, access, activityNotifications);

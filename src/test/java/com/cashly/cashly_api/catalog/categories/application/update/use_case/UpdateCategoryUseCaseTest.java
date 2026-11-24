@@ -33,7 +33,7 @@ class UpdateCategoryUseCaseTest {
     private CategoryMapper categoryMapper;
 
     @Mock
-    private com.cashly.cashly_api.platform.auth.authorization.application.services.AccessService access;
+    private com.cashly.cashly_api.shared.application.ports.in.ActiveTogglePermission access;
 
     @InjectMocks
     private UpdateCategoryUseCase useCase;

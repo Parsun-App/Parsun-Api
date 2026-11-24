@@ -65,7 +65,7 @@ public class ProductConfig {
             ProductCategoryGateway categoryRepository,
             ProductPriceTypeGateway priceTypeRepository,
             ProductMapper productMapper,
-            com.cashly.cashly_api.platform.auth.authorization.application.services.AccessService access,
+            com.cashly.cashly_api.shared.application.ports.in.ActiveTogglePermission access,
             ActivityNotificationRecorder activityNotifications) {
         return new UpdateProductUseCase(productRepository, categoryRepository,
                 priceTypeRepository, productMapper, access,

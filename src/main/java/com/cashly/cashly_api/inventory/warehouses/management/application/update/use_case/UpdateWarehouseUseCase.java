@@ -1,6 +1,6 @@
 package com.cashly.cashly_api.inventory.warehouses.management.application.update.use_case;
 
-import com.cashly.cashly_api.platform.auth.authorization.application.services.AccessService;
+import com.cashly.cashly_api.shared.application.ports.in.ActiveTogglePermission;
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityEvent;
 
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityNotificationRecorder;
@@ -19,12 +19,12 @@ import com.cashly.cashly_api.platform.audit.application.ports.in.Audited;
 public class UpdateWarehouseUseCase {
 
     private final WarehouseRepository warehouseRepository;
-    private final AccessService access;
+    private final ActiveTogglePermission access;
 
     private final ActivityNotificationRecorder activityNotifications;
 
     public UpdateWarehouseUseCase(WarehouseRepository warehouseRepository,
-            AccessService access,
+            ActiveTogglePermission access,
             ActivityNotificationRecorder activityNotifications) {
         this.activityNotifications = activityNotifications != null
                 ? activityNotifications
