@@ -59,6 +59,10 @@ public class UpdateUserUseCase {
         user.updateProfile(request.profile(), request.roleId(),
                 request.departmentId());
 
+        if (request.active() != null && request.active() != user.isActive()) {
+            access.requireActiveToggle();
+        }
+
         if (request.active() != null) {
             if (request.active()) {
                 user.activate();

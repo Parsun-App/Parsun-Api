@@ -29,6 +29,7 @@ import static com.cashly.cashly_api.platform.auth.authorization.domain.valueobje
 import static com.cashly.cashly_api.platform.auth.authorization.domain.valueobjects.PermissionAction.REPORT_MOVEMENTS;
 import static com.cashly.cashly_api.platform.auth.authorization.domain.valueobjects.PermissionAction.REPORT_PDF;
 import static com.cashly.cashly_api.platform.auth.authorization.domain.valueobjects.PermissionAction.REPORT_STOCK;
+import static com.cashly.cashly_api.platform.auth.authorization.domain.valueobjects.PermissionAction.TOGGLE_ACTIVE;
 import static com.cashly.cashly_api.platform.auth.authorization.domain.valueobjects.PermissionAction.VIEW;
 import static com.cashly.cashly_api.platform.auth.authorization.domain.valueobjects.PermissionAction.VIEW_BALANCE;
 import static com.cashly.cashly_api.platform.auth.authorization.domain.valueobjects.PermissionAction.VIEW_DEBT;
@@ -114,6 +115,7 @@ public final class PermissionRegistry {
                 VIEW_DETAIL, EDIT, DELETE, CREATE));
         result.put(PermissionModule.COMPANY, EnumSet.of(VIEW, EDIT));
         result.put(PermissionModule.AUDIT_TRAIL, EnumSet.of(VIEW_LIST));
+        result.put(PermissionModule.SYSTEM, EnumSet.of(TOGGLE_ACTIVE));
         result.put(PermissionModule.PORTAL_DASHBOARD, EnumSet.of(VIEW));
         result.put(PermissionModule.PORTAL_PRODUCTS, EnumSet.of(VIEW_LIST,
                 COMMERCIAL_CATALOG_PDF));

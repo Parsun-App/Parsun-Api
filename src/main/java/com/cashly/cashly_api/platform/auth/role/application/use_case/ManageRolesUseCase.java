@@ -126,6 +126,11 @@ public class ManageRolesUseCase {
                 throw new AccessConflictException(
                         "Protected system role cannot be changed");
             }
+            boolean nextActive = request.active() == null
+                    || request.active();
+            if (nextActive != previous.active()) {
+                access.requireActiveToggle();
+            }
             access.delegable(previous);
         }
         if (!create && request.version() == null) {

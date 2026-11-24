@@ -487,6 +487,22 @@ catalogPrice = salePrice × (1 + differential.percentage / 100)
 
 > **Note**: This report is already implemented. See [PRODUCTS.md](./modules/PRODUCTS.md) for full technical details (`GET /api/products/pdf/catalog`).
 
+### 2.3.1 Product Report Excel (`GET /api/reports/inventory/catalog/excel`)
+
+**Description**: Product report in Excel with total stock per product, aggregated across warehouses. It is the Excel counterpart of the product catalog report.
+
+**Query Parameters**:
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `search` | String | No | Filter by product name |
+| `categoryId` | UUID | No | Filter by category |
+| `warehouseId` | UUID | No | Limit stock to a warehouse |
+| `composite` | Boolean | No | Filter simple/composite products |
+| `withStock` | Boolean | No | `true` only products with stock, `false` only without stock |
+| `lowStock` | Boolean | No | Reserved for low-stock filtering |
+
+**Excel Columns**: Code, Product, Category, Type, Status, Total stock. The last row shows the total stock and the number of listed products.
+
 ---
 
 ### 2.4 Stock Inventory (`GET /api/reports/products/stock`)

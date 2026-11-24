@@ -87,9 +87,10 @@ public class CustomerConfig {
             CustomerRepository customerRepository,
             CustomerMapper customerMapper,
             PortalPasswordEncoder passwordEncoder,
+            com.cashly.cashly_api.platform.auth.authorization.application.services.AccessService access,
             ActivityNotificationRecorder activityNotifications) {
         return new UpdateCustomerUseCase(customerRepository, customerMapper,
-                passwordEncoder, activityNotifications);
+                passwordEncoder, access, activityNotifications);
     }
 
     @Bean

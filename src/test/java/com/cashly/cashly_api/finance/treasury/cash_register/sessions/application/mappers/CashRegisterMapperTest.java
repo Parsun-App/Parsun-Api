@@ -38,7 +38,7 @@ class CashRegisterMapperTest {
                 new BigDecimal("1500.00"), BigDecimal.ZERO,
                 new BigDecimal("100.00"), new BigDecimal("50.00"),
                 BigDecimal.ZERO, new BigDecimal("2000.00"), 20, 0, 2, 15,
-                new BigDecimal("1350.00"), null, null, "End of day", 0,
+                null, null, "End of day", 0,
                 LocalDateTime.of(2026, 6, 15, 8, 0),
                 LocalDateTime.of(2026, 6, 15, 18, 0),
                 List.of(CashRegisterDetail.create(PAYMENT_METHOD_ID, "Cash", 15,
@@ -227,7 +227,7 @@ class CashRegisterMapperTest {
                     LocalDateTime.of(2026, 6, 15, 8, 0), null, null, null,
                     BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO,
                     BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO, 0, 0, 0,
-                    0, BigDecimal.ZERO, null, null, null, 0,
+                    0, null, null, null, 0,
                     LocalDateTime.of(2026, 6, 15, 8, 0),
                     LocalDateTime.of(2026, 6, 15, 8, 0), List.of());
 

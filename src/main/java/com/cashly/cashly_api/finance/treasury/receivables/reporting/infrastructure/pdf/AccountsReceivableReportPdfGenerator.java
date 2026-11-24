@@ -74,6 +74,10 @@ public class AccountsReceivableReportPdfGenerator
             document.add(branding.logo().setMarginBottom(12));
             document.add(buildTitle(bold));
             document.add(buildDate(data, regular));
+            Paragraph period = buildPeriod(data, regular);
+            if (period != null) {
+                document.add(period);
+            }
             document.add(buildMainTable(data, bold, regular));
             document.add(buildSummary(data.summary(), bold, regular));
 
@@ -100,6 +104,25 @@ public class AccountsReceivableReportPdfGenerator
                 .setFont(regular).setFontSize(10)
                 .setFontColor(ColorConstants.DARK_GRAY)
                 .setTextAlignment(TextAlignment.CENTER).setMarginBottom(20);
+    }
+
+    private Paragraph buildPeriod(AccountsReceivableReportData data,
+            PdfFont regular) {
+        if (data.dateFrom() == null && data.dateTo() == null) {
+            return null;
+        }
+        String from = data.dateFrom() != null
+                ? data.dateFrom().format(ReportMessages.dateFormatter())
+                : "-";
+        String to = data.dateTo() != null
+                ? data.dateTo().format(ReportMessages.dateFormatter())
+                : "-";
+        return new Paragraph(ReportMessages
+                .text("finance.treasury.receivables.reports.period")
+                + from + " - " + to)
+                .setFont(regular).setFontSize(10)
+                .setFontColor(ColorConstants.DARK_GRAY)
+                .setTextAlignment(TextAlignment.CENTER).setMarginBottom(12);
     }
 
     private Table buildMainTable(AccountsReceivableReportData data,

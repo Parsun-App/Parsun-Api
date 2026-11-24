@@ -47,6 +47,10 @@ public class AccessService {
         require(module.name() + "_" + action.name());
     }
 
+    public void requireActiveToggle() {
+        require(PermissionModule.SYSTEM, PermissionAction.TOGGLE_ACTIVE);
+    }
+
     public void require(String permissionCode) {
         if (!current().permissions().contains(permissionCode)) {
             throw new AccessDeniedException("Missing " + permissionCode);

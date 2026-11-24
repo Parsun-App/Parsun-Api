@@ -25,6 +25,7 @@ public enum PermissionModule {
     DEPARTMENTS,
     COMPANY,
     AUDIT_TRAIL,
+    SYSTEM,
     PORTAL_DASHBOARD,
     PORTAL_PRODUCTS,
     PORTAL_QUOTES,

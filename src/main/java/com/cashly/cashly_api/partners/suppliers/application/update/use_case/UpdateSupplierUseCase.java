@@ -1,5 +1,6 @@
 package com.cashly.cashly_api.partners.suppliers.application.update.use_case;
 
+import com.cashly.cashly_api.platform.auth.authorization.application.services.AccessService;
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityEvent;
 
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityNotificationRecorder;
@@ -26,17 +27,19 @@ public class UpdateSupplierUseCase {
 
     private final SupplierRepository supplierRepository;
     private final SupplierMapper supplierMapper;
+    private final AccessService access;
 
     private final ActivityNotificationRecorder activityNotifications;
 
     public UpdateSupplierUseCase(SupplierRepository supplierRepository,
-            SupplierMapper supplierMapper,
+            SupplierMapper supplierMapper, AccessService access,
             ActivityNotificationRecorder activityNotifications) {
         this.activityNotifications = activityNotifications != null
                 ? activityNotifications
                 : ActivityNotificationRecorder.NONE;
         this.supplierRepository = supplierRepository;
         this.supplierMapper = supplierMapper;
+        this.access = access;
     }
 
     @Transactional
@@ -60,6 +63,11 @@ public class UpdateSupplierUseCase {
         if (request.creditLimit() != null) {
             supplier.updateCreditLimit(
                     new CreditLimit(request.creditLimit()));
+        }
+
+        if (request.active() != null
+                && request.active() != supplier.isActive()) {
+            access.requireActiveToggle();
         }
 
         if (request.active()) {

@@ -28,6 +28,9 @@ class UpdatePriceTypeUseCaseUnitTest {
     @Mock
     private PriceTypeRepository priceTypeRepository;
 
+    @Mock
+    private com.cashly.cashly_api.platform.auth.authorization.application.services.AccessService access;
+
     @InjectMocks
     private UpdatePriceTypeUseCase updatePriceTypeUseCase;
 

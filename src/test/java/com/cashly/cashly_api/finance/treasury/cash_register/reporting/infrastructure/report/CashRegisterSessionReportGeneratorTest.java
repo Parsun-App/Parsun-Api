@@ -66,8 +66,8 @@ class CashRegisterSessionReportGeneratorTest {
                 "Operator", LocalDateTime.now(), "Sin incidencias", List.of(),
                 new BigDecimal("125.00"), new BigDecimal("50.00"),
                 BigDecimal.ZERO, new BigDecimal("50.00"), List.of(), List.of(),
-                new BigDecimal("100.00"), new BigDecimal("50.00"),
+                new BigDecimal("50.00"),
                 BigDecimal.ZERO, new BigDecimal("150.00"),
-                new BigDecimal("150.00"), BigDecimal.ZERO, List.of(movement));
+                BigDecimal.ZERO, List.of(movement));
     }
 }

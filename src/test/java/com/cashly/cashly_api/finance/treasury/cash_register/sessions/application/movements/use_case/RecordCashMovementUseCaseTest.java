@@ -48,7 +48,7 @@ class RecordCashMovementUseCaseTest {
         UUID registerId = UUID.randomUUID();
         UUID actorId = UUID.randomUUID();
         var register = CashRegister.open(RegisterId.of(registerId),
-                LocalDate.now(), actorId, "Opener", BigDecimal.ZERO);
+                LocalDate.now(), actorId, "Opener");
         var request = new CashMovementRequest(CashMovementDirection.IN,
                 CashMovementType.PAYMENT, BigDecimal.TEN, null,
                 "Manual income");
@@ -116,7 +116,7 @@ class RecordCashMovementUseCaseTest {
         UUID registerId = UUID.randomUUID();
         UUID actorId = UUID.randomUUID();
         var register = CashRegister.open(RegisterId.of(registerId),
-                LocalDate.now(), actorId, "Opener", BigDecimal.ZERO);
+                LocalDate.now(), actorId, "Opener");
         when(registers.findById(RegisterId.of(registerId)))
                 .thenReturn(Optional.of(register));
         when(registers.findActiveClosure()).thenReturn(Optional.of(register));
@@ -134,7 +134,7 @@ class RecordCashMovementUseCaseTest {
 
     private CashRegister closedRegister(UUID registerId, UUID actorId) {
         var register = CashRegister.open(RegisterId.of(registerId),
-                LocalDate.now(), actorId, "Opener", BigDecimal.ZERO);
+                LocalDate.now(), actorId, "Opener");
         register.close(actorId, "Closer", BigDecimal.ZERO, "closed");
         return register;
     }

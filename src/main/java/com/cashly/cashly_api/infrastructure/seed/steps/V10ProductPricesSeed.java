@@ -4,6 +4,7 @@ import static com.cashly.cashly_api.infrastructure.seed.SeedIds.*;
 
 import com.cashly.cashly_api.catalog.products.infrastructure.persistence.entities.ProductEntity;
 import com.cashly.cashly_api.catalog.products.infrastructure.persistence.entities.ProductPriceEntity;
+import com.cashly.cashly_api.infrastructure.seed.SeedCatalogProducts;
 import com.cashly.cashly_api.infrastructure.seed.SeedReferences;
 import com.cashly.cashly_api.infrastructure.seed.SeedStep;
 import jakarta.persistence.EntityManager;
@@ -26,6 +27,10 @@ public class V10ProductPricesSeed implements SeedStep {
         price("coffee-base", PRODUCT_COFFEE, "6.50", "44.44");
         price("water-base", PRODUCT_WATER, "1.00", "66.67");
         price("bundle-base", id("product.breakfast-bundle"), "8.00", "56.86");
+        for (SeedCatalogProducts.Spec spec : SeedCatalogProducts.PRODUCTS) {
+            price(spec.key() + "-base", spec.productId(), spec.salePrice(),
+                    spec.margin());
+        }
     }
     private void price(String key, UUID productId, String amount,
             String margin) {

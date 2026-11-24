@@ -29,7 +29,7 @@ class PermissionCatalogTest {
                 .map(PermissionCatalog.PermissionEntry::code)
                 .toList();
 
-        assertThat(codes).hasSize(174).doesNotHaveDuplicates();
+        assertThat(codes).hasSize(175).doesNotHaveDuplicates();
         assertThat(Set.copyOf(codes)).isEqualTo(PermissionRegistry.codes());
     }
 
@@ -82,7 +82,7 @@ class PermissionCatalogTest {
                 PermissionCatalog.DomainCatalog::module)
                 .containsExactly(PermissionModule.USERS, PermissionModule.ROLES,
                         PermissionModule.DEPARTMENTS, PermissionModule.COMPANY,
-                        PermissionModule.AUDIT_TRAIL);
+                        PermissionModule.AUDIT_TRAIL, PermissionModule.SYSTEM);
         assertThat(company.permissions()).extracting(
                 PermissionCatalog.PermissionEntry::code)
                 .containsExactly("COMPANY_VIEW", "COMPANY_EDIT");
@@ -114,6 +114,7 @@ class PermissionCatalogTest {
                 Map.entry(PermissionModule.DEPARTMENTS, 5),
                 Map.entry(PermissionModule.COMPANY, 2),
                 Map.entry(PermissionModule.AUDIT_TRAIL, 1),
+                Map.entry(PermissionModule.SYSTEM, 1),
                 Map.entry(PermissionModule.PORTAL_DASHBOARD, 1),
                 Map.entry(PermissionModule.PORTAL_PRODUCTS, 2),
                 Map.entry(PermissionModule.PORTAL_QUOTES, 6),

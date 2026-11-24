@@ -1,5 +1,6 @@
 package com.cashly.cashly_api.catalog.products.application.update.use_case;
 
+import com.cashly.cashly_api.platform.auth.authorization.application.services.AccessService;
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityEvent;
 
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityNotificationRecorder;
@@ -33,13 +34,14 @@ public class UpdateProductUseCase {
     private final ProductCategoryGateway categoryRepository;
     private final ProductPriceTypeGateway priceTypeRepository;
     private final ProductMapper productMapper;
+    private final AccessService access;
 
     private final ActivityNotificationRecorder activityNotifications;
 
     public UpdateProductUseCase(ProductRepository productRepository,
             ProductCategoryGateway categoryRepository,
             ProductPriceTypeGateway priceTypeRepository,
-            ProductMapper productMapper,
+            ProductMapper productMapper, AccessService access,
             ActivityNotificationRecorder activityNotifications) {
         this.activityNotifications = activityNotifications != null
                 ? activityNotifications
@@ -48,6 +50,7 @@ public class UpdateProductUseCase {
         this.categoryRepository = categoryRepository;
         this.priceTypeRepository = priceTypeRepository;
         this.productMapper = productMapper;
+        this.access = access;
     }
 
     @Transactional
@@ -58,6 +61,11 @@ public class UpdateProductUseCase {
                 .orElseThrow(() -> new ProductNotFoundException(id));
 
         var category = categoryRepository.require(request.categoryId());
+
+        if (request.active() != null
+                && request.active() != product.isActive()) {
+            access.requireActiveToggle();
+        }
 
         product.update(request.name(), request.description(),
                 request.categoryId(), request.purchasePrice(),

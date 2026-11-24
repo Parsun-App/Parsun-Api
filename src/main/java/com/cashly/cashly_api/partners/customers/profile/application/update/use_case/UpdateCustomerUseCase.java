@@ -1,5 +1,6 @@
 package com.cashly.cashly_api.partners.customers.profile.application.update.use_case;
 
+import com.cashly.cashly_api.platform.auth.authorization.application.services.AccessService;
 import com.cashly.cashly_api.partners.customers.profile.application.ports.out.PortalPasswordEncoder;
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityEvent;
 
@@ -31,11 +32,13 @@ public class UpdateCustomerUseCase {
     private final CustomerRepository customerRepository;
     private final CustomerMapper customerMapper;
     private final PortalPasswordEncoder passwordEncoder;
+    private final AccessService access;
 
     private final ActivityNotificationRecorder activityNotifications;
 
     public UpdateCustomerUseCase(CustomerRepository customerRepository,
             CustomerMapper customerMapper, PortalPasswordEncoder passwordEncoder,
+            AccessService access,
             ActivityNotificationRecorder activityNotifications) {
         this.activityNotifications = activityNotifications != null
                 ? activityNotifications
@@ -43,12 +46,7 @@ public class UpdateCustomerUseCase {
         this.customerRepository = customerRepository;
         this.customerMapper = customerMapper;
         this.passwordEncoder = passwordEncoder;
-    }
-
-    public UpdateCustomerUseCase(CustomerRepository customerRepository,
-            CustomerMapper customerMapper,
-            ActivityNotificationRecorder activityNotifications) {
-        this(customerRepository, customerMapper, null, activityNotifications);
+        this.access = access;
     }
 
     @Transactional
@@ -74,6 +72,11 @@ public class UpdateCustomerUseCase {
         customer.updateCreditLimit(new CreditLimit(request.creditLimit()));
         customer.updateNotes(request.notes());
         customer.updatePriceTypeId(request.priceTypeId());
+
+        if (request.active() != null
+                && request.active() != customer.isActive()) {
+            access.requireActiveToggle();
+        }
 
         if (request.active()) {
             customer.activate();

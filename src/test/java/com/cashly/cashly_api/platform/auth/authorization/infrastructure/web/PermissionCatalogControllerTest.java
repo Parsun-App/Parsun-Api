@@ -103,11 +103,13 @@ class PermissionCatalogControllerTest {
                         .value("PORTAL_PROFILE"))
                 .andExpect(jsonPath("$[8].area").value("PLATFORM"))
                 .andExpect(jsonPath("$[8].submodules[0].domains.length()")
-                        .value(5))
+                        .value(6))
                 .andExpect(jsonPath("$[8].submodules[0].domains[3].module")
                         .value("COMPANY"))
                 .andExpect(jsonPath("$[8].submodules[0].domains[4].module")
-                        .value("AUDIT_TRAIL"));
+                        .value("AUDIT_TRAIL"))
+                .andExpect(jsonPath("$[8].submodules[0].domains[5].module")
+                        .value("SYSTEM"));
     }
 
     @Test

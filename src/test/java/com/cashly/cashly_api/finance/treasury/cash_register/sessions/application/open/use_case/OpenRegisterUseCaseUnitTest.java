@@ -36,21 +36,18 @@ class OpenRegisterUseCaseUnitTest {
     }
 
     @Test
-    void should_OpenRegisterWithOpeningBalance_When_NoRegisterIsOpen() {
+    void should_OpenRegister_When_NoRegisterIsOpen() {
         when(closureRepository.findActiveClosure())
                 .thenReturn(Optional.empty());
         when(closureRepository.save(any(CashRegister.class)))
                 .thenAnswer(invocation -> invocation.getArgument(0));
 
-        var response = useCase.execute(userId, userName,
-                new BigDecimal("125.50"));
+        var response = useCase.execute(userId, userName);
 
         assertNotNull(response);
         assertEquals(userId, response.openedBy());
         assertEquals(userName, response.openedByName());
         assertEquals(LocalDate.now(), response.closureDate());
-        assertEquals(new BigDecimal("125.50"), response.openingBalance());
-        assertEquals(new BigDecimal("125.50"), response.expectedBalance());
         verify(closureRepository).findActiveClosure();
         verify(closureRepository).save(any(CashRegister.class));
     }
@@ -62,7 +59,7 @@ class OpenRegisterUseCaseUnitTest {
 
         IllegalStateException exception = assertThrows(
                 IllegalStateException.class,
-                () -> useCase.execute(userId, userName, BigDecimal.ZERO));
+                () -> useCase.execute(userId, userName));
 
         assertTrue(exception.getMessage().contains("already open"));
         verify(closureRepository, never()).save(any());
@@ -75,7 +72,7 @@ class OpenRegisterUseCaseUnitTest {
         when(closureRepository.save(any(CashRegister.class)))
                 .thenAnswer(invocation -> invocation.getArgument(0));
 
-        var response = useCase.execute(userId, userName, BigDecimal.ZERO);
+        var response = useCase.execute(userId, userName);
 
         assertEquals("OPEN", response.status().name());
         verify(closureRepository, never()).findByClosureDate(any());

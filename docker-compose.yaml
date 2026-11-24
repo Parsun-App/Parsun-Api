@@ -49,6 +49,7 @@ services:
         condition: service_healthy
     networks:
       - cashly-network
+      - parsun-network
 
   # ════════════════════════════════════════════════════════════
   # PRODUCTION: Optimized JAR build (multi-stage)
@@ -97,6 +98,7 @@ services:
         condition: service_completed_successfully
     networks:
       - cashly-network
+      - parsun-network
 
   mysql:
     image: 'mysql:8.0'
@@ -245,3 +247,6 @@ volumes:
 networks:
   cashly-network:
     driver: bridge
+  parsun-network:
+    external: true
+    name: parsun-api_parsun-network

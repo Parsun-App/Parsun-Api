@@ -8,13 +8,11 @@ The cash register is a session-based ledger. A session starts only when an autho
 
 ## Accounting model
 
-Each session stores an opening balance and immutable movements. Its balances are calculated as:
+Each session stores immutable movements. Its balances are calculated as:
 
-`expected balance = opening balance + income - expense`
+`difference = declared balance - (income - expense)`
 
-Closing requires the physically declared balance. The recorded difference is:
-
-`difference = declared balance - expected balance`
+Closing requires the physically declared balance.
 
 Movements carry their direction, concept, amount, payment method snapshot, source operation, operator, and timestamp. The ledger separates monetary concepts from commercial concepts:
 
@@ -63,7 +61,7 @@ Commercial concepts calculate net billing without changing the expected physical
 | Method | Endpoint | Purpose |
 |---|---|---|
 | `GET` | `/api/cash-register/active` | Returns the open session or `404` without creating one |
-| `POST` | `/api/cash-register/open` | Opens a session with `openedByName` and `openingBalance` |
+| `POST` | `/api/cash-register/open` | Opens a session with `openedByName` |
 | `POST` | `/api/cash-register/{id}/close` | Closes with `closedByName`, `declaredBalance`, and notes |
 | `POST` | `/api/cash-register/{id}/movements` | Records a manual monetary movement; expenses may target an open or closed session and accept an optional `occurredAt` |
 | `POST` | `/api/cash-register/movements/{movementId}/cancel` | Cancels a manual expense belonging to a closed session with a mandatory `reason` |
@@ -90,7 +88,7 @@ The unique `(source_type, source_id)` index prevents the same source operation f
 
 ## Reports
 
-Simple PDF and Excel reports contain session identity, opening/closing timestamps, net billing, opening balance, income, expense, expected balance, declared balance, and difference. Detailed reports additionally list every monetary and commercial movement with payment method, description, source, operator, and timestamp.
+Simple PDF and Excel reports contain session identity, opening/closing timestamps, net billing, income, expense, declared balance, and difference. Detailed reports additionally list every monetary and commercial movement with payment method, description, source, operator, and timestamp.
 
 The finance menu date-range report supports:
 

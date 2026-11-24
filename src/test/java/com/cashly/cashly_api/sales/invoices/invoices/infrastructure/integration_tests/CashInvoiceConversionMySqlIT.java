@@ -175,7 +175,7 @@ class CashInvoiceConversionMySqlIT {
                 "insert into customer_balances(id,customer_id,total_balance) values(UUID_TO_BIN(?),UUID_TO_BIN(?),100)",
                 UUID.randomUUID().toString(), f.customer().toString());
         jdbc.update(
-                "insert into cash_registers(id,closure_date,status,opened_by,opened_by_name,opened_at,opening_balance,created_at,updated_at) values(UUID_TO_BIN(?),CURRENT_DATE,'OPEN',UUID_TO_BIN(?),'Cash IT',NOW(),0,NOW(),NOW())",
+                "insert into cash_registers(id,closure_date,status,opened_by,opened_by_name,opened_at,created_at,updated_at) values(UUID_TO_BIN(?),CURRENT_DATE,'OPEN',UUID_TO_BIN(?),'Cash IT',NOW(),NOW(),NOW())",
                 f.register().toString(), f.actor().toString());
         jdbc.update(
                 "insert into quotes(id,quote_number,customer_id,customer_name,customer_rif,status,subtotal,created_at,updated_at) values(UUID_TO_BIN(?),'PRE-2099-9999',UUID_TO_BIN(?),'Cash customer','RIF','DRAFT',100,NOW(),NOW())",

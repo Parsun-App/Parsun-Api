@@ -5,6 +5,7 @@ import com.cashly.cashly_api.inventory.warehouses.reporting.infrastructure.persi
 
 import com.cashly.cashly_api.shared.infrastructure.pagination.PageResponseMapper;
 
+import com.cashly.cashly_api.inventory.warehouses.reporting.application.dto.query.model.CatalogPdfQuery;
 import com.cashly.cashly_api.inventory.warehouses.reporting.application.dto.response.CatalogReportResponse;
 import com.cashly.cashly_api.inventory.warehouses.reporting.application.ports.out.CatalogReportRepositoryPort;
 import com.cashly.cashly_api.inventory.warehouses.reporting.application.dto.query.model.CatalogReportQuery;
@@ -12,6 +13,7 @@ import com.cashly.cashly_api.shared.dto.PageResponse;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
+import java.util.List;
 import java.util.UUID;
 
 public class CatalogReportRepositoryAdapter
@@ -40,6 +42,20 @@ public class CatalogReportRepositoryAdapter
                         query.composite(), query.withStock(), pageable);
         Page<CatalogReportResponse> mapped = page.map(this::toResponse);
         return PageResponseMapper.from(mapped);
+    }
+
+    @Override
+    public List<CatalogReportResponse> findAllForExcel(CatalogPdfQuery query) {
+        return catalogReportJpaRepository.findAllForExcel(
+                        query.search(),
+                        query.categoryId() != null
+                                ? query.categoryId().toString()
+                                : null,
+                        query.warehouseId() != null
+                                ? query.warehouseId().toString()
+                                : null,
+                        query.composite(), query.withStock())
+                .stream().map(this::toResponse).toList();
     }
 
     private CatalogReportResponse toResponse(CatalogReportProjection p) {

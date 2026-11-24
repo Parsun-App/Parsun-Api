@@ -17,8 +17,8 @@ public record CashRegisterResponse(UUID id, LocalDate closureDate,
         List<CashRegisterDetailResponse> details, BigDecimal totalInvoiced,
         BigDecimal totalRevenue, BigDecimal totalExpenses, BigDecimal balance,
         List<RevenueSummaryItem> revenueSummary,
-        List<ExpenseSummaryItem> expenseSummary, BigDecimal openingBalance,
+        List<ExpenseSummaryItem> expenseSummary,
         BigDecimal totalIncome, BigDecimal totalExpense,
-        BigDecimal expectedBalance, BigDecimal declaredBalance,
-        BigDecimal difference, List<CashMovementResponse> movements) {
+        BigDecimal declaredBalance, BigDecimal difference,
+        List<CashMovementResponse> movements) {
 }

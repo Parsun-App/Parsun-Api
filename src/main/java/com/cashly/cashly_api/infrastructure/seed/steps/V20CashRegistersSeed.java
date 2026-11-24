@@ -24,47 +24,46 @@ public class V20CashRegistersSeed implements SeedStep {
     }
 
     private record Session(String key, LocalDate date, String status,
-            UUID openedBy, String openedByName, String openingBalance,
-            String closingNotes, String difference, int closeHour,
-            int closeMinute) {
+            UUID openedBy, String openedByName, String closingNotes,
+            String difference, int closeHour, int closeMinute) {
     }
 
     private static final List<Session> SESSIONS = List.of(
             new Session("month-2025-12", LocalDate.of(2025, 12, 31), "CLOSED",
-                    ADMIN_USER, ADMIN_NAME, "100.00",
+                    ADMIN_USER, ADMIN_NAME,
                     "Cierre de diciembre 2025", "0.00", 17, 0),
             new Session("month-2026-01", LocalDate.of(2026, 1, 31), "CLOSED",
-                    OPERATOR_USER, OPERATOR_NAME, "120.00",
+                    OPERATOR_USER, OPERATOR_NAME,
                     "Cierre de enero 2026", "-0.50", 17, 15),
             new Session("month-2026-02", LocalDate.of(2026, 2, 28), "CLOSED",
-                    ADMIN_USER, ADMIN_NAME, "80.00",
+                    ADMIN_USER, ADMIN_NAME,
                     "Cierre de febrero 2026", "0.25", 17, 0),
             new Session("month-2026-03", LocalDate.of(2026, 3, 31), "CLOSED",
-                    OPERATOR_USER, OPERATOR_NAME, "150.00",
+                    OPERATOR_USER, OPERATOR_NAME,
                     "Cierre de marzo 2026", "0.00", 17, 30),
             new Session("month-2026-04", LocalDate.of(2026, 4, 30), "CLOSED",
-                    ADMIN_USER, ADMIN_NAME, "90.00",
+                    ADMIN_USER, ADMIN_NAME,
                     "Cierre de abril 2026", "-1.00", 17, 0),
             new Session("month-2026-05", LocalDate.of(2026, 5, 31), "CLOSED",
-                    OPERATOR_USER, OPERATOR_NAME, "200.00",
+                    OPERATOR_USER, OPERATOR_NAME,
                     "Cierre de mayo 2026", "0.00", 17, 10),
             new Session("month-2026-06", LocalDate.of(2026, 6, 30), "CLOSED",
-                    ADMIN_USER, ADMIN_NAME, "100.00",
+                    ADMIN_USER, ADMIN_NAME,
                     "Cierre de junio 2026", "0.00", 18, 0),
             new Session("month-2026-07", LocalDate.of(2026, 7, 31), "CLOSED",
-                    OPERATOR_USER, OPERATOR_NAME, "70.00",
+                    OPERATOR_USER, OPERATOR_NAME,
                     "Cierre de julio 2026", "0.30", 17, 0),
             new Session("month-2026-08", LocalDate.of(2026, 8, 31), "CLOSED",
-                    ADMIN_USER, ADMIN_NAME, "160.00",
+                    ADMIN_USER, ADMIN_NAME,
                     "Cierre de agosto 2026", "-0.50", 17, 0),
             new Session("month-2026-09", LocalDate.of(2026, 9, 30), "CLOSED",
-                    OPERATOR_USER, OPERATOR_NAME, "110.00",
+                    OPERATOR_USER, OPERATOR_NAME,
                     "Cierre de septiembre 2026", "0.00", 17, 15),
             new Session("month-2026-10", LocalDate.of(2026, 10, 31), "CLOSED",
-                    ADMIN_USER, ADMIN_NAME, "180.00",
+                    ADMIN_USER, ADMIN_NAME,
                     "Cierre de octubre 2026", "0.00", 17, 0),
             new Session("open", LocalDate.of(2026, 11, 1), "OPEN",
-                    ADMIN_USER, ADMIN_NAME, "150.00", null, null, 0, 0));
+                    ADMIN_USER, ADMIN_NAME, null, null, 0, 0));
 
     @Override
     public int version() {
@@ -84,7 +83,6 @@ public class V20CashRegistersSeed implements SeedStep {
             return;
         }
         boolean closed = "CLOSED".equals(session.status());
-        var opening = new BigDecimal(session.openingBalance());
         var register = new CashRegisterJpaEntity();
         register.setId(registerId);
         register.setClosureDate(session.date());
@@ -92,7 +90,6 @@ public class V20CashRegistersSeed implements SeedStep {
         register.setOpenedBy(session.openedBy());
         register.setOpenedByName(session.openedByName());
         register.setOpenedAt(session.date().atTime(8, 0));
-        register.setOpeningBalance(opening);
         register.setTotalPayments(BigDecimal.ZERO);
         register.setTotalAdvances(BigDecimal.ZERO);
         register.setTotalReturns(BigDecimal.ZERO);
@@ -103,7 +100,6 @@ public class V20CashRegistersSeed implements SeedStep {
         register.setAdvanceCount(0);
         register.setReturnCount(0);
         register.setInvoiceCount(0);
-        register.setExpectedClosingBalance(opening);
         register.setTotalIncome(BigDecimal.ZERO);
         register.setTotalExpense(BigDecimal.ZERO);
         register.setCreatedAt(session.date().atTime(8, 0));
@@ -116,8 +112,7 @@ public class V20CashRegistersSeed implements SeedStep {
                             session.closeMinute()));
             register.setClosingNotes(session.closingNotes());
             register.setDifference(targetDifference);
-            register.setActualClosingBalance(
-                    opening.add(targetDifference));
+            register.setActualClosingBalance(targetDifference);
             register.setUpdatedAt(
                     session.date().atTime(session.closeHour(),
                             session.closeMinute()));

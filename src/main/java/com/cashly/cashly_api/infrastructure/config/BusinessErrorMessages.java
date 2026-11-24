@@ -243,8 +243,6 @@ final class BusinessErrorMessages {
                     "sales.invoices.errors.returnQuantityMustBePositive"),
             Map.entry("Opened by name must not be blank",
                     "finance.treasury.cash_register.sessions.errors.openedByNameMustNotBeBlank"),
-            Map.entry("Opening balance must not be negative",
-                    "finance.treasury.cash_register.sessions.errors.openingBalanceMustNotBeNegative"),
             Map.entry("Amounts must not be negative",
                     "finance.treasury.cash_register.sessions.errors.amountsMustNotBeNegative"),
             Map.entry("Movement totals must not be negative",

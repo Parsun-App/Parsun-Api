@@ -244,8 +244,8 @@ class ReturnsFinancialRollbackMySqlIT {
         jdbc.update(
                 """
                         INSERT INTO cash_registers (id, closure_date, status, opened_by, opened_by_name, opened_at,
-                            opening_balance, created_at, updated_at)
-                        VALUES (UUID_TO_BIN(?), ?, 'OPEN', UUID_TO_BIN(?), ?, ?, 0.00, ?, ?)
+                            created_at, updated_at)
+                        VALUES (UUID_TO_BIN(?), ?, 'OPEN', UUID_TO_BIN(?), ?, ?, ?, ?)
                         """,
                 fixture.registerId().toString(), LocalDate.now(),
                 fixture.actorId().toString(), "Rollback Operator", now, now,

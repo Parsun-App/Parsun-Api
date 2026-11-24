@@ -291,7 +291,7 @@ public class V30AuditSeed implements SeedStep {
         action("register-closed-open", "finance",
                 AuditEntityType.CASH_REGISTER, id("cash-register.month-2026-10"),
                 "Cash register 2026-10-31", AuditAction.OPEN, ADMIN_USER,
-                ADMIN, Map.of("openingBalance", "100.00"));
+                ADMIN, Map.of());
         action("register-closed-close", "finance",
                 AuditEntityType.CASH_REGISTER, id("cash-register.month-2026-10"),
                 "Cash register 2026-10-31", AuditAction.CLOSE, ADMIN_USER,
@@ -300,7 +300,7 @@ public class V30AuditSeed implements SeedStep {
         action("register-open", "finance", AuditEntityType.CASH_REGISTER,
                 id("cash-register.open"), "Cash register 2026-11-01",
                 AuditAction.OPEN, ADMIN_USER, ADMIN,
-                Map.of("openingBalance", "100.00"));
+                Map.of());
         action("cash-movement-one", "finance",
                 AuditEntityType.CASH_MOVEMENT, id("cash-movement.month-2026-01.payment-cash"),
                 "Cash movement PAY-2026-0001", AuditAction.RECORD_MOVEMENT,

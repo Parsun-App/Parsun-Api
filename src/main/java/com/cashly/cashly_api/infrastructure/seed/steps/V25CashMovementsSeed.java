@@ -369,8 +369,7 @@ public class V25CashMovementsSeed implements SeedStep {
 
         BigDecimal income = payments.add(advances).add(otherIncome);
         BigDecimal expense = refunds.add(otherExpense);
-        BigDecimal expected = register.getOpeningBalance().add(income)
-                .subtract(expense);
+        BigDecimal expected = income.subtract(expense);
         boolean closed = "CLOSED".equals(register.getStatus());
         BigDecimal targetDifference = closed ? register.getDifference() : null;
 
@@ -386,7 +385,6 @@ public class V25CashMovementsSeed implements SeedStep {
         register.setInvoiceCount(invoiceCount);
         register.setTotalIncome(income);
         register.setTotalExpense(expense);
-        register.setExpectedClosingBalance(expected);
 
         register.getDetails().clear();
         entityManager.flush();

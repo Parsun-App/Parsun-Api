@@ -71,24 +71,18 @@ public class CashRegisterSessionReportGenerator
             addMoneyRow(summary.createRow(4), ReportMessages.text(
                     "finance.treasury.cash_register.reports.netInvoicing"),
                     register.totalInvoiced());
-            addMoneyRow(summary.createRow(5), ReportMessages.text(
-                    "finance.treasury.cash_register.reports.openingBalance"),
-                    register.openingBalance());
-            addMoneyRow(summary.createRow(6),
+            addMoneyRow(summary.createRow(5),
                     ReportMessages.text(
                             "finance.treasury.cash_register.reports.inflows"),
                     register.totalIncome());
-            addMoneyRow(summary.createRow(7),
+            addMoneyRow(summary.createRow(6),
                     ReportMessages.text(
                             "finance.treasury.cash_register.reports.outflows"),
                     register.totalExpense());
-            addMoneyRow(summary.createRow(8), ReportMessages.text(
-                    "finance.treasury.cash_register.reports.expectedBalance"),
-                    register.expectedBalance());
-            addMoneyRow(summary.createRow(9), ReportMessages.text(
+            addMoneyRow(summary.createRow(7), ReportMessages.text(
                     "finance.treasury.cash_register.reports.declaredBalance"),
                     register.declaredBalance());
-            addMoneyRow(summary.createRow(10), ReportMessages
+            addMoneyRow(summary.createRow(8), ReportMessages
                     .text("finance.treasury.cash_register.reports.difference"),
                     register.difference());
             summary.autoSizeColumn(0);
@@ -131,9 +125,6 @@ public class CashRegisterSessionReportGenerator
             addPdfSummary(summary, ReportMessages.text(
                     "finance.treasury.cash_register.reports.netInvoicing"),
                     register.totalInvoiced());
-            addPdfSummary(summary, ReportMessages.text(
-                    "finance.treasury.cash_register.reports.openingBalance"),
-                    register.openingBalance());
             addPdfSummary(summary,
                     ReportMessages.text(
                             "finance.treasury.cash_register.reports.inflows"),
@@ -142,9 +133,6 @@ public class CashRegisterSessionReportGenerator
                     ReportMessages.text(
                             "finance.treasury.cash_register.reports.outflows"),
                     register.totalExpense());
-            addPdfSummary(summary, ReportMessages.text(
-                    "finance.treasury.cash_register.reports.expectedBalance"),
-                    register.expectedBalance());
             addPdfSummary(summary, ReportMessages.text(
                     "finance.treasury.cash_register.reports.declaredBalance"),
                     register.declaredBalance());

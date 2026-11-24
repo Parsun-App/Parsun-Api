@@ -57,8 +57,10 @@ public class SupplierConfig {
     public UpdateSupplierUseCase updateSupplierUseCase(
             SupplierRepository supplierRepository,
             SupplierMapper supplierMapper,
+            com.cashly.cashly_api.platform.auth.authorization.application.services.AccessService access,
             ActivityNotificationRecorder activityNotifications) {
-        return new UpdateSupplierUseCase(supplierRepository, supplierMapper, activityNotifications);
+        return new UpdateSupplierUseCase(supplierRepository, supplierMapper,
+                access, activityNotifications);
     }
 
     @Bean

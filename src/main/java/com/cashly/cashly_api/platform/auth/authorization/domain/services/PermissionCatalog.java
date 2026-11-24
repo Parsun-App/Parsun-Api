@@ -135,7 +135,8 @@ public final class PermissionCatalog {
                                 domain(PermissionModule.ROLES, 20),
                                 domain(PermissionModule.DEPARTMENTS, 30),
                                 domain(PermissionModule.COMPANY, 40),
-                                domain(PermissionModule.AUDIT_TRAIL, 50))));
+                                domain(PermissionModule.AUDIT_TRAIL, 50),
+                                domain(PermissionModule.SYSTEM, 60))));
         validate(areas);
         return ordered(areas);
     }
@@ -176,6 +177,7 @@ public final class PermissionCatalog {
         orders.put(PermissionAction.EDIT, 30);
         orders.put(PermissionAction.DELETE, 40);
         orders.put(PermissionAction.CREATE, 50);
+        orders.put(PermissionAction.TOGGLE_ACTIVE, 55);
         orders.put(PermissionAction.REPORT_PDF, 60);
         orders.put(PermissionAction.DOWNLOAD_PDF, 70);
         orders.put(PermissionAction.COMMERCIAL_CATALOG_PDF, 80);

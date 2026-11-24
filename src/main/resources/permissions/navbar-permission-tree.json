@@ -1167,6 +1167,17 @@
                   "descriptionKey": "platform.auth.permissions.audit_trail.view_list.description"
                 }
               ]
+            },
+            {
+              "module": "SYSTEM",
+              "labelKey": "platform.auth.domains.system",
+              "permissions": [
+                {
+                  "code": "SYSTEM_TOGGLE_ACTIVE",
+                  "labelKey": "platform.auth.permissions.system.toggle_active",
+                  "descriptionKey": "platform.auth.permissions.system.toggle_active.description"
+                }
+              ]
             }
           ]
         }
