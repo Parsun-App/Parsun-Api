@@ -60,7 +60,7 @@ class GetActiveRegisterUseCaseTest {
                 RegisterStatus.OPEN, userId, "Test User", LocalDateTime.now(),
                 null, null, null, BigDecimal.ZERO, BigDecimal.ZERO,
                 BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO,
-                BigDecimal.ZERO, 0, 0, 0, 0, BigDecimal.ZERO, null, null, null,
+                BigDecimal.ZERO, 0, 0, 0, 0, null, null, null,
                 0, LocalDateTime.now(), LocalDateTime.now(), List.of());
     }
 
@@ -72,7 +72,7 @@ class GetActiveRegisterUseCaseTest {
                 LocalDateTime.now().minusDays(2), null, null, null,
                 BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO,
                 BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO, 0, 0, 0, 0,
-                BigDecimal.ZERO, null, null, null, 0,
+                null, null, null, 0,
                 LocalDateTime.now().minusDays(2), LocalDateTime.now(),
                 List.of());
         when(closureRepository.findActiveClosure())

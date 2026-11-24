@@ -95,6 +95,7 @@ class ListPriceTypesUseCaseTest {
                 eq(10), eq("createdAt"), eq("desc")))
                 .thenReturn(pageOf(List.of()));
         when(usageGateway.findIdsInUseByProducts(any())).thenReturn(Set.of());
+        when(usageGateway.findIdsInUseByCustomers(any())).thenReturn(Set.of());
 
         useCase.execute(null, null, 0, 10, "createdAt", "desc");
 
@@ -109,6 +110,7 @@ class ListPriceTypesUseCaseTest {
                 eq(5), eq("name"), eq("asc")))
                 .thenReturn(pageOf(List.of(priceType1)));
         when(usageGateway.findIdsInUseByProducts(any())).thenReturn(Set.of());
+        when(usageGateway.findIdsInUseByCustomers(any())).thenReturn(Set.of());
 
         useCase.execute("Mayo", true, 1, 5, "name", "asc");
 
@@ -122,10 +124,12 @@ class ListPriceTypesUseCaseTest {
                 "asc")).thenReturn(pageOf(List.of(priceType1, priceType2)));
         when(usageGateway.findIdsInUseByProducts(ids))
                 .thenReturn(Set.of(priceType1.getId()));
+        when(usageGateway.findIdsInUseByCustomers(ids)).thenReturn(Set.of());
         var result = useCase.execute(null, null, 0, 10, "name", "asc");
         assertFalse(result.content().get(0).deletable());
         assertTrue(result.content().get(1).deletable());
         verify(usageGateway).findIdsInUseByProducts(ids);
+        verify(usageGateway).findIdsInUseByCustomers(ids);
         verifyNoMoreInteractions(usageGateway);
     }
 }

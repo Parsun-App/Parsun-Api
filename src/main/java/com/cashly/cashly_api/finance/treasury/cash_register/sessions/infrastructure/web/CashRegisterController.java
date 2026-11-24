@@ -63,7 +63,7 @@ public class CashRegisterController {
             Authentication authentication) {
         UUID userId = UUID.fromString((String) authentication.getPrincipal());
         CashRegisterResponse response = openRegisterUseCase.execute(userId,
-                request.openedByName(), request.openingBalance());
+                request.openedByName());
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 

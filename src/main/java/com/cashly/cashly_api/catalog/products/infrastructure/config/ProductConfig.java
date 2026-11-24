@@ -44,9 +44,10 @@ public class ProductConfig {
             ProductRepository productRepository,
             ProductCategoryGateway categoryRepository,
             ProductPriceTypeGateway priceTypeRepository,
-            ProductMapper productMapper) {
+            ProductMapper productMapper,
+            com.cashly.cashly_api.catalog.products.application.ports.out.ProductReferenceGateway references) {
         return new GetProductUseCase(productRepository, categoryRepository,
-                priceTypeRepository, productMapper);
+                priceTypeRepository, productMapper, references);
     }
 
     @Bean
@@ -64,9 +65,11 @@ public class ProductConfig {
             ProductCategoryGateway categoryRepository,
             ProductPriceTypeGateway priceTypeRepository,
             ProductMapper productMapper,
+            com.cashly.cashly_api.shared.application.ports.in.ActiveTogglePermission access,
             ActivityNotificationRecorder activityNotifications) {
         return new UpdateProductUseCase(productRepository, categoryRepository,
-                priceTypeRepository, productMapper, activityNotifications);
+                priceTypeRepository, productMapper, access,
+                activityNotifications);
     }
 
     @Bean

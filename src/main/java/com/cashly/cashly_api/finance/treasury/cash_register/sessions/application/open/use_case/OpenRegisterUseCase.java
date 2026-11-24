@@ -11,7 +11,6 @@ import com.cashly.cashly_api.finance.treasury.cash_register.sessions.domain.repo
 import com.cashly.cashly_api.finance.treasury.cash_register.sessions.domain.valueobjects.RegisterId;
 
 import java.time.LocalDate;
-import java.math.BigDecimal;
 import java.util.UUID;
 import com.cashly.cashly_api.platform.audit.application.ports.in.Audited;
 
@@ -30,8 +29,7 @@ public class OpenRegisterUseCase {
     }
 
     @Audited(module = "finance", entityType = "CASH_REGISTER", action = "OPEN")
-    public CashRegisterResponse execute(UUID openedBy, String openedByName,
-            BigDecimal openingBalance) {
+    public CashRegisterResponse execute(UUID openedBy, String openedByName) {
         LocalDate today = LocalDate.now();
 
         if (closureRepository.findActiveClosure().isPresent()) {
@@ -39,7 +37,7 @@ public class OpenRegisterUseCase {
         }
 
         CashRegister closure = CashRegister.open(RegisterId.generate(), today,
-                openedBy, openedByName, openingBalance);
+                openedBy, openedByName);
         CashRegister saved = closureRepository.save(closure);
         activityNotifications.record(ActivityEvent.of("FINANCE_TREASURY_CASH_REGISTER",
                 "OPEN", "CASH_REGISTER", saved.getId().value(),

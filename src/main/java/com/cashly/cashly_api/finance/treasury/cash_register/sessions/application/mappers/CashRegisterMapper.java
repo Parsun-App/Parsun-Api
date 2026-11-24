@@ -64,8 +64,8 @@ public final class CashRegisterMapper {
                 closure.getClosedByName(), closure.getClosedAt(),
                 closure.getClosingNotes(), details, totalInvoiced, totalRevenue,
                 totalExpenses, balance, revenueSummary, expenseSummary,
-                closure.getOpeningBalance(), closure.getTotalIncome(),
-                closure.getTotalExpense(), closure.getExpectedClosingBalance(),
+                closure.getTotalIncome(),
+                closure.getTotalExpense(),
                 closure.getActualClosingBalance(), closure.getDifference(),
                 movements.stream().map(CashRegisterMapper::toMovementResponse)
                         .toList());

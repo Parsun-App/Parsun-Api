@@ -162,7 +162,7 @@ public class PurchaseRepositoryAdapter implements PurchaseRepository {
 
     @Override
     public boolean existsBySupplierId(UUID supplierId) {
-        return jpaRepository.existsBySupplierId(supplierId);
+        return jpaRepository.existsBySupplierId(supplierId) > 0;
     }
 
     @Override

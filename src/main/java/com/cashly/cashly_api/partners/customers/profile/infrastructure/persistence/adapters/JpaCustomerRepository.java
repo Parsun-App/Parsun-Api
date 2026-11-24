@@ -63,6 +63,13 @@ public class JpaCustomerRepository implements CustomerRepository {
     }
 
     @Override
+    public Optional<Customer> findActivePortalCustomerByRif(Rif rif) {
+        return springDataRepository
+                .findActivePortalCustomerByRif(rif.getValue())
+                .map(CustomerEntity::toDomain);
+    }
+
+    @Override
     public boolean existsByRif(Rif rif) {
         return springDataRepository.existsByRif(rif.getValue());
     }
@@ -81,9 +88,10 @@ public class JpaCustomerRepository implements CustomerRepository {
 
     @Override
     public PageResponse<Customer> findAllWithFilters(String search, String rif,
-            String type, Boolean active, String state, String municipality,
-            String postalCode, Boolean hasActiveWarehouse, int page, int size,
-            String orderBy, String orderDir) {
+            String type, Boolean active, Boolean portalAccess, String state,
+            String municipality, String postalCode,
+            Boolean hasActiveWarehouse, int page, int size, String orderBy,
+            String orderDir) {
         String field = ALLOWED_ORDER_BY.contains(orderBy)
                 ? orderBy
                 : "legalName";
@@ -93,8 +101,8 @@ public class JpaCustomerRepository implements CustomerRepository {
         PageRequest pageable = PageRequest.of(page, size, sort);
 
         Page<CustomerEntity> result = springDataRepository.findAllWithFilters(
-                search, rif, type, active, state, municipality, postalCode,
-                hasActiveWarehouse, pageable);
+                search, rif, type, active, portalAccess, state, municipality,
+                postalCode, hasActiveWarehouse, pageable);
 
         Page<Customer> mapped = result.map(CustomerEntity::toDomain);
         return PageResponseMapper.from(mapped);
@@ -126,6 +134,12 @@ public class JpaCustomerRepository implements CustomerRepository {
     @Override
     public boolean isActive(CustomerId id) {
         return springDataRepository.isActiveById(id.getValue()).orElse(false);
+    }
+
+    @Override
+    public boolean isActivePortalAccess(CustomerId id) {
+        return springDataRepository.isActivePortalAccessById(id.getValue())
+                .orElse(false);
     }
 
     @Override

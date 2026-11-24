@@ -54,13 +54,25 @@ Message keys live in `modules/platform/notifications/i18n/messages_{es,en}.prope
 
 Reference labels use `ActivityActionPolicy` keys and `ActivityEntityCatalog` nouns (quote, invoice, payment, etc.).
 
+## Customer channel
+
+The portal consumes its own customer-scoped notifications:
+
+- `notifications.customer_id` stores the recipient customer.
+- Customer notifications are delivered over `/topic/notifications/customer/{customerId}`.
+- `GET /api/portal/notifications` and `/unread-count` expose the customer inbox.
+- Business events notify customers through `CustomerNotificationRecorder`
+  (payment approved/rejected, quote/order conversion, invoice lifecycle).
+- Portal-originated quote/order/payment creations notify back-office users through
+  `NotificationRecipientGateway`.
+
 ## Rules
 
 - No notification is sent to the actor.
 - No notification is sent for read-only actions.
 - One business action produces one activity per recipient.
 - Internal services called by other modules do not emit activity; only the entry use case does.
-- The customer portal was removed: there is no `customer_id`, customer topic, or customer-specific notification API.
+- Customer notifications use `customer_id`/customer topic and never use user preferences.
 
 ## Code map
 

@@ -56,7 +56,7 @@ public class V17ReturnsSeed implements SeedStep {
         returned.setReason("Seed quality return");
         returned.setTotal(total);
         returned.setCreatedBy(ADMIN_USER);
-        returned.setCreatedByName("Cashly Administrator");
+        returned.setCreatedByName("Parsun Administrator");
         returned.setCreatedAt(CREATED_AT);
         returned.setUpdatedAt(CREATED_AT);
         var line = new ReturnLineEntity();

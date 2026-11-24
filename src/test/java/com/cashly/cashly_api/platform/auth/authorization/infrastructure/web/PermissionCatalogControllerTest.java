@@ -57,7 +57,7 @@ class PermissionCatalogControllerTest {
         mvc.perform(get(CATALOG).with(user("reader")
                 .authorities(new SimpleGrantedAuthority("ROLES_VIEW_LIST"))))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.length()").value(8))
+                .andExpect(jsonPath("$.length()").value(9))
                 .andExpect(jsonPath("$[0].area").value("SALES"))
                 .andExpect(jsonPath("$[0].sortOrder").value(10))
                 .andExpect(jsonPath("$[0].labelKey")
@@ -94,13 +94,22 @@ class PermissionCatalogControllerTest {
                         .value("FINANCE_TREASURY_RECEIVABLES"))
                 .andExpect(jsonPath("$[5].area").value("CONTACTS"))
                 .andExpect(jsonPath("$[6].area").value("ANALYTICS"))
-                .andExpect(jsonPath("$[7].area").value("PLATFORM"))
+                .andExpect(jsonPath("$[7].area").value("PORTAL"))
                 .andExpect(jsonPath("$[7].submodules[0].domains.length()")
-                        .value(5))
-                .andExpect(jsonPath("$[7].submodules[0].domains[3].module")
+                        .value(7))
+                .andExpect(jsonPath("$[7].submodules[0].domains[0].module")
+                        .value("PORTAL_DASHBOARD"))
+                .andExpect(jsonPath("$[7].submodules[0].domains[6].module")
+                        .value("PORTAL_PROFILE"))
+                .andExpect(jsonPath("$[8].area").value("PLATFORM"))
+                .andExpect(jsonPath("$[8].submodules[0].domains.length()")
+                        .value(6))
+                .andExpect(jsonPath("$[8].submodules[0].domains[3].module")
                         .value("COMPANY"))
-                .andExpect(jsonPath("$[7].submodules[0].domains[4].module")
-                        .value("AUDIT_TRAIL"));
+                .andExpect(jsonPath("$[8].submodules[0].domains[4].module")
+                        .value("AUDIT_TRAIL"))
+                .andExpect(jsonPath("$[8].submodules[0].domains[5].module")
+                        .value("SYSTEM"));
     }
 
     @Test

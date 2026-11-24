@@ -1,6 +1,7 @@
 package com.cashly.cashly_api.platform.notifications.infrastructure.config;
 
 import com.cashly.cashly_api.platform.auth.authorization.application.services.AccessService;
+import com.cashly.cashly_api.platform.auth.authentication.domain.valueobjects.AuthenticableType;
 import com.cashly.cashly_api.platform.auth.token.domain.services.TokenService;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageChannel;
@@ -10,12 +11,17 @@ import org.springframework.messaging.simp.stomp.StompCommand;
 import org.springframework.messaging.simp.stomp.StompHeaderAccessor;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import java.util.List;
 import java.util.UUID;
 
 /** Notifications are self-service; STOMP never grants business-operation privileges. */
 public class NotificationChannelInterceptor implements ChannelInterceptor {
+    private static final String USER_TOPIC = "/topic/notifications/user/";
+    private static final String CUSTOMER_TOPIC = "/topic/notifications/customer/";
+
     private final TokenService tokens;
     private final AccessService access;
 
@@ -48,21 +54,41 @@ public class NotificationChannelInterceptor implements ChannelInterceptor {
                 throw new AccessDeniedException("Invalid token");
             }
             String subject = tokens.extractSubjectId(token);
-            access.resolve(UUID.fromString(subject));
-            headers.setUser(new UsernamePasswordAuthenticationToken(subject,
-                    null, List.of()));
+            AuthenticableType subjectType = tokens.extractSubjectType(token);
+            if (subjectType == AuthenticableType.CUSTOMER) {
+                headers.setUser(new UsernamePasswordAuthenticationToken(
+                        subject, null, List.of(new SimpleGrantedAuthority(
+                                "ROLE_PORTAL_CUSTOMER"))));
+            } else {
+                access.resolve(UUID.fromString(subject));
+                headers.setUser(new UsernamePasswordAuthenticationToken(subject,
+                        null, List.of()));
+            }
             return message;
         }
         if (headers.getUser() == null) {
             throw new AccessDeniedException("Authentication required");
         }
         String subject = headers.getUser().getName();
-        access.resolve(UUID.fromString(subject));
-        if (command == StompCommand.SUBSCRIBE
-                && !String.format("/topic/notifications/user/%s", subject)
-                        .equals(headers.getDestination())) {
-            throw new AccessDeniedException(
-                    "Only your own notifications can be subscribed");
+        boolean customer = headers.getUser() instanceof Authentication authentication
+                && authentication.getAuthorities().stream()
+                        .anyMatch(authority -> "ROLE_PORTAL_CUSTOMER"
+                                .equals(authority.getAuthority()));
+        if (customer) {
+            if (command == StompCommand.SUBSCRIBE
+                    && !String.format("%s%s", CUSTOMER_TOPIC, subject)
+                            .equals(headers.getDestination())) {
+                throw new AccessDeniedException(
+                        "Only your own notifications can be subscribed");
+            }
+        } else {
+            access.resolve(UUID.fromString(subject));
+            if (command == StompCommand.SUBSCRIBE
+                    && !String.format("%s%s", USER_TOPIC, subject)
+                            .equals(headers.getDestination())) {
+                throw new AccessDeniedException(
+                        "Only your own notifications can be subscribed");
+            }
         }
         if (command == StompCommand.SEND) {
             throw new AccessDeniedException(

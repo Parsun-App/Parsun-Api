@@ -14,6 +14,8 @@ public interface WarehouseRepository {
     boolean existsByCodeAndIdNot(String code, UUID id);
     boolean hasActiveStock(UUID id);
     Set<UUID> findIdsWithActiveStock(Set<UUID> ids);
+    boolean hasAssociatedRecords(UUID id);
+    Set<UUID> findIdsWithAssociatedRecords(Set<UUID> ids);
     PageResponse<Warehouse> findAllWithFilters(String search, Boolean active,
             int page, int size, String orderBy, String orderDir);
     void delete(UUID id);

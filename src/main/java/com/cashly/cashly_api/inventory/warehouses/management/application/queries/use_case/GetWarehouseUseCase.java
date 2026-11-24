@@ -19,7 +19,7 @@ public class GetWarehouseUseCase {
         var warehouse = warehouseRepository.findById(id)
                 .orElseThrow(() -> new WarehouseNotFoundException(id));
         boolean deletable = !warehouseRepository
-                .findIdsWithActiveStock(Set.of(id)).contains(id);
+                .findIdsWithAssociatedRecords(Set.of(id)).contains(id);
         return WarehouseDetailResponse.from(warehouse, deletable);
     }
 }

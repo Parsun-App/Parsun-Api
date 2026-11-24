@@ -18,7 +18,8 @@ public class CustomerMapper {
                 customer.getCode().getValue(), customer.getAlias().getValue(),
                 customer.getLegalName().getValue(),
                 customer.getRif().getValue(), customer.getType().name(),
-                customer.isActive(), customer.getPaymentType(), deletable);
+                customer.isActive(), customer.getPaymentType(), deletable,
+                customer.isPortalAccess());
     }
 
     public CustomerDetailResponse toDetailResponse(Customer customer,
@@ -32,7 +33,8 @@ public class CustomerMapper {
                 customer.getPaymentType(), customer.getCreatedAt(),
                 toEmailResponses(customer), toPhoneResponses(customer),
                 toAddressResponses(customer), customer.getNotes(),
-                customer.getPriceTypeId(), deletable);
+                customer.getPriceTypeId(), deletable,
+                customer.isPortalAccess());
     }
 
     public CustomerCreateResponse toCreateResponse(Customer customer) {
@@ -45,7 +47,7 @@ public class CustomerMapper {
                 customer.getPaymentType(), customer.getCreatedAt(),
                 toEmailResponses(customer), toPhoneResponses(customer),
                 toAddressResponses(customer), customer.getNotes(),
-                customer.getPriceTypeId());
+                customer.getPriceTypeId(), customer.isPortalAccess());
     }
 
     private List<EmailResponse> toEmailResponses(Customer customer) {

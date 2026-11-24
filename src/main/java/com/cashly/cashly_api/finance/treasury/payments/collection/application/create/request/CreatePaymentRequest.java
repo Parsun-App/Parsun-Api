@@ -23,7 +23,17 @@ public record CreatePaymentRequest(
 
         @NotNull(message = "Payment date is required") LocalDate paymentDate,
 
-        @Size(max = 1000, message = "Notes must be at most 1000 characters") String notes
+        @Size(max = 1000, message = "Notes must be at most 1000 characters") String notes,
+
+        @NotNull(message = "Target invoice is required") UUID targetInvoiceId,
+
+        @Size(max = 500, message = "Voucher path must be at most 500 characters") String voucherPath
 
 ) {
+    public CreatePaymentRequest(UUID customerId, String status,
+            BigDecimal amount, UUID paymentMethodId, String referenceNumber,
+            LocalDate paymentDate, String notes) {
+        this(customerId, status, amount, paymentMethodId, referenceNumber,
+                paymentDate, notes, null, null);
+    }
 }

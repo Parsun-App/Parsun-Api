@@ -1,6 +1,7 @@
 package com.cashly.cashly_api.infrastructure.seed.steps;
 
 import static com.cashly.cashly_api.infrastructure.seed.SeedIds.ADMIN_USER;
+import static com.cashly.cashly_api.infrastructure.seed.SeedIds.ADMIN_USER_ALT;
 import static com.cashly.cashly_api.infrastructure.seed.SeedIds.OPERATOR_USER;
 
 import com.cashly.cashly_api.infrastructure.seed.SeedStep;
@@ -20,6 +21,7 @@ public class V28MfaSeed implements SeedStep {
     @Override
     public void seed() {
         mfaStore.lock(ADMIN_USER.toString());
+        mfaStore.lock(ADMIN_USER_ALT.toString());
         mfaStore.lock(OPERATOR_USER.toString());
     }
 }

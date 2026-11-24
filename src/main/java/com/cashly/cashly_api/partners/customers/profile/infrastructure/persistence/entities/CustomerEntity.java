@@ -70,6 +70,12 @@ public class CustomerEntity {
     @Column(name = "active", nullable = false)
     private boolean active;
 
+    @Column(name = "portal_access", nullable = false)
+    private boolean portalAccess;
+
+    @Column(name = "portal_password", length = 255)
+    private String portalPassword;
+
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
@@ -106,6 +112,8 @@ public class CustomerEntity {
         entity.creditDays = customer.getCreditDays().getValue();
         entity.creditLimit = customer.getCreditLimit().getValue();
         entity.active = customer.isActive();
+        entity.portalAccess = customer.isPortalAccess();
+        entity.portalPassword = customer.getPortalPassword();
         entity.createdAt = customer.getCreatedAt();
         entity.updatedAt = customer.getUpdatedAt();
         entity.notes = customer.getNotes();
@@ -151,6 +159,8 @@ public class CustomerEntity {
         this.creditDays = customer.getCreditDays().getValue();
         this.creditLimit = customer.getCreditLimit().getValue();
         this.active = customer.isActive();
+        this.portalAccess = customer.isPortalAccess();
+        this.portalPassword = customer.getPortalPassword();
         this.updatedAt = customer.getUpdatedAt();
         this.notes = customer.getNotes();
         this.priceTypeId = customer.getPriceTypeId();
@@ -212,7 +222,8 @@ public class CustomerEntity {
                 new CustomerCode(this.code), new LegalName(this.legalName),
                 CustomerType.valueOf(this.type), new Rif(this.rif),
                 new CustomerAlias(this.alias), new CreditDays(this.creditDays),
-                new CreditLimit(this.creditLimit), this.active, this.createdAt,
+                new CreditLimit(this.creditLimit), this.active,
+                this.portalAccess, this.portalPassword, this.createdAt,
                 this.updatedAt, domainEmails, domainPhones, domainAddresses,
                 this.notes, this.priceTypeId);
     }

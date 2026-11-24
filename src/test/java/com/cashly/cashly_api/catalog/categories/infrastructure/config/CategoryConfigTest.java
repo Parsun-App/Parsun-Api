@@ -74,7 +74,9 @@ class CategoryConfigTest {
         CategoryConfig config = new CategoryConfig();
 
         UpdateCategoryUseCase useCase = config
-                .updateCategoryUseCase(categoryRepository, categoryMapper, org.mockito.Mockito.mock(com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityNotificationRecorder.class));
+                .updateCategoryUseCase(categoryRepository, categoryMapper,
+                        org.mockito.Mockito.mock(com.cashly.cashly_api.shared.application.ports.in.ActiveTogglePermission.class),
+                        org.mockito.Mockito.mock(com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityNotificationRecorder.class));
 
         assertNotNull(useCase);
     }

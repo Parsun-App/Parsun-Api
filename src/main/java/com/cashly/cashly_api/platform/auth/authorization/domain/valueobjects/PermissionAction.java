@@ -6,6 +6,7 @@ public enum PermissionAction {
     EDIT,
     DELETE,
     CREATE,
+    TOGGLE_ACTIVE,
     REPORT_PDF,
     DOWNLOAD_PDF,
     COMMERCIAL_CATALOG_PDF,

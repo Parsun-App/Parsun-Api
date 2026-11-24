@@ -13,9 +13,11 @@ public final class SeedIds {
             "department.administration");
     public static final UUID SALES_DEPARTMENT = id("department.sales");
     public static final UUID ADMIN_USER = id("user.admin");
+    public static final UUID ADMIN_USER_ALT = id("user.admin-alt");
     public static final UUID OPERATOR_USER = id("user.operator");
     public static final UUID CUSTOMER_ONE = id("customer.one");
     public static final UUID CUSTOMER_TWO = id("customer.two");
+    public static final UUID CUSTOMER_GLOBAL = id("customer.global");
     public static final UUID CATEGORY_FOOD = id("category.food");
     public static final UUID CATEGORY_DRINKS = id("category.drinks");
     public static final UUID PRODUCT_COFFEE = id("product.coffee");

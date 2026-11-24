@@ -9,6 +9,8 @@ import com.cashly.cashly_api.partners.customers.profile.application.delete.use_c
 import com.cashly.cashly_api.partners.customers.profile.application.get.use_case.GetCustomerUseCase;
 import com.cashly.cashly_api.partners.customers.profile.application.list.use_case.ListCustomersUseCase;
 import com.cashly.cashly_api.partners.customers.profile.application.register.use_case.RegisterCustomerUseCase;
+import com.cashly.cashly_api.partners.customers.profile.application.portal.request.ChangeCustomerPortalPasswordRequest;
+import com.cashly.cashly_api.partners.customers.profile.application.portal.use_case.ChangeCustomerPortalPasswordUseCase;
 import com.cashly.cashly_api.partners.customers.profile.application.update.use_case.UpdateCustomerUseCase;
 import com.cashly.cashly_api.shared.dto.PageResponse;
 import com.cashly.cashly_api.shared.domain.valueobjects.DocumentAction;
@@ -29,17 +31,20 @@ public class CustomerController {
     private final GetCustomerUseCase getCustomerUseCase;
     private final ListCustomersUseCase listCustomersUseCase;
     private final UpdateCustomerUseCase updateCustomerUseCase;
+    private final ChangeCustomerPortalPasswordUseCase changeCustomerPortalPasswordUseCase;
     private final DeleteCustomerUseCase deleteCustomerUseCase;
 
     public CustomerController(RegisterCustomerUseCase registerCustomerUseCase,
             GetCustomerUseCase getCustomerUseCase,
             ListCustomersUseCase listCustomersUseCase,
             UpdateCustomerUseCase updateCustomerUseCase,
+            ChangeCustomerPortalPasswordUseCase changeCustomerPortalPasswordUseCase,
             DeleteCustomerUseCase deleteCustomerUseCase) {
         this.registerCustomerUseCase = registerCustomerUseCase;
         this.getCustomerUseCase = getCustomerUseCase;
         this.listCustomersUseCase = listCustomersUseCase;
         this.updateCustomerUseCase = updateCustomerUseCase;
+        this.changeCustomerPortalPasswordUseCase = changeCustomerPortalPasswordUseCase;
         this.deleteCustomerUseCase = deleteCustomerUseCase;
     }
 
@@ -61,6 +66,7 @@ public class CustomerController {
             @RequestParam(required = false) String rif,
             @RequestParam(required = false) String type,
             @RequestParam(required = false) Boolean active,
+            @RequestParam(required = false) Boolean portalAccess,
             @RequestParam(required = false) String state,
             @RequestParam(required = false) String municipality,
             @RequestParam(required = false) String postalCode,
@@ -70,16 +76,17 @@ public class CustomerController {
             @RequestParam(defaultValue = "asc") String orderDir,
             @RequestParam(required = false) DocumentAction action) {
         PageResponse<CustomerListResponse> customers = listCustomersUseCase
-                .execute(search, rif, type, active, state, municipality,
-                        postalCode, null, page, size, orderBy, orderDir, action);
+                .execute(search, rif, type, active, portalAccess, state,
+                        municipality, postalCode, null, page, size, orderBy,
+                        orderDir, action);
         return ResponseEntity.ok(customers);
     }
 
     public ResponseEntity<PageResponse<CustomerListResponse>> getAll(String search, String rif,
             String type, Boolean active, String state, String municipality, String postalCode,
             int page, int size, String orderBy, String orderDir) {
-        return getAll(search, rif, type, active, state, municipality, postalCode, page, size,
-                orderBy, orderDir, null);
+        return getAll(search, rif, type, active, null, state, municipality,
+                postalCode, page, size, orderBy, orderDir, null);
     }
 
     @GetMapping("/picker")
@@ -111,6 +118,14 @@ public class CustomerController {
         CustomerDetailResponse customer = updateCustomerUseCase.execute(id,
                 request);
         return ResponseEntity.ok(customer);
+    }
+
+    @PutMapping("/{id}/portal-password")
+    @PreAuthorize("hasAuthority('CONTACTS_CUSTOMERS_EDIT')")
+    public ResponseEntity<Void> changePortalPassword(@PathVariable String id,
+            @Valid @RequestBody ChangeCustomerPortalPasswordRequest request) {
+        changeCustomerPortalPasswordUseCase.execute(id, request);
+        return ResponseEntity.noContent().build();
     }
 
     @DeleteMapping("/{id}")

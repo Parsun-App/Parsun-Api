@@ -22,9 +22,9 @@ import java.util.UUID;
 @Component
 public class V30AuditSeed implements SeedStep {
 
-    private static final String ADMIN = "Cashly Administrator";
+    private static final String ADMIN = "Parsun Administrator";
     private static final String OPERATOR = "Sales Operator";
-    private static final String COMPANY_LABEL = "Cashly Demo, C.A.";
+    private static final String COMPANY_LABEL = "Parsun Demo, C.A.";
 
 
     private final EntityManager entityManager;
@@ -67,8 +67,8 @@ public class V30AuditSeed implements SeedStep {
         create("company", "platform", AuditEntityType.COMPANY, COMPANY,
                 COMPANY_LABEL, ADMIN_USER, ADMIN, "ACTIVE");
         edit("company-edit", "platform", AuditEntityType.COMPANY, COMPANY,
-                COMPANY_LABEL, ADMIN_USER, ADMIN, "tradeName", "Cashly Demo",
-                "Cashly Demo, C.A.");
+                COMPANY_LABEL, ADMIN_USER, ADMIN, "tradeName", "Parsun Demo",
+                "Parsun Demo, C.A.");
     }
 
     private void catalog() {
@@ -291,7 +291,7 @@ public class V30AuditSeed implements SeedStep {
         action("register-closed-open", "finance",
                 AuditEntityType.CASH_REGISTER, id("cash-register.month-2026-10"),
                 "Cash register 2026-10-31", AuditAction.OPEN, ADMIN_USER,
-                ADMIN, Map.of("openingBalance", "100.00"));
+                ADMIN, Map.of());
         action("register-closed-close", "finance",
                 AuditEntityType.CASH_REGISTER, id("cash-register.month-2026-10"),
                 "Cash register 2026-10-31", AuditAction.CLOSE, ADMIN_USER,
@@ -300,7 +300,7 @@ public class V30AuditSeed implements SeedStep {
         action("register-open", "finance", AuditEntityType.CASH_REGISTER,
                 id("cash-register.open"), "Cash register 2026-11-01",
                 AuditAction.OPEN, ADMIN_USER, ADMIN,
-                Map.of("openingBalance", "100.00"));
+                Map.of());
         action("cash-movement-one", "finance",
                 AuditEntityType.CASH_MOVEMENT, id("cash-movement.month-2026-01.payment-cash"),
                 "Cash movement PAY-2026-0001", AuditAction.RECORD_MOVEMENT,

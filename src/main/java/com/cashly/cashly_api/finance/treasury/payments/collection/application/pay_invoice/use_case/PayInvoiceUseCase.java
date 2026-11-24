@@ -104,7 +104,8 @@ public class PayInvoiceUseCase {
                     request.paymentMethodId(), request.referenceNumber(),
                     request.paymentDate(),
                     "Pago de factura " + invoice.number(), authenticatedUserId,
-                    authenticatedUserName, PaymentStatus.APPLIED);
+                    authenticatedUserName, PaymentStatus.APPLIED, invoiceId,
+                    null);
 
             Payment saved = paymentRepository.save(payment);
             cashRegister.recordMovement(new CashRegisterGateway.Movement(
@@ -134,7 +135,7 @@ public class PayInvoiceUseCase {
                     PaymentSource.CUSTOMER_BALANCE, null, request.paymentDate(),
                     "Pago con saldo a favor - Factura " + invoice.number(),
                     authenticatedUserId, authenticatedUserName,
-                    PaymentStatus.APPLIED);
+                    PaymentStatus.APPLIED, invoiceId, null);
 
             Payment savedBalancePayment = paymentRepository
                     .save(balancePayment);

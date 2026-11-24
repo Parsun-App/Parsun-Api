@@ -1,5 +1,6 @@
 package com.cashly.cashly_api.catalog.price_types.application.update.use_case;
 
+import com.cashly.cashly_api.shared.application.ports.in.ActiveTogglePermission;
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityEvent;
 
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityNotificationRecorder;
@@ -18,15 +19,18 @@ import com.cashly.cashly_api.platform.audit.application.ports.in.Audited;
 public class UpdatePriceTypeUseCase {
 
     private final PriceTypeRepository priceTypeRepository;
+    private final ActiveTogglePermission access;
 
     private final ActivityNotificationRecorder activityNotifications;
 
     public UpdatePriceTypeUseCase(PriceTypeRepository priceTypeRepository,
+            ActiveTogglePermission access,
             ActivityNotificationRecorder activityNotifications) {
         this.activityNotifications = activityNotifications != null
                 ? activityNotifications
                 : ActivityNotificationRecorder.NONE;
         this.priceTypeRepository = priceTypeRepository;
+        this.access = access;
     }
 
     @Transactional
@@ -37,6 +41,11 @@ public class UpdatePriceTypeUseCase {
 
         if (priceTypeRepository.existsByNameAndIdNot(request.name(), id)) {
             throw new DuplicatePriceTypeNameException(request.name());
+        }
+
+        if (request.active() != null
+                && request.active() != priceType.isActive()) {
+            access.requireActiveToggle();
         }
 
         priceType.update(request.name(), request.description(),

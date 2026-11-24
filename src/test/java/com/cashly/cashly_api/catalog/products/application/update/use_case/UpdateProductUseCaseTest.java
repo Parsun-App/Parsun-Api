@@ -52,6 +52,9 @@ class UpdateProductUseCaseTest {
     @Mock
     private ProductMapper productMapper;
 
+    @Mock
+    private com.cashly.cashly_api.shared.application.ports.in.ActiveTogglePermission access;
+
     private UpdateProductUseCase useCase;
 
     @BeforeEach
@@ -62,7 +65,8 @@ class UpdateProductUseCaseTest {
                 new LocalProductPriceTypeGatewayAdapter(
                         new RepositoryProductPriceTypeQuery(
                                 priceTypeRepository)),
-                productMapper, org.mockito.Mockito.mock(com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityNotificationRecorder.class));
+                productMapper, access,
+                org.mockito.Mockito.mock(com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityNotificationRecorder.class));
     }
 
     @Test
@@ -350,5 +354,30 @@ class UpdateProductUseCaseTest {
 
         assertThrows(PriceTypeNotFoundException.class,
                 () -> useCase.execute(id, request));
+    }
+
+    @Test
+    void should_RequireActiveTogglePermission_When_ActiveChanges() {
+        UUID id = UUID.randomUUID();
+        UUID categoryId = UUID.randomUUID();
+        UpdateProductRequest request = new UpdateProductRequest("Updated Name",
+                "Updated desc", categoryId, new BigDecimal("20.00"), false,
+                null, null, false);
+
+        Product existingProduct = Product.reconstitute(id, "PROD-001",
+                "Old Name", "Old desc", categoryId, false, true, null,
+                new BigDecimal("5.00"), List.of(), List.of(),
+                LocalDateTime.now(), LocalDateTime.now());
+
+        when(productRepository.findById(id))
+                .thenReturn(Optional.of(existingProduct));
+        when(categoryRepository.findById(categoryId))
+                .thenReturn(Optional.of(mock(Category.class)));
+        when(productRepository.save(any(Product.class)))
+                .thenReturn(existingProduct);
+
+        useCase.execute(id, request);
+
+        verify(access).requireActiveToggle();
     }
 }

@@ -30,10 +30,12 @@ import static org.mockito.Mockito.when;
 class EndpointPermissionEnforcementTest {
     private static final Pattern AUTHORITY = Pattern
             .compile("hasAuthority\\('([^']+)'\\)");
-    private static final Set<String> ALL = PermissionRegistry.modules()
-            .entrySet().stream()
-            .flatMap(entry -> entry.getValue().stream()
-                    .map(action -> entry.getKey().name() + "_" + action.name()))
+    private static final Set<String> ALL = Stream.concat(
+            PermissionRegistry.modules().entrySet().stream()
+                    .flatMap(entry -> entry.getValue().stream()
+                            .map(action -> entry.getKey().name() + "_"
+                                    + action.name())),
+            Stream.of("ROLE_PORTAL_CUSTOMER"))
             .collect(java.util.stream.Collectors.toUnmodifiableSet());
 
     record Operation(Method method, String policy) {

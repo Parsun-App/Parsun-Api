@@ -8,5 +8,6 @@ import java.util.UUID;
 public record QuoteListResponse(UUID id, String quoteNumber, UUID customerId,
         String customerName, String customerRif, String status,
         LocalDate expiryDate, BigDecimal subtotal, UUID createdBy,
-        String createdByName, Instant createdAt, Instant updatedAt) {
+        String createdByName, Instant createdAt, Instant updatedAt,
+        boolean stockAssigned) {
 }

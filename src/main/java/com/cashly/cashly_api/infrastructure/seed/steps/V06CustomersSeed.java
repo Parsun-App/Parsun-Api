@@ -10,6 +10,7 @@ import com.cashly.cashly_api.partners.customers.profile.infrastructure.persisten
 import com.cashly.cashly_api.partners.customers.profile.infrastructure.persistence.entities.CustomerEmailEntity;
 import com.cashly.cashly_api.partners.customers.profile.infrastructure.persistence.entities.CustomerEntity;
 import com.cashly.cashly_api.partners.customers.profile.infrastructure.persistence.entities.CustomerPhoneEntity;
+import com.cashly.cashly_api.platform.auth.user.domain.services.PasswordEncoder;
 import jakarta.persistence.EntityManager;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -21,9 +22,12 @@ public class V06CustomersSeed implements SeedStep {
     private static final LocalDateTime CREATED_AT = LocalDateTime.of(2026, 1, 3,
             8, 0);
     private final EntityManager entityManager;
+    private final PasswordEncoder passwordEncoder;
 
-    public V06CustomersSeed(EntityManager entityManager) {
+    public V06CustomersSeed(EntityManager entityManager,
+            PasswordEncoder passwordEncoder) {
         this.entityManager = entityManager;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
@@ -61,6 +65,8 @@ public class V06CustomersSeed implements SeedStep {
         customer.setCreditDays(30);
         customer.setCreditLimit(new BigDecimal("1000.00"));
         customer.setActive(true);
+        customer.setPortalAccess(true);
+        customer.setPortalPassword(passwordEncoder.encode(rif));
         customer.setCreatedAt(CREATED_AT);
         customer.setUpdatedAt(CREATED_AT);
         customer.setNotes("Deterministic seed customer");

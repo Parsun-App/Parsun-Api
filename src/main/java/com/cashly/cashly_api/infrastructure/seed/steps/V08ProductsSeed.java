@@ -4,6 +4,7 @@ import static com.cashly.cashly_api.infrastructure.seed.SeedIds.*;
 
 import com.cashly.cashly_api.catalog.products.infrastructure.persistence.entities.ProductComponentEntity;
 import com.cashly.cashly_api.catalog.products.infrastructure.persistence.entities.ProductEntity;
+import com.cashly.cashly_api.infrastructure.seed.SeedCatalogProducts;
 import com.cashly.cashly_api.infrastructure.seed.SeedStep;
 import jakarta.persistence.EntityManager;
 import java.math.BigDecimal;
@@ -37,6 +38,14 @@ public class V08ProductsSeed implements SeedStep {
             addComponent(bundle, PRODUCT_COFFEE, 1, "coffee");
             addComponent(bundle, PRODUCT_WATER, 2, "water");
             entityManager.persist(bundle);
+        }
+        for (SeedCatalogProducts.Spec spec : SeedCatalogProducts.PRODUCTS) {
+            if (entityManager.find(ProductEntity.class,
+                    spec.productId()) == null) {
+                entityManager.persist(product(spec.productId(), spec.code(),
+                        spec.name(), spec.categoryId(), spec.purchasePrice(),
+                        false));
+            }
         }
     }
 

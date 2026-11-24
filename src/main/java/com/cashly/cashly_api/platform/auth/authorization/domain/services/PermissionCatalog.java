@@ -120,13 +120,23 @@ public final class PermissionCatalog {
                 area("ANALYTICS", "analytics", 70,
                         submodule(null, "analytics", 10,
                                 domain(PermissionModule.DASHBOARD, 10))),
+                area("PORTAL", "portal", 80,
+                        submodule(null, "portal", 10,
+                                domain(PermissionModule.PORTAL_DASHBOARD, 10),
+                                domain(PermissionModule.PORTAL_PRODUCTS, 20),
+                                domain(PermissionModule.PORTAL_QUOTES, 30),
+                                domain(PermissionModule.PORTAL_ORDERS, 40),
+                                domain(PermissionModule.PORTAL_INVOICES, 50),
+                                domain(PermissionModule.PORTAL_PAYMENTS, 60),
+                                domain(PermissionModule.PORTAL_PROFILE, 70))),
                 area("PLATFORM", "platform", 90,
                         submodule(null, "platform", 10,
                                 domain(PermissionModule.USERS, 10),
                                 domain(PermissionModule.ROLES, 20),
                                 domain(PermissionModule.DEPARTMENTS, 30),
                                 domain(PermissionModule.COMPANY, 40),
-                                domain(PermissionModule.AUDIT_TRAIL, 50))));
+                                domain(PermissionModule.AUDIT_TRAIL, 50),
+                                domain(PermissionModule.SYSTEM, 60))));
         validate(areas);
         return ordered(areas);
     }
@@ -167,6 +177,7 @@ public final class PermissionCatalog {
         orders.put(PermissionAction.EDIT, 30);
         orders.put(PermissionAction.DELETE, 40);
         orders.put(PermissionAction.CREATE, 50);
+        orders.put(PermissionAction.TOGGLE_ACTIVE, 55);
         orders.put(PermissionAction.REPORT_PDF, 60);
         orders.put(PermissionAction.DOWNLOAD_PDF, 70);
         orders.put(PermissionAction.COMMERCIAL_CATALOG_PDF, 80);

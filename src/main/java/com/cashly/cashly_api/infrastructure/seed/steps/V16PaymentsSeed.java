@@ -39,6 +39,7 @@ public class V16PaymentsSeed implements SeedStep {
         method("card", "CARD", "Credit/Debit card");
         method("mobile", "MOBILE_PAYMENT", "Mobile payment");
         method("check", "CHECK", "Check");
+        entityManager.flush();
         payment(PAYMENT_ONE, "PAY-2026-0001", CUSTOMER_ONE, INVOICE_ONE, "cash",
                 "10.00");
         payment(PAYMENT_TWO, "PAY-2026-0002", CUSTOMER_TWO, INVOICE_TWO,
@@ -96,12 +97,13 @@ public class V16PaymentsSeed implements SeedStep {
             payment.setNotes("Deterministic seed payment");
             payment.setStatus(PaymentStatus.APPLIED.name());
             payment.setAppliedAmount(amount);
+            payment.setTargetInvoiceId(invoiceId);
             payment.setCreatedBy(ADMIN_USER);
-            payment.setCreatedByName("Cashly Administrator");
+            payment.setCreatedByName("Parsun Administrator");
             payment.setCreatedAt(CREATED_AT);
             payment.setUpdatedAt(CREATED_AT);
             payment.setVerifiedBy(ADMIN_USER);
-            payment.setVerifiedByName("Cashly Administrator");
+            payment.setVerifiedByName("Parsun Administrator");
             payment.setVerifiedAt(CREATED_AT);
             entityManager.persist(payment);
         }
@@ -136,11 +138,12 @@ public class V16PaymentsSeed implements SeedStep {
             payment.setReferenceNumber(sample.documentNumber("SEED"));
             payment.setPaymentDate(sample.date());
             payment.setStatus(PaymentStatus.APPLIED.name());
+            payment.setTargetInvoiceId(invoice.getId());
             payment.setNotes(SCENARIO_NOTES);
             payment.setCreatedBy(ADMIN_USER);
-            payment.setCreatedByName("Cashly Administrator");
+            payment.setCreatedByName("Parsun Administrator");
             payment.setVerifiedBy(ADMIN_USER);
-            payment.setVerifiedByName("Cashly Administrator");
+            payment.setVerifiedByName("Parsun Administrator");
             payment.setVerifiedAt(sample.createdAt(11, 0));
             payment.setCreatedAt(sample.createdAt(11, 0));
             payment.setUpdatedAt(sample.createdAt(11, 0));

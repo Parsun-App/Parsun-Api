@@ -3,6 +3,7 @@ package com.cashly.cashly_api.inventory.warehouses.reporting.infrastructure.web;
 import com.cashly.cashly_api.inventory.warehouses.reporting.application.dto.response.CatalogReportResponse;
 import com.cashly.cashly_api.inventory.warehouses.reporting.application.dto.query.model.CatalogPdfQuery;
 import com.cashly.cashly_api.inventory.warehouses.reporting.application.dto.query.model.CatalogReportQuery;
+import com.cashly.cashly_api.inventory.warehouses.reporting.application.generate_catalog_excel.use_case.GenerateCatalogExcelUseCase;
 import com.cashly.cashly_api.inventory.warehouses.reporting.application.generate_catalog_pdf.use_case.GenerateCatalogPdfUseCase;
 import com.cashly.cashly_api.inventory.warehouses.reporting.application.get_catalog_report.use_case.GetCatalogReportUseCase;
 import com.cashly.cashly_api.shared.dto.PageResponse;
@@ -23,12 +24,15 @@ public class CatalogReportController {
 
     private final GetCatalogReportUseCase getCatalogReportUseCase;
     private final GenerateCatalogPdfUseCase generateCatalogPdfUseCase;
+    private final GenerateCatalogExcelUseCase generateCatalogExcelUseCase;
 
     public CatalogReportController(
             GetCatalogReportUseCase getCatalogReportUseCase,
-            GenerateCatalogPdfUseCase generateCatalogPdfUseCase) {
+            GenerateCatalogPdfUseCase generateCatalogPdfUseCase,
+            GenerateCatalogExcelUseCase generateCatalogExcelUseCase) {
         this.getCatalogReportUseCase = getCatalogReportUseCase;
         this.generateCatalogPdfUseCase = generateCatalogPdfUseCase;
+        this.generateCatalogExcelUseCase = generateCatalogExcelUseCase;
     }
 
     @GetMapping
@@ -63,5 +67,25 @@ public class CatalogReportController {
                 .header(HttpHeaders.CONTENT_DISPOSITION,
                         "attachment; filename=\"reporte-productos.pdf\"")
                 .body(pdf);
+    }
+
+    @GetMapping("/excel")
+    @PreAuthorize("hasAuthority('INVENTORY_WAREHOUSES_REPORT_STOCK')")
+    public ResponseEntity<byte[]> getCatalogExcel(
+            @RequestParam(required = false) String search,
+            @RequestParam(required = false) UUID categoryId,
+            @RequestParam(required = false) UUID warehouseId,
+            @RequestParam(required = false) Boolean composite,
+            @RequestParam(required = false) Boolean withStock,
+            @RequestParam(required = false) Boolean lowStock) {
+        CatalogPdfQuery query = new CatalogPdfQuery(search, categoryId,
+                warehouseId, composite, withStock, lowStock);
+        byte[] excel = generateCatalogExcelUseCase.execute(query);
+        return ResponseEntity.ok()
+                .contentType(MediaType.parseMediaType(
+                        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"))
+                .header(HttpHeaders.CONTENT_DISPOSITION,
+                        "attachment; filename=\"reporte-productos.xlsx\"")
+                .body(excel);
     }
 }

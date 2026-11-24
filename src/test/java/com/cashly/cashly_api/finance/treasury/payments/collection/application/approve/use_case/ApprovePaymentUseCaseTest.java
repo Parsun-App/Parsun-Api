@@ -58,6 +58,7 @@ class ApprovePaymentUseCaseTest {
     private final UUID userId = UUID.randomUUID();
     private final UUID customerId = UUID.randomUUID();
     private final UUID paymentMethodId = UUID.randomUUID();
+    private final UUID invoiceId = UUID.randomUUID();
 
     @BeforeEach
     void setUp() {
@@ -72,7 +73,7 @@ class ApprovePaymentUseCaseTest {
     private Payment pendingPayment(BigDecimal amount) {
         return Payment.create(PaymentNumber.of(2026, 1), customerId, amount,
                 paymentMethodId, "REF-001", LocalDate.now(), null, userId,
-                "Admin", PaymentStatus.PENDING);
+                "Admin", PaymentStatus.PENDING, invoiceId, null);
     }
 
     private Invoice unpaidInvoice(UUID id, BigDecimal lineQty,
@@ -121,13 +122,13 @@ class ApprovePaymentUseCaseTest {
     }
 
     @Test
-    void should_AllocateFullAmountToOldestInvoice_When_PaymentMatchesDebt() {
-        UUID invoiceId = UUID.randomUUID();
+    void should_ApplyFullAmountToTargetInvoice_When_PaymentIsApproved() {
         Payment payment = pendingPayment(new BigDecimal("500.00"));
         when(paymentRepository.findById(payment.getId()))
                 .thenReturn(Optional.of(payment));
-        when(invoiceGateway.findUnpaidByCustomerId(customerId))
-                .thenReturn(snapshots(unpaidInvoice(invoiceId, BigDecimal.ONE,
+        when(invoiceGateway.findById(invoiceId))
+                .thenReturn(Optional.of(new PaymentInvoiceGateway.InvoiceSnapshot(
+                        invoiceId, customerId, "INV-2026-00001",
                         new BigDecimal("500.00"))));
         stubSave();
 
@@ -135,92 +136,27 @@ class ApprovePaymentUseCaseTest {
                 new ApprovePaymentRequest("Verificado"), userId, "Admin");
 
         assertEquals(new BigDecimal("500.00"), response.appliedAmount());
+        assertEquals(invoiceId, response.targetInvoiceId());
         verify(invoiceGateway).recalculateStatus(invoiceId);
+        verify(allocationRepository).save(any(PaymentAllocation.class));
     }
 
     @Test
-    void should_AllocateExactAmount_When_PaymentExactlyCoversTotalDebt() {
-        UUID invoice1Id = UUID.randomUUID();
-        UUID invoice2Id = UUID.randomUUID();
+    void should_Throw_When_TargetInvoiceDoesNotExist() {
         Payment payment = pendingPayment(new BigDecimal("500.00"));
         when(paymentRepository.findById(payment.getId()))
                 .thenReturn(Optional.of(payment));
-        when(invoiceGateway.findUnpaidByCustomerId(customerId))
-                .thenReturn(snapshots(
-                        unpaidInvoice(invoice1Id, BigDecimal.ONE,
-                                new BigDecimal("300.00")),
-                        unpaidInvoice(invoice2Id, BigDecimal.ONE,
-                                new BigDecimal("200.00"))));
-        stubSave();
+        when(invoiceGateway.findById(invoiceId)).thenReturn(Optional.empty());
 
-        PaymentResponse response = useCase.execute(payment.getId().value(),
-                new ApprovePaymentRequest("Verificado"), userId, "Admin");
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> useCase.execute(payment.getId().value(),
+                        new ApprovePaymentRequest("Verificado"), userId,
+                        "Admin"));
 
-        assertEquals(new BigDecimal("500.00"), response.appliedAmount());
-        verify(invoiceGateway).recalculateStatus(invoice1Id);
-        verify(invoiceGateway).recalculateStatus(invoice2Id);
-    }
-
-    @Test
-    void should_AllocateOnlyToOldestInvoice_When_PaymentIsSmallerThanTotalDebt() {
-        UUID invoice1Id = UUID.randomUUID();
-        UUID invoice2Id = UUID.randomUUID();
-        Payment payment = pendingPayment(new BigDecimal("250.00"));
-        when(paymentRepository.findById(payment.getId()))
-                .thenReturn(Optional.of(payment));
-        when(invoiceGateway.findUnpaidByCustomerId(customerId))
-                .thenReturn(snapshots(
-                        unpaidInvoice(invoice1Id, BigDecimal.ONE,
-                                new BigDecimal("300.00")),
-                        unpaidInvoice(invoice2Id, BigDecimal.ONE,
-                                new BigDecimal("200.00"))));
-        stubSave();
-
-        PaymentResponse response = useCase.execute(payment.getId().value(),
-                new ApprovePaymentRequest("Verificado"), userId, "Admin");
-
-        assertEquals(new BigDecimal("250.00"), response.appliedAmount());
-        verify(invoiceGateway, times(1)).recalculateStatus(invoice1Id);
-        verify(invoiceGateway, never()).recalculateStatus(invoice2Id);
-    }
-
-    @Test
-    void should_AllocateOnlyUpToTotalDebt_When_PaymentIsLargerThanTotalDebt() {
-        UUID invoice1Id = UUID.randomUUID();
-        UUID invoice2Id = UUID.randomUUID();
-        Payment payment = pendingPayment(new BigDecimal("700.00"));
-        when(paymentRepository.findById(payment.getId()))
-                .thenReturn(Optional.of(payment));
-        when(invoiceGateway.findUnpaidByCustomerId(customerId))
-                .thenReturn(snapshots(
-                        unpaidInvoice(invoice1Id, BigDecimal.ONE,
-                                new BigDecimal("300.00")),
-                        unpaidInvoice(invoice2Id, BigDecimal.ONE,
-                                new BigDecimal("200.00"))));
-        stubSave();
-
-        PaymentResponse response = useCase.execute(payment.getId().value(),
-                new ApprovePaymentRequest("Verificado"), userId, "Admin");
-
-        assertEquals(new BigDecimal("500.00"), response.appliedAmount());
-    }
-
-    @Test
-    void should_SucceedWithZeroAppliedAmount_When_CustomerHasNoUnpaidInvoices() {
-        Payment payment = pendingPayment(new BigDecimal("500.00"));
-        when(paymentRepository.findById(payment.getId()))
-                .thenReturn(Optional.of(payment));
-        when(invoiceGateway.findUnpaidByCustomerId(customerId))
-                .thenReturn(snapshots());
-        stubSave();
-
-        PaymentResponse response = useCase.execute(payment.getId().value(),
-                new ApprovePaymentRequest("Verificado"), userId, "Admin");
-
-        assertEquals(BigDecimal.ZERO, response.appliedAmount());
-        assertEquals(PaymentStatus.APPLIED.name(), response.status());
-        verify(allocationRepository, never())
-                .save(any(PaymentAllocation.class));
+        assertEquals("Invoice not found: " + invoiceId,
+                exception.getMessage());
+        verify(paymentRepository, never()).save(any(Payment.class));
     }
 
     @Test
@@ -228,8 +164,10 @@ class ApprovePaymentUseCaseTest {
         Payment payment = pendingPayment(new BigDecimal("125.00"));
         when(paymentRepository.findById(payment.getId()))
                 .thenReturn(Optional.of(payment));
-        when(invoiceGateway.findUnpaidByCustomerId(customerId))
-                .thenReturn(snapshots());
+        when(invoiceGateway.findById(invoiceId))
+                .thenReturn(Optional.of(new PaymentInvoiceGateway.InvoiceSnapshot(
+                        invoiceId, customerId, "INV-2026-00001",
+                        new BigDecimal("125.00"))));
         stubSave();
 
         useCase.execute(payment.getId().value(),

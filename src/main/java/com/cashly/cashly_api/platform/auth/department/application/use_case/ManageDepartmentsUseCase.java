@@ -94,7 +94,12 @@ public class ManageDepartmentsUseCase {
         access.require(PermissionModule.DEPARTMENTS,
                 create ? PermissionAction.CREATE : PermissionAction.EDIT);
         if (!create) {
-            existing(id);
+            var current = existing(id);
+            boolean nextActive = request.active() == null
+                    || request.active();
+            if (nextActive != current.active()) {
+                access.requireActiveToggle();
+            }
         }
         if (!create && request.version() == null) {
             throw new IllegalArgumentException("Version is required");

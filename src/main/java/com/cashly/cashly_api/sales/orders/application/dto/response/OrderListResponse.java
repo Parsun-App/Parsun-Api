@@ -6,5 +6,5 @@ import java.util.UUID;
 
 public record OrderListResponse(UUID id, String orderNumber, UUID customerId,
         String customerName, String status, BigDecimal subtotal, int lineCount,
-        UUID invoiceId, LocalDateTime createdAt) {
+        UUID invoiceId, LocalDateTime createdAt, boolean stockAssigned) {
 }

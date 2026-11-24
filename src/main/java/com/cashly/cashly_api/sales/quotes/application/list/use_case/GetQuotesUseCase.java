@@ -45,12 +45,13 @@ public class GetQuotesUseCase {
                     categoryId, orderBy, orderDir);
         String eligibleStatus = switch (action) {
             case EDIT, CANCEL, CONVERT_TO_ORDER, CONVERT_TO_INVOICE,
-                    DELETE -> "DRAFT";
+                    DELETE -> "DRAFTS";
             default -> throw new IllegalArgumentException(
                     "Unsupported quote action: " + action);
         };
         if (status != null && !status.isBlank() && !"ALL".equals(status)
-                && !eligibleStatus.equals(status)) {
+                && !eligibleStatus.equals(status)
+                && !isDraftStatus(eligibleStatus, status)) {
             return List.of();
         }
         if (action == DocumentAction.DELETE) {
@@ -102,4 +103,9 @@ public class GetQuotesUseCase {
                 .anyMatch(value -> value.toLowerCase().contains(term));
     }
 
+
+    private static boolean isDraftStatus(String eligibleStatus, String status) {
+        return "DRAFTS".equals(eligibleStatus)
+                && ("DRAFT".equals(status) || "CUSTOMER_DRAFT".equals(status));
+    }
 }

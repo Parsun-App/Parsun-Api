@@ -30,6 +30,8 @@ public record UpdateCustomerRequest(
 
         @NotNull(message = "Active status is required") Boolean active,
 
+        Boolean portalAccess,
+
         @Valid List<EmailRequest> emails,
 
         @Valid List<PhoneRequest> phones,
@@ -39,4 +41,12 @@ public record UpdateCustomerRequest(
         String notes,
 
         UUID priceTypeId) {
+
+    public UpdateCustomerRequest(String legalName, String type, String rif,
+            String alias, Integer creditDays, BigDecimal creditLimit,
+            Boolean active, List<EmailRequest> emails, List<PhoneRequest> phones,
+            List<AddressRequest> addresses, String notes, UUID priceTypeId) {
+        this(legalName, type, rif, alias, creditDays, creditLimit, active,
+                null, emails, phones, addresses, notes, priceTypeId);
+    }
 }

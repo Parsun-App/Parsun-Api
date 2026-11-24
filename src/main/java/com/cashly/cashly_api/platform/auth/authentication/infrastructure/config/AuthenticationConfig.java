@@ -1,5 +1,7 @@
 package com.cashly.cashly_api.platform.auth.authentication.infrastructure.config;
 
+import com.cashly.cashly_api.platform.auth.authentication.application.ports.out.PortalCustomerQuery;
+import com.cashly.cashly_api.platform.auth.authentication.infrastructure.integration.CustomerRifResolver;
 import com.cashly.cashly_api.platform.auth.token.application.ports.out.AuthenticableSubjectGateway;
 import com.cashly.cashly_api.platform.auth.token.infrastructure.integration.LocalAuthenticableSubjectGateway;
 import com.cashly.cashly_api.platform.auth.authentication.domain.services.AuthenticationDomainService;
@@ -43,10 +45,18 @@ public class AuthenticationConfig {
     }
 
     @Bean
+    public CustomerRifResolver customerRifResolver(
+            PortalCustomerQuery portalCustomers) {
+        return new CustomerRifResolver(portalCustomers);
+    }
+
+    @Bean
     public AuthenticableSubjectGateway authenticableSubjectGateway(
             UserRepository userRepository,
+            PortalCustomerQuery portalCustomers,
             com.cashly.cashly_api.platform.auth.authorization.application.services.AccessService access) {
-        return new LocalAuthenticableSubjectGateway(userRepository, access);
+        return new LocalAuthenticableSubjectGateway(userRepository,
+                portalCustomers, access);
     }
 
     @Bean

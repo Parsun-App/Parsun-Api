@@ -111,7 +111,7 @@ public class V22PurchasesSeed implements SeedStep {
         purchase.setSupplierName(supplierName);
         purchase.setSupplierRif(rif);
         purchase.setCreatedBy(ADMIN_USER);
-        purchase.setCreatedByName("Cashly Administrator");
+        purchase.setCreatedByName("Parsun Administrator");
         purchase.setStatus(status);
         purchase.setPaymentType(paymentType);
         purchase.setNotes(notes);

@@ -30,11 +30,21 @@ public class ListCustomersUseCase {
             String type, Boolean active, String state, String municipality,
             String postalCode, Boolean hasActiveWarehouse, int page, int size,
             String orderBy, String orderDir) {
+        return execute(search, rif, type, active, null, state, municipality,
+                postalCode, hasActiveWarehouse, page, size, orderBy, orderDir);
+    }
+
+    @Transactional(readOnly = true)
+    public PageResponse<CustomerListResponse> execute(String search, String rif,
+            String type, Boolean active, Boolean portalAccess, String state,
+            String municipality, String postalCode,
+            Boolean hasActiveWarehouse, int page, int size, String orderBy,
+            String orderDir) {
         Boolean effectiveActive = active != null ? active : true;
         PageResponse<Customer> customerPage = customerRepository
-                .findAllWithFilters(search, rif, type, effectiveActive, state,
-                        municipality, postalCode, hasActiveWarehouse, page,
-                        size, orderBy, orderDir);
+                .findAllWithFilters(search, rif, type, effectiveActive,
+                        portalAccess, state, municipality, postalCode,
+                        hasActiveWarehouse, page, size, orderBy, orderDir);
 
         Set<UUID> idsWithRecords = customerRepository
                 .findIdsWithAssociatedRecords(customerPage.content().stream()
@@ -51,13 +61,29 @@ public class ListCustomersUseCase {
                 customerPage.number(), customerPage.first(),
                 customerPage.last(), customerPage.empty());
     }
-    public PageResponse<CustomerListResponse> execute(String search, String rif, String type, Boolean active,
-            String state, String municipality, String postalCode, Boolean hasActiveWarehouse,
-            int page, int size, String orderBy, String orderDir, DocumentAction action) {
-        if (action != DocumentAction.DELETE) return execute(search, rif, type, active, state, municipality,
-                postalCode, hasActiveWarehouse, page, size, orderBy, orderDir);
-        var all = execute(search, rif, type, active, state, municipality, postalCode,
-                hasActiveWarehouse, 0, Integer.MAX_VALUE, orderBy, orderDir);
-        return PageResponses.filterAndPage(all.content(), CustomerListResponse::deletable, page, size);
+    public PageResponse<CustomerListResponse> execute(String search, String rif,
+            String type, Boolean active, String state, String municipality,
+            String postalCode, Boolean hasActiveWarehouse, int page, int size,
+            String orderBy, String orderDir, DocumentAction action) {
+        return execute(search, rif, type, active, null, state, municipality,
+                postalCode, hasActiveWarehouse, page, size, orderBy, orderDir,
+                action);
+    }
+
+    public PageResponse<CustomerListResponse> execute(String search, String rif,
+            String type, Boolean active, Boolean portalAccess, String state,
+            String municipality, String postalCode,
+            Boolean hasActiveWarehouse, int page, int size, String orderBy,
+            String orderDir, DocumentAction action) {
+        if (action != DocumentAction.DELETE) {
+            return execute(search, rif, type, active, portalAccess, state,
+                    municipality, postalCode, hasActiveWarehouse, page, size,
+                    orderBy, orderDir);
+        }
+        var all = execute(search, rif, type, active, portalAccess, state,
+                municipality, postalCode, hasActiveWarehouse, 0,
+                Integer.MAX_VALUE, orderBy, orderDir);
+        return PageResponses.filterAndPage(all.content(),
+                CustomerListResponse::deletable, page, size);
     }
 }

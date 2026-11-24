@@ -108,9 +108,24 @@ public interface PurchaseJpaRepository
     List<PurchaseEntity> findAllWithLinesByIds(
             @Param("ids") Collection<UUID> ids);
 
-    boolean existsBySupplierId(UUID supplierId);
+    @Query(value = """
+            SELECT EXISTS(
+                SELECT 1 FROM purchases WHERE supplier_id = :supplierId
+                UNION ALL SELECT 1 FROM supplier_payments WHERE supplier_id = :supplierId
+                UNION ALL SELECT 1 FROM supplier_balance_transactions WHERE supplier_id = :supplierId
+                UNION ALL SELECT 1 FROM supplier_balances WHERE supplier_id = :supplierId
+            )
+            """, nativeQuery = true)
+    long existsBySupplierId(@Param("supplierId") UUID supplierId);
 
-    @Query("SELECT DISTINCT p.supplierId FROM PurchaseEntity p WHERE p.supplierId IN :supplierIds")
+    @Query(value = """
+            SELECT DISTINCT BIN_TO_UUID(x.supplier_id) FROM (
+                SELECT supplier_id FROM purchases WHERE supplier_id IN :supplierIds
+                UNION SELECT supplier_id FROM supplier_payments WHERE supplier_id IN :supplierIds
+                UNION SELECT supplier_id FROM supplier_balance_transactions WHERE supplier_id IN :supplierIds
+                UNION SELECT supplier_id FROM supplier_balances WHERE supplier_id IN :supplierIds
+            ) x
+            """, nativeQuery = true)
     Set<UUID> findSupplierIdsWithPurchases(
             @Param("supplierIds") Collection<UUID> supplierIds);
 }

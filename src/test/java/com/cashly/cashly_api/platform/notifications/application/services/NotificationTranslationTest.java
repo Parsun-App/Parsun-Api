@@ -56,8 +56,8 @@ class NotificationTranslationTest {
                 .deliver(sample(user));
         verify(messaging).convertAndSend(
                 eq("/topic/notifications/user/" + user),
-                argThat((Notification n) -> n.getTitle()
-                        .equals("Invoice cancelled")));
+                argThat((WebSocketNotificationDeliveryAdapter.NotificationMessage n) -> n
+                        .title().equals("Invoice cancelled")));
     }
     @Test
     void activityTitlesNameTheAffectedEntity() {

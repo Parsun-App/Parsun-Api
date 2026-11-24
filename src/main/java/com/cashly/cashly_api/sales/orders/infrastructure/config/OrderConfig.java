@@ -61,27 +61,31 @@ public class OrderConfig {
     public ConfirmOrderUseCase confirmOrderUseCase(
             OrderRepository orderRepository,
             com.cashly.cashly_api.sales.orders.application.ports.out.OrderInventoryGateway inventory,
-            ActivityNotificationRecorder activityNotifications) {
+            ActivityNotificationRecorder activityNotifications,
+            com.cashly.cashly_api.platform.notifications.application.ports.in.CustomerNotificationRecorder customerNotifications) {
         return new ConfirmOrderUseCase(orderRepository, inventory,
-                activityNotifications);
+                activityNotifications, customerNotifications);
     }
 
     @Bean
     public CancelOrderUseCase cancelOrderUseCase(
             OrderRepository orderRepository,
             com.cashly.cashly_api.sales.orders.application.ports.out.OrderInventoryGateway inventory,
-            ActivityNotificationRecorder activityNotifications) {
+            ActivityNotificationRecorder activityNotifications,
+            com.cashly.cashly_api.platform.notifications.application.ports.in.CustomerNotificationRecorder customerNotifications) {
         return new CancelOrderUseCase(orderRepository, inventory,
-                activityNotifications);
+                activityNotifications, customerNotifications);
     }
 
     @Bean
     public ConvertToInvoiceUseCase convertToInvoiceUseCase(
             OrderRepository orderRepository,
             InvoiceCreationGateway invoiceCreationGateway,
-            ActivityNotificationRecorder activityNotifications) {
+            ActivityNotificationRecorder activityNotifications,
+            com.cashly.cashly_api.platform.notifications.application.ports.in.CustomerNotificationRecorder customerNotifications) {
         return new ConvertToInvoiceUseCase(orderRepository,
-                invoiceCreationGateway, activityNotifications);
+                invoiceCreationGateway, activityNotifications,
+                customerNotifications);
     }
 
     @Bean

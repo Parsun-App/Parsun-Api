@@ -64,7 +64,7 @@ class CancelCashMovementUseCaseTest {
         UUID movementId = UUID.randomUUID();
         UUID userId = UUID.randomUUID();
         var register = CashRegister.open(RegisterId.generate(),
-                LocalDate.now(), userId, "Opener", BigDecimal.ZERO);
+                LocalDate.now(), userId, "Opener");
         var movement = expense(register.getId(), userId);
         when(registers.findMovementById(movementId))
                 .thenReturn(Optional.of(movement));
@@ -99,7 +99,7 @@ class CancelCashMovementUseCaseTest {
     private CashRegister closedRegisterWithExpense(UUID registerId,
             UUID userId) {
         var register = CashRegister.open(RegisterId.of(registerId),
-                LocalDate.now(), userId, "Opener", BigDecimal.ZERO);
+                LocalDate.now(), userId, "Opener");
         register.applyMovementTotals(BigDecimal.ZERO, BigDecimal.TEN);
         register.close(userId, "Closer", BigDecimal.ZERO, "closed");
         return register;

@@ -32,6 +32,9 @@ class UpdateCategoryUseCaseTest {
     @Mock
     private CategoryMapper categoryMapper;
 
+    @Mock
+    private com.cashly.cashly_api.shared.application.ports.in.ActiveTogglePermission access;
+
     @InjectMocks
     private UpdateCategoryUseCase useCase;
 
@@ -104,5 +107,25 @@ class UpdateCategoryUseCaseTest {
         verify(categoryRepository).findById(id);
         verify(categoryRepository).existsByNameAndIdNot("Duplicate Name", id);
         verify(categoryRepository, never()).save(any());
+    }
+
+    @Test
+    void should_RequireActiveTogglePermission_When_ActiveChanges() {
+        UUID id = UUID.randomUUID();
+        UpdateCategoryRequest request = new UpdateCategoryRequest(
+                "Updated Name", "Updated Desc", false);
+
+        Category existing = Category.reconstitute(id, "Old Name", "Old Desc",
+                true, LocalDateTime.now(), LocalDateTime.now());
+
+        when(categoryRepository.findById(id)).thenReturn(Optional.of(existing));
+        when(categoryRepository.existsByNameAndIdNot("Updated Name", id))
+                .thenReturn(false);
+        when(categoryRepository.save(any(Category.class)))
+                .thenReturn(existing);
+
+        useCase.execute(id, request);
+
+        verify(access).requireActiveToggle();
     }
 }

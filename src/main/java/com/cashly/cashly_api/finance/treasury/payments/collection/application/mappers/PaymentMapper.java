@@ -19,7 +19,8 @@ public class PaymentMapper {
                 payment.getCreatedByName(), payment.getCreatedAt(),
                 payment.getUpdatedAt(), payment.getCancelledReason(),
                 payment.getVerifiedBy(), payment.getVerifiedByName(),
-                payment.getVerifiedAt());
+                payment.getVerifiedAt(), payment.getTargetInvoiceId(),
+                voucherUrl(payment));
     }
 
     public static PaymentListResponse toListResponse(Payment payment) {
@@ -28,6 +29,13 @@ public class PaymentMapper {
                 payment.getAmount(), payment.getPaymentMethodId(),
                 payment.getReferenceNumber(), payment.getPaymentDate(),
                 payment.getStatus().name(), payment.getAppliedAmount(),
-                payment.getCreatedAt());
+                payment.getCreatedAt(), payment.getTargetInvoiceId(),
+                voucherUrl(payment));
+    }
+
+    private static String voucherUrl(Payment payment) {
+        return payment.getVoucherPath() == null
+                ? null
+                : "/api/files/" + payment.getVoucherPath();
     }
 }

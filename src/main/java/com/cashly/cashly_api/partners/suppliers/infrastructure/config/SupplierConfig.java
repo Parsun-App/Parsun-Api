@@ -41,8 +41,9 @@ public class SupplierConfig {
     @Bean
     public GetSupplierUseCase getSupplierUseCase(
             SupplierRepository supplierRepository,
-            SupplierMapper supplierMapper) {
-        return new GetSupplierUseCase(supplierRepository, supplierMapper);
+            SupplierMapper supplierMapper, PurchaseUsageGateway purchaseUsage) {
+        return new GetSupplierUseCase(supplierRepository, supplierMapper,
+                purchaseUsage);
     }
 
     @Bean
@@ -57,8 +58,11 @@ public class SupplierConfig {
     public UpdateSupplierUseCase updateSupplierUseCase(
             SupplierRepository supplierRepository,
             SupplierMapper supplierMapper,
+            com.cashly.cashly_api.shared.application.ports.in.ActiveTogglePermission access,
+            PurchaseUsageGateway purchaseUsage,
             ActivityNotificationRecorder activityNotifications) {
-        return new UpdateSupplierUseCase(supplierRepository, supplierMapper, activityNotifications);
+        return new UpdateSupplierUseCase(supplierRepository, supplierMapper,
+                access, purchaseUsage, activityNotifications);
     }
 
     @Bean

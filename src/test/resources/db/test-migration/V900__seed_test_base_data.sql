@@ -1,9 +1,9 @@
 INSERT IGNORE INTO companies (id, singleton_key, legal_name, trade_name,
     tax_id, email, phone, website, street, city, region, country,
     postal_code)
-VALUES (0x92000000000000000000000000000001, 1, 'Cashly Demo, C.A.',
-    'Cashly Demo', 'J-00000000-0', 'hello@cashly.local',
-    '+58-212-0000000', 'https://cashly.local', 'Avenida Principal',
+VALUES (0x92000000000000000000000000000001, 1, 'Parsun Demo, C.A.',
+    'Parsun Demo', 'J-00000000-0', 'hello@parsun.local',
+    '+58-212-0000000', 'https://parsun.local', 'Avenida Principal',
     'Caracas', 'Distrito Capital', 'Venezuela', '1010');
 
 INSERT IGNORE INTO auth_roles (id, name, description, active, version,

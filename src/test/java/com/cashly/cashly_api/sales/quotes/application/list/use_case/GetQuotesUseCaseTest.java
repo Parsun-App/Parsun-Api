@@ -88,7 +88,7 @@ class GetQuotesUseCaseTest {
         getQuotesUseCase.execute(null, null, null, "ALL", null, null,
                 "createdAt", "desc",
                 com.cashly.cashly_api.shared.domain.valueobjects.DocumentAction.EDIT);
-        verify(quoteRepository).findAllWithFilters(null, null, null, "DRAFT",
+        verify(quoteRepository).findAllWithFilters(null, null, null, "DRAFTS",
                 null, null, java.util.Set.of(), "createdAt", "desc");
     }
 
@@ -97,7 +97,7 @@ class GetQuotesUseCaseTest {
         getQuotesUseCase.execute(null, null, null, "ALL", null, null,
                 "createdAt", "desc",
                 com.cashly.cashly_api.shared.domain.valueobjects.DocumentAction.CONVERT_TO_ORDER);
-        verify(quoteRepository).findAllWithFilters(null, null, null, "DRAFT",
+        verify(quoteRepository).findAllWithFilters(null, null, null, "DRAFTS",
                 null, null, java.util.Set.of(), "createdAt", "desc");
     }
 
@@ -106,7 +106,7 @@ class GetQuotesUseCaseTest {
         getQuotesUseCase.execute(null, null, null, "ALL", null, null,
                 "createdAt", "desc",
                 com.cashly.cashly_api.shared.domain.valueobjects.DocumentAction.CONVERT_TO_INVOICE);
-        verify(quoteRepository).findAllWithFilters(null, null, null, "DRAFT",
+        verify(quoteRepository).findAllWithFilters(null, null, null, "DRAFTS",
                 null, null, java.util.Set.of(), "createdAt", "desc");
     }
 
@@ -115,7 +115,7 @@ class GetQuotesUseCaseTest {
         getQuotesUseCase.execute(null, null, null, "ALL", null, null,
                 "createdAt", "desc",
                 com.cashly.cashly_api.shared.domain.valueobjects.DocumentAction.CANCEL);
-        verify(quoteRepository).findAllWithFilters(null, null, null, "DRAFT",
+        verify(quoteRepository).findAllWithFilters(null, null, null, "DRAFTS",
                 null, null, java.util.Set.of(), "createdAt", "desc");
     }
 

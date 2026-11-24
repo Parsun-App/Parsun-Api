@@ -11,5 +11,19 @@ public record PaymentResponse(UUID id, String paymentNumber, UUID customerId,
         BigDecimal appliedAmount, UUID createdBy, String createdByName,
         LocalDateTime createdAt, LocalDateTime updatedAt,
         String cancelledReason, UUID verifiedBy, String verifiedByName,
-        LocalDateTime verifiedAt) {
+        LocalDateTime verifiedAt, UUID targetInvoiceId, String voucherUrl) {
+
+    public PaymentResponse(UUID id, String paymentNumber, UUID customerId,
+            BigDecimal amount, UUID paymentMethodId, String referenceNumber,
+            LocalDate paymentDate, String notes, String status,
+            BigDecimal appliedAmount, UUID createdBy, String createdByName,
+            LocalDateTime createdAt, LocalDateTime updatedAt,
+            String cancelledReason, UUID verifiedBy, String verifiedByName,
+            LocalDateTime verifiedAt) {
+        this(id, paymentNumber, customerId, amount, paymentMethodId,
+                referenceNumber, paymentDate, notes, status, appliedAmount,
+                createdBy, createdByName, createdAt, updatedAt,
+                cancelledReason, verifiedBy, verifiedByName, verifiedAt, null,
+                null);
+    }
 }

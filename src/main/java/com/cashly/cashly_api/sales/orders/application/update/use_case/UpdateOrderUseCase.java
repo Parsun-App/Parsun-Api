@@ -48,8 +48,10 @@ public class UpdateOrderUseCase {
     public OrderDetailResponse execute(UUID id, UpdateOrderRequest request) {
         Order order = orderRepository.findById(OrderId.of(id))
                 .orElseThrow(() -> new OrderNotFoundException(id));
-        if (order.getStatus() != OrderStatus.DRAFT) {
-            throw new IllegalStateException("Only DRAFT orders can be updated");
+        if (order.getStatus() != OrderStatus.DRAFT
+                && order.getStatus() != OrderStatus.CUSTOMER_DRAFT) {
+            throw new IllegalStateException(
+                    "Only DRAFT or CUSTOMER_DRAFT orders can be updated");
         }
 
         revertStockAllocations(order);

@@ -1,12 +1,16 @@
 package com.cashly.cashly_api.inventory.warehouses.reporting.infrastructure.config;
 
 import com.cashly.cashly_api.shared.infrastructure.pdf.PdfBranding;
+import com.cashly.cashly_api.inventory.warehouses.reporting.application.ports.out.CatalogExcelPort;
 import com.cashly.cashly_api.inventory.warehouses.reporting.application.ports.out.CatalogPdfPort;
 import com.cashly.cashly_api.inventory.warehouses.reporting.application.ports.out.CatalogReportRepositoryPort;
+import com.cashly.cashly_api.inventory.warehouses.reporting.application.generate_catalog_excel.use_case.GenerateCatalogExcelUseCase;
+import com.cashly.cashly_api.inventory.warehouses.reporting.application.generate_catalog_excel.services.GenerateCatalogExcelUseCaseImpl;
 import com.cashly.cashly_api.inventory.warehouses.reporting.application.generate_catalog_pdf.use_case.GenerateCatalogPdfUseCase;
 import com.cashly.cashly_api.inventory.warehouses.reporting.application.generate_catalog_pdf.services.GenerateCatalogPdfUseCaseImpl;
 import com.cashly.cashly_api.inventory.warehouses.reporting.application.get_catalog_report.use_case.GetCatalogReportUseCase;
 import com.cashly.cashly_api.inventory.warehouses.reporting.application.get_catalog_report.services.GetCatalogReportUseCaseImpl;
+import com.cashly.cashly_api.inventory.warehouses.reporting.infrastructure.excel.CatalogExcelGenerator;
 import com.cashly.cashly_api.inventory.warehouses.reporting.infrastructure.pdf.CatalogPdfGenerator;
 import com.cashly.cashly_api.inventory.warehouses.reporting.infrastructure.persistence.repositories.CatalogReportJpaRepository;
 import com.cashly.cashly_api.inventory.warehouses.reporting.infrastructure.persistence.adapters.CatalogReportRepositoryAdapter;
@@ -39,5 +43,18 @@ public class WarehouseCatalogReportingConfig {
             CatalogPdfPort catalogPdfPort) {
         return new GenerateCatalogPdfUseCaseImpl(catalogReportRepositoryPort,
                 catalogPdfPort);
+    }
+
+    @Bean
+    public CatalogExcelPort catalogExcelPort() {
+        return new CatalogExcelGenerator();
+    }
+
+    @Bean
+    public GenerateCatalogExcelUseCase generateCatalogExcelUseCase(
+            CatalogReportRepositoryPort catalogReportRepositoryPort,
+            CatalogExcelPort catalogExcelPort) {
+        return new GenerateCatalogExcelUseCaseImpl(catalogReportRepositoryPort,
+                catalogExcelPort);
     }
 }

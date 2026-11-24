@@ -4,5 +4,12 @@ import com.cashly.cashly_api.partners.customers.profile.domain.valueobjects.Paym
 
 public record CustomerListResponse(String id, Long code, String alias,
         String legalName, String rif, String type, boolean active,
-        PaymentType paymentType, boolean deletable) {
+        PaymentType paymentType, boolean deletable, boolean portalAccess) {
+
+    public CustomerListResponse(String id, Long code, String alias,
+            String legalName, String rif, String type, boolean active,
+            PaymentType paymentType, boolean deletable) {
+        this(id, code, alias, legalName, rif, type, active, paymentType,
+                deletable, false);
+    }
 }

@@ -1,5 +1,6 @@
 package com.cashly.cashly_api.catalog.categories.application.update.use_case;
 
+import com.cashly.cashly_api.shared.application.ports.in.ActiveTogglePermission;
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityEvent;
 
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityNotificationRecorder;
@@ -20,17 +21,19 @@ public class UpdateCategoryUseCase {
 
     private final CategoryRepository categoryRepository;
     private final CategoryMapper categoryMapper;
+    private final ActiveTogglePermission access;
 
     private final ActivityNotificationRecorder activityNotifications;
 
     public UpdateCategoryUseCase(CategoryRepository categoryRepository,
-            CategoryMapper categoryMapper,
+            CategoryMapper categoryMapper, ActiveTogglePermission access,
             ActivityNotificationRecorder activityNotifications) {
         this.activityNotifications = activityNotifications != null
                 ? activityNotifications
                 : ActivityNotificationRecorder.NONE;
         this.categoryRepository = categoryRepository;
         this.categoryMapper = categoryMapper;
+        this.access = access;
     }
 
     @Transactional
@@ -43,6 +46,11 @@ public class UpdateCategoryUseCase {
         if (categoryRepository.existsByNameAndIdNot(request.name().trim(),
                 id)) {
             throw new DuplicateCategoryNameException(request.name());
+        }
+
+        if (request.active() != null
+                && request.active() != category.isActive()) {
+            access.requireActiveToggle();
         }
 
         category.update(request.name().trim(), request.description(),

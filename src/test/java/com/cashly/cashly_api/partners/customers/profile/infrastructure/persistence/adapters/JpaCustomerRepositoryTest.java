@@ -214,11 +214,11 @@ class JpaCustomerRepositoryTest {
             when(mappedPage.isEmpty()).thenReturn(false);
 
             when(springDataRepository.findAllWithFilters(any(), any(), any(),
-                    any(), any(), any(), any(), any(), any(PageRequest.class)))
+                    any(), any(), any(), any(), any(), any(), any(PageRequest.class)))
                     .thenReturn(entityPage);
 
             PageResponse<Customer> result = adapter.findAllWithFilters(null,
-                    null, null, null, null, null, null, null, 0, 20,
+                    null, null, null, null, null, null, null, null, 0, 20,
                     "legalName", "asc");
 
             assertNotNull(result);
@@ -226,7 +226,7 @@ class JpaCustomerRepositoryTest {
             assertEquals(1, result.content().size());
             assertEquals(customer.getId(), result.content().get(0).getId());
             verify(springDataRepository).findAllWithFilters(any(), any(), any(),
-                    any(), any(), any(), any(), any(), any(PageRequest.class));
+                    any(), any(), any(), any(), any(), any(), any(PageRequest.class));
         }
 
         @SuppressWarnings("unchecked")
@@ -246,18 +246,18 @@ class JpaCustomerRepositoryTest {
             when(mappedPage.isEmpty()).thenReturn(true);
 
             when(springDataRepository.findAllWithFilters(any(), any(), any(),
-                    any(), any(), any(), any(), any(), any(PageRequest.class)))
+                    any(), any(), any(), any(), any(), any(), any(PageRequest.class)))
                     .thenReturn(entityPage);
 
             PageResponse<Customer> result = adapter.findAllWithFilters(null,
-                    null, null, null, null, null, null, null, 0, 20,
+                    null, null, null, null, null, null, null, null, 0, 20,
                     "legalName", "asc");
 
             assertNotNull(result);
             assertTrue(result.empty());
             assertTrue(result.content().isEmpty());
             verify(springDataRepository).findAllWithFilters(any(), any(), any(),
-                    any(), any(), any(), any(), any(), any(PageRequest.class));
+                    any(), any(), any(), any(), any(), any(), any(PageRequest.class));
         }
 
         @SuppressWarnings("unchecked")
@@ -278,17 +278,17 @@ class JpaCustomerRepositoryTest {
             when(mappedPage.isEmpty()).thenReturn(false);
 
             when(springDataRepository.findAllWithFilters(any(), any(), any(),
-                    any(), any(), any(), any(), any(), any(PageRequest.class)))
+                    any(), any(), any(), any(), any(), any(), any(PageRequest.class)))
                     .thenReturn(entityPage);
 
             PageResponse<Customer> result = adapter.findAllWithFilters(null,
-                    null, null, null, null, null, null, null, 0, 20,
+                    null, null, null, null, null, null, null, null, 0, 20,
                     "invalidField", "asc");
 
             assertNotNull(result);
             assertEquals(1, result.totalElements());
             verify(springDataRepository).findAllWithFilters(any(), any(), any(),
-                    any(), any(), any(), any(), any(), any(PageRequest.class));
+                    any(), any(), any(), any(), any(), any(), any(PageRequest.class));
         }
 
         @SuppressWarnings("unchecked")
@@ -309,18 +309,18 @@ class JpaCustomerRepositoryTest {
             when(mappedPage.isEmpty()).thenReturn(false);
 
             when(springDataRepository.findAllWithFilters(any(), any(), any(),
-                    any(), any(), any(), any(), any(), any(PageRequest.class)))
+                    any(), any(), any(), any(), any(), any(), any(PageRequest.class)))
                     .thenReturn(entityPage);
 
             PageResponse<Customer> result = adapter.findAllWithFilters(null,
-                    null, null, null, null, null, null, null, 0, 20,
+                    null, null, null, null, null, null, null, null, 0, 20,
                     "legalName", "desc");
 
             assertNotNull(result);
             assertEquals(1, result.totalElements());
             assertEquals(customer.getId(), result.content().get(0).getId());
             verify(springDataRepository).findAllWithFilters(any(), any(), any(),
-                    any(), any(), any(), any(), any(), any(PageRequest.class));
+                    any(), any(), any(), any(), any(), any(), any(PageRequest.class));
         }
     }
 

@@ -3,6 +3,7 @@ package com.cashly.cashly_api.sales.orders.application.confirm.use_case;
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityEvent;
 
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityNotificationRecorder;
+import com.cashly.cashly_api.platform.notifications.application.ports.in.CustomerNotificationRecorder;
 
 import com.cashly.cashly_api.sales.orders.application.ports.out.OrderInventoryGateway;
 import com.cashly.cashly_api.sales.orders.application.dto.response.OrderDetailResponse;
@@ -11,6 +12,7 @@ import com.cashly.cashly_api.sales.orders.domain.entity.Order;
 import com.cashly.cashly_api.sales.orders.domain.exceptions.OrderNotFoundException;
 import com.cashly.cashly_api.sales.orders.domain.repository.OrderRepository;
 import com.cashly.cashly_api.sales.orders.domain.valueobjects.OrderId;
+import com.cashly.cashly_api.sales.orders.domain.valueobjects.OrderStatus;
 import jakarta.transaction.Transactional;
 
 import java.util.UUID;
@@ -21,16 +23,26 @@ public class ConfirmOrderUseCase {
     private final OrderRepository orderRepository;
     private final OrderInventoryGateway inventory;
 
+    private final CustomerNotificationRecorder customerNotifications;
+
     private final ActivityNotificationRecorder activityNotifications;
 
     public ConfirmOrderUseCase(OrderRepository orderRepository,
             OrderInventoryGateway inventory,
             ActivityNotificationRecorder activityNotifications) {
+        this(orderRepository, inventory, activityNotifications, null);
+    }
+
+    public ConfirmOrderUseCase(OrderRepository orderRepository,
+            OrderInventoryGateway inventory,
+            ActivityNotificationRecorder activityNotifications,
+            CustomerNotificationRecorder customerNotifications) {
         this.activityNotifications = activityNotifications != null
                 ? activityNotifications
                 : ActivityNotificationRecorder.NONE;
         this.orderRepository = orderRepository;
         this.inventory = inventory;
+        this.customerNotifications = customerNotifications;
     }
 
     @Transactional
@@ -38,6 +50,13 @@ public class ConfirmOrderUseCase {
     public OrderDetailResponse execute(UUID id) {
         Order order = orderRepository.findById(OrderId.of(id))
                 .orElseThrow(() -> new OrderNotFoundException(id));
+
+        if (order.getStatus() == OrderStatus.CUSTOMER_DRAFT
+                && order.getLines().stream()
+                        .anyMatch(line -> line.getAllocations().isEmpty())) {
+            throw new IllegalStateException(
+                    "Customer draft order requires warehouse stock assignment before confirmation");
+        }
 
         order.confirm();
         inventory.deductReservations(
@@ -55,6 +74,10 @@ public class ConfirmOrderUseCase {
         activityNotifications.record(ActivityEvent.of("SALES_ORDERS",
                 "CONFIRM", "ORDER", saved.getId().value(),
                 saved.getOrderNumber().value(), null));
+        if (customerNotifications != null) {
+            customerNotifications.orderConfirmed(saved.getCustomerId(),
+                    saved.getId().value());
+        }
         return OrderMapper.toDetailResponse(saved);
     }
 

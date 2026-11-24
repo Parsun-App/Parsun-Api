@@ -3,6 +3,7 @@ package com.cashly.cashly_api.sales.invoices.invoices.application.cancel.use_cas
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityEvent;
 
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityNotificationRecorder;
+import com.cashly.cashly_api.platform.notifications.application.ports.in.CustomerNotificationRecorder;
 
 import com.cashly.cashly_api.sales.invoices.invoices.application.ports.out.InventoryGateway;
 import com.cashly.cashly_api.sales.invoices.invoices.application.ports.out.CashRegisterGateway;
@@ -15,6 +16,7 @@ import com.cashly.cashly_api.sales.invoices.invoices.domain.repository.InvoiceRe
 import com.cashly.cashly_api.sales.invoices.invoices.domain.valueobjects.InvoiceId;
 import com.cashly.cashly_api.sales.invoices.invoices.domain.valueobjects.InvoiceStatus;
 import jakarta.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -28,17 +30,29 @@ public class CancelInvoiceUseCase {
     private final CashRegisterGateway cashRegister;
 
     private final ActivityNotificationRecorder activityNotifications;
+    private final CustomerNotificationRecorder customerNotifications;
 
     public CancelInvoiceUseCase(InvoiceRepository invoiceRepository,
             InventoryGateway inventoryGateway,
             ActivityNotificationRecorder activityNotifications,
             CashRegisterGateway cashRegister) {
+        this(invoiceRepository, inventoryGateway, activityNotifications,
+                cashRegister, null);
+    }
+
+    @Autowired
+    public CancelInvoiceUseCase(InvoiceRepository invoiceRepository,
+            InventoryGateway inventoryGateway,
+            ActivityNotificationRecorder activityNotifications,
+            CashRegisterGateway cashRegister,
+            CustomerNotificationRecorder customerNotifications) {
         this.activityNotifications = activityNotifications != null
                 ? activityNotifications
                 : ActivityNotificationRecorder.NONE;
         this.invoiceRepository = invoiceRepository;
         this.inventoryGateway = inventoryGateway;
         this.cashRegister = cashRegister;
+        this.customerNotifications = customerNotifications;
     }
 
     @Transactional
@@ -59,6 +73,11 @@ public class CancelInvoiceUseCase {
         activityNotifications.record(ActivityEvent.of("SALES_INVOICES_INVOICES",
                 "CANCEL", "INVOICE", saved.getId().value(),
                 saved.getInvoiceNumber().value(), null));
+        if (customerNotifications != null) {
+            customerNotifications.invoiceCancelled(saved.getCustomerId(),
+                    saved.getId().value(),
+                    saved.getInvoiceNumber().value(), request.reason());
+        }
         return InvoiceMapper.toDetailResponse(saved);
     }
 

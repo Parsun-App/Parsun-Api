@@ -32,4 +32,18 @@ public interface SpringDataWarehouseRepository
             WHERE ws.warehouse_id IN :ids AND ws.quantity > 0
             """, nativeQuery = true)
     Set<UUID> findIdsWithActiveStock(@Param("ids") Set<UUID> ids);
+
+    @Query(value = """
+            SELECT BIN_TO_UUID(x.warehouse_id) FROM (
+                SELECT warehouse_id FROM warehouse_stock WHERE warehouse_id IN :ids
+                UNION SELECT warehouse_id FROM stock_movements WHERE warehouse_id IN :ids
+                UNION SELECT warehouse_id FROM customer_warehouse_access WHERE warehouse_id IN :ids
+                UNION SELECT warehouse_id FROM order_line_allocations WHERE warehouse_id IN :ids
+                UNION SELECT warehouse_id FROM quote_allocations WHERE warehouse_id IN :ids
+                UNION SELECT warehouse_id FROM invoice_line_allocations WHERE warehouse_id IN :ids
+                UNION SELECT warehouse_id FROM return_line_allocations WHERE warehouse_id IN :ids
+                UNION SELECT warehouse_id FROM purchase_line_allocations WHERE warehouse_id IN :ids
+            ) x
+            """, nativeQuery = true)
+    Set<UUID> findIdsWithAssociatedRecords(@Param("ids") Set<UUID> ids);
 }

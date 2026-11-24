@@ -45,14 +45,15 @@ public class GetOrdersUseCase {
             return execute(dateFrom, dateTo, customerId, status, productId,
                     categoryId, orderBy, orderDir);
         String eligibleStatus = switch (action) {
-            case EDIT, CONFIRM -> "DRAFT";
+            case EDIT, CONFIRM -> "DRAFTS";
             case CANCEL, CONVERT_TO_INVOICE -> "CONFIRMED";
-            case DELETE -> "DRAFT";
+            case DELETE -> "DRAFTS";
             default -> throw new IllegalArgumentException(
                     "Unsupported order action: " + action);
         };
         if (status != null && !status.isBlank() && !"ALL".equals(status)
-                && !eligibleStatus.equals(status)) {
+                && !eligibleStatus.equals(status)
+                && !isDraftStatus(eligibleStatus, status)) {
             return List.of();
         }
         return execute(dateFrom, dateTo, customerId, eligibleStatus, productId,
@@ -94,4 +95,9 @@ public class GetOrdersUseCase {
                 .anyMatch(value -> value.toLowerCase().contains(term));
     }
 
+
+    private static boolean isDraftStatus(String eligibleStatus, String status) {
+        return "DRAFTS".equals(eligibleStatus)
+                && ("DRAFT".equals(status) || "CUSTOMER_DRAFT".equals(status));
+    }
 }

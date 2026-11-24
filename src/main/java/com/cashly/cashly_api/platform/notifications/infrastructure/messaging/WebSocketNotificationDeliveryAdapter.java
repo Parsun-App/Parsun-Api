@@ -50,13 +50,42 @@ public class WebSocketNotificationDeliveryAdapter
 
     private void send(Notification notification) {
         if (notification.getUserId() == null) {
+            if (notification.getCustomerId() != null) {
+                messagingTemplate.convertAndSend(
+                        "/topic/notifications/customer/"
+                                + notification.getCustomerId(),
+                        payload(notification,
+                                java.util.Locale.forLanguageTag("es")));
+            }
             return;
         }
         String destination = "/topic/notifications/user/"
                 + notification.getUserId();
         String language = preferences.languageFor(notification.getUserId());
         messagingTemplate.convertAndSend(destination,
-                translator.render(notification, java.util.Locale
+                payload(notification, java.util.Locale
                         .forLanguageTag("en".equals(language) ? "en" : "es")));
+    }
+
+    private NotificationMessage payload(Notification notification,
+            java.util.Locale locale) {
+        Notification rendered = translator.render(notification, locale);
+        return new NotificationMessage(
+                rendered.getId().value(),
+                rendered.getType().name(),
+                rendered.getTitle(),
+                rendered.getMessage(),
+                rendered.getReferenceType(),
+                rendered.getReferenceId(),
+                rendered.isRead(),
+                rendered.getCreatedAt(),
+                rendered.getReadAt());
+    }
+
+    public record NotificationMessage(java.util.UUID id, String type,
+            String title, String message, String referenceType,
+            java.util.UUID referenceId, boolean isRead,
+            java.time.LocalDateTime createdAt,
+            java.time.LocalDateTime readAt) {
     }
 }

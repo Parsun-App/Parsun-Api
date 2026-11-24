@@ -128,17 +128,16 @@ class PayAllCustomerDebtUseCaseTest {
         assertEquals(PaymentStatus.APPLIED.name(), response.status());
         verify(paymentRepository, org.mockito.Mockito.atLeast(1))
                 .save(paymentCaptor.capture());
-        Payment saved = paymentCaptor.getValue();
-        assertEquals(new BigDecimal("800.00"), saved.getAmount());
-        verify(cashRegisterGateway)
-                .recordMovement(new CashRegisterGateway.Movement(
-                        CashRegisterGateway.Direction.IN,
-                        CashRegisterGateway.Type.PAYMENT,
-                        new CashRegisterGateway.PaymentEntry(
-                                new BigDecimal("800.00"), paymentMethodId,
-                                "Pago total de deuda del cliente",
-                                saved.getId().value(), authenticatedUserId,
-                                authenticatedUserName)));
+        List<Payment> savedPayments = paymentCaptor.getAllValues();
+        assertEquals(4, savedPayments.size());
+        assertEquals(new BigDecimal("500.00"), savedPayments.get(0).getAmount());
+        assertEquals(invoice1Id, savedPayments.get(0).getTargetInvoiceId());
+        assertEquals(new BigDecimal("300.00"), savedPayments.get(2).getAmount());
+        assertEquals(invoice2Id, savedPayments.get(2).getTargetInvoiceId());
+        verify(cashRegisterGateway, org.mockito.Mockito.times(2))
+                .recordMovement(any(CashRegisterGateway.Movement.class));
+        verify(invoiceGateway).recalculateStatus(invoice1Id);
+        verify(invoiceGateway).recalculateStatus(invoice2Id);
     }
 
     @Test

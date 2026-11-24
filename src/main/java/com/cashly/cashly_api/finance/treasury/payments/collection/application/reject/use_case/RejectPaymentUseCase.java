@@ -4,6 +4,7 @@ import com.cashly.cashly_api.platform.notifications.application.ports.in.Activit
 
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityNotificationRecorder;
 
+import com.cashly.cashly_api.platform.notifications.application.ports.in.CustomerNotificationRecorder;
 import com.cashly.cashly_api.finance.treasury.payments.collection.application.reject.request.RejectPaymentRequest;
 import com.cashly.cashly_api.finance.treasury.payments.collection.application.dto.response.PaymentResponse;
 import com.cashly.cashly_api.finance.treasury.payments.collection.application.mappers.PaymentMapper;
@@ -18,15 +19,23 @@ import com.cashly.cashly_api.platform.audit.application.ports.in.Audited;
 public class RejectPaymentUseCase {
 
     private final PaymentRepository paymentRepository;
+    private final CustomerNotificationRecorder notificationService;
 
     private final ActivityNotificationRecorder activityNotifications;
 
     public RejectPaymentUseCase(PaymentRepository paymentRepository,
+            CustomerNotificationRecorder notificationService,
             ActivityNotificationRecorder activityNotifications) {
         this.activityNotifications = activityNotifications != null
                 ? activityNotifications
                 : ActivityNotificationRecorder.NONE;
         this.paymentRepository = paymentRepository;
+        this.notificationService = notificationService;
+    }
+
+    public RejectPaymentUseCase(PaymentRepository paymentRepository,
+            ActivityNotificationRecorder activityNotifications) {
+        this(paymentRepository, null, activityNotifications);
     }
 
     @Transactional
@@ -43,6 +52,10 @@ public class RejectPaymentUseCase {
         activityNotifications.record(ActivityEvent.of("FINANCE_TREASURY_RECEIVABLES",
                 "REJECT_PAYMENT", "PAYMENT",
                 saved.getId().value(), saved.getPaymentNumber().value(), userId));
+        if (notificationService != null) {
+            notificationService.paymentRejected(
+                    payment.getCustomerId(), id, request.reason());
+        }
         return PaymentMapper.toResponse(saved);
     }
 }

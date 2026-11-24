@@ -4,7 +4,7 @@ import com.cashly.cashly_api.platform.notifications.application.ports.in.Activit
 
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityNotificationRecorder;
 
-import com.cashly.cashly_api.inventory.warehouses.management.application.delete.services.WarehouseHasActiveStockException;
+import com.cashly.cashly_api.inventory.warehouses.management.application.delete.services.WarehouseHasAssociatedRecordsException;
 import com.cashly.cashly_api.inventory.warehouses.management.application.exceptions.WarehouseNotFoundException;
 import com.cashly.cashly_api.inventory.warehouses.management.domain.entity.Warehouse;
 import com.cashly.cashly_api.inventory.warehouses.management.domain.repository.WarehouseRepository;
@@ -32,8 +32,8 @@ public class DeleteWarehouseUseCase {
     public void execute(UUID id) {
         Warehouse warehouse = warehouseRepository.findById(id)
                 .orElseThrow(() -> new WarehouseNotFoundException(id));
-        if (warehouseRepository.hasActiveStock(id)) {
-            throw new WarehouseHasActiveStockException(id);
+        if (warehouseRepository.hasAssociatedRecords(id)) {
+            throw new WarehouseHasAssociatedRecordsException(id);
         }
         warehouse.deactivate();
         activityNotifications.record(ActivityEvent.of("INVENTORY_WAREHOUSES",

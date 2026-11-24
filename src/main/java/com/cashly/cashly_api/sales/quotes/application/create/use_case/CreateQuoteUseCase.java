@@ -77,7 +77,31 @@ public class CreateQuoteUseCase {
         return QuoteMapper.toDetailResponse(saved);
     }
 
+    @Transactional
+    public QuoteDetailResponse executeCustomerDraft(
+            CreateQuoteRequest request) {
+        QuoteCustomerGateway.Customer customer = customers
+                .findById(request.customerId())
+                .orElseThrow(() -> new IllegalArgumentException(
+                        "Customer not found: " + request.customerId()));
+        List<QuoteLine> lines = buildLines(request, false);
+
+        int year = LocalDate.now().getYear();
+        QuoteNumber quoteNumber = QuoteNumber.of(year,
+                quoteRepository.getNextSequenceForYear(year));
+        Quote quote = Quote.createFromPortal(quoteNumber, customer.id(),
+                customer.legalName(), customer.rif(), customer.id(),
+                customer.legalName(), request.expiryDate(), request.notes(),
+                lines);
+        return QuoteMapper.toDetailResponse(quoteRepository.save(quote));
+    }
+
     private List<QuoteLine> buildLines(CreateQuoteRequest request) {
+        return buildLines(request, true);
+    }
+
+    private List<QuoteLine> buildLines(CreateQuoteRequest request,
+            boolean requireAllocations) {
         return request.lines().stream().map(lineRequest -> {
             QuoteProductCatalogGateway.ProductReference product = products
                     .findProduct(lineRequest.productId())
@@ -90,7 +114,7 @@ public class CreateQuoteUseCase {
                     .warehouseAllocations() == null
                             ? List.of()
                             : lineRequest.warehouseAllocations();
-            if (allocationRequests.isEmpty()) {
+            if (requireAllocations && allocationRequests.isEmpty()) {
                 throw new IllegalArgumentException(
                         "At least one warehouse allocation is required for product "
                                 + product.code());
@@ -109,7 +133,8 @@ public class CreateQuoteUseCase {
                 allocatedTotal = allocatedTotal
                         .add(allocationRequest.allocatedQuantity());
             }
-            if (allocatedTotal.compareTo(lineRequest.quantity()) != 0) {
+            if (requireAllocations
+                    && allocatedTotal.compareTo(lineRequest.quantity()) != 0) {
                 throw new IllegalArgumentException(
                         "Allocated quantity must equal line quantity for product "
                                 + product.code());

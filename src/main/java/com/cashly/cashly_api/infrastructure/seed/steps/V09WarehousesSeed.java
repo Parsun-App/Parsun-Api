@@ -2,6 +2,7 @@ package com.cashly.cashly_api.infrastructure.seed.steps;
 
 import static com.cashly.cashly_api.infrastructure.seed.SeedIds.*;
 
+import com.cashly.cashly_api.infrastructure.seed.SeedCatalogProducts;
 import com.cashly.cashly_api.infrastructure.seed.SeedStep;
 import com.cashly.cashly_api.inventory.warehouses.management.infrastructure.persistence.entities.WarehouseEntity;
 import com.cashly.cashly_api.inventory.warehouses.stock.domain.valueobjects.MovementType;
@@ -36,6 +37,11 @@ public class V09WarehousesSeed implements SeedStep {
         stock("reserve-coffee", WAREHOUSE_RESERVE, PRODUCT_COFFEE, 40);
         movement("coffee-entry", WAREHOUSE_MAIN, PRODUCT_COFFEE, 100);
         movement("water-entry", WAREHOUSE_MAIN, PRODUCT_WATER, 150);
+        for (SeedCatalogProducts.Spec spec : SeedCatalogProducts.PRODUCTS) {
+            stock("main-" + spec.key(), WAREHOUSE_MAIN, spec.productId(), 100);
+            movement(spec.key() + "-entry", WAREHOUSE_MAIN, spec.productId(),
+                    100);
+        }
         access("customer-one-main", CUSTOMER_ONE, WAREHOUSE_MAIN);
         access("customer-two-main", CUSTOMER_TWO, WAREHOUSE_MAIN);
     }

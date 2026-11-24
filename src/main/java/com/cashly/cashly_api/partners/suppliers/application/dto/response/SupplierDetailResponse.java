@@ -6,7 +6,7 @@ import java.util.List;
 
 public record SupplierDetailResponse(String id, Long code, String legalName,
         String alias, String type, String rif, int creditDays,
-        BigDecimal creditLimit, boolean active, String notes,
+        BigDecimal creditLimit, boolean active, boolean deletable, String notes,
         LocalDateTime createdAt, List<EmailResponse> emails,
         List<PhoneResponse> phones, List<AddressResponse> addresses) {
 
@@ -15,6 +15,6 @@ public record SupplierDetailResponse(String id, Long code, String legalName,
             LocalDateTime createdAt, List<EmailResponse> emails,
             List<PhoneResponse> phones, List<AddressResponse> addresses) {
         this(id, code, legalName, alias, type, rif, 0, BigDecimal.ZERO, active,
-                notes, createdAt, emails, phones, addresses);
+                true, notes, createdAt, emails, phones, addresses);
     }
 }

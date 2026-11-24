@@ -19,7 +19,8 @@ public final class NotificationTranslator {
                 .map(argument -> resolve(argument, locale)).toArray();
         String title = translateTitle(notification, arguments, locale);
         return Notification.reconstitute(notification.getId(),
-                notification.getUserId(), notification.getType(),
+                notification.getUserId(), notification.getCustomerId(),
+                notification.getType(),
                 title,
                 messages.translate(notification.getMessageKey(), locale,
                         arguments),

@@ -54,8 +54,10 @@ public class WarehouseConfig {
     @Bean
     public UpdateWarehouseUseCase updateWarehouseUseCase(
             WarehouseRepository warehouseRepository,
+            com.cashly.cashly_api.shared.application.ports.in.ActiveTogglePermission access,
             ActivityNotificationRecorder activityNotifications) {
-        return new UpdateWarehouseUseCase(warehouseRepository, activityNotifications);
+        return new UpdateWarehouseUseCase(warehouseRepository, access,
+                activityNotifications);
     }
 
     @Bean

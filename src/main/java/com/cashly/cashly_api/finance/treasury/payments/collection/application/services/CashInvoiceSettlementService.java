@@ -28,7 +28,8 @@ public class CashInvoiceSettlementService implements CashInvoiceSettlement {
                 command.customerId(), command.amount(),
                 command.paymentMethodId(), null, LocalDate.now(),
                 "Pago de factura " + command.invoiceNumber(), command.actorId(),
-                command.actorName(), PaymentStatus.APPLIED);
+                command.actorName(), PaymentStatus.APPLIED,
+                command.invoiceId(), null);
         var savedPayment = payments.save(payment);
         cashRegister.recordPayment(new CashRegisterGateway.PaymentEntry(
                 savedPayment.getAmount(), savedPayment.getPaymentMethodId(),

@@ -33,7 +33,8 @@ class UpdateWarehouseUseCaseTest {
 
     @BeforeEach
     void setUp() {
-        useCase = new UpdateWarehouseUseCase(warehouseRepository, org.mockito.Mockito.mock(com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityNotificationRecorder.class));
+        useCase = new UpdateWarehouseUseCase(warehouseRepository, org.mockito.Mockito.mock(com.cashly.cashly_api.shared.application.ports.in.ActiveTogglePermission.class),
+                org.mockito.Mockito.mock(com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityNotificationRecorder.class));
     }
 
     @Test

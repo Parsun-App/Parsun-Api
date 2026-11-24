@@ -106,14 +106,14 @@
                   "descriptionKey": "platform.auth.permissions.sales_orders.download_pdf.description"
                 },
                 {
-                  "code": "SALES_ORDERS_CONFIRM",
-                  "labelKey": "platform.auth.permissions.sales_orders.confirm",
-                  "descriptionKey": "platform.auth.permissions.sales_orders.confirm.description"
-                },
-                {
                   "code": "SALES_ORDERS_CONVERT_TO_INVOICE",
                   "labelKey": "platform.auth.permissions.sales_orders.convert_to_invoice",
                   "descriptionKey": "platform.auth.permissions.sales_orders.convert_to_invoice.description"
+                },
+                {
+                  "code": "SALES_ORDERS_CONFIRM",
+                  "labelKey": "platform.auth.permissions.sales_orders.confirm",
+                  "descriptionKey": "platform.auth.permissions.sales_orders.confirm.description"
                 },
                 {
                   "code": "SALES_ORDERS_CANCEL",
@@ -552,6 +552,32 @@
               ]
             },
             {
+              "module": "FINANCE_TREASURY_EXPENSES",
+              "labelKey": "platform.auth.domains.finance_treasury_expenses",
+              "permissions": [
+                {
+                  "code": "FINANCE_TREASURY_EXPENSES_VIEW_LIST",
+                  "labelKey": "platform.auth.permissions.finance_treasury_expenses.view_list",
+                  "descriptionKey": "platform.auth.permissions.finance_treasury_expenses.view_list.description"
+                },
+                {
+                  "code": "FINANCE_TREASURY_EXPENSES_DELETE",
+                  "labelKey": "platform.auth.permissions.finance_treasury_expenses.delete",
+                  "descriptionKey": "platform.auth.permissions.finance_treasury_expenses.delete.description"
+                },
+                {
+                  "code": "FINANCE_TREASURY_EXPENSES_CREATE",
+                  "labelKey": "platform.auth.permissions.finance_treasury_expenses.create",
+                  "descriptionKey": "platform.auth.permissions.finance_treasury_expenses.create.description"
+                },
+                {
+                  "code": "FINANCE_TREASURY_EXPENSES_CANCEL",
+                  "labelKey": "platform.auth.permissions.finance_treasury_expenses.cancel",
+                  "descriptionKey": "platform.auth.permissions.finance_treasury_expenses.cancel.description"
+                }
+              ]
+            },
+            {
               "module": "FINANCE_TREASURY_RECEIVABLES",
               "labelKey": "platform.auth.domains.finance_treasury_receivables",
               "permissions": [
@@ -561,14 +587,24 @@
                   "descriptionKey": "platform.auth.permissions.finance_treasury_receivables.view_list.description"
                 },
                 {
-                  "code": "FINANCE_TREASURY_RECEIVABLES_VIEW_DEBT",
-                  "labelKey": "platform.auth.permissions.finance_treasury_receivables.view_debt",
-                  "descriptionKey": "platform.auth.permissions.finance_treasury_receivables.view_debt.description"
+                  "code": "FINANCE_TREASURY_RECEIVABLES_EDIT",
+                  "labelKey": "platform.auth.permissions.finance_treasury_receivables.edit",
+                  "descriptionKey": "platform.auth.permissions.finance_treasury_receivables.edit.description"
+                },
+                {
+                  "code": "FINANCE_TREASURY_RECEIVABLES_DELETE",
+                  "labelKey": "platform.auth.permissions.finance_treasury_receivables.delete",
+                  "descriptionKey": "platform.auth.permissions.finance_treasury_receivables.delete.description"
                 },
                 {
                   "code": "FINANCE_TREASURY_RECEIVABLES_REPORT_PDF",
                   "labelKey": "platform.auth.permissions.finance_treasury_receivables.report_pdf",
                   "descriptionKey": "platform.auth.permissions.finance_treasury_receivables.report_pdf.description"
+                },
+                {
+                  "code": "FINANCE_TREASURY_RECEIVABLES_VIEW_DEBT",
+                  "labelKey": "platform.auth.permissions.finance_treasury_receivables.view_debt",
+                  "descriptionKey": "platform.auth.permissions.finance_treasury_receivables.view_debt.description"
                 },
                 {
                   "code": "FINANCE_TREASURY_RECEIVABLES_PAY_ALL",
@@ -609,16 +645,77 @@
                   "code": "FINANCE_TREASURY_RECEIVABLES_REJECT_PAYMENT",
                   "labelKey": "platform.auth.permissions.finance_treasury_receivables.reject_payment",
                   "descriptionKey": "platform.auth.permissions.finance_treasury_receivables.reject_payment.description"
+                }
+              ]
+            },
+            {
+              "module": "FINANCE_TREASURY_PAYABLES",
+              "labelKey": "platform.auth.domains.finance_treasury_payables",
+              "permissions": [
+                {
+                  "code": "FINANCE_TREASURY_PAYABLES_VIEW_LIST",
+                  "labelKey": "platform.auth.permissions.finance_treasury_payables.view_list",
+                  "descriptionKey": "platform.auth.permissions.finance_treasury_payables.view_list.description"
                 },
                 {
-                  "code": "FINANCE_TREASURY_RECEIVABLES_EDIT",
-                  "labelKey": "platform.auth.permissions.finance_treasury_receivables.edit",
-                  "descriptionKey": "platform.auth.permissions.finance_treasury_receivables.edit.description"
+                  "code": "FINANCE_TREASURY_PAYABLES_EDIT",
+                  "labelKey": "platform.auth.permissions.finance_treasury_payables.edit",
+                  "descriptionKey": "platform.auth.permissions.finance_treasury_payables.edit.description"
                 },
                 {
-                  "code": "FINANCE_TREASURY_RECEIVABLES_DELETE",
-                  "labelKey": "platform.auth.permissions.finance_treasury_receivables.delete",
-                  "descriptionKey": "platform.auth.permissions.finance_treasury_receivables.delete.description"
+                  "code": "FINANCE_TREASURY_PAYABLES_DELETE",
+                  "labelKey": "platform.auth.permissions.finance_treasury_payables.delete",
+                  "descriptionKey": "platform.auth.permissions.finance_treasury_payables.delete.description"
+                },
+                {
+                  "code": "FINANCE_TREASURY_PAYABLES_REPORT_PDF",
+                  "labelKey": "platform.auth.permissions.finance_treasury_payables.report_pdf",
+                  "descriptionKey": "platform.auth.permissions.finance_treasury_payables.report_pdf.description"
+                },
+                {
+                  "code": "FINANCE_TREASURY_PAYABLES_VIEW_DEBT",
+                  "labelKey": "platform.auth.permissions.finance_treasury_payables.view_debt",
+                  "descriptionKey": "platform.auth.permissions.finance_treasury_payables.view_debt.description"
+                },
+                {
+                  "code": "FINANCE_TREASURY_PAYABLES_PAY_ALL",
+                  "labelKey": "platform.auth.permissions.finance_treasury_payables.pay_all",
+                  "descriptionKey": "platform.auth.permissions.finance_treasury_payables.pay_all.description"
+                },
+                {
+                  "code": "FINANCE_TREASURY_PAYABLES_PARTIAL_PAYMENT",
+                  "labelKey": "platform.auth.permissions.finance_treasury_payables.partial_payment",
+                  "descriptionKey": "platform.auth.permissions.finance_treasury_payables.partial_payment.description"
+                },
+                {
+                  "code": "FINANCE_TREASURY_PAYABLES_PAY_DIRECT",
+                  "labelKey": "platform.auth.permissions.finance_treasury_payables.pay_direct",
+                  "descriptionKey": "platform.auth.permissions.finance_treasury_payables.pay_direct.description"
+                },
+                {
+                  "code": "FINANCE_TREASURY_PAYABLES_PAY_WITH_VALIDATION",
+                  "labelKey": "platform.auth.permissions.finance_treasury_payables.pay_with_validation",
+                  "descriptionKey": "platform.auth.permissions.finance_treasury_payables.pay_with_validation.description"
+                },
+                {
+                  "code": "FINANCE_TREASURY_PAYABLES_REFUND",
+                  "labelKey": "platform.auth.permissions.finance_treasury_payables.refund",
+                  "descriptionKey": "platform.auth.permissions.finance_treasury_payables.refund.description"
+                },
+                {
+                  "code": "FINANCE_TREASURY_PAYABLES_ADVANCE",
+                  "labelKey": "platform.auth.permissions.finance_treasury_payables.advance",
+                  "descriptionKey": "platform.auth.permissions.finance_treasury_payables.advance.description"
+                },
+                {
+                  "code": "FINANCE_TREASURY_PAYABLES_APPROVE_PAYMENT",
+                  "labelKey": "platform.auth.permissions.finance_treasury_payables.approve_payment",
+                  "descriptionKey": "platform.auth.permissions.finance_treasury_payables.approve_payment.description"
+                },
+                {
+                  "code": "FINANCE_TREASURY_PAYABLES_REJECT_PAYMENT",
+                  "labelKey": "platform.auth.permissions.finance_treasury_payables.reject_payment",
+                  "descriptionKey": "platform.auth.permissions.finance_treasury_payables.reject_payment.description"
                 }
               ]
             },
@@ -765,6 +862,185 @@
       ]
     },
     {
+      "area": "PORTAL",
+      "labelKey": "platform.auth.areas.portal",
+      "submodules": [
+        {
+          "submodule": null,
+          "labelKey": "platform.auth.submodules.portal",
+          "domains": [
+            {
+              "module": "PORTAL_DASHBOARD",
+              "labelKey": "platform.auth.domains.portal_dashboard",
+              "permissions": [
+                {
+                  "code": "PORTAL_DASHBOARD_VIEW",
+                  "labelKey": "platform.auth.permissions.portal_dashboard.view",
+                  "descriptionKey": "platform.auth.permissions.portal_dashboard.view.description"
+                }
+              ]
+            },
+            {
+              "module": "PORTAL_PRODUCTS",
+              "labelKey": "platform.auth.domains.portal_products",
+              "permissions": [
+                {
+                  "code": "PORTAL_PRODUCTS_VIEW_LIST",
+                  "labelKey": "platform.auth.permissions.portal_products.view_list",
+                  "descriptionKey": "platform.auth.permissions.portal_products.view_list.description"
+                },
+                {
+                  "code": "PORTAL_PRODUCTS_COMMERCIAL_CATALOG_PDF",
+                  "labelKey": "platform.auth.permissions.portal_products.commercial_catalog_pdf",
+                  "descriptionKey": "platform.auth.permissions.portal_products.commercial_catalog_pdf.description"
+                }
+              ]
+            },
+            {
+              "module": "PORTAL_QUOTES",
+              "labelKey": "platform.auth.domains.portal_quotes",
+              "permissions": [
+                {
+                  "code": "PORTAL_QUOTES_VIEW_LIST",
+                  "labelKey": "platform.auth.permissions.portal_quotes.view_list",
+                  "descriptionKey": "platform.auth.permissions.portal_quotes.view_list.description"
+                },
+                {
+                  "code": "PORTAL_QUOTES_VIEW_DETAIL",
+                  "labelKey": "platform.auth.permissions.portal_quotes.view_detail",
+                  "descriptionKey": "platform.auth.permissions.portal_quotes.view_detail.description"
+                },
+                {
+                  "code": "PORTAL_QUOTES_EDIT",
+                  "labelKey": "platform.auth.permissions.portal_quotes.edit",
+                  "descriptionKey": "platform.auth.permissions.portal_quotes.edit.description"
+                },
+                {
+                  "code": "PORTAL_QUOTES_CREATE",
+                  "labelKey": "platform.auth.permissions.portal_quotes.create",
+                  "descriptionKey": "platform.auth.permissions.portal_quotes.create.description"
+                },
+                {
+                  "code": "PORTAL_QUOTES_CONVERT_TO_ORDER",
+                  "labelKey": "platform.auth.permissions.portal_quotes.convert_to_order",
+                  "descriptionKey": "platform.auth.permissions.portal_quotes.convert_to_order.description"
+                },
+                {
+                  "code": "PORTAL_QUOTES_CANCEL",
+                  "labelKey": "platform.auth.permissions.portal_quotes.cancel",
+                  "descriptionKey": "platform.auth.permissions.portal_quotes.cancel.description"
+                }
+              ]
+            },
+            {
+              "module": "PORTAL_ORDERS",
+              "labelKey": "platform.auth.domains.portal_orders",
+              "permissions": [
+                {
+                  "code": "PORTAL_ORDERS_VIEW_LIST",
+                  "labelKey": "platform.auth.permissions.portal_orders.view_list",
+                  "descriptionKey": "platform.auth.permissions.portal_orders.view_list.description"
+                },
+                {
+                  "code": "PORTAL_ORDERS_VIEW_DETAIL",
+                  "labelKey": "platform.auth.permissions.portal_orders.view_detail",
+                  "descriptionKey": "platform.auth.permissions.portal_orders.view_detail.description"
+                },
+                {
+                  "code": "PORTAL_ORDERS_EDIT",
+                  "labelKey": "platform.auth.permissions.portal_orders.edit",
+                  "descriptionKey": "platform.auth.permissions.portal_orders.edit.description"
+                },
+                {
+                  "code": "PORTAL_ORDERS_CREATE",
+                  "labelKey": "platform.auth.permissions.portal_orders.create",
+                  "descriptionKey": "platform.auth.permissions.portal_orders.create.description"
+                },
+                {
+                  "code": "PORTAL_ORDERS_CONFIRM",
+                  "labelKey": "platform.auth.permissions.portal_orders.confirm",
+                  "descriptionKey": "platform.auth.permissions.portal_orders.confirm.description"
+                },
+                {
+                  "code": "PORTAL_ORDERS_CANCEL",
+                  "labelKey": "platform.auth.permissions.portal_orders.cancel",
+                  "descriptionKey": "platform.auth.permissions.portal_orders.cancel.description"
+                }
+              ]
+            },
+            {
+              "module": "PORTAL_INVOICES",
+              "labelKey": "platform.auth.domains.portal_invoices",
+              "permissions": [
+                {
+                  "code": "PORTAL_INVOICES_VIEW_LIST",
+                  "labelKey": "platform.auth.permissions.portal_invoices.view_list",
+                  "descriptionKey": "platform.auth.permissions.portal_invoices.view_list.description"
+                },
+                {
+                  "code": "PORTAL_INVOICES_VIEW_DETAIL",
+                  "labelKey": "platform.auth.permissions.portal_invoices.view_detail",
+                  "descriptionKey": "platform.auth.permissions.portal_invoices.view_detail.description"
+                }
+              ]
+            },
+            {
+              "module": "PORTAL_PAYMENTS",
+              "labelKey": "platform.auth.domains.portal_payments",
+              "permissions": [
+                {
+                  "code": "PORTAL_PAYMENTS_VIEW_LIST",
+                  "labelKey": "platform.auth.permissions.portal_payments.view_list",
+                  "descriptionKey": "platform.auth.permissions.portal_payments.view_list.description"
+                },
+                {
+                  "code": "PORTAL_PAYMENTS_VIEW_DETAIL",
+                  "labelKey": "platform.auth.permissions.portal_payments.view_detail",
+                  "descriptionKey": "platform.auth.permissions.portal_payments.view_detail.description"
+                },
+                {
+                  "code": "PORTAL_PAYMENTS_CREATE",
+                  "labelKey": "platform.auth.permissions.portal_payments.create",
+                  "descriptionKey": "platform.auth.permissions.portal_payments.create.description"
+                },
+                {
+                  "code": "PORTAL_PAYMENTS_PAY_ALL",
+                  "labelKey": "platform.auth.permissions.portal_payments.pay_all",
+                  "descriptionKey": "platform.auth.permissions.portal_payments.pay_all.description"
+                },
+                {
+                  "code": "PORTAL_PAYMENTS_PARTIAL_PAYMENT",
+                  "labelKey": "platform.auth.permissions.portal_payments.partial_payment",
+                  "descriptionKey": "platform.auth.permissions.portal_payments.partial_payment.description"
+                },
+                {
+                  "code": "PORTAL_PAYMENTS_PAY_DIRECT",
+                  "labelKey": "platform.auth.permissions.portal_payments.pay_direct",
+                  "descriptionKey": "platform.auth.permissions.portal_payments.pay_direct.description"
+                }
+              ]
+            },
+            {
+              "module": "PORTAL_PROFILE",
+              "labelKey": "platform.auth.domains.portal_profile",
+              "permissions": [
+                {
+                  "code": "PORTAL_PROFILE_VIEW_LIST",
+                  "labelKey": "platform.auth.permissions.portal_profile.view_list",
+                  "descriptionKey": "platform.auth.permissions.portal_profile.view_list.description"
+                },
+                {
+                  "code": "PORTAL_PROFILE_EDIT",
+                  "labelKey": "platform.auth.permissions.portal_profile.edit",
+                  "descriptionKey": "platform.auth.permissions.portal_profile.edit.description"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "area": "PLATFORM",
       "labelKey": "platform.auth.areas.platform",
       "submodules": [
@@ -878,6 +1154,28 @@
                   "code": "COMPANY_EDIT",
                   "labelKey": "platform.auth.permissions.company.edit",
                   "descriptionKey": "platform.auth.permissions.company.edit.description"
+                }
+              ]
+            },
+            {
+              "module": "AUDIT_TRAIL",
+              "labelKey": "platform.auth.domains.audit_trail",
+              "permissions": [
+                {
+                  "code": "AUDIT_TRAIL_VIEW_LIST",
+                  "labelKey": "platform.auth.permissions.audit_trail.view_list",
+                  "descriptionKey": "platform.auth.permissions.audit_trail.view_list.description"
+                }
+              ]
+            },
+            {
+              "module": "SYSTEM",
+              "labelKey": "platform.auth.domains.system",
+              "permissions": [
+                {
+                  "code": "SYSTEM_TOGGLE_ACTIVE",
+                  "labelKey": "platform.auth.permissions.system.toggle_active",
+                  "descriptionKey": "platform.auth.permissions.system.toggle_active.description"
                 }
               ]
             }

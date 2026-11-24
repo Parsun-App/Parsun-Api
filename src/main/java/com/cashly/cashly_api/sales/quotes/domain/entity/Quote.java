@@ -74,6 +74,15 @@ public class Quote {
                 lines);
     }
 
+    public static Quote createFromPortal(QuoteNumber quoteNumber,
+            UUID customerId, String customerName, String customerRif,
+            UUID createdBy, String createdByName, LocalDate expiryDate,
+            String notes, List<QuoteLine> lines) {
+        return create(quoteNumber, customerId, customerName, customerRif,
+                createdBy, createdByName, QuoteStatus.CUSTOMER_DRAFT,
+                expiryDate, notes, lines);
+    }
+
     private static Quote create(QuoteNumber quoteNumber, UUID customerId,
             String customerName, String customerRif, UUID createdBy,
             String createdByName, QuoteStatus status, LocalDate expiryDate,
@@ -181,9 +190,10 @@ public class Quote {
     }
 
     private void assertDraft() {
-        if (this.status != QuoteStatus.DRAFT) {
+        if (this.status != QuoteStatus.DRAFT
+                && this.status != QuoteStatus.CUSTOMER_DRAFT) {
             throw new QuoteStateException(
-                    "Quote can only be modified in DRAFT status");
+                    "Quote can only be modified in DRAFT or CUSTOMER_DRAFT status");
         }
     }
 
@@ -201,11 +211,13 @@ public class Quote {
     }
 
     public boolean canBeModified() {
-        return this.status == QuoteStatus.DRAFT;
+        return this.status == QuoteStatus.DRAFT
+                || this.status == QuoteStatus.CUSTOMER_DRAFT;
     }
 
     public boolean canBeDeleted() {
-        return this.status == QuoteStatus.DRAFT;
+        return this.status == QuoteStatus.DRAFT
+                || this.status == QuoteStatus.CUSTOMER_DRAFT;
     }
 
     public boolean isActive() {

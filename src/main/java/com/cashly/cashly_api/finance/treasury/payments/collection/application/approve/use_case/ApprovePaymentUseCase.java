@@ -4,6 +4,7 @@ import com.cashly.cashly_api.platform.notifications.application.ports.in.Activit
 
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityNotificationRecorder;
 
+import com.cashly.cashly_api.platform.notifications.application.ports.in.CustomerNotificationRecorder;
 import com.cashly.cashly_api.finance.treasury.payments.collection.application.ports.out.CashRegisterGateway;
 import com.cashly.cashly_api.finance.treasury.payments.collection.application.ports.out.PaymentInvoiceGateway;
 import com.cashly.cashly_api.finance.treasury.payments.collection.application.approve.request.ApprovePaymentRequest;
@@ -30,6 +31,7 @@ public class ApprovePaymentUseCase {
     private final PaymentInvoiceGateway invoices;
     private final CashRegisterGateway cashRegister;
     private final PaymentAllocationService paymentAllocationService;
+    private final CustomerNotificationRecorder notificationService;
 
     private final ActivityNotificationRecorder activityNotifications;
 
@@ -38,6 +40,7 @@ public class ApprovePaymentUseCase {
             PaymentInvoiceGateway invoices,
             CashRegisterGateway cashRegister,
             PaymentAllocationService paymentAllocationService,
+            CustomerNotificationRecorder notificationService,
             ActivityNotificationRecorder activityNotifications) {
         this.activityNotifications = activityNotifications != null
                 ? activityNotifications
@@ -47,6 +50,17 @@ public class ApprovePaymentUseCase {
         this.invoices = invoices;
         this.cashRegister = cashRegister;
         this.paymentAllocationService = paymentAllocationService;
+        this.notificationService = notificationService;
+    }
+
+    public ApprovePaymentUseCase(PaymentRepository paymentRepository,
+            PaymentAllocationRepository allocationRepository,
+            PaymentInvoiceGateway invoices,
+            CashRegisterGateway cashRegister,
+            PaymentAllocationService paymentAllocationService,
+            ActivityNotificationRecorder activityNotifications) {
+        this(paymentRepository, allocationRepository, invoices, cashRegister,
+                paymentAllocationService, null, activityNotifications);
     }
 
     @Transactional
@@ -60,7 +74,12 @@ public class ApprovePaymentUseCase {
         cashRegister.requireOpenRegister();
         payment.approve(request.reason(), userId, userName);
 
-        applyToUnpaidInvoicesOldestFirst(payment);
+        UUID targetInvoiceId = payment.getTargetInvoiceId();
+        if (targetInvoiceId == null) {
+            throw new IllegalStateException(
+                    "Payment has no target invoice: " + id);
+        }
+        applyToInvoice(payment, targetInvoiceId);
 
         Payment saved = paymentRepository.save(payment);
         cashRegister.recordMovement(new CashRegisterGateway.Movement(
@@ -72,42 +91,22 @@ public class ApprovePaymentUseCase {
         activityNotifications.record(ActivityEvent.of("FINANCE_TREASURY_RECEIVABLES",
                 "APPROVE_PAYMENT", "PAYMENT",
                 saved.getId().value(), saved.getPaymentNumber().value(), userId));
-
+        if (notificationService != null) {
+            notificationService.paymentApproved(
+                    payment.getCustomerId(), id);
+        }
         return PaymentMapper.toResponse(saved);
     }
 
-    private void applyToUnpaidInvoicesOldestFirst(Payment payment) {
-        List<PaymentInvoiceGateway.InvoiceSnapshot> unpaidInvoices = invoices
-                .findUnpaidByCustomerId(payment.getCustomerId());
+    private void applyToInvoice(Payment payment, UUID invoiceId) {
+        invoices.findById(invoiceId)
+                .orElseThrow(() -> new IllegalArgumentException(
+                        "Invoice not found: " + invoiceId));
 
-        List<InvoiceRemainingBalance> balances = unpaidInvoices.stream()
-                .map(invoice -> new InvoiceRemainingBalance(invoice.id(),
-                        invoiceRemainingBalance(invoice)))
-                .toList();
-
-        List<PaymentAllocation> allocations = paymentAllocationService
-                .allocateOldestFirst(payment.getId().value(), balances,
-                        payment.getAmount());
-
-        BigDecimal allocatedTotal = BigDecimal.ZERO;
-        for (PaymentAllocation allocation : allocations) {
-            allocationRepository.save(allocation);
-            invoices.recalculateStatus(allocation.getInvoiceId());
-            allocatedTotal = allocatedTotal
-                    .add(allocation.getAllocatedAmount());
-        }
-
-        if (allocatedTotal.compareTo(BigDecimal.ZERO) > 0) {
-            payment.apply(allocatedTotal);
-        }
-    }
-
-    private BigDecimal invoiceRemainingBalance(
-            PaymentInvoiceGateway.InvoiceSnapshot invoice) {
-        BigDecimal alreadyAllocated = allocationRepository
-                .findByInvoiceId(invoice.id()).stream()
-                .map(PaymentAllocation::getAllocatedAmount)
-                .reduce(BigDecimal.ZERO, BigDecimal::add);
-        return invoice.total().subtract(alreadyAllocated);
+        PaymentAllocation allocation = PaymentAllocation.create(
+                payment.getId().value(), invoiceId, payment.getAmount());
+        allocationRepository.save(allocation);
+        payment.apply(payment.getAmount());
+        invoices.recalculateStatus(invoiceId);
     }
 }

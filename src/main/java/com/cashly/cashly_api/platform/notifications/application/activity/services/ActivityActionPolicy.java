@@ -10,7 +10,7 @@ public final class ActivityActionPolicy {
             "CONVERT_TO_INVOICE", "OPEN", "CLOSE", "RECORD_ENTRY",
             "RECORD_EXIT", "BALANCE", "PAY_ALL", "PARTIAL_PAYMENT",
             "PAY_DIRECT", "PAY_WITH_VALIDATION", "APPROVE_PAYMENT",
-            "REJECT_PAYMENT", "REFUND", "ADVANCE");
+            "REJECT_PAYMENT", "REFUND", "ADVANCE", "TOGGLE_ACTIVE");
 
     private static final Set<String> READ_ONLY = Set.of("VIEW_LIST",
             "VIEW_DETAIL", "VIEW_STOCK", "MOVEMENT_HISTORY", "CASH_HISTORY",

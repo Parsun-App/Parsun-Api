@@ -18,21 +18,18 @@ import static org.junit.jupiter.api.Assertions.*;
 class CashRegisterUnitTest {
 
     @Test
-    void should_CalculateExpectedAndDifferenceFromOpeningBalanceAndMovements() {
+    void should_CalculateExpectedAndDifferenceFromMovements() {
         CashRegister register = CashRegister.open(RegisterId.generate(),
-                LocalDate.now(), UUID.randomUUID(), "Operator",
-                new BigDecimal("100.00"));
+                LocalDate.now(), UUID.randomUUID(), "Operator");
 
         register.applyMovementTotals(new BigDecimal("75.00"),
                 new BigDecimal("20.00"));
         register.close(UUID.randomUUID(), "Supervisor",
                 new BigDecimal("150.00"), "Conteo final");
 
-        assertEquals(new BigDecimal("155.00"),
-                register.getExpectedClosingBalance());
         assertEquals(new BigDecimal("150.00"),
                 register.getActualClosingBalance());
-        assertEquals(new BigDecimal("-5.00"), register.getDifference());
+        assertEquals(new BigDecimal("95.00"), register.getDifference());
     }
 
     private static final LocalDate CLOSURE_DATE = LocalDate.of(2026, 6, 9);
@@ -64,7 +61,6 @@ class CashRegisterUnitTest {
         assertEquals(0, closure.getAdvanceCount());
         assertEquals(0, closure.getReturnCount());
         assertEquals(0, closure.getInvoiceCount());
-        assertEquals(BigDecimal.ZERO, closure.getExpectedClosingBalance());
         assertNull(closure.getActualClosingBalance());
         assertNull(closure.getDifference());
         assertNull(closure.getClosingNotes());
@@ -134,8 +130,6 @@ class CashRegisterUnitTest {
         assertEquals(2, closure.getReturnCount());
         assertEquals(3, closure.getInvoiceCount());
 
-        assertEquals(new BigDecimal("2500.00"),
-                closure.getExpectedClosingBalance());
         assertEquals(2, closure.getDetails().size());
     }
 
@@ -230,14 +224,12 @@ class CashRegisterUnitTest {
                 new BigDecimal("500.00"), new BigDecimal("100.00"),
                 new BigDecimal("50.00"), BigDecimal.ZERO,
                 new BigDecimal("3500.00"), 5, 1, 2, 3,
-                new BigDecimal("2500.00"), new BigDecimal("2450.00"),
+                new BigDecimal("2450.00"),
                 new BigDecimal("50.00"), "Nota de cierre", 1, now, now,
                 details);
 
         assertEquals(CLOSURE_ID, closure.getId());
         assertEquals(RegisterStatus.CLOSED, closure.getStatus());
-        assertEquals(new BigDecimal("2500.00"),
-                closure.getExpectedClosingBalance());
         assertEquals(new BigDecimal("2450.00"),
                 closure.getActualClosingBalance());
         assertEquals(new BigDecimal("50.00"), closure.getDifference());

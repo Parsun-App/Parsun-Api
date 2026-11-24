@@ -34,7 +34,8 @@ class RejectPaymentUseCaseTest {
         UUID actorId = UUID.randomUUID();
         Payment payment = Payment.create(PaymentNumber.of(2026, 1), customerId,
                 new BigDecimal("75.00"), UUID.randomUUID(), "REF-1",
-                LocalDate.now(), null, null, null, PaymentStatus.PENDING);
+                LocalDate.now(), null, null, null, PaymentStatus.PENDING,
+                UUID.randomUUID(), null);
         String reason = "Comprobante no válido";
         when(payments.findById(PaymentId.of(payment.getId().value())))
                 .thenReturn(Optional.of(payment));

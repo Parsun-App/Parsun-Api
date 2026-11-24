@@ -29,11 +29,12 @@ class PaymentUnitTest {
     private static final UUID CREATED_BY = UUID.randomUUID();
     private static final String CREATED_BY_NAME = "Test User";
     private static final PaymentStatus STATUS = PaymentStatus.APPLIED;
+    private static final UUID TARGET_INVOICE_ID = UUID.randomUUID();
 
     private Payment createValidPayment() {
         return Payment.create(PAYMENT_NUMBER, CUSTOMER_ID, AMOUNT,
                 PAYMENT_METHOD_ID, REFERENCE_NUMBER, PAYMENT_DATE, NOTES,
-                CREATED_BY, CREATED_BY_NAME, STATUS);
+                CREATED_BY, CREATED_BY_NAME, STATUS, TARGET_INVOICE_ID, null);
     }
 
     @Nested
@@ -64,7 +65,8 @@ class PaymentUnitTest {
         void should_AllowNullNotes_When_Creating() {
             Payment payment = Payment.create(PAYMENT_NUMBER, CUSTOMER_ID,
                     AMOUNT, PAYMENT_METHOD_ID, REFERENCE_NUMBER, PAYMENT_DATE,
-                    null, CREATED_BY, CREATED_BY_NAME, STATUS);
+                    null, CREATED_BY, CREATED_BY_NAME, STATUS,
+                    TARGET_INVOICE_ID, null);
 
             assertNull(payment.getNotes());
         }
@@ -73,7 +75,8 @@ class PaymentUnitTest {
         void should_AllowNullReferenceNumber_When_Creating() {
             Payment payment = Payment.create(PAYMENT_NUMBER, CUSTOMER_ID,
                     AMOUNT, PAYMENT_METHOD_ID, null, PAYMENT_DATE, NOTES,
-                    CREATED_BY, CREATED_BY_NAME, STATUS);
+                    CREATED_BY, CREATED_BY_NAME, STATUS,
+                    TARGET_INVOICE_ID, null);
 
             assertNull(payment.getReferenceNumber());
         }
@@ -83,7 +86,8 @@ class PaymentUnitTest {
             assertThrows(NullPointerException.class,
                     () -> Payment.create(null, CUSTOMER_ID, AMOUNT,
                             PAYMENT_METHOD_ID, REFERENCE_NUMBER, PAYMENT_DATE,
-                            NOTES, CREATED_BY, CREATED_BY_NAME, STATUS));
+                            NOTES, CREATED_BY, CREATED_BY_NAME, STATUS,
+                            TARGET_INVOICE_ID, null));
         }
 
         @Test
@@ -91,7 +95,8 @@ class PaymentUnitTest {
             assertThrows(NullPointerException.class,
                     () -> Payment.create(PAYMENT_NUMBER, null, AMOUNT,
                             PAYMENT_METHOD_ID, REFERENCE_NUMBER, PAYMENT_DATE,
-                            NOTES, CREATED_BY, CREATED_BY_NAME, STATUS));
+                            NOTES, CREATED_BY, CREATED_BY_NAME, STATUS,
+                            TARGET_INVOICE_ID, null));
         }
 
         @Test
@@ -99,7 +104,8 @@ class PaymentUnitTest {
             assertThrows(NullPointerException.class,
                     () -> Payment.create(PAYMENT_NUMBER, CUSTOMER_ID, null,
                             PAYMENT_METHOD_ID, REFERENCE_NUMBER, PAYMENT_DATE,
-                            NOTES, CREATED_BY, CREATED_BY_NAME, STATUS));
+                            NOTES, CREATED_BY, CREATED_BY_NAME, STATUS,
+                            TARGET_INVOICE_ID, null));
         }
 
         @Test
@@ -109,7 +115,7 @@ class PaymentUnitTest {
                     () -> Payment.create(PAYMENT_NUMBER, CUSTOMER_ID,
                             BigDecimal.ZERO, PAYMENT_METHOD_ID,
                             REFERENCE_NUMBER, PAYMENT_DATE, NOTES, CREATED_BY,
-                            CREATED_BY_NAME, STATUS));
+                            CREATED_BY_NAME, STATUS, TARGET_INVOICE_ID, null));
 
             assertEquals("Amount must be greater than zero",
                     exception.getMessage());
@@ -121,7 +127,7 @@ class PaymentUnitTest {
                     () -> Payment.create(PAYMENT_NUMBER, CUSTOMER_ID,
                             new BigDecimal("-100.00"), PAYMENT_METHOD_ID,
                             REFERENCE_NUMBER, PAYMENT_DATE, NOTES, CREATED_BY,
-                            CREATED_BY_NAME, STATUS));
+                            CREATED_BY_NAME, STATUS, TARGET_INVOICE_ID, null));
         }
 
         @Test
@@ -129,7 +135,8 @@ class PaymentUnitTest {
             assertThrows(NullPointerException.class,
                     () -> Payment.create(PAYMENT_NUMBER, CUSTOMER_ID, AMOUNT,
                             null, REFERENCE_NUMBER, PAYMENT_DATE, NOTES,
-                            CREATED_BY, CREATED_BY_NAME, STATUS));
+                            CREATED_BY, CREATED_BY_NAME, STATUS,
+                            TARGET_INVOICE_ID, null));
         }
 
         @Test
@@ -137,14 +144,16 @@ class PaymentUnitTest {
             assertThrows(NullPointerException.class,
                     () -> Payment.create(PAYMENT_NUMBER, CUSTOMER_ID, AMOUNT,
                             PAYMENT_METHOD_ID, REFERENCE_NUMBER, null, NOTES,
-                            CREATED_BY, CREATED_BY_NAME, STATUS));
+                            CREATED_BY, CREATED_BY_NAME, STATUS,
+                            TARGET_INVOICE_ID, null));
         }
 
         @Test
         void should_AllowNullCreatedBy_When_Creating() {
             Payment payment = Payment.create(PAYMENT_NUMBER, CUSTOMER_ID,
                     AMOUNT, PAYMENT_METHOD_ID, REFERENCE_NUMBER, PAYMENT_DATE,
-                    NOTES, null, CREATED_BY_NAME, STATUS);
+                    NOTES, null, CREATED_BY_NAME, STATUS, TARGET_INVOICE_ID,
+                    null);
 
             assertNull(payment.getCreatedBy());
         }
@@ -153,7 +162,7 @@ class PaymentUnitTest {
         void should_AllowNullCreatedByName_When_Creating() {
             Payment payment = Payment.create(PAYMENT_NUMBER, CUSTOMER_ID,
                     AMOUNT, PAYMENT_METHOD_ID, REFERENCE_NUMBER, PAYMENT_DATE,
-                    NOTES, CREATED_BY, null, STATUS);
+                    NOTES, CREATED_BY, null, STATUS, TARGET_INVOICE_ID, null);
 
             assertNull(payment.getCreatedByName());
         }
@@ -163,7 +172,21 @@ class PaymentUnitTest {
             assertThrows(NullPointerException.class,
                     () -> Payment.create(PAYMENT_NUMBER, CUSTOMER_ID, AMOUNT,
                             PAYMENT_METHOD_ID, REFERENCE_NUMBER, PAYMENT_DATE,
-                            NOTES, CREATED_BY, CREATED_BY_NAME, null));
+                            NOTES, CREATED_BY, CREATED_BY_NAME, null,
+                            TARGET_INVOICE_ID, null));
+        }
+
+        @Test
+        void should_ThrowException_When_TargetInvoiceIsNull() {
+            NullPointerException exception = assertThrows(
+                    NullPointerException.class,
+                    () -> Payment.create(PAYMENT_NUMBER, CUSTOMER_ID, AMOUNT,
+                            PAYMENT_METHOD_ID, REFERENCE_NUMBER, PAYMENT_DATE,
+                            NOTES, CREATED_BY, CREATED_BY_NAME, STATUS, null,
+                            null));
+
+            assertEquals("Target invoice is required for every payment",
+                    exception.getMessage());
         }
     }
 
@@ -236,7 +259,8 @@ class PaymentUnitTest {
         void should_ThrowException_When_PaymentIsRefund() {
             Payment payment = Payment.create(PAYMENT_NUMBER, CUSTOMER_ID,
                     AMOUNT, PAYMENT_METHOD_ID, REFERENCE_NUMBER, PAYMENT_DATE,
-                    NOTES, CREATED_BY, CREATED_BY_NAME, PaymentStatus.REFUND);
+                    NOTES, CREATED_BY, CREATED_BY_NAME, PaymentStatus.REFUND,
+                    TARGET_INVOICE_ID, null);
 
             IllegalStateException exception = assertThrows(
                     IllegalStateException.class, payment::reactivate);

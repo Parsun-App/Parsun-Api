@@ -57,8 +57,7 @@ class CashMovementServiceTest {
     @Test
     void should_RecordMovementInActiveRegister() {
         CashRegister register = CashRegister.open(RegisterId.generate(),
-                LocalDate.now(), UUID.randomUUID(), "Operator",
-                BigDecimal.ZERO);
+                LocalDate.now(), UUID.randomUUID(), "Operator");
         UUID paymentMethodId = UUID.randomUUID();
         when(registerRepository.findActiveClosure())
                 .thenReturn(Optional.of(register));
@@ -80,8 +79,7 @@ class CashMovementServiceTest {
     @Test
     void should_ProvideDescription_When_SourceOperationHasNoNotes() {
         CashRegister register = CashRegister.open(RegisterId.generate(),
-                LocalDate.now(), UUID.randomUUID(), "Operator",
-                BigDecimal.ZERO);
+                LocalDate.now(), UUID.randomUUID(), "Operator");
         when(registerRepository.findActiveClosure())
                 .thenReturn(Optional.of(register));
         when(registerRepository.saveMovement(any()))
@@ -97,8 +95,7 @@ class CashMovementServiceTest {
     @Test
     void should_RejectUnknownPaymentMethodWithoutSavingMovement() {
         CashRegister register = CashRegister.open(RegisterId.generate(),
-                LocalDate.now(), UUID.randomUUID(), "Operator",
-                BigDecimal.ZERO);
+                LocalDate.now(), UUID.randomUUID(), "Operator");
         UUID paymentMethodId = UUID.randomUUID();
         when(registerRepository.findActiveClosure())
                 .thenReturn(Optional.of(register));

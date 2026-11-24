@@ -10,6 +10,7 @@ import com.cashly.cashly_api.finance.treasury.payment_methods.domain.entity.Paym
 import com.cashly.cashly_api.finance.treasury.payment_methods.application.ports.out.PaymentMethodUsageGateway;
 import com.cashly.cashly_api.finance.treasury.payment_methods.domain.repository.PaymentMethodRepository;
 import com.cashly.cashly_api.finance.treasury.payment_methods.domain.valueobjects.PaymentMethodId;
+import com.cashly.cashly_api.shared.application.ports.in.ActiveTogglePermission;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
@@ -21,22 +22,25 @@ public class TogglePaymentMethodUseCase {
 
     private final PaymentMethodRepository repository;
     private final PaymentMethodUsageGateway usageGateway;
+    private final ActiveTogglePermission access;
 
     private final ActivityNotificationRecorder activityNotifications;
 
     public TogglePaymentMethodUseCase(PaymentMethodRepository repository,
-            PaymentMethodUsageGateway usageGateway,
+            PaymentMethodUsageGateway usageGateway, ActiveTogglePermission access,
             ActivityNotificationRecorder activityNotifications) {
         this.activityNotifications = activityNotifications != null
                 ? activityNotifications
                 : ActivityNotificationRecorder.NONE;
         this.repository = repository;
         this.usageGateway = usageGateway;
+        this.access = access;
     }
 
     @Transactional
     @Audited(module = "finance", entityType = "PAYMENT_METHOD", action = "TOGGLE")
     public PaymentMethodResponse execute(UUID id) {
+        access.requireActiveToggle();
         PaymentMethod paymentMethod = repository
                 .findById(PaymentMethodId.of(id))
                 .orElseThrow(() -> new IllegalArgumentException(

@@ -31,9 +31,11 @@ public class ListPriceTypesUseCase {
                 .findAllWithFilters(search, active, page, size, orderBy,
                         orderDir);
 
-        Set<UUID> inUseIds = usageGateway
-                .findIdsInUseByProducts(priceTypePage.content().stream()
-                        .map(PriceType::getId).collect(Collectors.toSet()));
+        Set<UUID> priceTypeIds = priceTypePage.content().stream()
+                .map(PriceType::getId).collect(Collectors.toSet());
+        Set<UUID> inUseIds = new java.util.HashSet<>(
+                usageGateway.findIdsInUseByProducts(priceTypeIds));
+        inUseIds.addAll(usageGateway.findIdsInUseByCustomers(priceTypeIds));
 
         List<PriceTypeResponse> content = priceTypePage.content().stream()
                 .map(pt -> PriceTypeResponse.from(pt,

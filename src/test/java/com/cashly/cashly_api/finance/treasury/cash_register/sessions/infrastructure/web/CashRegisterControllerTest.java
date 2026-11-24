@@ -70,19 +70,18 @@ class CashRegisterControllerTest {
 
         CashRegisterResponse response = mock(CashRegisterResponse.class);
 
-        when(openRegisterUseCase.execute(any(UUID.class), anyString(), any()))
+        when(openRegisterUseCase.execute(any(UUID.class), anyString()))
                 .thenReturn(response);
 
-        OpenRegisterRequest request = new OpenRegisterRequest("Test User",
-                java.math.BigDecimal.ZERO);
+        OpenRegisterRequest request = new OpenRegisterRequest("Test User");
 
         ResponseEntity<CashRegisterResponse> result = cashRegisterController
                 .open(request, authentication);
 
         assertEquals(HttpStatus.CREATED, result.getStatusCode());
         assertNotNull(result.getBody());
-        verify(openRegisterUseCase).execute(any(UUID.class), eq("Test User"),
-                eq(java.math.BigDecimal.ZERO));
+        verify(openRegisterUseCase).execute(any(UUID.class),
+                eq("Test User"));
     }
 
     @Test

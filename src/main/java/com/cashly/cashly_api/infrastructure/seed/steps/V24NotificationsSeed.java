@@ -105,7 +105,7 @@ public class V24NotificationsSeed implements SeedStep {
         moduleActivity("platform-department", "CREATE", "DEPARTMENT",
                 SALES_DEPARTMENT, "Sales", true, at(9, 13));
         moduleActivity("platform-company", "EDIT", "COMPANY", COMPANY,
-                "Cashly Demo, C.A.", true, at(10, 14));
+                "Parsun Demo, C.A.", true, at(10, 14));
     }
 
     private void moduleActivity(String key, String action, String referenceType,

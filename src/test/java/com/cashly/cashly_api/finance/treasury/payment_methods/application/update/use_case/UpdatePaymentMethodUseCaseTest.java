@@ -33,6 +33,9 @@ class UpdatePaymentMethodUseCaseTest {
     @Mock
     private PaymentMethodUsageGateway usageGateway;
 
+    @Mock
+    private com.cashly.cashly_api.shared.application.ports.in.ActiveTogglePermission access;
+
     @InjectMocks
     private UpdatePaymentMethodUseCase useCase;
 

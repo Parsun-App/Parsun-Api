@@ -27,6 +27,11 @@ public class SupplierMapper {
     }
 
     public SupplierDetailResponse toDetailResponse(Supplier supplier) {
+        return toDetailResponse(supplier, true);
+    }
+
+    public SupplierDetailResponse toDetailResponse(Supplier supplier,
+            boolean deletable) {
         return new SupplierDetailResponse(supplier.getId().toString(),
                 supplier.getCode().getValue(),
                 supplier.getLegalName().getValue(),
@@ -34,7 +39,7 @@ public class SupplierMapper {
                 supplier.getRif().getValue(),
                 supplier.getCreditDays().getValue(),
                 supplier.getCreditLimit().getValue(), supplier.isActive(),
-                supplier.getNotes(), supplier.getCreatedAt(),
+                deletable, supplier.getNotes(), supplier.getCreatedAt(),
                 supplier.getEmails().stream()
                         .map(e -> new EmailResponse(e.getId().toString(),
                                 e.getEmail().getValue()))

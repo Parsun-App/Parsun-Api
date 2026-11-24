@@ -6,7 +6,7 @@ import java.util.List;
 
 public record ProductDetailResponse(String id, String code, String name,
         String description, String categoryId, String categoryName,
-        boolean composite, boolean active, String photo,
+        boolean composite, boolean active, boolean deletable, String photo,
         BigDecimal purchasePrice, List<ComponentResponse> components,
         List<ProductPriceDetailResponse> productPrices, LocalDateTime createdAt,
         LocalDateTime updatedAt) {

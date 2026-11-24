@@ -14,12 +14,11 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import com.cashly.cashly_api.platform.auth.authentication.application.ports.out.PortalCustomerQuery;
 import com.cashly.cashly_api.platform.auth.authentication.domain.valueobjects.AuthenticableType;
 import com.cashly.cashly_api.platform.auth.token.domain.services.TokenService;
-import com.cashly.cashly_api.platform.auth.user.domain.entity.User;
 import com.cashly.cashly_api.platform.auth.user.domain.repository.UserRepository;
 import com.cashly.cashly_api.platform.auth.user.domain.valueobjects.UserId;
-import com.cashly.cashly_api.platform.auth.user.domain.valueobjects.UserRole;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -31,15 +30,20 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private static final String AUTHORIZATION_HEADER = "Authorization";
     private static final String BEARER_PREFIX = "Bearer ";
+    private static final String PORTAL_PATH_PREFIX = "/api/portal";
+    private static final String WEBSOCKET_PATH_PREFIX = "/ws";
 
     private final TokenService tokenService;
     private final UserRepository userRepository;
+    private final PortalCustomerQuery portalCustomers;
     private final com.cashly.cashly_api.platform.auth.authorization.application.services.AccessService accessService;
+
     public JwtAuthenticationFilter(TokenService tokenService,
-            UserRepository userRepository,
+            UserRepository userRepository, PortalCustomerQuery portalCustomers,
             com.cashly.cashly_api.platform.auth.authorization.application.services.AccessService accessService) {
         this.tokenService = tokenService;
         this.userRepository = userRepository;
+        this.portalCustomers = portalCustomers;
         this.accessService = accessService;
     }
 
@@ -67,7 +71,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         AuthenticableType subjectType = tokenService.extractSubjectType(jwt);
         String subjectId = tokenService.extractSubjectId(jwt);
 
-        authenticateUser(request, subjectId);
+        switch (subjectType) {
+            case USER -> authenticateUser(request, subjectId);
+            case CUSTOMER -> authenticateCustomer(request, subjectId);
+        }
     }
 
     private void authenticateUser(HttpServletRequest request,
@@ -76,11 +83,37 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         List<GrantedAuthority> authorities = new ArrayList<>();
         access.permissions().forEach(
                 code -> authorities.add(new SimpleGrantedAuthority(code)));
-        var authentication = new UsernamePasswordAuthenticationToken(subjectId,
+        setAuthentication(request, subjectId, authorities);
+    }
+
+    private void authenticateCustomer(HttpServletRequest request,
+            String subjectId) {
+        if (!isPortalRequest(request)) {
+            return;
+        }
+        if (portalCustomers == null) {
+            return;
+        }
+        UUID customerId = UUID.fromString(subjectId);
+        if (portalCustomers.isPortalAccessEnabled(customerId)) {
+            setAuthentication(request, subjectId,
+                    List.of(new SimpleGrantedAuthority("ROLE_PORTAL_CUSTOMER")));
+        }
+    }
+
+    private void setAuthentication(HttpServletRequest request, String principal,
+            List<GrantedAuthority> authorities) {
+        var authentication = new UsernamePasswordAuthenticationToken(principal,
                 null, authorities);
         authentication.setDetails(
                 new WebAuthenticationDetailsSource().buildDetails(request));
         SecurityContextHolder.getContext().setAuthentication(authentication);
+    }
+
+    private boolean isPortalRequest(HttpServletRequest request) {
+        String path = request.getServletPath();
+        return path != null && (path.startsWith(PORTAL_PATH_PREFIX)
+                || path.startsWith(WEBSOCKET_PATH_PREFIX));
     }
 
     private String extractJwtFromRequest(HttpServletRequest request) {

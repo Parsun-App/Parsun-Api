@@ -1,5 +1,6 @@
 package com.cashly.cashly_api.inventory.warehouses.management.application.update.use_case;
 
+import com.cashly.cashly_api.shared.application.ports.in.ActiveTogglePermission;
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityEvent;
 
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityNotificationRecorder;
@@ -18,15 +19,18 @@ import com.cashly.cashly_api.platform.audit.application.ports.in.Audited;
 public class UpdateWarehouseUseCase {
 
     private final WarehouseRepository warehouseRepository;
+    private final ActiveTogglePermission access;
 
     private final ActivityNotificationRecorder activityNotifications;
 
     public UpdateWarehouseUseCase(WarehouseRepository warehouseRepository,
+            ActiveTogglePermission access,
             ActivityNotificationRecorder activityNotifications) {
         this.activityNotifications = activityNotifications != null
                 ? activityNotifications
                 : ActivityNotificationRecorder.NONE;
         this.warehouseRepository = warehouseRepository;
+        this.access = access;
     }
 
     @Transactional
@@ -35,6 +39,11 @@ public class UpdateWarehouseUseCase {
             UpdateWarehouseRequest request) {
         Warehouse warehouse = warehouseRepository.findById(id)
                 .orElseThrow(() -> new WarehouseNotFoundException(id));
+
+        if (request.active() != null
+                && request.active() != warehouse.isActive()) {
+            access.requireActiveToggle();
+        }
 
         warehouse.update(request.name(), request.address(), request.state(),
                 request.municipality(), request.postalCode(), request.active());

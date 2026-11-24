@@ -92,6 +92,19 @@ public class JpaWarehouseRepository implements WarehouseRepository {
     }
 
     @Override
+    public boolean hasAssociatedRecords(UUID id) {
+        return !findIdsWithAssociatedRecords(Set.of(id)).isEmpty();
+    }
+
+    @Override
+    public Set<UUID> findIdsWithAssociatedRecords(Set<UUID> ids) {
+        if (ids.isEmpty()) {
+            return Set.of();
+        }
+        return springDataRepository.findIdsWithAssociatedRecords(ids);
+    }
+
+    @Override
     public void delete(UUID id) {
         springDataRepository.deleteById(id);
     }

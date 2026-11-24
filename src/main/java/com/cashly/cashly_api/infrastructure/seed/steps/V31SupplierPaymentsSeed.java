@@ -62,11 +62,11 @@ public class V31SupplierPaymentsSeed implements SeedStep {
         payment.setNotes("Deterministic seed supplier payment");
         payment.setStatus(SupplierPaymentStatus.APPLIED.name());
         payment.setCreatedBy(ADMIN_USER);
-        payment.setCreatedByName("Cashly Administrator");
+        payment.setCreatedByName("Parsun Administrator");
         payment.setCreatedAt(CREATED_AT);
         payment.setUpdatedAt(CREATED_AT);
         payment.setVerifiedBy(ADMIN_USER);
-        payment.setVerifiedByName("Cashly Administrator");
+        payment.setVerifiedByName("Parsun Administrator");
         payment.setVerifiedAt(CREATED_AT);
         entityManager.persist(payment);
 

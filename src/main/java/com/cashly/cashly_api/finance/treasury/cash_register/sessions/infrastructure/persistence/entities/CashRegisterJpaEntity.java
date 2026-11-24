@@ -42,9 +42,6 @@ public class CashRegisterJpaEntity {
     @Column(name = "opened_at", nullable = false)
     private LocalDateTime openedAt;
 
-    @Column(name = "opening_balance", nullable = false, precision = 15, scale = 2)
-    private BigDecimal openingBalance;
-
     @Column(name = "closed_by", columnDefinition = "BINARY(16)")
     @JdbcTypeCode(SqlTypes.BINARY)
     private UUID closedBy;
@@ -84,9 +81,6 @@ public class CashRegisterJpaEntity {
 
     @Column(name = "invoice_count", nullable = false)
     private int invoiceCount;
-
-    @Column(name = "expected_closing_balance", nullable = false, precision = 15, scale = 2)
-    private BigDecimal expectedClosingBalance;
 
     @Column(name = "actual_closing_balance", precision = 15, scale = 2)
     private BigDecimal actualClosingBalance;

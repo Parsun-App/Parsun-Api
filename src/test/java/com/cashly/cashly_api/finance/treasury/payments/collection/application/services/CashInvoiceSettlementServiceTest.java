@@ -92,7 +92,7 @@ class CashInvoiceSettlementServiceTest {
                 command.customerId(), command.amount(),
                 command.paymentMethodId(), null, LocalDate.now(),
                 "Persisted payment", command.actorId(), command.actorName(),
-                PaymentStatus.APPLIED);
+                PaymentStatus.APPLIED, command.invoiceId(), null);
         when(payments.save(any())).thenReturn(saved);
         service.settle(command);
         var captured = ArgumentCaptor.forClass(Payment.class);

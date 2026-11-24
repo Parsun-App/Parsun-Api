@@ -1,11 +1,13 @@
 package com.cashly.cashly_api.partners.suppliers.application.update.use_case;
 
+import com.cashly.cashly_api.shared.application.ports.in.ActiveTogglePermission;
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityEvent;
 
 import com.cashly.cashly_api.platform.notifications.application.ports.in.ActivityNotificationRecorder;
 
 import com.cashly.cashly_api.partners.suppliers.application.update.request.UpdateSupplierRequest;
 import com.cashly.cashly_api.partners.suppliers.application.dto.response.SupplierDetailResponse;
+import com.cashly.cashly_api.partners.suppliers.application.ports.out.PurchaseUsageGateway;
 import com.cashly.cashly_api.partners.suppliers.application.exceptions.SupplierNotFoundException;
 import com.cashly.cashly_api.partners.suppliers.application.mappers.SupplierMapper;
 import com.cashly.cashly_api.partners.suppliers.domain.entity.Supplier;
@@ -26,17 +28,22 @@ public class UpdateSupplierUseCase {
 
     private final SupplierRepository supplierRepository;
     private final SupplierMapper supplierMapper;
+    private final ActiveTogglePermission access;
+    private final PurchaseUsageGateway purchaseUsage;
 
     private final ActivityNotificationRecorder activityNotifications;
 
     public UpdateSupplierUseCase(SupplierRepository supplierRepository,
-            SupplierMapper supplierMapper,
+            SupplierMapper supplierMapper, ActiveTogglePermission access,
+            PurchaseUsageGateway purchaseUsage,
             ActivityNotificationRecorder activityNotifications) {
         this.activityNotifications = activityNotifications != null
                 ? activityNotifications
                 : ActivityNotificationRecorder.NONE;
         this.supplierRepository = supplierRepository;
         this.supplierMapper = supplierMapper;
+        this.access = access;
+        this.purchaseUsage = purchaseUsage;
     }
 
     @Transactional
@@ -62,6 +69,11 @@ public class UpdateSupplierUseCase {
                     new CreditLimit(request.creditLimit()));
         }
 
+        if (request.active() != null
+                && request.active() != supplier.isActive()) {
+            access.requireActiveToggle();
+        }
+
         if (request.active()) {
             supplier.activate();
         } else {
@@ -85,6 +97,7 @@ public class UpdateSupplierUseCase {
         activityNotifications.record(ActivityEvent.of("CONTACTS_SUPPLIERS",
                 "EDIT", "SUPPLIER", saved.getId().getValue(),
                 saved.getLegalName().getValue(), null));
-        return supplierMapper.toDetailResponse(saved);
+        return supplierMapper.toDetailResponse(saved,
+                !purchaseUsage.hasPurchases(saved.getId().getValue()));
     }
 }
