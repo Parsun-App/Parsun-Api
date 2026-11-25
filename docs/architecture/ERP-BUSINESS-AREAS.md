@@ -4,7 +4,7 @@ Current implementation: backend modules and Java tests are grouped under the sam
 
 Areas organize existing modules. Each module or capability keeps its application/domain/infrastructure and role folders. Sharing an area does not authorize access to a sibling module's entities or repositories. Reports remain under their owning module's reporting capability. Customers retains its existing balance, credit, profile and warehouse_access capabilities.
 
-The global CashlyApplication bootstrap, shared primitives and global infrastructure retain explicit technical locations. Public HTTP URLs, database schema and transactional semantics remain unchanged.
+The global ParsunApplication bootstrap, shared primitives and global infrastructure retain explicit technical locations. Public HTTP URLs, database schema and transactional semantics remain unchanged.
 
 ## Complete current Java source and test tree
 
@@ -13,8 +13,8 @@ The global CashlyApplication bootstrap, shared primitives and global infrastruct
     ├── main
     │   └── java
     │       └── com
-    │           └── cashly
-    │               └── cashly_api
+    │           └── parsun
+    │               └── parsun_api
     │                   ├── analytics
     │                   │   └── dashboard
     │                   │       ├── application
@@ -2381,12 +2381,12 @@ The global CashlyApplication bootstrap, shared primitives and global infrastruct
     │                   │           │   └── StorageConfig.java
     │                   │           └── web
     │                   │               └── FileController.java
-    │                   └── CashlyApplication.java
+    │                   └── ParsunApplication.java
     └── test
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         ├── analytics
                         │   └── dashboard
                         │       ├── application
@@ -3701,8 +3701,8 @@ The global CashlyApplication bootstrap, shared primitives and global infrastruct
                             │   └── PageResponseBoundaryTest.java
                             ├── infrastructure
                             │   ├── bootstrap
-                            │   │   ├── CashlyApplicationTests.java
-                            │   │   └── TestCashlyApplication.java
+                            │   │   ├── ParsunApplicationTests.java
+                            │   │   └── TestParsunApplication.java
                             │   ├── config
                             │   │   ├── DatabaseCleaner.java
                             │   │   ├── H2DialectWithoutEngineSupport.java

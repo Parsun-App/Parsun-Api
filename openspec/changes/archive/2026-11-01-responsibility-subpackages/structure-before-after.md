@@ -7,8 +7,8 @@
     ├── main
     │   └── java
     │       └── com
-    │           └── cashly
-    │               └── cashly_api
+    │           └── parsun
+    │               └── parsun_api
     │                   ├── auth
     │                   │   ├── authentication
     │                   │   │   ├── application
@@ -2034,12 +2034,12 @@
     │                   │           └── web
     │                   │               ├── StockMovementController.java
     │                   │               └── WarehouseStockController.java
-    │                   └── CashlyApplication.java
+    │                   └── ParsunApplication.java
     └── test
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         ├── architecture
                         │   ├── ApplicationPackageConventionTest.java
                         │   ├── CapabilityStructureTest.java
@@ -3159,8 +3159,8 @@
                         │           └── web
                         │               ├── StockMovementControllerTest.java
                         │               └── WarehouseStockControllerTest.java
-                        ├── CashlyApplicationTests.java
-                        ├── TestCashlyApplication.java
+                        ├── ParsunApplicationTests.java
+                        ├── TestParsunApplication.java
                         ├── TestJpaConfig.java
                         └── TestcontainersConfiguration.java
 ```
@@ -3172,8 +3172,8 @@
     ├── main
     │   └── java
     │       └── com
-    │           └── cashly
-    │               └── cashly_api
+    │           └── parsun
+    │               └── parsun_api
     │                   ├── auth
     │                   │   ├── authentication
     │                   │   │   ├── application
@@ -5530,12 +5530,12 @@
     │                   │           └── web
     │                   │               ├── StockMovementController.java
     │                   │               └── WarehouseStockController.java
-    │                   └── CashlyApplication.java
+    │                   └── ParsunApplication.java
     └── test
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         ├── architecture
                         │   ├── ApplicationPackageConventionTest.java
                         │   ├── CapabilityStructureTest.java
@@ -6671,8 +6671,8 @@
                         │   │   └── PageResponseBoundaryTest.java
                         │   ├── infrastructure
                         │   │   ├── bootstrap
-                        │   │   │   ├── CashlyApplicationTests.java
-                        │   │   │   └── TestCashlyApplication.java
+                        │   │   │   ├── ParsunApplicationTests.java
+                        │   │   │   └── TestParsunApplication.java
                         │   │   ├── config
                         │   │   │   ├── DatabaseCleaner.java
                         │   │   │   ├── H2DialectWithoutEngineSupport.java

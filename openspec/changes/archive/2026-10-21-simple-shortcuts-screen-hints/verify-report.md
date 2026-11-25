@@ -4,12 +4,12 @@
 PASS. No known critical issues. Build retains the existing qrcode/STOMP CommonJS notices.
 
 ## Runtime evidence
-- Docker Maven preference and endpoint permission suites: 590 tests, zero failures/errors. `/tmp/cashly-simple-backend.log` and Surefire XML.
-- Docker Vitest preferences, shortcuts/help, settings and MainLayout: 72 tests passed. `/tmp/cashly-simple-unit-verified.log`.
-- Docker Playwright preferences: 9 scenarios passed. `/tmp/cashly-simple-e2e-final.log`.
-- Angular production build passed. `/tmp/cashly-simple-build-final.log`.
+- Docker Maven preference and endpoint permission suites: 590 tests, zero failures/errors. `/tmp/parsun-simple-backend.log` and Surefire XML.
+- Docker Vitest preferences, shortcuts/help, settings and MainLayout: 72 tests passed. `/tmp/parsun-simple-unit-verified.log`.
+- Docker Playwright preferences: 9 scenarios passed. `/tmp/parsun-simple-e2e-final.log`.
+- Angular production build passed. `/tmp/parsun-simple-build-final.log`.
 - MySQL V33 applied successfully; show_shortcut_hints is NOT NULL, default 1. Disposable-account live smoke verified GET true, PUT false, a second independent login returning false, missing-field 400 and SQL value 0. Account and related rows were removed.
-- Desktop help screenshot visually inspected: cashly-app/output/playwright/preferences/simple-shortcut-help.png.
+- Desktop help screenshot visually inspected: parsun-app/output/playwright/preferences/simple-shortcut-help.png.
 
 ## Compliance
 | Behavior | Covering evidence | Result |

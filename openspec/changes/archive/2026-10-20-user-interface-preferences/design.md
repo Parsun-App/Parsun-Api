@@ -43,19 +43,19 @@ The shortcut service manages registrations with action id, key combination, scop
 
 | File/area | Change |
 |---|---|
-| `cashly-api/src/main/java/com/cashly/cashly_api/platform/auth/` | Self-only preference endpoint, use cases, validation and storage |
-| `cashly-api/src/main/resources/db/migration/V32__*.sql` | User preference table with user/company ownership |
-| `cashly-app/src/app/core/preferences/` | Model, account/cache service, tests |
-| `cashly-app/src/app/core/theme/components/theme-toggle/theme.service.ts` | System listener and compatibility adapter |
-| `cashly-app/src/app/core/layouts/main-layout.component.{ts,html}` | User-menu settings entry and authorized shortcut navigation |
-| `cashly-app/src/app/core/layouts/config/menu.config.ts` | Group color metadata if required |
-| `cashly-app/src/app/features/platform/auth/preferences/` | Shared-card settings screen and shortcut reference |
-| `cashly-app/src/app/app.routes.ts` | Authenticated settings route |
-| `cashly-app/src/app/core/shortcuts/` | Explicit registration directive and dispatcher |
-| `cashly-app/src/app/core/forms/components/headers/form-actions/` | Save/cancel action registration |
+| `parsun-api/src/main/java/com/parsun/parsun_api/platform/auth/` | Self-only preference endpoint, use cases, validation and storage |
+| `parsun-api/src/main/resources/db/migration/V32__*.sql` | User preference table with user/company ownership |
+| `parsun-app/src/app/core/preferences/` | Model, account/cache service, tests |
+| `parsun-app/src/app/core/theme/components/theme-toggle/theme.service.ts` | System listener and compatibility adapter |
+| `parsun-app/src/app/core/layouts/main-layout.component.{ts,html}` | User-menu settings entry and authorized shortcut navigation |
+| `parsun-app/src/app/core/layouts/config/menu.config.ts` | Group color metadata if required |
+| `parsun-app/src/app/features/platform/auth/preferences/` | Shared-card settings screen and shortcut reference |
+| `parsun-app/src/app/app.routes.ts` | Authenticated settings route |
+| `parsun-app/src/app/core/shortcuts/` | Explicit registration directive and dispatcher |
+| `parsun-app/src/app/core/forms/components/headers/form-actions/` | Save/cancel action registration |
 | Shared list/filter/detail controls | New/filter/accept registrations at owning control |
-| `cashly-app/src/app/features/analytics/dashboard/` | Reactive informative chart palette |
-| `cashly-app/src/styles.css` | Scoped accent tokens using existing selectors |
+| `parsun-app/src/app/features/analytics/dashboard/` | Reactive informative chart palette |
+| `parsun-app/src/styles.css` | Scoped accent tokens using existing selectors |
 
 ## Testing strategy
 

@@ -31,6 +31,6 @@ Baseline is the preceding verified 3,231-case run. The eight additional executed
 
 ## Provenance and delivery
 
-Sanitized final reports and exact runtime/command/source identity are under evidence/full-final/. Raw reports remain in the ignored target/structure-verification/cashly-screaming-reporting-20261016-run1 directory. Only the uniquely named verification project's containers and volumes are removed after export. Development services/data remain intact.
+Sanitized final reports and exact runtime/command/source identity are under evidence/full-final/. Raw reports remain in the ignored target/structure-verification/parsun-screaming-reporting-20261016-run1 directory. Only the uniquely named verification project's containers and volumes are removed after export. Development services/data remain intact.
 
 The previously uncommitted capability restructure and this reporting follow-up form one coherent architecture deliverable, authorized for commit and normal push by the user. Current branch is develop; origin/develop matched the starting HEAD at fetch. No force push, frontend relocation, PR creation or deployment is requested. Remote CI runs are separate from the local clean harness result and were not observed before push.

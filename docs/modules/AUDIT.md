@@ -92,8 +92,8 @@ Parámetros de `GET /api/audit-events`:
 ## Configuración
 
 ```properties
-cashly.audit.fail-closed=true
-cashly.audit.max-page-size=100
+parsun.audit.fail-closed=true
+parsun.audit.max-page-size=100
 ```
 
 - `fail-closed=true`: si no se puede auditar, la operación falla.

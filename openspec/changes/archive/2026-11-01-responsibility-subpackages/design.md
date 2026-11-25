@@ -8,12 +8,12 @@ Capability/module ownership is retained. Structural folders group capabilities a
 - Domain entities move to entity, repository contracts to repository; exceptions, valueobjects and services retain their distinct roles.
 - Infrastructure already separates web, config, integration, document generators and persistence adapters/entities/repositories/mappers/queries. These leaves remain stable.
 - Tests of relocated classes mirror their package. Cross-cutting suites use architecture and integration_tests; fixtures have their own technical responsibility.
-- CashlyApplication is the global bootstrap exception.
+- ParsunApplication is the global bootstrap exception.
 
 The relocation manifest records 411 production and 251 test moves. The complete before Java inventory contains 1249 main and 584 test files. Nine tracked .java.bak files are non-executable historical copies in obsolete packages and are removed, with hashes recorded in evidence; no executable tests are removed.
 
 ## Dependency and runtime preservation
-Update package declarations, imports (including formerly implicit same-package references), fully-qualified literals and source-path architecture assertions. Preserve all class names, methods, HTTP contracts, persistence schemas, transactions and behavior. Framework scanning remains under com.cashly.cashly_api.
+Update package declarations, imports (including formerly implicit same-package references), fully-qualified literals and source-path architecture assertions. Preserve all class names, methods, HTTP contracts, persistence schemas, transactions and behavior. Framework scanning remains under com.parsun.parsun_api.
 
 A clean isolated Maven build avoids duplicate old/new compiled components. Refreshing development output must also remove stale compiled package identities before startup, without deleting stored verification evidence or business database contents.
 

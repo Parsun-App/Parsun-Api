@@ -6,7 +6,7 @@
 - Given an authenticated user, when requesting company identity/logo, then access does not require catalog permissions.
 - Given a user without company-update permission, when updating company details or images, then the API denies the mutation.
 - Given an authorized company editor, when saving valid fiscal/contact details, then the values persist across reloads.
-- Given a company logo, when viewing the authenticated navbar or mobile navigation, then it is displayed; absent/unloadable logo uses the current Cashly fallback.
+- Given a company logo, when viewing the authenticated navbar or mobile navigation, then it is displayed; absent/unloadable logo uses the current Parsun fallback.
 
 ## Photos
 - Given user creation or editing with a selected photo, when saved successfully, then that user's photo persists; upload failure must not cause duplicate user creation on retry.

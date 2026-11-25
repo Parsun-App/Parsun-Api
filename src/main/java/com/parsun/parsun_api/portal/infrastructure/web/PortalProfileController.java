@@ -1,0 +1,34 @@
+package com.parsun.parsun_api.portal.infrastructure.web;
+
+import com.parsun.parsun_api.portal.application.dto.response.PortalProfileResponse;
+import com.parsun.parsun_api.portal.application.services.PortalAuthorizationService;
+import com.parsun.parsun_api.portal.application.operations.use_case.GetCustomerProfileUseCase;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.UUID;
+
+@RestController
+@PreAuthorize("hasAuthority('ROLE_PORTAL_CUSTOMER')")
+@RequestMapping("/api/portal/profile")
+public class PortalProfileController {
+
+    private final GetCustomerProfileUseCase getCustomerProfileUseCase;
+    private final PortalAuthorizationService portalAuthorizationService;
+
+    public PortalProfileController(GetCustomerProfileUseCase getCustomerProfileUseCase,
+                                    PortalAuthorizationService portalAuthorizationService) {
+        this.getCustomerProfileUseCase = getCustomerProfileUseCase;
+        this.portalAuthorizationService = portalAuthorizationService;
+    }
+
+    @GetMapping
+    public ResponseEntity<PortalProfileResponse> getProfile() {
+        UUID customerId = portalAuthorizationService.getCurrentCustomerId();
+        PortalProfileResponse response = getCustomerProfileUseCase.execute(customerId);
+        return ResponseEntity.ok(response);
+    }
+}

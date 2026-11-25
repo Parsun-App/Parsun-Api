@@ -54,10 +54,10 @@ type NotificationDestination = { collection: string; resourceId: string | null }
 
 | Repository / files | Action | Description |
 |---|---|---|
-| `cashly-api/.../notifications/application/services/NotificationService.java` | Modify | Replace quote-related visible copy with “Presupuesto”. |
-| `cashly-api/.../notifications/application/services/NotificationServiceTest.java` | Create | Lock producer copy and unchanged technical references. |
-| `cashly-app/src/app/core/notifications/services/navigation/notification-destination.resolver.ts` and `.spec.ts` | Create | Typed mapping, detail navigation, fallbacks. |
-| `cashly-app/src/app/core/notifications/components/notification-bell/notification-bell.component.{ts,html,spec.ts}` | Modify/Create | Contextual action, inert card body, popover close, resolver delegation. |
+| `parsun-api/.../notifications/application/services/NotificationService.java` | Modify | Replace quote-related visible copy with “Presupuesto”. |
+| `parsun-api/.../notifications/application/services/NotificationServiceTest.java` | Create | Lock producer copy and unchanged technical references. |
+| `parsun-app/src/app/core/notifications/services/navigation/notification-destination.resolver.ts` and `.spec.ts` | Create | Typed mapping, detail navigation, fallbacks. |
+| `parsun-app/src/app/core/notifications/components/notification-bell/notification-bell.component.{ts,html,spec.ts}` | Modify/Create | Contextual action, inert card body, popover close, resolver delegation. |
 
 Invoices need no focus consumer because no existing notification references `INVOICE`.
 

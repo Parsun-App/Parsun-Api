@@ -1,7 +1,7 @@
 Architecture baseline: PASS
 Finished: 2026-10-16T09:40:24Z
 Command: docker compose exec -T app ./mvnw -B test -Dtest=LayerDependencyTest,ApplicationPackageConventionTest
-Working directory: cashly-api
+Working directory: parsun-api
 Tests: 11; failures: 0; errors: 0; skipped: 0
 LayerDependencyTest: 5 passed
 ApplicationPackageConventionTest: 6 passed

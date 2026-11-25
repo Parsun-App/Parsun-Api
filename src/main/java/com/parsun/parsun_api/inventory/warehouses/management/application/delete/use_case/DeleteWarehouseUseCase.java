@@ -1,0 +1,44 @@
+package com.parsun.parsun_api.inventory.warehouses.management.application.delete.use_case;
+
+import com.parsun.parsun_api.platform.notifications.application.ports.in.ActivityEvent;
+
+import com.parsun.parsun_api.platform.notifications.application.ports.in.ActivityNotificationRecorder;
+
+import com.parsun.parsun_api.inventory.warehouses.management.application.delete.services.WarehouseHasAssociatedRecordsException;
+import com.parsun.parsun_api.inventory.warehouses.management.application.exceptions.WarehouseNotFoundException;
+import com.parsun.parsun_api.inventory.warehouses.management.domain.entity.Warehouse;
+import com.parsun.parsun_api.inventory.warehouses.management.domain.repository.WarehouseRepository;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.UUID;
+import com.parsun.parsun_api.platform.audit.application.ports.in.Audited;
+
+public class DeleteWarehouseUseCase {
+
+    private final WarehouseRepository warehouseRepository;
+
+    private final ActivityNotificationRecorder activityNotifications;
+
+    public DeleteWarehouseUseCase(WarehouseRepository warehouseRepository,
+            ActivityNotificationRecorder activityNotifications) {
+        this.activityNotifications = activityNotifications != null
+                ? activityNotifications
+                : ActivityNotificationRecorder.NONE;
+        this.warehouseRepository = warehouseRepository;
+    }
+
+    @Transactional
+    @Audited(module = "inventory", entityType = "WAREHOUSE", action = "DELETE")
+    public void execute(UUID id) {
+        Warehouse warehouse = warehouseRepository.findById(id)
+                .orElseThrow(() -> new WarehouseNotFoundException(id));
+        if (warehouseRepository.hasAssociatedRecords(id)) {
+            throw new WarehouseHasAssociatedRecordsException(id);
+        }
+        warehouse.deactivate();
+        activityNotifications.record(ActivityEvent.of("INVENTORY_WAREHOUSES",
+                "DELETE", "WAREHOUSE", warehouse.getId(),
+                warehouse.getName(), null));
+        warehouseRepository.save(warehouse);
+    }
+}

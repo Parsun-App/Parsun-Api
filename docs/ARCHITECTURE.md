@@ -1,4 +1,4 @@
-# Cashly backend architecture
+# Parsun backend architecture
 
 The backend is a modular Spring Boot application. Business areas and capabilities precede technical layers in package names. It remains a single deployable service and a single MySQL database; these packages do not imply separate services or transactions.
 
@@ -33,7 +33,7 @@ Warehouse lifecycle belongs to `management`; quantities, reservations and moveme
 ## Package structure
 
 ```text
-com/cashly/cashly_api/
+com/parsun/parsun_api/
 ├── analytics/dashboard/{application,infrastructure}/
 ├── catalog/
 │   ├── products/{domain,application,infrastructure,reporting}/
@@ -60,7 +60,7 @@ com/cashly/cashly_api/
 │       └── debit_notes/{application,domain,infrastructure}/
 ├── shared/
 ├── infrastructure/{config,seed,web}/
-└── CashlyApplication.java
+└── ParsunApplication.java
 ```
 
 Braced paths describe populated layers, not a requirement to create empty folders. Tests follow the package of the production responsibility they exercise.

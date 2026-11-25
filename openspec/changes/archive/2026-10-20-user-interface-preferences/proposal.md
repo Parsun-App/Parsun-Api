@@ -2,7 +2,7 @@
 
 ## Intent
 
-Let each user choose the application's appearance and keyboard interaction from Configuración in their user menu, while keeping Cashly's established layout and shadows.
+Let each user choose the application's appearance and keyboard interaction from Configuración in their user menu, while keeping Parsun's established layout and shadows.
 
 ## Scope
 
@@ -33,11 +33,11 @@ Extend the existing signal-based ThemeService and shared form/layout components.
 
 | Area | Impact | Description |
 |---|---|---|
-| `cashly-app/src/app/core/theme/` | Modified | Theme preference and palette tokens |
-| `cashly-app/src/app/core/layouts/` | Modified | Settings entry and grouped navigation colors |
-| `cashly-app/src/app/features/platform/auth/` | New/modified | Preference page and authenticated user identity |
-| `cashly-app/src/app/core/forms/` | Modified | Explicit action shortcut integration |
-| `cashly-app/src/app/features/analytics/dashboard/` | Modified | Reactive chart colors |
+| `parsun-app/src/app/core/theme/` | Modified | Theme preference and palette tokens |
+| `parsun-app/src/app/core/layouts/` | Modified | Settings entry and grouped navigation colors |
+| `parsun-app/src/app/features/platform/auth/` | New/modified | Preference page and authenticated user identity |
+| `parsun-app/src/app/core/forms/` | Modified | Explicit action shortcut integration |
+| `parsun-app/src/app/features/analytics/dashboard/` | Modified | Reactive chart colors |
 
 ## Risks
 

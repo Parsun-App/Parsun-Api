@@ -10,4 +10,4 @@ Dashboard uses Chart.js via ng2-charts and computed palettes. Informative mode c
 
 User confirmed account synchronization across devices. A self-only GET/PUT account API with user/company-owned persistence and a user-keyed startup cache is selected. Legacy global theme is migration input only, never an authority over an existing account preference.
 
-OpenSpec is centralized in cashly-api even though the implementation spans both repositories. No config.yaml or relevant user-interface-preferences capability exists. These artifacts define the new capability locally; archive will promote the verified specification later. No commits, PRs, or unrelated documentation changes are included.
+OpenSpec is centralized in parsun-api even though the implementation spans both repositories. No config.yaml or relevant user-interface-preferences capability exists. These artifacts define the new capability locally; archive will promote the verified specification later. No commits, PRs, or unrelated documentation changes are included.

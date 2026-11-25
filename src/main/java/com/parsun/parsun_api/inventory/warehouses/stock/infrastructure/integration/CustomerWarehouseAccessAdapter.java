@@ -1,0 +1,23 @@
+package com.parsun.parsun_api.inventory.warehouses.stock.infrastructure.integration;
+
+import com.parsun.parsun_api.partners.customers.warehouse_access.application.ports.in.CustomerWarehouseAccessQuery;
+import com.parsun.parsun_api.inventory.warehouses.stock.application.ports.out.CustomerWarehouseAccessGateway;
+import org.springframework.stereotype.Component;
+import java.util.Set;
+import java.util.UUID;
+
+@Component
+public class CustomerWarehouseAccessAdapter
+        implements
+            CustomerWarehouseAccessGateway {
+    private final CustomerWarehouseAccessQuery query;
+
+    public CustomerWarehouseAccessAdapter(CustomerWarehouseAccessQuery query) {
+        this.query = query;
+    }
+
+    @Override
+    public Set<UUID> accessibleWarehouseIds(UUID customerId) {
+        return query.accessibleWarehouseIds(customerId);
+    }
+}

@@ -1,0 +1,68 @@
+package com.parsun.parsun_api.catalog.categories.infrastructure.config;
+
+import com.parsun.parsun_api.platform.notifications.application.ports.in.ActivityNotificationRecorder;
+import com.parsun.parsun_api.catalog.categories.application.mappers.CategoryMapper;
+import com.parsun.parsun_api.catalog.categories.application.create.use_case.CreateCategoryUseCase;
+import com.parsun.parsun_api.catalog.categories.application.delete.use_case.DeleteCategoryUseCase;
+import com.parsun.parsun_api.catalog.categories.application.queries.use_case.GetCategoryUseCase;
+import com.parsun.parsun_api.catalog.categories.application.queries.use_case.ListCategoriesUseCase;
+import com.parsun.parsun_api.catalog.categories.application.update.use_case.UpdateCategoryUseCase;
+import com.parsun.parsun_api.catalog.categories.domain.repository.CategoryRepository;
+import com.parsun.parsun_api.catalog.categories.application.ports.out.CategoryUsageGateway;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class CategoryConfig {
+
+    @Bean
+    public CategoryMapper categoryMapper() {
+        return new CategoryMapper();
+    }
+
+    @Bean
+    public CreateCategoryUseCase createCategoryUseCase(
+            CategoryRepository categoryRepository,
+            CategoryMapper categoryMapper,
+            ActivityNotificationRecorder activityNotifications) {
+        return new CreateCategoryUseCase(categoryRepository, categoryMapper,
+                activityNotifications);
+    }
+
+    @Bean
+    public GetCategoryUseCase getCategoryUseCase(
+            CategoryUsageGateway usageGateway,
+            CategoryRepository categoryRepository,
+            CategoryMapper categoryMapper) {
+        return new GetCategoryUseCase(usageGateway, categoryRepository,
+                categoryMapper);
+    }
+
+    @Bean
+    public ListCategoriesUseCase listCategoriesUseCase(
+            CategoryUsageGateway usageGateway,
+            CategoryRepository categoryRepository,
+            CategoryMapper categoryMapper) {
+        return new ListCategoriesUseCase(usageGateway, categoryRepository,
+                categoryMapper);
+    }
+
+    @Bean
+    public UpdateCategoryUseCase updateCategoryUseCase(
+            CategoryRepository categoryRepository,
+            CategoryMapper categoryMapper,
+            com.parsun.parsun_api.shared.application.ports.in.ActiveTogglePermission access,
+            ActivityNotificationRecorder activityNotifications) {
+        return new UpdateCategoryUseCase(categoryRepository, categoryMapper,
+                access, activityNotifications);
+    }
+
+    @Bean
+    public DeleteCategoryUseCase deleteCategoryUseCase(
+            CategoryUsageGateway usageGateway,
+            CategoryRepository categoryRepository,
+            ActivityNotificationRecorder activityNotifications) {
+        return new DeleteCategoryUseCase(usageGateway, categoryRepository,
+                activityNotifications);
+    }
+}

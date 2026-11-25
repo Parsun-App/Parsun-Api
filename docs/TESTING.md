@@ -1,4 +1,4 @@
-# 🧪 Testing Guide - Cashly API
+# 🧪 Testing Guide - Parsun API
 
 ## 📋 Executive Summary
 

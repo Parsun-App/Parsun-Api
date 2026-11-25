@@ -7,7 +7,7 @@ Status: proposed only. The manifests are exhaustive and authoritative; full tree
 | Owner | Production Java | Java test files | Target organization | Responsibility |
 |---|---:|---:|---|---|
 | `auth` | 72 | 45 | authentication, token, user | Preserve existing capabilities; login/refresh/logout and user operations group beneath application. |
-| `bootstrap` | 1 | 4 | CashlyApplication unchanged | Retain the Spring application root and component scanning reach. |
+| `bootstrap` | 1 | 4 | ParsunApplication unchanged | Retain the Spring application root and component scanning reach. |
 | `cash_register` | 67 | 32 | sessions, reporting | Session domain includes cash movements; exports have application/infrastructure only. |
 | `categories` | 26 | 12 | single aggregate; operation packages | CRUD plus usage/directory queries; preserve soft-deactivation semantics. |
 | `credit_notes` | 29 | 15 | single aggregate; operation packages | Keep note creation/deletion and existing financial effects together. |
@@ -62,7 +62,7 @@ All production-peer tests follow the tested type where practical. Broader bounda
 
 - Preserve both InvoiceEditingBoundaryTest classes in distinct module-wide/operation-boundary packages.
 - Preserve both versions of each LoginRequestUnitTest, LogoutRequestUnitTest and RefreshTokenRequestUnitTest; the current dto/request peer follows its production package, while the other suite receives a distinct validation subpackage.
-- CustomerTestHelper moves to `src/test/java/com/cashly/cashly_api/customers/testing/CustomerTestHelper.java`. Make its class and shared factories public only in test scope, update callers/static imports, and preserve all fixture values. This is an explicit access adjustment required by moving callers out of their current shared package.
+- CustomerTestHelper moves to `src/test/java/com/parsun/parsun_api/customers/testing/CustomerTestHelper.java`. Make its class and shared factories public only in test scope, update callers/static imports, and preserve all fixture values. This is an explicit access adjustment required by moving callers out of their current shared package.
 - The four Warehouses concurrency IT fixtures remain in the same proposed concurrency package so their shared helper access remains valid.
 - Nine `.java.bak` files remain noncompiled and byte-identical; move beside a relocated current peer when one exists, otherwise retain their explicit old path. Old package strings in these backups are historical content, not active Java imports.
 

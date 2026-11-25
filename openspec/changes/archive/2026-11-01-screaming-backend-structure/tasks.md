@@ -51,7 +51,7 @@ Each entry includes `src/main/java` and `src/test` manifest slices, **all consum
 ## Phase 3: Shared and root ownership
 
 - [x] 3.1 Reconcile `shared` source/test manifests, storage and neutral values; update every consumer.
-- [x] 3.2 Reconcile root `infrastructure`, `CashlyApplication.java` and root tests/configuration; preserve bootstrap/security scans and resources.
+- [x] 3.2 Reconcile root `infrastructure`, `ParsunApplication.java` and root tests/configuration; preserve bootstrap/security scans and resources.
 
 ## Phase 4: Complete verification and closure
 

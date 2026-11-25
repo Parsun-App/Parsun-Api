@@ -1,0 +1,172 @@
+package com.parsun.parsun_api.inventory.warehouses.stock.infrastructure.concurrency;
+
+import com.parsun.parsun_api.catalog.products.application.exceptions.ProductNotFoundException;
+import com.parsun.parsun_api.catalog.products.domain.entity.Product;
+import com.parsun.parsun_api.catalog.products.domain.repository.ProductRepository;
+import com.parsun.parsun_api.catalog.products.application.queries.services.RepositoryStockCatalogQuery;
+import com.parsun.parsun_api.inventory.warehouses.stock.infrastructure.integration.LocalStockCatalogGatewayAdapter;
+import com.parsun.parsun_api.inventory.warehouses.stock.application.dto.response.StockBatchItem;
+import com.parsun.parsun_api.inventory.warehouses.stock.application.entry.request.StockEntryRequest;
+import com.parsun.parsun_api.inventory.warehouses.stock.application.exit.request.StockExitRequest;
+import com.parsun.parsun_api.inventory.warehouses.stock.application.exceptions.InsufficientStockException;
+import com.parsun.parsun_api.inventory.warehouses.stock.application.entry.use_case.StockEntryUseCase;
+import com.parsun.parsun_api.inventory.warehouses.stock.application.exit.use_case.StockExitUseCase;
+import com.parsun.parsun_api.inventory.warehouses.stock.domain.entity.StockMovement;
+import com.parsun.parsun_api.inventory.warehouses.management.domain.entity.Warehouse;
+import com.parsun.parsun_api.inventory.warehouses.stock.domain.entity.WarehouseStock;
+import com.parsun.parsun_api.inventory.warehouses.stock.domain.repository.StockMovementRepository;
+import com.parsun.parsun_api.inventory.warehouses.management.domain.repository.WarehouseRepository;
+import com.parsun.parsun_api.inventory.warehouses.stock.domain.repository.WarehouseStockRepository;
+import com.parsun.parsun_api.inventory.warehouses.stock.infrastructure.persistence.entities.WarehouseStockEntity;
+import com.parsun.parsun_api.inventory.warehouses.stock.infrastructure.persistence.repositories.SpringDataWarehouseStockRepository;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.support.TransactionTemplate;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
+@ExtendWith(SpringExtension.class)
+@ContextConfiguration(classes = InvoiceInventoryConcurrencyIT.PersistenceConfig.class)
+class ManualStockConcurrencyIT {
+    private static final java.math.BigDecimal INITIAL_QUANTITY = new java.math.BigDecimal("10");
+    private static final java.math.BigDecimal REQUESTED_QUANTITY = new java.math.BigDecimal("7");
+    private static final int TIMEOUT_SECONDS = 30;
+    private static final int BLOCK_CHECK_MILLISECONDS = 200;
+    private final WarehouseStockRepository stocks;
+    private final SpringDataWarehouseStockRepository persistedStocks;
+    private final PlatformTransactionManager transactionManager;
+    private final WarehouseRepository warehouses = mock(
+            WarehouseRepository.class);
+    private final ProductRepository products = mock(ProductRepository.class);
+    private final StockMovementRepository movements = mock(
+            StockMovementRepository.class);
+    private UUID warehouseId;
+    private UUID productId;
+
+    @org.springframework.test.context.DynamicPropertySource
+    static void properties(
+            org.springframework.test.context.DynamicPropertyRegistry registry) {
+        InvoiceInventoryConcurrencyIT.properties(registry);
+    }
+
+    @Autowired
+    ManualStockConcurrencyIT(WarehouseStockRepository stocks,
+            SpringDataWarehouseStockRepository persistedStocks,
+            PlatformTransactionManager transactionManager) {
+        this.stocks = stocks;
+        this.persistedStocks = persistedStocks;
+        this.transactionManager = transactionManager;
+    }
+    @BeforeEach
+    void givenExistingStockAndCatalogProduct() {
+        warehouseId = UUID.randomUUID();
+        productId = UUID.randomUUID();
+        var now = LocalDateTime.now();
+        persistedStocks.saveAndFlush(WarehouseStockEntity
+                .fromDomain(new WarehouseStock(UUID.randomUUID(), warehouseId,
+                        productId, INITIAL_QUANTITY, java.math.BigDecimal.ZERO, now, now)));
+        Warehouse warehouse = mock(Warehouse.class);
+        when(warehouse.isActive()).thenReturn(true);
+        when(warehouses.findById(warehouseId))
+                .thenReturn(Optional.of(warehouse));
+        Product product = mock(Product.class);
+        when(product.getId()).thenReturn(productId);
+        when(products.findById(productId)).thenReturn(Optional.of(product));
+        when(movements.save(any()))
+                .thenAnswer(invocation -> invocation.getArgument(0));
+    }
+
+    @Test
+    void shouldWaitForCompetingMutationAndRejectExitAgainstUpdatedStock()
+            throws Exception {
+        StockExitUseCase exit = new StockExitUseCase(warehouses, stocks,
+                movements, new LocalStockCatalogGatewayAdapter(
+                        new RepositoryStockCatalogQuery(products)), org.mockito.Mockito.mock(com.parsun.parsun_api.platform.notifications.application.ports.in.ActivityNotificationRecorder.class));
+        var productRead = new CountDownLatch(1);
+        Product product = products.findById(productId).orElseThrow();
+        when(products.findById(productId)).thenAnswer(invocation -> {
+            productRead.countDown();
+            return Optional.of(product);
+        });
+        try (var executor = Executors.newSingleThreadExecutor()) {
+            var task = new java.util.concurrent.atomic.AtomicReference<java.util.concurrent.Future<Throwable>>();
+            new TransactionTemplate(transactionManager)
+                    .executeWithoutResult(status -> {
+                        WarehouseStock locked = stocks
+                                .findByWarehouseIdAndProductIdForUpdate(
+                                        warehouseId, productId)
+                                .orElseThrow();
+                        task.set(executor.submit(() -> {
+                            try {
+                                new TransactionTemplate(transactionManager)
+                                        .executeWithoutResult(
+                                                workerStatus -> exit.execute(
+                                                        warehouseId,
+                                                        new StockExitRequest(
+                                                                List.of(new StockBatchItem(
+                                                                        productId,
+                                                                        REQUESTED_QUANTITY,
+                                                                        "Exit")))));
+                                return null;
+                            } catch (Throwable failure) {
+                                return failure;
+                            }
+                        }));
+                        try {
+                            assertTrue(productRead.await(TIMEOUT_SECONDS,
+                                    TimeUnit.SECONDS));
+                            assertThrows(TimeoutException.class,
+                                    () -> task.get().get(
+                                            BLOCK_CHECK_MILLISECONDS,
+                                            TimeUnit.MILLISECONDS));
+                        } catch (InterruptedException interrupted) {
+                            Thread.currentThread().interrupt();
+                            throw new IllegalStateException(interrupted);
+                        }
+                        locked.removeStock(REQUESTED_QUANTITY);
+                        stocks.save(locked);
+                    });
+            assertInstanceOf(InsufficientStockException.class,
+                    task.get().get(TIMEOUT_SECONDS, TimeUnit.SECONDS));
+            assertEquals(0, INITIAL_QUANTITY.subtract(REQUESTED_QUANTITY).compareTo(persistedStocks
+                    .findByWarehouseIdAndProductId(warehouseId, productId)
+                    .orElseThrow().getQuantity()));
+            verify(movements, never()).save(any());
+        }
+    }
+
+    @Test
+    void shouldRollBackEarlierEntryWhenLaterCatalogProductIsMissing() {
+        UUID missingProductId = UUID.randomUUID();
+        StockEntryUseCase entry = new StockEntryUseCase(warehouses, stocks,
+                movements, new LocalStockCatalogGatewayAdapter(
+                        new RepositoryStockCatalogQuery(products)), org.mockito.Mockito.mock(com.parsun.parsun_api.platform.notifications.application.ports.in.ActivityNotificationRecorder.class));
+        assertThrows(ProductNotFoundException.class,
+                () -> new TransactionTemplate(transactionManager)
+                        .executeWithoutResult(status -> entry.execute(
+                                warehouseId,
+                                new StockEntryRequest(List.of(
+                                        new StockBatchItem(productId,
+                                                REQUESTED_QUANTITY, "Entry"),
+                                        new StockBatchItem(missingProductId, java.math.BigDecimal.ONE,
+                                                "Missing"))))));
+        assertEquals(0, INITIAL_QUANTITY.compareTo(
+                persistedStocks
+                        .findByWarehouseIdAndProductId(warehouseId, productId)
+                        .orElseThrow().getQuantity()));
+        verify(movements).save(any(StockMovement.class));
+    }
+}

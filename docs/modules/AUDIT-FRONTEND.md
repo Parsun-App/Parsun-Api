@@ -249,7 +249,7 @@ export type AuditEntityType =
       "action": "CONFIRM",
       "actor": {
         "id": "978c90a6-d968-398f-bdeb-35d06669fcae",
-        "name": "Cashly Administrator",
+        "name": "Parsun Administrator",
         "photoUrl": null
       },
       "occurredAt": "2025-01-15T10:00:00Z",
@@ -283,7 +283,7 @@ export type AuditEntityType =
   "actors": [
     {
       "id": "978c90a6-d968-398f-bdeb-35d06669fcae",
-      "name": "Cashly Administrator",
+      "name": "Parsun Administrator",
       "photoUrl": null,
       "count": 1
     }

@@ -1,0 +1,22 @@
+package com.parsun.parsun_api.sales.quotes.application.architecture;
+
+import com.parsun.parsun_api.sales.quotes.application.convert_to_invoice.use_case.ConvertQuoteToInvoiceUseCase;
+
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import static org.assertj.core.api.Assertions.assertThat;
+
+class QuoteInvoiceConversionBoundaryTest {
+    @Test
+    void should_create_invoices_through_owned_conversion_contracts() {
+        assertThat(Arrays
+                .stream(ConvertQuoteToInvoiceUseCase.class
+                        .getDeclaredConstructors())
+                .flatMap(constructor -> Arrays
+                        .stream(constructor.getParameterTypes()))
+                .map(Class::getPackageName))
+                .allMatch(name -> name
+                        .startsWith("com.parsun.parsun_api.sales.quotes")
+                        || name.startsWith("com.parsun.parsun_api.platform.notifications.application.ports.in"));
+    }
+}

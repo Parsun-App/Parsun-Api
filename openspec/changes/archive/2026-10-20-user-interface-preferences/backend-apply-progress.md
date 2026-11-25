@@ -18,7 +18,7 @@ Work unit: preference foundation, tasks 1.1–1.3. Local implementation only; no
 | GREEN | Docker Maven selected tests completed exit 0; 4 service and 7 controller tests passed |
 | Regression | EndpointPermissionCoverageTest and EndpointPermissionEnforcementTest passed in the same run |
 
-Command: `docker exec cashly-api-app ./mvnw test -Dtest=UserPreferencesServiceTest,UserPreferencesControllerTest,EndpointPermissionCoverageTest,EndpointPermissionEnforcementTest -q`.
+Command: `docker exec parsun-api-app ./mvnw test -Dtest=UserPreferencesServiceTest,UserPreferencesControllerTest,EndpointPermissionCoverageTest,EndpointPermissionEnforcementTest -q`.
 
 New tests cover defaults without writes, authenticated account isolation, update identity, domain validation, ordinary/admin self-service, anonymous denial, invalid/missing/null request values and no-store responses. The selected run totals 585 passing tests: service 4, controller 7, endpoint coverage 4, endpoint enforcement 570.
 

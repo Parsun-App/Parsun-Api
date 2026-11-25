@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Personalize Cashly appearance and keyboard interaction without changing business access or established component layout.
+Personalize Parsun appearance and keyboard interaction without changing business access or established component layout.
 
 ## Requirements
 
@@ -22,12 +22,12 @@ Users MUST choose Claro, Oscuro, or Del sistema. System mode MUST follow operati
 #### Scenario: Explicit theme
 - GIVEN a user chooses Oscuro
 - WHEN the OS changes to light or the page reloads
-- THEN Cashly remains dark until the user changes their preference.
+- THEN Parsun remains dark until the user changes their preference.
 
 #### Scenario: System theme
 - GIVEN Del sistema is selected
 - WHEN the OS changes its preferred scheme
-- THEN Cashly updates without a reload and retains Del sistema as its preference.
+- THEN Parsun updates without a reload and retains Del sistema as its preference.
 
 ### Requirement: Color modes
 

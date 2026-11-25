@@ -2,12 +2,12 @@
 
 Result: **PASS**. This source audit complements, and does not replace, the runtime test report.
 
-Baseline: independent extraction of `git archive HEAD src` at commit `3d9c2dad796502e28d8f8ff3d18ca2aee93d12de`, copied into the Docker application container at `/tmp/cashly-integrity-head`. Every baseline file SHA-256 was checked against the reviewed manifests before comparing the relocated result.
+Baseline: independent extraction of `git archive HEAD src` at commit `3d9c2dad796502e28d8f8ff3d18ca2aee93d12de`, copied into the Docker application container at `/tmp/parsun-integrity-head`. Every baseline file SHA-256 was checked against the reviewed manifests before comparing the relocated result.
 
 Command executed inside Docker:
 
 ```sh
-docker compose exec -T app python3 openspec/changes/screaming-backend-structure/tools/validate_change.py --implemented --baseline-root /tmp/cashly-integrity-head --self-test
+docker compose exec -T app python3 openspec/changes/screaming-backend-structure/tools/validate_change.py --implemented --baseline-root /tmp/parsun-integrity-head --self-test
 ```
 
 - All 1,248 production Java files and 573 baseline Java tests/helpers exist at their mapped destinations, with matching package declarations and no old moved paths remaining.

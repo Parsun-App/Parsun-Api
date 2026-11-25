@@ -1,0 +1,85 @@
+package com.parsun.parsun_api.sales.invoices.returns.infrastructure.config;
+
+import com.parsun.parsun_api.sales.invoices.returns.application.ports.out.ReturnInvoiceAdjustmentGateway;
+import com.parsun.parsun_api.sales.invoices.returns.application.ports.out.ReturnInventoryGateway;
+import com.parsun.parsun_api.sales.invoices.returns.application.ports.out.ReturnInvoiceQueryGateway;
+import com.parsun.parsun_api.sales.invoices.returns.application.ports.out.ReturnPaymentSettlementGateway;
+import com.parsun.parsun_api.sales.invoices.returns.application.ports.out.ReturnBalanceGateway;
+import com.parsun.parsun_api.sales.invoices.returns.application.ports.out.ReturnCashGateway;
+import com.parsun.parsun_api.sales.invoices.returns.application.services.ReturnResponseAssembler;
+import com.parsun.parsun_api.sales.invoices.returns.application.create.use_case.CreateReturnUseCase;
+import com.parsun.parsun_api.sales.invoices.returns.application.delete.use_case.DeleteReturnUseCase;
+import com.parsun.parsun_api.sales.invoices.returns.application.list.use_case.GetAllReturnsUseCase;
+import com.parsun.parsun_api.sales.invoices.returns.application.get.use_case.GetReturnByIdUseCase;
+import com.parsun.parsun_api.sales.invoices.returns.domain.repository.ReturnRepository;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+@ExtendWith(MockitoExtension.class)
+@DisplayName("ReturnConfig Unit Tests")
+class ReturnConfigTest {
+
+    @Mock
+    private ReturnInvoiceAdjustmentGateway invoiceAdjustmentGateway;
+    @Mock
+    private ReturnRepository returnRepository;
+    @Mock
+    private ReturnResponseAssembler returnMapper;
+    @Mock
+    private ReturnInventoryGateway inventoryGateway;
+    @Mock
+    private ReturnInvoiceQueryGateway invoices;
+    @Mock
+    private ReturnPaymentSettlementGateway payments;
+    @Mock
+    private ReturnBalanceGateway balances;
+    @Mock
+    private ReturnCashGateway cash;
+
+    @Test
+    void should_CreateCreateReturnUseCase() {
+        ReturnConfig config = new ReturnConfig(returnRepository);
+
+        CreateReturnUseCase useCase = config.createReturnUseCase(
+                invoiceAdjustmentGateway, returnMapper, invoices, payments,
+                balances, inventoryGateway, cash, org.mockito.Mockito.mock(com.parsun.parsun_api.platform.notifications.application.ports.in.ActivityNotificationRecorder.class));
+
+        assertNotNull(useCase);
+    }
+
+    @Test
+    void should_CreateGetAllReturnsUseCase() {
+        ReturnConfig config = new ReturnConfig(returnRepository);
+
+        GetAllReturnsUseCase useCase = config
+                .getAllReturnsUseCase(returnMapper);
+
+        assertNotNull(useCase);
+    }
+
+    @Test
+    void should_CreateGetReturnByIdUseCase() {
+        ReturnConfig config = new ReturnConfig(returnRepository);
+
+        GetReturnByIdUseCase useCase = config
+                .getReturnByIdUseCase(returnMapper);
+
+        assertNotNull(useCase);
+    }
+
+    @Test
+    void should_CreateDeleteReturnUseCase() {
+        ReturnConfig config = new ReturnConfig(returnRepository);
+
+        DeleteReturnUseCase useCase = config.deleteReturnUseCase(
+                invoiceAdjustmentGateway, invoices, inventoryGateway, payments,
+                balances, org.mockito.Mockito.mock(com.parsun.parsun_api.platform.notifications.application.ports.in.ActivityNotificationRecorder.class));
+
+        assertNotNull(useCase);
+    }
+}

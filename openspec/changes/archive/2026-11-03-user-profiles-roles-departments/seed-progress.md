@@ -21,10 +21,10 @@ Skills: gabriel-backend and sdd-apply, loaded from filesystem, plus shared OpenS
 ## Verification evidence
 
 - `bash -n scripts/reset-beta-data.sh`: passed.
-- `scripts/reset-beta-data.sh production cashly`: rejected before Docker, exit 2.
+- `scripts/reset-beta-data.sh production parsun`: rejected before Docker, exit 2.
 - `scripts/reset-beta-data.sh dev production`: rejected before Docker, exit 2.
 - Literal seed UUID length audit: all UNHEX literal UUIDs are exactly 32 hexadecimal characters.
-- Static loader simulation using temporary `/tmp/check_cashly_seeds.py`: adapted MySQL fixture statements to in-memory SQLite, loaded 18 data sources / 848 rows, passed all 29 invariant expressions and all declared FK orphan checks. This is an offline aid, **not** evidence of MySQL syntax, Flyway startup, Hibernate mapping, actual reset repeatability or application login.
+- Static loader simulation using temporary `/tmp/check_parsun_seeds.py`: adapted MySQL fixture statements to in-memory SQLite, loaded 18 data sources / 848 rows, passed all 29 invariant expressions and all declared FK orphan checks. This is an offline aid, **not** evidence of MySQL syntax, Flyway startup, Hibernate mapping, actual reset repeatability or application login.
 - `git diff --check`: passed at seed handoff.
 - Docker inspection `docker compose --env-file .env ps --status running`: blocked by permission denied connecting to `/Users/gabrielvargas/.docker/run/docker.sock`. No database reset or destructive execution performed.
 

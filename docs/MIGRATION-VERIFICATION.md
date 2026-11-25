@@ -1,4 +1,4 @@
-# Verificación de la migración Cashly
+# Verificación de la migración Parsun
 
 ## Estado de reconstrucción de esquema: 2026-10-08
 
@@ -10,10 +10,10 @@ Verificado el 2026-10-06. Alcance: cambio de nombre de App/API, configuración D
 
 | Comprobación | Resultado observado | Evidencia |
 | --- | --- | --- |
-| Maven verify de API en Docker | CORRECTO: 2.892 pruebas, cero fallos/errores/omitidas; BUILD SUCCESS | `cashly-api-check.log` en el directorio de trabajo |
-| Compilación de producción de App en Docker | CORRECTO: Angular generó el bundle | `cashly-app-check.log` |
-| Regresión Vitest de App en Docker | CORRECTO: 257 archivos, 2.541 pruebas | `cashly-app-check.log` |
-| Cobertura V8 de App en Docker | CORRECTO: 257 archivos y 2.541 pruebas; informe generado | `cashly-frontend-coverage.log` |
+| Maven verify de API en Docker | CORRECTO: 2.892 pruebas, cero fallos/errores/omitidas; BUILD SUCCESS | `parsun-api-check.log` en el directorio de trabajo |
+| Compilación de producción de App en Docker | CORRECTO: Angular generó el bundle | `parsun-app-check.log` |
+| Regresión Vitest de App en Docker | CORRECTO: 257 archivos, 2.541 pruebas | `parsun-app-check.log` |
+| Cobertura V8 de App en Docker | CORRECTO: 257 archivos y 2.541 pruebas; informe generado | `parsun-frontend-coverage.log` |
 
 El runner Maven predeterminado excluye explícitamente `StockReservationIntegrationTest.java` (`pom.xml:249`). El éxito de la suite predeterminada no demuestra la ejecución de ese escenario de integración. Las pruebas existentes aportan evidencia de regresión, pero no aceptación exhaustiva del ERP.
 
@@ -32,9 +32,9 @@ Las carencias de Application, Infrastructure y Frontend siguen pendientes en la 
 
 ## Revisión de configuración y especificación
 
-`compose.cashly.yaml` define un entorno local de desarrollo: procesos de desarrollo de API/App, MySQL, MinIO e inicialización del bucket. No es un manifiesto de despliegue de producción. Los puertos del host se limitan a loopback; las credenciales obligatorias usan variables de entorno; MySQL/MinIO usan volúmenes persistentes. La caché Maven externa debe existir antes del arranque. El código de App/API se copia a las imágenes; los cambios de código requieren reconstruirlas.
+`compose.parsun.yaml` define un entorno local de desarrollo: procesos de desarrollo de API/App, MySQL, MinIO e inicialización del bucket. No es un manifiesto de despliegue de producción. Los puertos del host se limitan a loopback; las credenciales obligatorias usan variables de entorno; MySQL/MinIO usan volúmenes persistentes. La caché Maven externa debe existir antes del arranque. El código de App/API se copia a las imágenes; los cambios de código requieren reconstruirlas.
 
-El proxy Angular activo es `proxy.conf.js`, seleccionado por `angular.json`. Su destino API/WebSocket `cashly-api-app:8080` coincide con el alias de red de Compose. El archivo alternativo `proxy.conf.json` no está seleccionado por esa configuración de serve.
+El proxy Angular activo es `proxy.conf.js`, seleccionado por `angular.json`. Su destino API/WebSocket `parsun-api-app:8080` coincide con el alias de red de Compose. El archivo alternativo `proxy.conf.json` no está seleccionado por esa configuración de serve.
 
 `MICROSERVICES-HEXAGONAL-SPEC.md` diferencia problemas actuales y reglas objetivo, puertos del consumidor y composición de infraestructura, y transacciones locales y recuperación distribuida duradera. El inventario de imports declara que no cubre referencias completamente cualificadas/transitivas; no certifica la arquitectura. Las migraciones aplicadas deben conservarse. La extracción futura necesita su propio SDD, reglas sobre dependencias compiladas, pruebas de contrato/fallos y evidencia de propiedad de datos/cutover. Domain Events siguen sujetos a autorización específica.
 
@@ -50,19 +50,19 @@ La cobertura se ejecuta sobre la imagen anterior al último ajuste de proporcion
 
 - Compose: API, App, MySQL y MinIO saludables; `minio-init` terminó con código 0.
 - API: `/actuator/health` respondió `{"status":"UP"}`; `/api/users` sin autenticación respondió HTTP 401.
-- Chrome en `http://localhost:4201/auth/login`: título Cashly y logo blanco/negro visible con proporción correcta.
+- Chrome en `http://localhost:4201/auth/login`: título Parsun y logo blanco/negro visible con proporción correcta.
 - Formulario vacío: botón de acceso deshabilitado. Email inválido: mensaje `Invalid email format` y botón deshabilitado.
 - Email inexistente y contraseña incorrecta: respuesta real por proxy/API y aviso `Error de autenticación` / `Credenciales incorrectas. Verifica tu email y contraseña.`
-- El registro de navegador no mostró warnings ni errores. Captura: `evidence/cashly-login.png`.
+- El registro de navegador no mostró warnings ni errores. Captura: `evidence/parsun-login.png`.
 
 En la verificación inicial no se ejecutó un flujo de negocio autenticado satisfactorio porque la base aislada nueva todavía no contenía usuarios. La evidencia de login no cubre todos los estados de carga/vacío/error del ERP. Los endpoints conservan su comportamiento existente; los cambios de este alcance son marca y configuración.
 
 ## Seed Java de desarrollo
 
-El mecanismo SQL histórico fue reemplazado por `DatabaseSeedRunner` y 29 pasos Java ordenados. En una base MySQL recreada desde cero, Flyway validó y aplicó las 29 migraciones y, con `CASHLY_SEED_ENABLED=true`, el runner completó los 29 pasos sin errores. La configuración ausente utiliza `false` y producción fuerza el seed deshabilitado.
+El mecanismo SQL histórico fue reemplazado por `DatabaseSeedRunner` y 29 pasos Java ordenados. En una base MySQL recreada desde cero, Flyway validó y aplicó las 29 migraciones y, con `PARSUN_SEED_ENABLED=true`, el runner completó los 29 pasos sin errores. La configuración ausente utiliza `false` y producción fuerza el seed deshabilitado.
 ## Verificación final
 
-La imagen `cashly-app:local` se construyó correctamente con instalación congelada desde `bun.lock`. Esa captura histórica cubrió 37 pruebas enfocadas y precede a la suite completa ejecutada el 2026-10-08. Las conclusiones de ese momento no representan el esquema Flyway actual.
+La imagen `parsun-app:local` se construyó correctamente con instalación congelada desde `bun.lock`. Esa captura histórica cubrió 37 pruebas enfocadas y precede a la suite completa ejecutada el 2026-10-08. Las conclusiones de ese momento no representan el esquema Flyway actual.
 
 La ejecución Docker V8 terminó con código 0: 257 archivos y 2.541 pruebas correctas. Su tabla global muestra 59,68 % de líneas/statements, 84,25 % de branches y 70,30 % de functions; el frontend no alcanza >75 % de líneas. La suma exacta de contadores LCOV es 16.414/27.499 líneas (59,69 % redondeado); la tabla de consola V8 publica 59,68 %. Ambos resultados quedan por debajo del objetivo. Los informes HTML, JSON y LCOV se copiaron a `coverage-output/` en el directorio de trabajo. Los porcentajes reflejan las exclusiones y el descubrimiento configurados en `vitest.config.mts`; no son cobertura exhaustiva de todos los flujos de negocio.
 

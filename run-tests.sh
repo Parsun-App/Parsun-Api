@@ -5,7 +5,7 @@
 
 set -e
 
-echo "🧪 Cashly API - Test Runner with MySQL"
+echo "🧪 Parsun API - Test Runner with MySQL"
 echo "======================================"
 echo ""
 

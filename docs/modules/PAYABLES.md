@@ -4,7 +4,7 @@ Accounts Payable is the mirror of Receivables applied to procurement. It exposes
 supplier debt over confirmed purchases, supplier payments, supplier balances
 (credit in favour of the company) and an accounts-payable PDF report.
 
-> Source root: `src/main/java/com/cashly/cashly_api/finance/treasury/payables`
+> Source root: `src/main/java/com/parsun/parsun_api/finance/treasury/payables`
 > and `.../finance/treasury/payments/payable`.
 >
 > This module reuses the existing `suppliers`, `purchases`, `payment_methods`,
@@ -267,9 +267,9 @@ Reset the disposable database after editing baseline migrations:
 
 ```bash
 docker compose stop app
-docker exec cashly-api-mysql mysql -uroot -pverysecret \
+docker exec parsun-api-mysql mysql -uroot -pverysecret \
   -e "DROP DATABASE IF EXISTS mydatabase; CREATE DATABASE mydatabase CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;"
-CASHLY_SEED_ENABLED=true docker compose up -d --build --force-recreate --no-deps app
+PARSUN_SEED_ENABLED=true docker compose up -d --build --force-recreate --no-deps app
 ```
 
 ## Verification

@@ -6,7 +6,7 @@ Implementation authorized by the user's instruction to proceed. This work unit c
 
 ## Completed
 
-- Froze `src`, `pom.xml`, `.mvn`, and `mvnw` before source migration at `/tmp/cashly-screaming-baseline-20261016-immutable`.
+- Froze `src`, `pom.xml`, `.mvn`, and `mvnw` before source migration at `/tmp/parsun-screaming-baseline-20261016-immutable`.
 - Snapshot: 1,248 production Java, 573 test Java, 584 total test artifacts, 1,865 files in the checksum manifest.
 - Snapshot manifest SHA-256: `21ffe2e4756ae038e4761c74e96cc7f65e9caa28e9631e4175dbc341665967d8`.
 - Created `compose.screaming-test.yaml` with separate suite/Flyway and inventory/create-drop MySQL, project-scoped network/cache and no published host ports or development volumes.
@@ -16,15 +16,15 @@ Implementation authorized by the user's instruction to proceed. This work unit c
 
 ## Current execution
 
-Project: `cashly-screaming-baseline-20261016-frozen`.
+Project: `parsun-screaming-baseline-20261016-frozen`.
 
 ```sh
-SCREAMING_TEST_IMAGE=cashly-api-app:latest SCREAMING_PROJECT=cashly-screaming-baseline-20261016-frozen scripts/run-structure-verification.sh baseline /tmp/cashly-screaming-baseline-20261016-immutable
+SCREAMING_TEST_IMAGE=parsun-api-app:latest SCREAMING_PROJECT=parsun-screaming-baseline-20261016-frozen scripts/run-structure-verification.sh baseline /tmp/parsun-screaming-baseline-20261016-immutable
 ```
 
 The locally available Docker image runs Corretto 24.0.1 and Maven wrapper 3.9.11. Its entrypoint is overridden; the development application is not started. Source is copied from the frozen snapshot, never the live tree under migration. The baseline includes all ordinary classes and all seven IT with explicit inventory and RETURNS datasource properties.
 
-Raw restricted evidence: `target/structure-verification/cashly-screaming-baseline-20261016-frozen/` (already gitignored). The databases and runner remain available after success/failure; cleanup is explicit and scoped to this unique project after report export.
+Raw restricted evidence: `target/structure-verification/parsun-screaming-baseline-20261016-frozen/` (already gitignored). The databases and runner remain available after success/failure; cleanup is explicit and scoped to this unique project after report export.
 
 Status: BASELINE PASS. `clean verify` completed at 2026-10-16 09:58:53 UTC in 1 minute 22 seconds: **3,160 tests, 0 failures, 0 errors, 0 skipped**. All 559 ordinary test owners and seven IT owners were reconciled against 755 XML reports; no executable owner was missing. This is baseline evidence only, not a migrated-tree pass. Final migrated execution awaits the root agent's readiness signal.
 

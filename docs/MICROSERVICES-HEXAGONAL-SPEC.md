@@ -1,4 +1,4 @@
-# API de Cashly: especificación de microservicios y arquitectura hexagonal
+# API de Parsun: especificación de microservicios y arquitectura hexagonal
 
 Estado: especificación de implementación propuesta. Auditoría realizada el 2026-10-06. Este documento no modifica la arquitectura ejecutable ni certifica su cumplimiento actual. Mantener Java 24, Spring Boot 3.5.5, MySQL y Flyway; verificados en `pom.xml:8`, `pom.xml:30`, `pom.xml:63` y `pom.xml:84`.
 
@@ -10,7 +10,7 @@ El alcance solicitado es esta especificación. Los futuros cambios de código re
 
 ## Situación inicial verificada
 
-Las rutas siguientes son relativas a Cashly-Api. Los ejemplos Java usan el prefijo `src/main/java/com/cashly/cashly_api/`. Las referencias de línea describen la versión auditada y deben actualizarse después de los cambios.
+Las rutas siguientes son relativas a Parsun-Api. Los ejemplos Java usan el prefijo `src/main/java/com/parsun/parsun_api/`. Las referencias de línea describen la versión auditada y deben actualizarse después de los cambios.
 
 | Evidencia | Comportamiento actual | Corrección requerida |
 | --- | --- | --- |
@@ -27,7 +27,7 @@ Las rutas siguientes son relativas a Cashly-Api. Los ejemplos Java usan el prefi
 
 ### Inventario de importaciones y limitaciones
 
-Un análisis mediante PowerShell en el equipo leyó los 904 archivos Java de producción bajo el prefijo Java e identificó sentencias de importación. Clasificó las capas de origen mediante `/domain/`, `/application/`, `/infrastructure/` en las rutas; los paquetes de destino mediante `com.cashly.cashly_api`; y los prefijos de framework mediante `org.springframework`, `jakarta`, `javax`, `com.fasterxml`, `org.hibernate`. Los resultados cuentan sentencias de importación, no archivos:
+Un análisis mediante PowerShell en el equipo leyó los 904 archivos Java de producción bajo el prefijo Java e identificó sentencias de importación. Clasificó las capas de origen mediante `/domain/`, `/application/`, `/infrastructure/` en las rutas; los paquetes de destino mediante `com.parsun.parsun_api`; y los prefijos de framework mediante `org.springframework`, `jakarta`, `javax`, `com.fasterxml`, `org.hibernate`. Los resultados cuentan sentencias de importación, no archivos:
 
 | Categoría | Cantidad |
 | --- | ---: |

@@ -1,6 +1,6 @@
 {
   "scope": "Backend responsibility folders in all production modules and tests",
-  "guard": "src/test/java/com/cashly/cashly_api/shared/application/architecture/ResponsibilityStructureTest.java",
+  "guard": "src/test/java/com/parsun/parsun_api/shared/application/architecture/ResponsibilityStructureTest.java",
   "checks": [
     "No loose production Java classes at module, layer, application operation or persistence container roots",
     "Explicit domain responsibilities and application leaf responsibilities",
@@ -8,7 +8,7 @@
     "Tests named after production classes remain in the production responsibility package or a narrower child test role",
     "Negative and positive path fixtures, including create/from_quote/request and repository/entity roles"
   ],
-  "accepted_leaves": "Existing infrastructure responsibilities, application ports/in|out, global architecture suites and shared DTO responsibility remain valid leaves; CashlyApplication is the sole production bootstrap root exception.",
+  "accepted_leaves": "Existing infrastructure responsibilities, application ports/in|out, global architecture suites and shared DTO responsibility remain valid leaves; ParsunApplication is the sole production bootstrap root exception.",
   "negative_mutation": {
     "description": "In an isolated container copy, physically moved orders/domain/entity/Order.java back to orders/domain/Order.java after compilation, then invoked surefire:test without recompilation.",
     "tests": 5,

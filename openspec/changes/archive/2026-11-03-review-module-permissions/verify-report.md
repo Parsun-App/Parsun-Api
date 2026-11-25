@@ -24,7 +24,7 @@ Scope delivered: grouped permission catalog (backend) + detailed grouped permiss
 |---|---|---|
 | Backend full | `docker compose --profile test run --rm app-test ./mvnw clean test` | 4094 tests, 0 failures, 0 errors, 3 skipped |
 | Backend focused | `./mvnw test -Dtest='PermissionCatalogTest,PermissionCatalogControllerTest'` | 13 tests, 0 failures |
-| Frontend full | `./node_modules/.bin/vitest run` (in `cashly-app-dev`) | 310 files, 3201 tests passed |
+| Frontend full | `./node_modules/.bin/vitest run` (in `parsun-app-dev`) | 310 files, 3201 tests passed |
 | Frontend build | `./node_modules/.bin/ng build --configuration development` | success (only the pre-existing dashboard NG8107 warning) |
 | Formatting | `prettier --check` on touched files | clean |
 

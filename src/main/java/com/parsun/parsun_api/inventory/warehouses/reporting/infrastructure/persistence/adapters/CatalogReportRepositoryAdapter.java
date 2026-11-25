@@ -1,0 +1,68 @@
+package com.parsun.parsun_api.inventory.warehouses.reporting.infrastructure.persistence.adapters;
+
+import com.parsun.parsun_api.inventory.warehouses.reporting.infrastructure.persistence.repositories.CatalogReportJpaRepository;
+import com.parsun.parsun_api.inventory.warehouses.reporting.infrastructure.persistence.projections.CatalogReportProjection;
+
+import com.parsun.parsun_api.shared.infrastructure.pagination.PageResponseMapper;
+
+import com.parsun.parsun_api.inventory.warehouses.reporting.application.dto.query.model.CatalogPdfQuery;
+import com.parsun.parsun_api.inventory.warehouses.reporting.application.dto.response.CatalogReportResponse;
+import com.parsun.parsun_api.inventory.warehouses.reporting.application.ports.out.CatalogReportRepositoryPort;
+import com.parsun.parsun_api.inventory.warehouses.reporting.application.dto.query.model.CatalogReportQuery;
+import com.parsun.parsun_api.shared.dto.PageResponse;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+
+import java.util.List;
+import java.util.UUID;
+
+public class CatalogReportRepositoryAdapter
+        implements
+            CatalogReportRepositoryPort {
+
+    private final CatalogReportJpaRepository catalogReportJpaRepository;
+
+    public CatalogReportRepositoryAdapter(
+            CatalogReportJpaRepository catalogReportJpaRepository) {
+        this.catalogReportJpaRepository = catalogReportJpaRepository;
+    }
+
+    @Override
+    public PageResponse<CatalogReportResponse> findCatalog(
+            CatalogReportQuery query) {
+        PageRequest pageable = PageRequest.of(query.page(), query.size());
+        Page<CatalogReportProjection> page = catalogReportJpaRepository
+                .findCatalog(query.search(),
+                        query.categoryId() != null
+                                ? query.categoryId().toString()
+                                : null,
+                        query.warehouseId() != null
+                                ? query.warehouseId().toString()
+                                : null,
+                        query.composite(), query.withStock(), pageable);
+        Page<CatalogReportResponse> mapped = page.map(this::toResponse);
+        return PageResponseMapper.from(mapped);
+    }
+
+    @Override
+    public List<CatalogReportResponse> findAllForExcel(CatalogPdfQuery query) {
+        return catalogReportJpaRepository.findAllForExcel(
+                        query.search(),
+                        query.categoryId() != null
+                                ? query.categoryId().toString()
+                                : null,
+                        query.warehouseId() != null
+                                ? query.warehouseId().toString()
+                                : null,
+                        query.composite(), query.withStock())
+                .stream().map(this::toResponse).toList();
+    }
+
+    private CatalogReportResponse toResponse(CatalogReportProjection p) {
+        return new CatalogReportResponse(UUID.fromString(p.getProductId()),
+                p.getProductName(), p.getSku(),
+                UUID.fromString(p.getCategoryId()), p.getCategoryName(),
+                p.getComposite(), UUID.fromString(p.getWarehouseId()),
+                p.getWarehouseName(), p.getQuantity(), p.getActive());
+    }
+}

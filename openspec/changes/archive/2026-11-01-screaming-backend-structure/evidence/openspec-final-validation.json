@@ -24,7 +24,7 @@
   },
   "version": "1.0",
   "root": {
-    "path": "/tmp/cashly-openspec-verify",
+    "path": "/tmp/parsun-openspec-verify",
     "source": "nearest"
   }
 }

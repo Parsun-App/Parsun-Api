@@ -2,7 +2,7 @@
 
 ## Complete regression
 
-The isolated Java 24/MySQL run cashly-screaming-responsibility-20261017-final1 completed Maven clean verify successfully. It executed 3258 tests across 568 ordinary executable source classes and 10 real MySQL IT classes, with zero failures, errors, skipped tests or missing executable classes. The five additional tests enforce responsibility packages. All pre-existing executable Java source/test files are retained at their original or explicitly mapped destination.
+The isolated Java 24/MySQL run parsun-screaming-responsibility-20261017-final1 completed Maven clean verify successfully. It executed 3258 tests across 568 ordinary executable source classes and 10 real MySQL IT classes, with zero failures, errors, skipped tests or missing executable classes. The five additional tests enforce responsibility packages. All pre-existing executable Java source/test files are retained at their original or explicitly mapped destination.
 
 The current source hashes match the final tested snapshot. Sanitized summaries and hashes are in evidence/full-final; raw logs and XML remain in the ignored target/structure-verification directory.
 

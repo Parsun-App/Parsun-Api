@@ -13,14 +13,14 @@
     "baseline_hashes_verified": 1862,
     "immutable_resources_verified": 41,
     "reviewed_structural_test_changes": [
-      "src/test/java/com/cashly/cashly_api/architecture/ApplicationPackageConventionTest.java",
-      "src/test/java/com/cashly/cashly_api/architecture/LayerDependencyTest.java",
-      "src/test/java/com/cashly/cashly_api/customers/warehouse_access/application/CustomerWarehouseBoundaryTest.java",
-      "src/test/java/com/cashly/cashly_api/payments/application/architecture/CustomerCreditQueryBoundaryTest.java"
+      "src/test/java/com/parsun/parsun_api/architecture/ApplicationPackageConventionTest.java",
+      "src/test/java/com/parsun/parsun_api/architecture/LayerDependencyTest.java",
+      "src/test/java/com/parsun/parsun_api/customers/warehouse_access/application/CustomerWarehouseBoundaryTest.java",
+      "src/test/java/com/parsun/parsun_api/payments/application/architecture/CustomerCreditQueryBoundaryTest.java"
     ],
     "additional_test_files": [
-      "src/test/java/com/cashly/cashly_api/architecture/CapabilityStructureTest.java",
-      "src/test/java/com/cashly/cashly_api/bootstrap/BackendStartupMySqlIT.java"
+      "src/test/java/com/parsun/parsun_api/architecture/CapabilityStructureTest.java",
+      "src/test/java/com/parsun/parsun_api/bootstrap/BackendStartupMySqlIT.java"
     ],
     "unexpected_semantic_changes": []
   }

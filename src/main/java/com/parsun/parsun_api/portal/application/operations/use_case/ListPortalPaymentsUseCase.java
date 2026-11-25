@@ -1,0 +1,28 @@
+package com.parsun.parsun_api.portal.application.operations.use_case;
+
+import com.parsun.parsun_api.finance.treasury.payments.collection.application.dto.response.PaymentListResponse;
+import com.parsun.parsun_api.finance.treasury.payments.collection.application.queries.use_case.GetAllPaymentsUseCase;
+import com.parsun.parsun_api.portal.application.services.PortalAuthorizationService;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.time.LocalDate;
+import java.util.List;
+
+public class ListPortalPaymentsUseCase {
+
+    private final GetAllPaymentsUseCase getAllPaymentsUseCase;
+    private final PortalAuthorizationService portalAuthorizationService;
+
+    public ListPortalPaymentsUseCase(GetAllPaymentsUseCase getAllPaymentsUseCase,
+                                      PortalAuthorizationService portalAuthorizationService) {
+        this.getAllPaymentsUseCase = getAllPaymentsUseCase;
+        this.portalAuthorizationService = portalAuthorizationService;
+    }
+
+    @Transactional(readOnly = true)
+    public List<PaymentListResponse> execute(LocalDate dateFrom, LocalDate dateTo,
+                                              String type, String status) {
+        var customerId = portalAuthorizationService.getCurrentCustomerId();
+        return getAllPaymentsUseCase.execute(dateFrom, dateTo, customerId, type, status);
+    }
+}

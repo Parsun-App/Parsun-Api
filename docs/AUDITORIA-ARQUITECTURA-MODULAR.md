@@ -1,4 +1,4 @@
-# Auditoría de arquitectura modular de Cashly API
+# Auditoría de arquitectura modular de Parsun API
 
 Fecha: 2026-10-06. Estado: diagnóstico y propuesta; refactor no implementado.
 
@@ -13,17 +13,17 @@ Hay que distinguir: inversión de capas, acoplamiento entre módulos, dependenci
 ## Estructura actual
 
 ```text
-Cashly-Api/
+Parsun-Api/
 ├── pom.xml
-├── compose.cashly.yaml
+├── compose.parsun.yaml
 ├── db/
 ├── docs/
 └── src/
     ├── main/
     │   ├── resources/
     │   │   └── db/migration/
-    │   └── java/com/cashly/cashly_api/
-    │       ├── CashlyApplication.java
+    │   └── java/com/parsun/parsun_api/
+    │       ├── ParsunApplication.java
     │       ├── auth/{authentication,token,user}/
     │       ├── cashregister/
     │       ├── categories/
@@ -63,7 +63,7 @@ Los módulos de negocio normalmente contienen `domain`, `application` e `infrast
 
 ## Listado consolidado de hallazgos
 
-Rutas de evidencia relativas a `src/main/java/com/cashly/cashly_api/`. P1 indica prioridad alta por propiedad de invariantes o riesgo funcional; P2 separación estructural; P3 endurecimiento del objetivo estricto. Los riesgos funcionales requieren reproducción antes de considerarse errores demostrados.
+Rutas de evidencia relativas a `src/main/java/com/parsun/parsun_api/`. P1 indica prioridad alta por propiedad de invariantes o riesgo funcional; P2 separación estructural; P3 endurecimiento del objetivo estricto. Los riesgos funcionales requieren reproducción antes de considerarse errores demostrados.
 
 | ID | Prioridad | Hallazgo y evidencia | Cambio propuesto |
 |---|---|---|---|

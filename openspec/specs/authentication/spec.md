@@ -1,7 +1,7 @@
 # Authenticator MFA requirements
 
 ## Enrollment
-- Given an authenticated user without MFA, when they confirm their password, then Cashly returns a time-limited enrollment secret and provisioning URI without enabling MFA yet.
+- Given an authenticated user without MFA, when they confirm their password, then Parsun returns a time-limited enrollment secret and provisioning URI without enabling MFA yet.
 - Given pending enrollment, when a valid current authenticator code is submitted before expiration, then MFA becomes active and recovery codes are returned once.
 - Given invalid, expired or reused enrollment/code, when submitted, then enrollment remains inactive and no session is issued.
 - Given enrollment data, when rendered in the browser, then QR generation does not disclose the secret to a third-party service.
