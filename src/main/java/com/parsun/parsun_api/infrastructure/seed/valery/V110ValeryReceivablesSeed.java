@@ -16,19 +16,19 @@ import java.util.UUID;
 import org.springframework.stereotype.Component;
 
 @Component
-public class V108ValeryReceivablesSeed implements SeedStep {
+public class V110ValeryReceivablesSeed implements SeedStep {
 
     private static final int YEAR = 2026;
 
     private final EntityManager entityManager;
 
-    public V108ValeryReceivablesSeed(EntityManager entityManager) {
+    public V110ValeryReceivablesSeed(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
     @Override
     public int version() {
-        return 108;
+        return 110;
     }
 
     @Override

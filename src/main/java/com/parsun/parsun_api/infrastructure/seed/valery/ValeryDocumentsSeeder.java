@@ -2,8 +2,6 @@ package com.parsun.parsun_api.infrastructure.seed.valery;
 
 import com.parsun.parsun_api.catalog.products.infrastructure.persistence.entities.ProductEntity;
 import com.parsun.parsun_api.infrastructure.seed.SeedIds;
-import com.parsun.parsun_api.infrastructure.seed.SeedSource;
-import com.parsun.parsun_api.infrastructure.seed.SeedStep;
 import com.parsun.parsun_api.partners.customers.profile.infrastructure.persistence.entities.CustomerEntity;
 import com.parsun.parsun_api.sales.invoices.invoices.infrastructure.persistence.entities.InvoiceEntity;
 import com.parsun.parsun_api.sales.invoices.invoices.infrastructure.persistence.entities.InvoiceLineEntity;
@@ -21,54 +19,59 @@ import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Component
-public class V107ValerySalesDocumentsSeed implements SeedStep {
+public class ValeryDocumentsSeeder {
 
+    private static final Logger log = LoggerFactory
+            .getLogger(ValeryDocumentsSeeder.class);
     private static final int YEAR = 2026;
 
     private final EntityManager entityManager;
+    private final Map<String, Set<String>> usedNumbers = new HashMap<>();
+    private int pending;
 
-    public V107ValerySalesDocumentsSeed(EntityManager entityManager) {
+    public ValeryDocumentsSeeder(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
-    @Override
-    public int version() {
-        return 107;
+    public void seedInvoices() {
+        preload("invoice", "select i.invoiceNumber from InvoiceEntity i");
+        Map<String, List<String[]>> lines = lines("invoice_lines_only");
+        int max = invoices(lines);
+        sequence(InvoiceNumberSequenceEntity.class, max);
     }
 
-    @Override
-    public SeedSource source() {
-        return SeedSource.VALERY;
+    public void seedOrders() {
+        preload("order", "select o.orderNumber from OrderEntity o");
+        Map<String, List<String[]>> lines = lines("order_lines_only");
+        int max = orders(lines);
+        sequence(OrderNumberSequenceEntity.class, max);
     }
 
-    @Override
-    public void seed() {
-        usedNumbers.put("invoice", new java.util.HashSet<>(entityManager
-                .createQuery("select i.invoiceNumber from InvoiceEntity i",
-                        String.class).getResultList()));
-        usedNumbers.put("order", new java.util.HashSet<>(entityManager
-                .createQuery("select o.orderNumber from OrderEntity o",
-                        String.class).getResultList()));
-        usedNumbers.put("quote", new java.util.HashSet<>(entityManager
-                .createQuery("select q.quoteNumber from QuoteJpaEntity q",
-                        String.class).getResultList()));
-        Map<String, List<String[]>> documentLines = lines("document_lines");
-        int maxInvoice = invoices(documentLines);
-        int maxOrder = orders(documentLines);
-        int maxQuote = quotes(documentLines);
-        sequence(InvoiceNumberSequenceEntity.class, maxInvoice);
-        sequence(OrderNumberSequenceEntity.class, maxOrder);
-        sequence(QuoteNumberSequenceJpaEntity.class, maxQuote);
+    public void seedQuotes() {
+        preload("quote", "select q.quoteNumber from QuoteJpaEntity q");
+        Map<String, List<String[]>> lines = lines("quote_lines_only");
+        int max = quotes(lines);
+        sequence(QuoteNumberSequenceJpaEntity.class, max);
+    }
+
+    private void preload(String kind, String query) {
+        usedNumbers.put(kind, new HashSet<>(entityManager.createQuery(query,
+                String.class).getResultList()));
     }
 
     private int invoices(Map<String, List<String[]>> lines) {
         int max = 0;
+        int processed = 0;
         for (String[] row : ValeryCsv.load("invoices")) {
             String key = ValeryCsv.text(row, 12);
             String document = ValeryCsv.text(row, 0);
@@ -116,8 +119,10 @@ public class V107ValerySalesDocumentsSeed implements SeedStep {
                         lineNumber, line));
             }
             entityManager.persist(invoice);
-            batch();
+            processed++;
+            batch(processed, "invoices");
         }
+        log.info("Valery invoices imported: {}", processed);
         return max;
     }
 
@@ -141,6 +146,7 @@ public class V107ValerySalesDocumentsSeed implements SeedStep {
 
     private int orders(Map<String, List<String[]>> lines) {
         int max = 0;
+        int processed = 0;
         for (String[] row : ValeryCsv.load("orders")) {
             String key = ValeryCsv.text(row, 7);
             String document = ValeryCsv.text(row, 0);
@@ -181,8 +187,10 @@ public class V107ValerySalesDocumentsSeed implements SeedStep {
                         line));
             }
             entityManager.persist(order);
-            batch();
+            processed++;
+            batch(processed, "orders");
         }
+        log.info("Valery orders imported: {}", processed);
         return max;
     }
 
@@ -205,6 +213,7 @@ public class V107ValerySalesDocumentsSeed implements SeedStep {
 
     private int quotes(Map<String, List<String[]>> lines) {
         int max = 0;
+        int processed = 0;
         for (String[] row : ValeryCsv.load("quotes")) {
             String key = ValeryCsv.text(row, 8);
             String document = ValeryCsv.text(row, 0);
@@ -247,8 +256,10 @@ public class V107ValerySalesDocumentsSeed implements SeedStep {
                         line));
             }
             entityManager.persist(quote);
-            batch();
+            processed++;
+            batch(processed, "quotes");
         }
+        log.info("Valery quotes imported: {}", processed);
         return max;
     }
 
@@ -269,11 +280,8 @@ public class V107ValerySalesDocumentsSeed implements SeedStep {
         return line;
     }
 
-    private final Map<String, java.util.Set<String>> usedNumbers = new HashMap<>();
-
     private String uniqueNumber(String document, String key, String kind) {
-        var used = usedNumbers.computeIfAbsent(kind,
-                value -> new java.util.HashSet<>());
+        var used = usedNumbers.computeIfAbsent(kind, value -> new HashSet<>());
         String number = ValeryCsv.trim(document, 50);
         if (!used.add(number)) {
             number = ValeryCsv.trim(document + "-" + key, 50);
@@ -284,10 +292,10 @@ public class V107ValerySalesDocumentsSeed implements SeedStep {
 
     private String nextQuoteNumber(int year) {
         var used = usedNumbers.computeIfAbsent("quote",
-                value -> new java.util.HashSet<>());
+                value -> new HashSet<>());
         int sequence = 1;
-        while (sequence <= 9999
-                && used.contains(String.format("PRE-%d-%04d", year, sequence))) {
+        while (sequence <= 9999 && used
+                .contains(String.format("PRE-%d-%04d", year, sequence))) {
             sequence++;
         }
         String number = String.format("PRE-%d-%04d", year, sequence);
@@ -295,21 +303,22 @@ public class V107ValerySalesDocumentsSeed implements SeedStep {
         return number;
     }
 
-    private int pending;
-
-    private void batch() {
+    private void batch(int processed, String kind) {
         pending++;
         if (pending % 250 == 0) {
             entityManager.flush();
             entityManager.clear();
+        }
+        if (processed % 1000 == 0) {
+            log.info("Valery {} progress: {}", kind, processed);
         }
     }
 
     private Map<String, List<String[]>> lines(String file) {
         Map<String, List<String[]>> result = new HashMap<>();
         for (String[] row : ValeryCsv.load(file)) {
-            String document = ValeryCsv.text(row, 0);
-            result.computeIfAbsent(document, key -> new ArrayList<>()).add(row);
+            result.computeIfAbsent(ValeryCsv.text(row, 0),
+                    key -> new ArrayList<>()).add(row);
         }
         return result;
     }

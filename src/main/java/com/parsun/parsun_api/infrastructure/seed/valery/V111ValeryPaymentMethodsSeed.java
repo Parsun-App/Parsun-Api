@@ -10,7 +10,7 @@ import java.util.UUID;
 import org.springframework.stereotype.Component;
 
 @Component
-public class V109ValeryPaymentMethodsSeed implements SeedStep {
+public class V111ValeryPaymentMethodsSeed implements SeedStep {
 
     private static final LocalDateTime CREATED_AT = LocalDateTime.of(2026, 1,
             1, 11, 0);
@@ -41,13 +41,13 @@ public class V109ValeryPaymentMethodsSeed implements SeedStep {
 
     private final EntityManager entityManager;
 
-    public V109ValeryPaymentMethodsSeed(EntityManager entityManager) {
+    public V111ValeryPaymentMethodsSeed(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
     @Override
     public int version() {
-        return 109;
+        return 111;
     }
 
     @Override
