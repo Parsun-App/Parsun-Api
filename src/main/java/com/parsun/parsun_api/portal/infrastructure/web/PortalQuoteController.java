@@ -11,7 +11,9 @@ import com.parsun.parsun_api.portal.application.operations.use_case.ListPortalQu
 import com.parsun.parsun_api.portal.application.operations.use_case.UpdatePortalQuoteUseCase;
 import com.parsun.parsun_api.sales.quotes.application.convert_to_order.response.QuoteConvertedToOrderResponse;
 import com.parsun.parsun_api.sales.quotes.application.dto.response.QuoteDetailResponse;
+import com.parsun.parsun_api.portal.application.dto.response.PortalQuoteSummaryResponse;
 import com.parsun.parsun_api.sales.quotes.application.dto.response.QuoteListResponse;
+import com.parsun.parsun_api.shared.dto.PageResponse;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -57,17 +59,32 @@ public class PortalQuoteController {
     }
 
     @GetMapping
-    public ResponseEntity<List<QuoteListResponse>> listQuotes(
+    public ResponseEntity<PageResponse<QuoteListResponse>> listQuotes(
             @RequestParam(required = false) LocalDate dateFrom,
             @RequestParam(required = false) LocalDate dateTo,
             @RequestParam(required = false) String status,
             @RequestParam(required = false) UUID productId,
             @RequestParam(required = false) UUID categoryId,
+            @RequestParam(required = false) String search,
             @RequestParam(required = false) String orderBy,
-            @RequestParam(required = false) String orderDir) {
-        List<QuoteListResponse> response = listPortalQuotesUseCase.execute(
-                dateFrom, dateTo, status, productId, categoryId, orderBy, orderDir);
+            @RequestParam(required = false) String orderDir,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+        PageResponse<QuoteListResponse> response = listPortalQuotesUseCase.executePage(
+                dateFrom, dateTo, status, productId, categoryId, search, page,
+                size, orderBy, orderDir);
         return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/summary")
+    public ResponseEntity<PortalQuoteSummaryResponse> getSummary(
+            @RequestParam(required = false) LocalDate dateFrom,
+            @RequestParam(required = false) LocalDate dateTo,
+            @RequestParam(required = false) String status,
+            @RequestParam(required = false) UUID productId,
+            @RequestParam(required = false) UUID categoryId) {
+        return ResponseEntity.ok(listPortalQuotesUseCase.getSummary(dateFrom,
+                dateTo, status, productId, categoryId));
     }
 
     @GetMapping("/{id}")

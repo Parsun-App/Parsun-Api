@@ -5,6 +5,7 @@ import com.parsun.parsun_api.portal.application.dto.response.PortalInvoiceListRe
 import com.parsun.parsun_api.portal.application.dto.response.PortalInvoiceSummaryResponse;
 import com.parsun.parsun_api.portal.application.operations.use_case.GetPortalInvoiceUseCase;
 import com.parsun.parsun_api.portal.application.operations.use_case.ListPortalInvoicesUseCase;
+import com.parsun.parsun_api.shared.dto.PageResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,17 +34,21 @@ public class PortalInvoiceController {
     }
 
     @GetMapping
-    public ResponseEntity<List<PortalInvoiceListResponse>> listInvoices(
+    public ResponseEntity<PageResponse<PortalInvoiceListResponse>> listInvoices(
             @RequestParam(required = false) LocalDate dateFrom,
             @RequestParam(required = false) LocalDate dateTo,
             @RequestParam(required = false) List<String> statuses,
             @RequestParam(required = false) List<String> returnStatus,
             @RequestParam(required = false) UUID productId,
             @RequestParam(required = false) UUID categoryId,
+            @RequestParam(required = false) String search,
             @RequestParam(required = false) String orderBy,
-            @RequestParam(required = false) String orderDir) {
-        List<PortalInvoiceListResponse> response = listPortalInvoicesUseCase.execute(
-                dateFrom, dateTo, statuses, returnStatus, productId, categoryId, orderBy, orderDir);
+            @RequestParam(required = false) String orderDir,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+        PageResponse<PortalInvoiceListResponse> response = listPortalInvoicesUseCase.executePage(
+                dateFrom, dateTo, statuses, returnStatus, productId, categoryId,
+                page, size, search, orderBy, orderDir);
         return ResponseEntity.ok(response);
     }
 
