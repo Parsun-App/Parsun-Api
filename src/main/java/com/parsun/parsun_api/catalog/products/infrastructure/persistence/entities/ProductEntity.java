@@ -4,6 +4,7 @@ import com.parsun.parsun_api.catalog.products.domain.entity.Product;
 import com.parsun.parsun_api.catalog.products.domain.valueobjects.ProductPrice;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
@@ -64,9 +65,11 @@ public class ProductEntity {
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
+    @BatchSize(size = 100)
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<ProductComponentEntity> components = new ArrayList<>();
 
+    @BatchSize(size = 100)
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private Set<ProductPriceEntity> productPrices = new HashSet<>();
 

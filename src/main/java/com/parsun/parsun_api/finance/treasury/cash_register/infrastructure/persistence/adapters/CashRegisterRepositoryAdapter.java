@@ -322,6 +322,17 @@ public class CashRegisterRepositoryAdapter
     }
 
     @Override
+    @Transactional
+    public void saveMovements(java.util.Collection<CashMovement> movements) {
+        if (movements == null) {
+            return;
+        }
+        for (CashMovement movement : movements) {
+            entityManager.persist(toMovementEntity(movement));
+        }
+    }
+
+    @Override
     @Transactional(readOnly = true)
     public List<CashMovement> findMovements(RegisterId registerId) {
         if (movementJpaRepository == null)

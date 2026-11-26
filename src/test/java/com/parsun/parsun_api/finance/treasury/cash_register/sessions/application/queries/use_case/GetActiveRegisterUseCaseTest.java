@@ -79,15 +79,12 @@ class GetActiveRegisterUseCaseTest {
                 .thenReturn(Optional.of(activeClosure));
         when(queries.findSessionTotals(activeClosure.getId()))
                 .thenReturn(emptyDailyTotals());
-        when(closureRepository.save(any(CashRegister.class)))
-                .thenReturn(activeClosure);
-
         Optional<CashRegisterResponse> response = useCase.execute();
 
         assertTrue(response.isPresent());
         assertEquals(activeClosure.getId().value(),
                 response.orElseThrow().id());
-        verify(closureRepository).save(any(CashRegister.class));
+        verify(closureRepository, never()).save(any(CashRegister.class));
     }
 
     @Test
