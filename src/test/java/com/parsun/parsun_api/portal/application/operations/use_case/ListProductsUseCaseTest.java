@@ -98,7 +98,7 @@ class ListProductsUseCaseTest {
         PageResponse<PortalProductResponse> result = useCase.execute(
                 customerId, null, null, PAGE, PAGE_SIZE);
 
-        assertEquals(8, result.content().get(0).availableStock());
+        assertEquals(new BigDecimal("8"), result.content().get(0).availableStock());
         verify(productRepository).findAllForOrder(isNull(), isNull(), isNull(),
                 eq(true), eq(allowedWarehouses), eq(PAGE), eq(PAGE_SIZE));
         verify(warehouseStockRepository)
@@ -130,7 +130,7 @@ class ListProductsUseCaseTest {
         PageResponse<PortalProductResponse> result = useCase.execute(
                 customerId, null, null, PAGE, PAGE_SIZE);
 
-        assertEquals(13, result.content().get(0).availableStock());
+        assertEquals(new BigDecimal("13"), result.content().get(0).availableStock());
     }
 
     @Test
@@ -154,7 +154,7 @@ class ListProductsUseCaseTest {
         PageResponse<PortalProductResponse> result = useCase.execute(
                 customerId, null, null, PAGE, PAGE_SIZE);
 
-        assertEquals(0, result.content().get(0).availableStock());
+        assertEquals(new BigDecimal("0"), result.content().get(0).availableStock());
     }
 
     @Test
@@ -177,7 +177,7 @@ class ListProductsUseCaseTest {
         PageResponse<PortalProductResponse> result = useCase.execute(
                 customerId, null, null, PAGE, PAGE_SIZE);
 
-        assertEquals(0, result.content().get(0).availableStock());
+        assertEquals(new BigDecimal("0"), result.content().get(0).availableStock());
     }
 
     @Test
@@ -202,7 +202,7 @@ class ListProductsUseCaseTest {
 
         PortalProductResponse response = result.content().get(0);
         assertEquals(new BigDecimal("10.00"), response.price());
-        assertEquals(3, response.availableStock());
+        assertEquals(new BigDecimal("3"), response.availableStock());
     }
 
     @Test

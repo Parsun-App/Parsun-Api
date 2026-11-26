@@ -232,12 +232,12 @@ public class CreateInvoiceUseCase {
         inventory.reserveAllocations(lineRequest.warehouseAllocations().stream()
                 .map(allocation -> new InventoryGateway.Allocation(
                         allocation.warehouseId(), productId,
-                        BigDecimal.valueOf(allocation.allocated())))
+                        allocation.allocated()))
                 .toList());
         return lineRequest.warehouseAllocations().stream()
                 .map(allocation -> InvoiceLineAllocation.create(
                         allocation.warehouseId(),
-                        BigDecimal.valueOf(allocation.allocated())))
+                        allocation.allocated()))
                 .toList();
     }
 }

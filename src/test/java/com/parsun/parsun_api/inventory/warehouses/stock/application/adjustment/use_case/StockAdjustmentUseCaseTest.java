@@ -187,7 +187,7 @@ class StockAdjustmentUseCaseTest {
 
         assertNotNull(response);
         assertEquals(MovementType.ADJUSTMENT, response.movementType());
-        assertEquals(30, response.newStock());
+        assertEquals(new BigDecimal("30"), response.newStock());
         verify(warehouseStockRepository).save(any(WarehouseStock.class));
         verify(warehouseStockRepository)
                 .findOrCreateByWarehouseIdAndProductIdForUpdate(warehouseId,

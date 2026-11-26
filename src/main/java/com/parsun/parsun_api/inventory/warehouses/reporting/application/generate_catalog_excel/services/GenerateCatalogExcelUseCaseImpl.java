@@ -7,6 +7,7 @@ import com.parsun.parsun_api.inventory.warehouses.reporting.application.generate
 import com.parsun.parsun_api.inventory.warehouses.reporting.application.ports.out.CatalogExcelPort;
 import com.parsun.parsun_api.inventory.warehouses.reporting.application.ports.out.CatalogReportRepositoryPort;
 
+import java.math.BigDecimal;
 import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -31,9 +32,9 @@ public class GenerateCatalogExcelUseCaseImpl
         List<CatalogReportResponse> items = repository.findAllForExcel(query);
         Map<UUID, CatalogExcelRow> byProduct = new LinkedHashMap<>();
         for (CatalogReportResponse item : items) {
-            long quantity = item.quantity() != null
-                    ? item.quantity().longValue()
-                    : 0L;
+            BigDecimal quantity = item.quantity() != null
+                    ? item.quantity()
+                    : BigDecimal.ZERO;
             byProduct.merge(item.productId(),
                     new CatalogExcelRow(item.productName(), item.sku(),
                             item.categoryName(), item.composite(), quantity,
@@ -41,7 +42,7 @@ public class GenerateCatalogExcelUseCaseImpl
                     (current, incoming) -> new CatalogExcelRow(
                             current.productName(), current.sku(),
                             current.categoryName(), current.composite(),
-                            current.totalStock() + incoming.totalStock(),
+                            current.totalStock().add(incoming.totalStock()),
                             current.active()));
         }
         List<CatalogExcelRow> rows = byProduct.values().stream()

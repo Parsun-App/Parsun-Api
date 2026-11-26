@@ -16,6 +16,7 @@ import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -66,11 +67,11 @@ public class CatalogExcelGenerator implements CatalogExcelPort {
                 cell.setCellStyle(headerStyle);
             }
 
-            long totalStock = 0L;
+            BigDecimal totalStock = BigDecimal.ZERO;
             for (int i = 0; i < items.size(); i++) {
                 Row row = sheet.createRow(4 + i);
                 CatalogExcelRow item = items.get(i);
-                totalStock += item.totalStock();
+                totalStock = totalStock.add(item.totalStock());
 
                 createStringCell(row, 0, item.sku(), cellStyle);
                 createStringCell(row, 1, item.productName(), cellStyle);
@@ -174,10 +175,10 @@ public class CatalogExcelGenerator implements CatalogExcelPort {
         cell.setCellStyle(style);
     }
 
-    private void createNumericCell(Row row, int col, long value,
+    private void createNumericCell(Row row, int col, BigDecimal value,
             CellStyle style) {
         Cell cell = row.createCell(col);
-        cell.setCellValue(value);
+        cell.setCellValue(value != null ? value.doubleValue() : 0d);
         cell.setCellStyle(style);
     }
 }

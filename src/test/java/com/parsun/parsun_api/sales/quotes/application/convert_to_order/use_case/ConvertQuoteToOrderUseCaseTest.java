@@ -109,7 +109,7 @@ class ConvertQuoteToOrderUseCaseTest {
         assertNotNull(result.orderId());
         assertNotNull(result.orderNumber());
 
-        assertEquals(97, stock.getQuantity());
+        assertEquals(new BigDecimal("97"), stock.getQuantity());
 
         assertEquals(result.orderId(), quote.getOrderId());
         assertEquals(result.orderNumber(), quote.getOrderNumber());
@@ -199,7 +199,7 @@ class ConvertQuoteToOrderUseCaseTest {
 
         useCase.execute(quoteId, null);
 
-        assertEquals(97, stock.getQuantity());
+        assertEquals(new BigDecimal("97"), stock.getQuantity());
         verify(userRepository, never()).findById(any());
         verify(warehouseStockRepository, never())
                 .findByWarehouseIdAndProductIdForUpdate(warehouseId,

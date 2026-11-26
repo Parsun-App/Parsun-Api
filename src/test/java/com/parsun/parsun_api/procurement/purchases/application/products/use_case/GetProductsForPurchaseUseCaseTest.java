@@ -46,11 +46,11 @@ class GetProductsForPurchaseUseCaseTest {
         assertTrue(result.last());
         assertEquals("Drinks", product.categoryName());
         assertEquals(new BigDecimal("7.50"), product.purchasePrice());
-        assertEquals(10, product.stock());
+        assertEquals(new BigDecimal("10"), product.stock());
         assertEquals(2, product.stockItems().size());
-        assertEquals(3, product.stockItems().getFirst().reserved());
-        assertEquals(7, product.stockItems().getFirst().available());
-        assertEquals(0, product.stockItems().getLast().quantity());
+        assertEquals(new BigDecimal("3"), product.stockItems().getFirst().reserved());
+        assertEquals(new BigDecimal("7"), product.stockItems().getFirst().available());
+        assertEquals(new BigDecimal("0"), product.stockItems().getLast().quantity());
         assertEquals("W-2", product.stockItems().getLast().warehouseCode());
     }
 

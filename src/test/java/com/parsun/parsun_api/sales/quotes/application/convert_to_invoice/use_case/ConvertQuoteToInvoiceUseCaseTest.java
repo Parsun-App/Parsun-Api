@@ -136,7 +136,7 @@ class ConvertQuoteToInvoiceUseCaseTest {
         assertNotNull(result.invoiceId());
         assertNotNull(result.invoiceNumber());
 
-        assertEquals(48, stock.getQuantity());
+        assertEquals(new BigDecimal("48"), stock.getQuantity());
 
         ArgumentCaptor<Invoice> invoiceCaptor = ArgumentCaptor
                 .forClass(Invoice.class);

@@ -61,7 +61,7 @@ class GetProductsForOrderUseCaseUnitTest {
         assertEquals(2, result.totalPages());
         assertEquals(1, result.number());
         assertEquals("SKU-1", result.content().getFirst().code());
-        assertEquals(10,
+        assertEquals(new BigDecimal("10"),
                 result.content().getFirst().stock().getFirst().available());
         verify(products).findForCustomer(customerId, "prod", categoryId, false,
                 true, 1, 5);

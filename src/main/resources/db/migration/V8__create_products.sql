@@ -27,7 +27,7 @@ CREATE TABLE `product_components` (
   `id` binary(16) NOT NULL,
   `parent_product_id` binary(16) NOT NULL,
   `component_product_id` binary(16) NOT NULL,
-  `quantity` int NOT NULL,
+  `quantity` decimal(15,4) NOT NULL,
   `company_id` binary(16) NOT NULL DEFAULT 0x92000000000000000000000000000001,
   PRIMARY KEY (`id`),
   UNIQUE KEY `uk_parent_component` (`parent_product_id`,`component_product_id`),
@@ -37,7 +37,7 @@ CREATE TABLE `product_components` (
   CONSTRAINT `fk_pc_component` FOREIGN KEY (`component_product_id`) REFERENCES `products` (`id`),
   CONSTRAINT `fk_pc_parent` FOREIGN KEY (`parent_product_id`) REFERENCES `products` (`id`),
   CONSTRAINT `fk_product_components_company` FOREIGN KEY (`company_id`) REFERENCES `companies` (`id`),
-  CONSTRAINT `chk_pc_quantity` CHECK ((`quantity` >= 1))
+  CONSTRAINT `chk_pc_quantity` CHECK ((`quantity` >= 0.0001))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `product_code_sequence` (

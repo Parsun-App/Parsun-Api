@@ -107,7 +107,7 @@ public class StockEntryUseCase {
             CatalogProduct product, Map<UUID, CatalogProduct> productCache,
             List<StockMovementResponse> movements) {
         for (StockCatalogGateway.Component component : product.components()) {
-            BigDecimal required = BigDecimal.valueOf(component.quantity())
+            BigDecimal required = component.quantity()
                     .multiply(item.quantity());
             WarehouseStock componentStock = warehouseStockRepository
                     .findByWarehouseIdAndProductIdForUpdate(warehouseId,

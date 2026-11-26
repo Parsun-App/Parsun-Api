@@ -3,6 +3,7 @@ package com.parsun.parsun_api.catalog.products.domain.entity;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -22,7 +23,8 @@ class ProductComponentUnitTest {
         assertEquals(id, component.getId());
         assertEquals(parentId, component.getParentProductId());
         assertEquals(componentId, component.getComponentProductId());
-        assertEquals(3, component.getQuantity());
+        assertEquals(0, BigDecimal.valueOf(3)
+                .compareTo(component.getQuantity()));
     }
 
     @Test
@@ -67,6 +69,31 @@ class ProductComponentUnitTest {
         ProductComponent component = new ProductComponent(id, parentId,
                 componentId, 1);
 
-        assertEquals(1, component.getQuantity());
+        assertEquals(0, BigDecimal.valueOf(1)
+                .compareTo(component.getQuantity()));
+    }
+
+    @Test
+    void should_AllowDecimalQuantity() {
+        UUID id = UUID.randomUUID();
+        UUID parentId = UUID.randomUUID();
+        UUID componentId = UUID.randomUUID();
+
+        ProductComponent component = new ProductComponent(id, parentId,
+                componentId, new BigDecimal("1.5"));
+
+        assertEquals(0, new BigDecimal("1.5")
+                .compareTo(component.getQuantity()));
+    }
+
+    @Test
+    void should_ThrowException_When_QuantityIsBelowMinimum() {
+        UUID id = UUID.randomUUID();
+        UUID parentId = UUID.randomUUID();
+        UUID componentId = UUID.randomUUID();
+
+        assertThrows(IllegalArgumentException.class,
+                () -> new ProductComponent(id, parentId, componentId,
+                        new BigDecimal("0.00005")));
     }
 }

@@ -62,7 +62,8 @@ class GenerateCatalogExcelUseCaseImplTest {
                 .forClass(List.class);
         verify(excelPort).generateExcel(captor.capture());
         assertEquals(1, captor.getValue().size());
-        assertEquals(140L, captor.getValue().getFirst().totalStock());
+        assertEquals(0, new BigDecimal("140")
+                .compareTo(captor.getValue().getFirst().totalStock()));
     }
 
     @Test

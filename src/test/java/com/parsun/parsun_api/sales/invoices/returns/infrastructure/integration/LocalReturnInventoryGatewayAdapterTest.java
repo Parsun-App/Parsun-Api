@@ -48,7 +48,7 @@ class LocalReturnInventoryGatewayAdapterTest {
     }
 
     @Test
-    void shouldPreserveIntegerTruncationAndSkipNonPositiveAllocations() {
+    void shouldPreserveDecimalQuantitiesAndSkipNonPositiveAllocations() {
         Return returned = mock(Return.class);
         ReturnLine line = mock(ReturnLine.class);
         when(returned.getId()).thenReturn(ReturnId.of(command.returnId()));
@@ -62,7 +62,7 @@ class LocalReturnInventoryGatewayAdapterTest {
                 .thenReturn(List.of(fractional, zero, negative));
         var mapped = ReturnInventoryGateway.Command.from(returned, "User");
         assertEquals(List.of(new ReturnInventoryGateway.Allocation(warehouseId,
-                productId, new BigDecimal("2"))), mapped.allocations());
+                productId, new BigDecimal("2.9"))), mapped.allocations());
         assertEquals(command.returnId(), mapped.returnId());
         assertEquals("User", mapped.userName());
     }

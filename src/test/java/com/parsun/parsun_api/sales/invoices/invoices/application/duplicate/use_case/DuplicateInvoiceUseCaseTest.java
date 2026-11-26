@@ -171,7 +171,7 @@ class DuplicateInvoiceUseCaseTest {
 
         duplicateInvoiceUseCase.execute(id, null);
 
-        assertEquals(5, stock.getReserved());
+        assertEquals(new BigDecimal("5"), stock.getReserved());
         verify(warehouseStockRepository).save(stock);
     }
 

@@ -63,7 +63,7 @@ class GetQuoteByIdUseCaseTest {
                             assertThat(stock.warehouseId())
                                     .isEqualTo(warehouseId);
                             assertThat(stock.warehouseName()).isEqualTo("Main");
-                            assertThat(stock.available()).isEqualTo(7);
+                            assertThat(stock.available()).isEqualByComparingTo("7");
                         }));
     }
 

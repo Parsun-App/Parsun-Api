@@ -146,7 +146,7 @@ class InvoiceInventoryConcurrencyIT {
         WarehouseStockEntity saved = stocks
                 .findByWarehouseIdAndProductId(warehouseId, productId)
                 .orElseThrow();
-        assertEquals(0, saved.getReserved());
+        assertEquals(0, java.math.BigDecimal.ZERO.compareTo(saved.getReserved()));
         assertEquals(0, STOCK_QUANTITY.compareTo(saved.getQuantity()));
     }
 

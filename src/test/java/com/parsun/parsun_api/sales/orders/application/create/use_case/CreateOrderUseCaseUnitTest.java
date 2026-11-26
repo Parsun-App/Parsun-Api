@@ -155,6 +155,41 @@ class CreateOrderUseCaseUnitTest {
     }
 
     @Test
+    void should_ReserveDecimalStock_When_AllocationHasFraction() {
+        UUID customerId = UUID.randomUUID();
+        UUID productId = UUID.randomUUID();
+        UUID warehouseId = UUID.randomUUID();
+        UUID authenticatedUserId = UUID.randomUUID();
+
+        Customer customer = buildCustomer(customerId);
+        User user = buildUser(authenticatedUserId);
+        Product product = buildProduct(productId);
+
+        CreateOrderRequest request = new CreateOrderRequest(customerId, null,
+                List.of(new CreateOrderRequest.OrderLineRequest(productId,
+                        new BigDecimal("2.5"), BigDecimal.TEN,
+                        List.of(new CreateOrderRequest.WarehouseAllocationRequest(
+                                warehouseId, new BigDecimal("2.5"))))));
+
+        when(customerRepository.findById(customerId))
+                .thenReturn(Optional.of(customerRef(customerId, customer)));
+        when(userRepository.findById(authenticatedUserId))
+                .thenReturn(Optional.of(actorRef(authenticatedUserId, user)));
+        when(productRepository.findProduct(productId))
+                .thenReturn(Optional.of(productRef(product)));
+        when(orderRepository.getNextSequenceForYear(anyInt())).thenReturn(1);
+        when(orderRepository.save(any(
+                com.parsun.parsun_api.sales.orders.domain.entity.Order.class)))
+                .thenAnswer(inv -> inv.getArgument(0));
+
+        createOrderUseCase.execute(request, authenticatedUserId);
+
+        verify(warehouseStockRepository).reserve(
+                List.of(new OrderInventoryGateway.Allocation(warehouseId,
+                        productId, new BigDecimal("2.5"))));
+    }
+
+    @Test
     void should_ThrowIllegalArgumentException_When_CustomerNotFound() {
         UUID customerId = UUID.randomUUID();
 

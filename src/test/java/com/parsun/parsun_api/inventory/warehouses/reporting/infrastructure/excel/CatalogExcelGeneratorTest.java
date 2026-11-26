@@ -5,6 +5,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
+import java.math.BigDecimal;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -15,9 +16,9 @@ class CatalogExcelGeneratorTest {
     void should_generate_excel_with_total_stock_per_product() throws Exception {
         byte[] bytes = new CatalogExcelGenerator().generateExcel(List.of(
                 new CatalogExcelRow("Product A", "SKU001", "Category", false,
-                        140L, true),
+                        new BigDecimal("140"), true),
                 new CatalogExcelRow("Product B", "SKU002", "Category", false,
-                        60L, true)));
+                        new BigDecimal("60"), true)));
 
         try (var workbook = new XSSFWorkbook(
                 new ByteArrayInputStream(bytes))) {

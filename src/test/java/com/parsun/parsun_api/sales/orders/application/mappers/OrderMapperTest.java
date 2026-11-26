@@ -119,7 +119,7 @@ class OrderMapperTest {
         assertEquals(1, lineResponse.warehouseAllocations().size());
         assertEquals("WH-01",
                 lineResponse.warehouseAllocations().get(0).warehouseCode());
-        assertEquals(50,
+        assertEquals(new BigDecimal("50"),
                 lineResponse.warehouseAllocations().get(0).availableStock());
     }
 

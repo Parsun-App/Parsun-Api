@@ -120,10 +120,10 @@ public class CreateOrderUseCase {
                 .warehouseAllocations()) {
             inventory.reserve(List.of(new OrderInventoryGateway.Allocation(
                     allocation.warehouseId(), productId,
-                    java.math.BigDecimal.valueOf(allocation.allocated()))));
+                    allocation.allocated())));
 
             allocations.add(OrderLineAllocation.create(allocation.warehouseId(),
-                    BigDecimal.valueOf(allocation.allocated())));
+                    allocation.allocated()));
         }
         return allocations;
     }
