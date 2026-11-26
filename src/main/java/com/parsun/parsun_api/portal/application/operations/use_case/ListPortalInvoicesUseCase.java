@@ -6,6 +6,7 @@ import com.parsun.parsun_api.finance.treasury.payments.collection.domain.entity.
 import com.parsun.parsun_api.finance.treasury.payments.collection.domain.repository.PaymentRepository;
 import com.parsun.parsun_api.portal.application.dto.response.PortalInvoiceListResponse;
 import com.parsun.parsun_api.portal.application.services.PortalAuthorizationService;
+import com.parsun.parsun_api.shared.dto.PageResponse;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
@@ -41,7 +42,31 @@ public class ListPortalInvoicesUseCase {
                 : statuses;
         List<InvoiceListResponse> invoices = getInvoicesUseCase.execute(dateFrom, dateTo, customerId, effectiveStatuses,
                 returnStatus, productId, categoryId, orderBy, orderDir);
+        return toPortalResponses(invoices, customerId);
+    }
 
+    @Transactional(readOnly = true)
+    public PageResponse<PortalInvoiceListResponse> executePage(LocalDate dateFrom,
+            LocalDate dateTo, List<String> statuses, List<String> returnStatus,
+            UUID productId, UUID categoryId, int page, int size,
+            String search, String orderBy, String orderDir) {
+        UUID customerId = portalAuthorizationService.getCurrentCustomerId();
+        List<String> effectiveStatuses = statuses == null || statuses.isEmpty()
+                ? List.of("PENDING_PAYMENT", "PARTIALLY_PAID")
+                : statuses;
+        PageResponse<InvoiceListResponse> invoices = getInvoicesUseCase
+                .executePage(dateFrom, dateTo, customerId, effectiveStatuses,
+                        search, returnStatus, null, null, productId, categoryId,
+                        page, size, orderBy, orderDir, null);
+        List<PortalInvoiceListResponse> content = toPortalResponses(
+                invoices.content(), customerId);
+        return new PageResponse<>(content, invoices.totalElements(),
+                invoices.totalPages(), invoices.size(), invoices.number(),
+                invoices.first(), invoices.last(), content.isEmpty());
+    }
+
+    private List<PortalInvoiceListResponse> toPortalResponses(
+            List<InvoiceListResponse> invoices, UUID customerId) {
         List<Payment> pendingPayments = paymentRepository.findAllWithFilters(null, null, customerId, "PENDING");
         Map<UUID, BigDecimal> pendingByInvoice = new HashMap<>();
         for (Payment p : pendingPayments) {
@@ -54,7 +79,7 @@ public class ListPortalInvoicesUseCase {
         return invoices.stream()
                 .map(inv -> new PortalInvoiceListResponse(
                         inv.id(), inv.invoiceNumber(), inv.invoiceNumber(), inv.createdAt(), null,
-                        inv.status(), inv.total(), inv.subtotal(), 
+                        inv.status(), inv.total(), inv.subtotal(),
                         inv.total().subtract(inv.paidAmount()), inv.paidAmount(),
                         inv.paymentType(), inv.createdAt(),
                         pendingByInvoice.getOrDefault(inv.id(), BigDecimal.ZERO)))
