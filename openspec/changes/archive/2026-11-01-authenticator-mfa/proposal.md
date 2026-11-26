@@ -1,7 +1,7 @@
 # Authenticator MFA
 
 ## Intent
-Allow existing Cashly users to protect password login with an authenticator application such as Microsoft Authenticator. The profile menu exposes Configuration, Security and Logout. Google login is explicitly excluded from this change.
+Allow existing Parsun users to protect password login with an authenticator application such as Microsoft Authenticator. The profile menu exposes Configuration, Security and Logout. Google login is explicitly excluded from this change.
 
 ## Scope
 Authenticated enrollment with password confirmation, local QR/manual secret, first-code confirmation, encrypted TOTP secrets, hashed one-use recovery codes, optional MFA challenge at login, disable with password and second factor, and session revocation when security settings change.

@@ -1,0 +1,22 @@
+package com.parsun.parsun_api.sales.invoices.invoices.infrastructure.integration;
+
+import com.parsun.parsun_api.partners.customers.profile.application.ports.in.CustomerCreditTermsQuery;
+import com.parsun.parsun_api.sales.invoices.invoices.application.ports.out.CustomerCreditTermsGateway;
+import org.springframework.stereotype.Component;
+import java.util.UUID;
+
+@Component
+public class LocalCustomerCreditTermsGateway
+        implements
+            CustomerCreditTermsGateway {
+    private final CustomerCreditTermsQuery query;
+
+    public LocalCustomerCreditTermsGateway(CustomerCreditTermsQuery query) {
+        this.query = query;
+    }
+
+    @Override
+    public int creditDays(UUID customerId) {
+        return query.creditDays(customerId);
+    }
+}

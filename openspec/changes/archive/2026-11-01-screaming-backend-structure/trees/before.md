@@ -9,8 +9,8 @@ This is an exhaustive source/test/resource inventory. Proposed package moves are
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── auth
                             ├── authentication
                             │   ├── application
@@ -160,9 +160,9 @@ This is an exhaustive source/test/resource inventory. Proposed package moves are
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
-                        └── CashlyApplication.java
+                └── parsun
+                    └── parsun_api
+                        └── ParsunApplication.java
 ```
 
 ## cash_register
@@ -172,8 +172,8 @@ This is an exhaustive source/test/resource inventory. Proposed package moves are
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── cash_register
                             ├── application
                             │   ├── dto
@@ -276,8 +276,8 @@ This is an exhaustive source/test/resource inventory. Proposed package moves are
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── categories
                             ├── application
                             │   ├── dto
@@ -339,8 +339,8 @@ This is an exhaustive source/test/resource inventory. Proposed package moves are
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── credit_notes
                             ├── application
                             │   ├── dto
@@ -406,8 +406,8 @@ This is an exhaustive source/test/resource inventory. Proposed package moves are
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── customers
                             ├── application
                             │   ├── dto
@@ -580,8 +580,8 @@ This is an exhaustive source/test/resource inventory. Proposed package moves are
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── dashboard
                             ├── application
                             │   ├── dto
@@ -613,8 +613,8 @@ This is an exhaustive source/test/resource inventory. Proposed package moves are
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── debit_notes
                             ├── application
                             │   ├── dto
@@ -678,8 +678,8 @@ This is an exhaustive source/test/resource inventory. Proposed package moves are
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── infrastructure
                             ├── adapters
                             │   └── in
@@ -700,8 +700,8 @@ This is an exhaustive source/test/resource inventory. Proposed package moves are
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── invoices
                             ├── application
                             │   ├── dto
@@ -848,8 +848,8 @@ This is an exhaustive source/test/resource inventory. Proposed package moves are
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── notifications
                             ├── application
                             │   ├── ports
@@ -901,8 +901,8 @@ This is an exhaustive source/test/resource inventory. Proposed package moves are
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── orders
                             ├── application
                             │   ├── dto
@@ -1013,8 +1013,8 @@ This is an exhaustive source/test/resource inventory. Proposed package moves are
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── payment_methods
                             ├── application
                             │   ├── dto
@@ -1072,8 +1072,8 @@ This is an exhaustive source/test/resource inventory. Proposed package moves are
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── payments
                             ├── application
                             │   ├── dto
@@ -1195,8 +1195,8 @@ This is an exhaustive source/test/resource inventory. Proposed package moves are
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── price_types
                             ├── application
                             │   ├── dto
@@ -1257,8 +1257,8 @@ This is an exhaustive source/test/resource inventory. Proposed package moves are
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── products
                             ├── application
                             │   ├── dto
@@ -1365,8 +1365,8 @@ This is an exhaustive source/test/resource inventory. Proposed package moves are
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── purchases
                             ├── application
                             │   ├── dto
@@ -1462,8 +1462,8 @@ This is an exhaustive source/test/resource inventory. Proposed package moves are
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── quotes
                             ├── application
                             │   ├── dto
@@ -1572,8 +1572,8 @@ This is an exhaustive source/test/resource inventory. Proposed package moves are
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── receivables
                             ├── application
                             │   ├── dto
@@ -1625,8 +1625,8 @@ This is an exhaustive source/test/resource inventory. Proposed package moves are
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── reports
                             ├── finance
                             │   ├── application
@@ -1919,8 +1919,8 @@ This is an exhaustive source/test/resource inventory. Proposed package moves are
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── returns
                             ├── application
                             │   ├── dto
@@ -2001,8 +2001,8 @@ This is an exhaustive source/test/resource inventory. Proposed package moves are
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── shared
                             ├── dto
                             │   └── PageResponse.java
@@ -2028,8 +2028,8 @@ This is an exhaustive source/test/resource inventory. Proposed package moves are
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── suppliers
                             ├── application
                             │   ├── dto
@@ -2117,8 +2117,8 @@ This is an exhaustive source/test/resource inventory. Proposed package moves are
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── warehouses
                             ├── application
                             │   ├── dto
@@ -2241,8 +2241,8 @@ This is an exhaustive source/test/resource inventory. Proposed package moves are
     └── test
         ├── java
         │   └── com
-        │       └── cashly
-        │           └── cashly_api
+        │       └── parsun
+        │           └── parsun_api
         │               ├── architecture
         │               │   ├── ApplicationPackageConventionTest.java
         │               │   └── LayerDependencyTest.java
@@ -3294,8 +3294,8 @@ This is an exhaustive source/test/resource inventory. Proposed package moves are
         │               │       ├── ManualStockConcurrencyIT.java
         │               │       ├── StockDeductionConcurrencyIT.java
         │               │       └── WarehouseStockConcurrencyIT.java
-        │               ├── CashlyApplicationTests.java
-        │               ├── TestCashlyApplication.java
+        │               ├── ParsunApplicationTests.java
+        │               ├── TestParsunApplication.java
         │               ├── TestJpaConfig.java
         │               └── TestcontainersConfiguration.java
         └── resources
@@ -3337,7 +3337,7 @@ This is an exhaustive source/test/resource inventory. Proposed package moves are
             │       ├── V8__create_product_prices.sql
             │       └── V9__create_orders_tables.sql
             ├── pdf
-            │   └── cashly-logo.png
+            │   └── parsun-logo.png
             ├── application-dev.properties
             ├── application-production.properties
             ├── application.properties

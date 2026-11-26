@@ -15,4 +15,4 @@ Both quote and order persistence reconstruct detached entity graphs before `JpaR
 
 Focused verification is run from an independent source copy in the app container, avoiding stale incremental build artifacts. Full MySQL/security/coverage verification is performed separately by the main task.
 
-Result: **35 tests, 0 failures, 0 errors, 0 skipped** (`QuoteWarehouseReassignmentRemovalTest`, `OrderWarehouseReassignmentRemovalTest`, `QuoteTest`, `QuoteModuleBoundaryTest`, `OrderConfigTest`). All 1,245 production and 581 test sources compiled from scratch in `/tmp/cashly-reassignment-focused` inside the app container. Local log: `/tmp/cashly-reassignment-backend-isolated.log`.
+Result: **35 tests, 0 failures, 0 errors, 0 skipped** (`QuoteWarehouseReassignmentRemovalTest`, `OrderWarehouseReassignmentRemovalTest`, `QuoteTest`, `QuoteModuleBoundaryTest`, `OrderConfigTest`). All 1,245 production and 581 test sources compiled from scratch in `/tmp/parsun-reassignment-focused` inside the app container. Local log: `/tmp/parsun-reassignment-backend-isolated.log`.

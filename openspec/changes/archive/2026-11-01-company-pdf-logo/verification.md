@@ -2,7 +2,7 @@
 
 - Backend: 23 focused test classes, 60 tests passed, zero failures/errors. Includes company media independence/fallback, aspect ratio and bounded height, actual custom image extraction from a generated PDF, generator configuration, endpoint permission coverage and ownership guard across all 18 PDF generators.
 - Frontend: production Angular build passed; 5 company-service tests passed; 11 company browser tests passed, including dedicated PDF logo upload, preview, reload/removal and navbar isolation.
-- Screenshot reviewed: cashly-app/output/playwright/company/pdf-logo.png. Existing shared form and file-input styling preserved.
+- Screenshot reviewed: parsun-app/output/playwright/company/pdf-logo.png. Existing shared form and file-input styling preserved.
 - Independent static review found two additional cash-register PDF generators; both were corrected and re-reviewed. All 18 PDF generators now use shared branding. No remaining findings.
 - Flyway V34 applied to the development database. Existing company/navigation logo remains independent.
 - Implementation was verified before creating the requested commits.

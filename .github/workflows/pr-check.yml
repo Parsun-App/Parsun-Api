@@ -31,7 +31,7 @@ jobs:
         run: bash scripts/run-structure-verification.sh final
         env:
           MAVEN_OPTS: -Xmx2g -XX:+UseG1GC
-          SCREAMING_PROJECT: cashly-screaming-pr-${{ github.run_id }}-${{ github.run_attempt }}
+          SCREAMING_PROJECT: parsun-screaming-pr-${{ github.run_id }}-${{ github.run_attempt }}
           SCREAMING_COVERAGE_GATE: 'false'
 
       - name: Upload Surefire test reports
@@ -53,4 +53,4 @@ jobs:
 
       - name: Remove isolated verification project
         if: always()
-        run: docker compose -p "cashly-screaming-pr-${{ github.run_id }}-${{ github.run_attempt }}" -f compose.screaming-test.yaml down --volumes --remove-orphans
+        run: docker compose -p "parsun-screaming-pr-${{ github.run_id }}-${{ github.run_attempt }}" -f compose.screaming-test.yaml down --volumes --remove-orphans

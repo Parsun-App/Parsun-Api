@@ -9,8 +9,8 @@ This is the complete target inventory of the baseline source/test/resource files
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── auth
                             ├── authentication
                             │   ├── application
@@ -150,9 +150,9 @@ This is the complete target inventory of the baseline source/test/resource files
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
-                        └── CashlyApplication.java
+                └── parsun
+                    └── parsun_api
+                        └── ParsunApplication.java
 ```
 
 ## cash_register
@@ -162,8 +162,8 @@ This is the complete target inventory of the baseline source/test/resource files
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── cash_register
                             ├── application
                             │   └── ports
@@ -281,8 +281,8 @@ This is the complete target inventory of the baseline source/test/resource files
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── categories
                             ├── application
                             │   ├── create
@@ -340,8 +340,8 @@ This is the complete target inventory of the baseline source/test/resource files
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── credit_notes
                             ├── application
                             │   ├── create
@@ -404,8 +404,8 @@ This is the complete target inventory of the baseline source/test/resource files
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── customers
                             ├── balance
                             │   ├── application
@@ -636,8 +636,8 @@ This is the complete target inventory of the baseline source/test/resource files
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── dashboard
                             ├── application
                             │   ├── dto
@@ -666,8 +666,8 @@ This is the complete target inventory of the baseline source/test/resource files
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── debit_notes
                             ├── application
                             │   ├── create
@@ -728,8 +728,8 @@ This is the complete target inventory of the baseline source/test/resource files
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── infrastructure
                             ├── config
                             │   ├── CorsConfig.java
@@ -748,8 +748,8 @@ This is the complete target inventory of the baseline source/test/resource files
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── invoices
                             ├── application
                             │   ├── cancel
@@ -899,8 +899,8 @@ This is the complete target inventory of the baseline source/test/resource files
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── notifications
                             ├── application
                             │   ├── ports
@@ -948,8 +948,8 @@ This is the complete target inventory of the baseline source/test/resource files
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── orders
                             ├── application
                             │   ├── assign_warehouses
@@ -1064,8 +1064,8 @@ This is the complete target inventory of the baseline source/test/resource files
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── payment_methods
                             ├── application
                             │   ├── create
@@ -1120,8 +1120,8 @@ This is the complete target inventory of the baseline source/test/resource files
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── payments
                             ├── collection
                             │   ├── application
@@ -1256,8 +1256,8 @@ This is the complete target inventory of the baseline source/test/resource files
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── price_types
                             ├── application
                             │   ├── create
@@ -1314,8 +1314,8 @@ This is the complete target inventory of the baseline source/test/resource files
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── products
                             ├── application
                             │   ├── create
@@ -1422,8 +1422,8 @@ This is the complete target inventory of the baseline source/test/resource files
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── purchases
                             ├── application
                             │   ├── cancel
@@ -1520,8 +1520,8 @@ This is the complete target inventory of the baseline source/test/resource files
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── quotes
                             ├── application
                             │   ├── assign_warehouses
@@ -1634,8 +1634,8 @@ This is the complete target inventory of the baseline source/test/resource files
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── receivables
                             ├── application
                             │   ├── customer_debt
@@ -1687,8 +1687,8 @@ This is the complete target inventory of the baseline source/test/resource files
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── reports
                             ├── finance
                             │   ├── application
@@ -1966,8 +1966,8 @@ This is the complete target inventory of the baseline source/test/resource files
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── returns
                             ├── application
                             │   ├── create
@@ -2046,8 +2046,8 @@ This is the complete target inventory of the baseline source/test/resource files
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── shared
                             ├── dto
                             │   └── PageResponse.java
@@ -2076,8 +2076,8 @@ This is the complete target inventory of the baseline source/test/resource files
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── suppliers
                             ├── application
                             │   ├── delete
@@ -2163,8 +2163,8 @@ This is the complete target inventory of the baseline source/test/resource files
     └── main
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         └── warehouses
                             ├── infrastructure
                             │   └── config
@@ -2308,8 +2308,8 @@ This is the complete target inventory of the baseline source/test/resource files
     └── test
         ├── java
         │   └── com
-        │       └── cashly
-        │           └── cashly_api
+        │       └── parsun
+        │           └── parsun_api
         │               ├── architecture
         │               │   ├── ApplicationPackageConventionTest.java
         │               │   └── LayerDependencyTest.java
@@ -3436,8 +3436,8 @@ This is the complete target inventory of the baseline source/test/resource files
         │               │           └── web
         │               │               ├── StockMovementControllerTest.java
         │               │               └── WarehouseStockControllerTest.java
-        │               ├── CashlyApplicationTests.java
-        │               ├── TestCashlyApplication.java
+        │               ├── ParsunApplicationTests.java
+        │               ├── TestParsunApplication.java
         │               ├── TestJpaConfig.java
         │               └── TestcontainersConfiguration.java
         └── resources
@@ -3479,7 +3479,7 @@ This is the complete target inventory of the baseline source/test/resource files
             │       ├── V8__create_product_prices.sql
             │       └── V9__create_orders_tables.sql
             ├── pdf
-            │   └── cashly-logo.png
+            │   └── parsun-logo.png
             ├── application-dev.properties
             ├── application-production.properties
             ├── application.properties

@@ -34,7 +34,7 @@ The root agent owns updates to legacy API fixtures, startup HTTP integration tes
 
 ## Checks actually performed
 
-- `git -C cashly-api diff --check`: passed.
+- `git -C parsun-api diff --check`: passed.
 - Lexical balanced-delimiter scan of the 87 auth Java sources at the time of the check: passed. This is not a compiler or test result.
 - `docker compose -f compose.screaming-test.yaml ps`: blocked with `permission denied while trying to connect to the docker API at unix:///Users/gabrielvargas/.docker/run/docker.sock`.
 - No sandbox escalation was attempted. Maven/Java were not run on the host because the backend workflow requires Docker.

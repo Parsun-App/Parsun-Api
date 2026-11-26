@@ -11,9 +11,9 @@ fi
 verification_mode="$1"
 backend_root="$(cd "$(dirname "$0")/.." && pwd)"
 export SCREAMING_SOURCE_DIR="$(cd "${2:-$backend_root}" && pwd)"
-verification_project="${SCREAMING_PROJECT:-cashly-screaming-${verification_mode}-$(date -u +%Y%m%d%H%M%S)}"
-if [[ ! "$verification_project" =~ ^cashly-screaming-[a-z0-9-]+$ ]]; then
-  echo 'SCREAMING_PROJECT must begin with cashly-screaming- and contain only lowercase letters, digits and hyphens.' >&2
+verification_project="${SCREAMING_PROJECT:-parsun-screaming-${verification_mode}-$(date -u +%Y%m%d%H%M%S)}"
+if [[ ! "$verification_project" =~ ^parsun-screaming-[a-z0-9-]+$ ]]; then
+  echo 'SCREAMING_PROJECT must begin with parsun-screaming- and contain only lowercase letters, digits and hyphens.' >&2
   exit 2
 fi
 verification_output="${SCREAMING_OUTPUT_DIR:-$backend_root/target/structure-verification/$verification_project}"

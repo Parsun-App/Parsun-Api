@@ -1,0 +1,36 @@
+package com.parsun.parsun_api.procurement.purchases.infrastructure.integration;
+
+import com.parsun.parsun_api.procurement.purchases.application.ports.out.PurchaseSupplierGateway;
+import com.parsun.parsun_api.partners.suppliers.application.ports.in.PurchaseSupplierQuery;
+import org.springframework.stereotype.Component;
+import java.util.Collection;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
+@Component
+public class LocalPurchaseSupplierGatewayAdapter
+        implements
+            PurchaseSupplierGateway {
+    private final PurchaseSupplierQuery query;
+    public LocalPurchaseSupplierGatewayAdapter(PurchaseSupplierQuery query) {
+        this.query = query;
+    }
+    @Override
+    public Optional<Entry> findById(UUID id) {
+        return query.findById(id)
+                .map(entry -> new Entry(entry.id(), entry.name(), entry.rif()));
+    }
+
+    @Override
+    public int creditDays(UUID id) {
+        return query.creditDays(id);
+    }
+
+    @Override
+    public List<Entry> findByIds(Collection<UUID> ids) {
+        return query.findByIds(ids).stream()
+                .map(entry -> new Entry(entry.id(), entry.name(), entry.rif()))
+                .toList();
+    }
+}

@@ -6,7 +6,7 @@ The backend and Angular application now use shared ERP business areas. Returns b
 
 ## Backend
 
-The isolated Java 24/MySQL project cashly-screaming-erp-20261017-final1 passed Maven clean verify: 3265 tests, zero failures/errors/skips, 569 ordinary executable source classes and 10 real MySQL IT classes, with no missing executable classes. All 3258 prior cases remain covered; six new area tests and one boundary test with three sibling-access assertions add seven cases.
+The isolated Java 24/MySQL project parsun-screaming-erp-20261017-final1 passed Maven clean verify: 3265 tests, zero failures/errors/skips, 569 ordinary executable source classes and 10 real MySQL IT classes, with no missing executable classes. All 3258 prior cases remain covered; six new area tests and one boundary test with three sibling-access assertions add seven cases.
 
 Coverage reconciliation passed without exclusions or weakened thresholds, including 1128 individually compared moved instrumented classes. Counters are unchanged: domain 94.3244%, application 91.8106%, infrastructure 77.6797%. Concrete owner identity is preserved below area/group prefixes, so sibling modules do not disappear into one area-level coverage bucket. Tooling passed all 25 Python tests, including five new owner-reconciliation regressions.
 

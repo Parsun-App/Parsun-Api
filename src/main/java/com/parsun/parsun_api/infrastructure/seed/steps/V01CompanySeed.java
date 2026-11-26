@@ -1,0 +1,37 @@
+package com.parsun.parsun_api.infrastructure.seed.steps;
+
+import com.parsun.parsun_api.infrastructure.seed.SeedSource;
+import com.parsun.parsun_api.infrastructure.seed.SeedStep;
+import com.parsun.parsun_api.platform.company.domain.entity.Company;
+import com.parsun.parsun_api.platform.company.domain.repository.CompanyRepository;
+import org.springframework.stereotype.Component;
+
+@Component
+public class V01CompanySeed implements SeedStep {
+
+    private final CompanyRepository companies;
+
+    public V01CompanySeed(CompanyRepository companies) {
+        this.companies = companies;
+    }
+
+    @Override
+    public int version() {
+        return 1;
+    }
+
+    @Override
+    public void seed() {
+        companies.createIfAbsent(new Company(
+                Company.INSTALLATION_ID, "Parsun Demo, C.A.", "Parsun Demo",
+                "J-00000000-0", "hello@parsun.local", "+58-212-0000000",
+                "https://parsun.local", new Company.Address("Avenida Principal",
+                        "Caracas", "Distrito Capital", "Venezuela", "1010"),
+                null, null));
+    }
+
+    @Override
+    public SeedSource source() {
+        return SeedSource.SHARED;
+    }
+}

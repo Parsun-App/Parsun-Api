@@ -2,7 +2,7 @@
 
 ## 📖 Interactive API Documentation
 
-The Cashly API provides comprehensive interactive documentation through **OpenAPI 3.0** specification with **Swagger UI**.
+The Parsun API provides comprehensive interactive documentation through **OpenAPI 3.0** specification with **Swagger UI**.
 
 ### 🌐 Access Documentation
 
@@ -48,7 +48,7 @@ curl http://localhost:8080/actuator/health
 
 ## 📋 API Overview
 
-The Cashly API provides comprehensive enterprise invoicing and inventory management capabilities through RESTful endpoints.
+The Parsun API provides comprehensive enterprise invoicing and inventory management capabilities through RESTful endpoints.
 
 ### Implemented Modules ✅
 
@@ -161,7 +161,7 @@ All endpoints are fully documented in the OpenAPI specification with example req
 [← Back to Main README](../README.md)
 ## Installation company
 
-Cashly manages one company per installation. `GET /api/company` is available to every authenticated user for navigation branding. `PUT /api/company` requires `COMPANY:UPDATE` and accepts `legalName`, `tradeName`, `taxId`, `email`, `phone`, `website` and `address` (`street`, `city`, `region`, `country`, `postalCode`). The legal name and address object are required; optional values may be empty. Responses additionally include the immutable `id` and nullable `logoPath`.
+Parsun manages one company per installation. `GET /api/company` is available to every authenticated user for navigation branding. `PUT /api/company` requires `COMPANY:UPDATE` and accepts `legalName`, `tradeName`, `taxId`, `email`, `phone`, `website` and `address` (`street`, `city`, `region`, `country`, `postalCode`). The legal name and address object are required; optional values may be empty. Responses additionally include the immutable `id` and nullable `logoPath`.
 
 `POST /api/company/logo` accepts multipart `file`; `DELETE /api/company/logo` removes it. Both require `COMPANY:UPDATE` and return the updated company. `GET /api/company/logo` returns the authenticated PNG image, or 404 when absent. PNG and JPEG uploads are limited to 5 MiB and 4096 × 4096 pixels and are decoded and reencoded as PNG; uploaded SVG files and corrupt images are rejected.
 

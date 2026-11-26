@@ -8,40 +8,40 @@
   "test_mapped_final_files": 81,
   "test_original_methods": 151,
   "test_mapped_final_methods": 153,
-  "added_test_file": "src/test/java/com/cashly/cashly_api/products/reporting/infrastructure/config/CommercialCatalogReportingConfigTest.java",
+  "added_test_file": "src/test/java/com/parsun/parsun_api/products/reporting/infrastructure/config/CommercialCatalogReportingConfigTest.java",
   "approved_test_adjustments": [
     {
-      "file": "src/test/java/com/cashly/cashly_api/reports/application/architecture/InvoiceReportsBoundaryTest.java",
+      "file": "src/test/java/com/parsun/parsun_api/reports/application/architecture/InvoiceReportsBoundaryTest.java",
       "reason": "Own reporting contracts now share owner prefix; exclude reporting from old owner-wide prohibition, retaining foreign capability checks.",
       "original_assertions": 2,
       "final_assertions": 2
     },
     {
-      "file": "src/test/java/com/cashly/cashly_api/reports/application/architecture/AccountsReceivableReportsBoundaryTest.java",
+      "file": "src/test/java/com/parsun/parsun_api/reports/application/architecture/AccountsReceivableReportsBoundaryTest.java",
       "reason": "Own reporting contracts now share owner prefix; exclude reporting from old owner-wide prohibition, retaining foreign capability checks.",
       "original_assertions": 1,
       "final_assertions": 1
     },
     {
-      "file": "src/test/java/com/cashly/cashly_api/reports/application/architecture/QuoteReportsBoundaryTest.java",
+      "file": "src/test/java/com/parsun/parsun_api/reports/application/architecture/QuoteReportsBoundaryTest.java",
       "reason": "Own reporting contracts now share owner prefix; exclude reporting from old owner-wide prohibition, retaining foreign capability checks.",
       "original_assertions": 2,
       "final_assertions": 2
     },
     {
-      "file": "src/test/java/com/cashly/cashly_api/reports/application/architecture/PaymentReportsBoundaryTest.java",
+      "file": "src/test/java/com/parsun/parsun_api/reports/application/architecture/PaymentReportsBoundaryTest.java",
       "reason": "Own reporting contracts now share owner prefix; exclude reporting from old owner-wide prohibition, retaining foreign capability checks.",
       "original_assertions": 2,
       "final_assertions": 2
     },
     {
-      "file": "src/test/java/com/cashly/cashly_api/reports/application/architecture/OrderReportsBoundaryTest.java",
+      "file": "src/test/java/com/parsun/parsun_api/reports/application/architecture/OrderReportsBoundaryTest.java",
       "reason": "Own reporting contracts now share owner prefix; exclude reporting from old owner-wide prohibition, retaining foreign capability checks.",
       "original_assertions": 2,
       "final_assertions": 2
     },
     {
-      "file": "src/test/java/com/cashly/cashly_api/reports/application/architecture/PurchaseReportsBoundaryTest.java",
+      "file": "src/test/java/com/parsun/parsun_api/reports/application/architecture/PurchaseReportsBoundaryTest.java",
       "reason": "Own reporting contracts now share owner prefix; exclude reporting from old owner-wide prohibition, retaining foreign capability checks.",
       "original_assertions": 2,
       "final_assertions": 2
@@ -50,241 +50,241 @@
   "unexpected_deviations": [],
   "production_checks": [
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/infrastructure/pdf/PdfBranding.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/infrastructure/pdf/PdfBranding.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/shared/infrastructure/pdf/PdfBranding.java"
+        "src/main/java/com/parsun/parsun_api/shared/infrastructure/pdf/PdfBranding.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/infrastructure/pdf/PdfStatusColors.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/infrastructure/pdf/PdfStatusColors.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/shared/infrastructure/pdf/PdfStatusColors.java"
+        "src/main/java/com/parsun/parsun_api/shared/infrastructure/pdf/PdfStatusColors.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/stock/infrastructure/config/StockReportConfig.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/stock/infrastructure/config/StockReportConfig.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/infrastructure/config/StockReportConfig.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/infrastructure/config/StockReportConfig.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/stock/infrastructure/web/StockReportController.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/stock/infrastructure/web/StockReportController.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/infrastructure/web/StockReportController.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/infrastructure/web/StockReportController.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/stock/infrastructure/excel/StockExcelGenerator.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/stock/infrastructure/excel/StockExcelGenerator.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/infrastructure/excel/StockExcelGenerator.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/infrastructure/excel/StockExcelGenerator.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/stock/infrastructure/pdf/StockPdfGenerator.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/stock/infrastructure/pdf/StockPdfGenerator.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/infrastructure/pdf/StockPdfGenerator.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/infrastructure/pdf/StockPdfGenerator.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/stock/infrastructure/persistence/repositories/StockReportJpaRepository.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/stock/infrastructure/persistence/repositories/StockReportJpaRepository.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/infrastructure/persistence/repositories/StockReportJpaRepository.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/infrastructure/persistence/repositories/StockReportJpaRepository.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/stock/infrastructure/persistence/projections/StockReportProjection.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/stock/infrastructure/persistence/projections/StockReportProjection.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/infrastructure/persistence/projections/StockReportProjection.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/infrastructure/persistence/projections/StockReportProjection.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/stock/infrastructure/persistence/adapters/StockReportRepositoryAdapter.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/stock/infrastructure/persistence/adapters/StockReportRepositoryAdapter.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/infrastructure/persistence/adapters/StockReportRepositoryAdapter.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/infrastructure/persistence/adapters/StockReportRepositoryAdapter.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/stock/application/generate_stock_excel/GenerateStockExcelUseCaseImpl.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/stock/application/generate_stock_excel/GenerateStockExcelUseCaseImpl.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/application/generate_stock_excel/GenerateStockExcelUseCaseImpl.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/application/generate_stock_excel/GenerateStockExcelUseCaseImpl.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/stock/application/generate_stock_excel/GenerateStockExcelUseCase.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/stock/application/generate_stock_excel/GenerateStockExcelUseCase.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/application/generate_stock_excel/GenerateStockExcelUseCase.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/application/generate_stock_excel/GenerateStockExcelUseCase.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/stock/application/generate_stock_pdf/GenerateStockPdfUseCaseImpl.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/stock/application/generate_stock_pdf/GenerateStockPdfUseCaseImpl.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/application/generate_stock_pdf/GenerateStockPdfUseCaseImpl.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/application/generate_stock_pdf/GenerateStockPdfUseCaseImpl.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/stock/application/generate_stock_pdf/GenerateStockPdfUseCase.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/stock/application/generate_stock_pdf/GenerateStockPdfUseCase.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/application/generate_stock_pdf/GenerateStockPdfUseCase.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/application/generate_stock_pdf/GenerateStockPdfUseCase.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/stock/application/ports/out/StockPdfPort.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/stock/application/ports/out/StockPdfPort.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/application/ports/out/StockPdfPort.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/application/ports/out/StockPdfPort.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/stock/application/ports/out/StockReportRepositoryPort.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/stock/application/ports/out/StockReportRepositoryPort.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/application/ports/out/StockReportRepositoryPort.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/application/ports/out/StockReportRepositoryPort.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/stock/application/ports/out/StockExcelPort.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/stock/application/ports/out/StockExcelPort.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/application/ports/out/StockExcelPort.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/application/ports/out/StockExcelPort.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/stock/application/dto/response/StockReportResponse.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/stock/application/dto/response/StockReportResponse.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/application/dto/response/StockReportResponse.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/application/dto/response/StockReportResponse.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/stock/application/dto/query/StockPdfQuery.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/stock/application/dto/query/StockPdfQuery.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/application/dto/query/StockPdfQuery.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/application/dto/query/StockPdfQuery.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/orders/infrastructure/config/OrdersReportConfig.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/orders/infrastructure/config/OrdersReportConfig.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/orders/reporting/infrastructure/config/OrdersReportConfig.java"
+        "src/main/java/com/parsun/parsun_api/orders/reporting/infrastructure/config/OrdersReportConfig.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/orders/infrastructure/web/OrdersReportController.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/orders/infrastructure/web/OrdersReportController.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/orders/reporting/infrastructure/web/OrdersReportController.java"
+        "src/main/java/com/parsun/parsun_api/orders/reporting/infrastructure/web/OrdersReportController.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/orders/infrastructure/integration/OrderDocumentQueryAdapter.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/orders/infrastructure/integration/OrderDocumentQueryAdapter.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/orders/reporting/infrastructure/integration/OrderDocumentQueryAdapter.java"
+        "src/main/java/com/parsun/parsun_api/orders/reporting/infrastructure/integration/OrderDocumentQueryAdapter.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/orders/infrastructure/pdf/OrdersReportPdfGenerator.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/orders/infrastructure/pdf/OrdersReportPdfGenerator.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/orders/reporting/infrastructure/pdf/OrdersReportPdfGenerator.java"
+        "src/main/java/com/parsun/parsun_api/orders/reporting/infrastructure/pdf/OrdersReportPdfGenerator.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/orders/infrastructure/pdf/OrderPdfGenerator.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/orders/infrastructure/pdf/OrderPdfGenerator.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/orders/reporting/infrastructure/pdf/OrderPdfGenerator.java"
+        "src/main/java/com/parsun/parsun_api/orders/reporting/infrastructure/pdf/OrderPdfGenerator.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/orders/application/dto/OrderReportData.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/orders/application/dto/OrderReportData.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/orders/reporting/application/dto/OrderReportData.java"
+        "src/main/java/com/parsun/parsun_api/orders/reporting/application/dto/OrderReportData.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/orders/application/dto/OrderReportFilter.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/orders/application/dto/OrderReportFilter.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/orders/reporting/application/dto/OrderReportFilter.java"
+        "src/main/java/com/parsun/parsun_api/orders/reporting/application/dto/OrderReportFilter.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/orders/application/dto/OrderReportRow.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/orders/application/dto/OrderReportRow.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/orders/reporting/application/dto/OrderReportRow.java"
+        "src/main/java/com/parsun/parsun_api/orders/reporting/application/dto/OrderReportRow.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/orders/application/generate_order_pdf/GenerateOrderPdfUseCase.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/orders/application/generate_order_pdf/GenerateOrderPdfUseCase.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/orders/reporting/application/generate_order_pdf/GenerateOrderPdfUseCase.java"
+        "src/main/java/com/parsun/parsun_api/orders/reporting/application/generate_order_pdf/GenerateOrderPdfUseCase.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/orders/application/generate_order_pdf/GenerateOrderPdfUseCaseImpl.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/orders/application/generate_order_pdf/GenerateOrderPdfUseCaseImpl.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/orders/reporting/application/generate_order_pdf/GenerateOrderPdfUseCaseImpl.java"
+        "src/main/java/com/parsun/parsun_api/orders/reporting/application/generate_order_pdf/GenerateOrderPdfUseCaseImpl.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/orders/application/generate_orders_report_pdf/GenerateOrdersReportPdfUseCaseImpl.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/orders/application/generate_orders_report_pdf/GenerateOrdersReportPdfUseCaseImpl.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/orders/reporting/application/generate_orders_report_pdf/GenerateOrdersReportPdfUseCaseImpl.java"
+        "src/main/java/com/parsun/parsun_api/orders/reporting/application/generate_orders_report_pdf/GenerateOrdersReportPdfUseCaseImpl.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/orders/application/generate_orders_report_pdf/GenerateOrdersReportPdfUseCase.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/orders/application/generate_orders_report_pdf/GenerateOrdersReportPdfUseCase.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/orders/reporting/application/generate_orders_report_pdf/GenerateOrdersReportPdfUseCase.java"
+        "src/main/java/com/parsun/parsun_api/orders/reporting/application/generate_orders_report_pdf/GenerateOrdersReportPdfUseCase.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/orders/application/ports/out/OrderReportQueryGateway.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/orders/application/ports/out/OrderReportQueryGateway.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/orders/reporting/application/ports/out/OrderReportQueryGateway.java"
+        "src/main/java/com/parsun/parsun_api/orders/reporting/application/ports/out/OrderReportQueryGateway.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/orders/application/ports/out/OrdersReportPdfPort.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/orders/application/ports/out/OrdersReportPdfPort.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/orders/reporting/application/ports/out/OrdersReportPdfPort.java"
+        "src/main/java/com/parsun/parsun_api/orders/reporting/application/ports/out/OrdersReportPdfPort.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/orders/application/ports/out/OrderPdfPort.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/orders/application/ports/out/OrderPdfPort.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/orders/reporting/application/ports/out/OrderPdfPort.java"
+        "src/main/java/com/parsun/parsun_api/orders/reporting/application/ports/out/OrderPdfPort.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/finance/infrastructure/config/FinancesReportConfig.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/finance/infrastructure/config/FinancesReportConfig.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/payments/reporting/infrastructure/config/PaymentReportingConfig.java",
-        "src/main/java/com/cashly/cashly_api/receivables/reporting/infrastructure/config/ReceivablesReportingConfig.java"
+        "src/main/java/com/parsun/parsun_api/payments/reporting/infrastructure/config/PaymentReportingConfig.java",
+        "src/main/java/com/parsun/parsun_api/receivables/reporting/infrastructure/config/ReceivablesReportingConfig.java"
       ],
       "original_methods": 8,
       "final_methods": 8,
@@ -292,10 +292,10 @@
       "class_security_and_basepaths_preserved": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/finance/infrastructure/web/FinancesReportController.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/finance/infrastructure/web/FinancesReportController.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/payments/reporting/infrastructure/web/PaymentReportsController.java",
-        "src/main/java/com/cashly/cashly_api/receivables/reporting/infrastructure/web/ReceivablesReportsController.java"
+        "src/main/java/com/parsun/parsun_api/payments/reporting/infrastructure/web/PaymentReportsController.java",
+        "src/main/java/com/parsun/parsun_api/receivables/reporting/infrastructure/web/ReceivablesReportsController.java"
       ],
       "original_methods": 4,
       "final_methods": 4,
@@ -303,178 +303,178 @@
       "class_security_and_basepaths_preserved": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/finance/infrastructure/integration/ReceivablesReportQueryAdapter.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/finance/infrastructure/integration/ReceivablesReportQueryAdapter.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/receivables/reporting/infrastructure/integration/ReceivablesReportQueryAdapter.java"
+        "src/main/java/com/parsun/parsun_api/receivables/reporting/infrastructure/integration/ReceivablesReportQueryAdapter.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/finance/infrastructure/integration/PaymentDocumentQueryAdapter.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/finance/infrastructure/integration/PaymentDocumentQueryAdapter.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/payments/reporting/infrastructure/integration/PaymentDocumentQueryAdapter.java"
+        "src/main/java/com/parsun/parsun_api/payments/reporting/infrastructure/integration/PaymentDocumentQueryAdapter.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/finance/infrastructure/pdf/PaymentHistoryReportPdfGenerator.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/finance/infrastructure/pdf/PaymentHistoryReportPdfGenerator.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/payments/reporting/infrastructure/pdf/PaymentHistoryReportPdfGenerator.java"
+        "src/main/java/com/parsun/parsun_api/payments/reporting/infrastructure/pdf/PaymentHistoryReportPdfGenerator.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/finance/infrastructure/pdf/AccountsReceivableReportPdfGenerator.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/finance/infrastructure/pdf/AccountsReceivableReportPdfGenerator.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/receivables/reporting/infrastructure/pdf/AccountsReceivableReportPdfGenerator.java"
+        "src/main/java/com/parsun/parsun_api/receivables/reporting/infrastructure/pdf/AccountsReceivableReportPdfGenerator.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/finance/infrastructure/pdf/CollectionsReportPdfGenerator.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/finance/infrastructure/pdf/CollectionsReportPdfGenerator.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/receivables/reporting/infrastructure/pdf/CollectionsReportPdfGenerator.java"
+        "src/main/java/com/parsun/parsun_api/receivables/reporting/infrastructure/pdf/CollectionsReportPdfGenerator.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/finance/infrastructure/pdf/PaymentPdfGenerator.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/finance/infrastructure/pdf/PaymentPdfGenerator.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/payments/reporting/infrastructure/pdf/PaymentPdfGenerator.java"
+        "src/main/java/com/parsun/parsun_api/payments/reporting/infrastructure/pdf/PaymentPdfGenerator.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/finance/application/dto/PaymentHistoryReportData.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/finance/application/dto/PaymentHistoryReportData.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/payments/reporting/application/dto/PaymentHistoryReportData.java"
+        "src/main/java/com/parsun/parsun_api/payments/reporting/application/dto/PaymentHistoryReportData.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/finance/application/dto/AccountsReceivableReportData.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/finance/application/dto/AccountsReceivableReportData.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/receivables/reporting/application/dto/AccountsReceivableReportData.java"
+        "src/main/java/com/parsun/parsun_api/receivables/reporting/application/dto/AccountsReceivableReportData.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/finance/application/dto/CollectionsReportData.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/finance/application/dto/CollectionsReportData.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/receivables/reporting/application/dto/CollectionsReportData.java"
+        "src/main/java/com/parsun/parsun_api/receivables/reporting/application/dto/CollectionsReportData.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/finance/application/dto/PaymentReportData.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/finance/application/dto/PaymentReportData.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/payments/reporting/application/dto/PaymentReportData.java"
+        "src/main/java/com/parsun/parsun_api/payments/reporting/application/dto/PaymentReportData.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/finance/application/generate_accounts_receivable_report_pdf/GenerateAccountsReceivableReportPdfUseCaseImpl.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/finance/application/generate_accounts_receivable_report_pdf/GenerateAccountsReceivableReportPdfUseCaseImpl.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/receivables/reporting/application/generate_accounts_receivable_report_pdf/GenerateAccountsReceivableReportPdfUseCaseImpl.java"
+        "src/main/java/com/parsun/parsun_api/receivables/reporting/application/generate_accounts_receivable_report_pdf/GenerateAccountsReceivableReportPdfUseCaseImpl.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/finance/application/generate_accounts_receivable_report_pdf/GenerateAccountsReceivableReportPdfUseCase.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/finance/application/generate_accounts_receivable_report_pdf/GenerateAccountsReceivableReportPdfUseCase.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/receivables/reporting/application/generate_accounts_receivable_report_pdf/GenerateAccountsReceivableReportPdfUseCase.java"
+        "src/main/java/com/parsun/parsun_api/receivables/reporting/application/generate_accounts_receivable_report_pdf/GenerateAccountsReceivableReportPdfUseCase.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/finance/application/generate_payment_history_report_pdf/GeneratePaymentHistoryReportPdfUseCaseImpl.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/finance/application/generate_payment_history_report_pdf/GeneratePaymentHistoryReportPdfUseCaseImpl.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/payments/reporting/application/generate_payment_history_report_pdf/GeneratePaymentHistoryReportPdfUseCaseImpl.java"
+        "src/main/java/com/parsun/parsun_api/payments/reporting/application/generate_payment_history_report_pdf/GeneratePaymentHistoryReportPdfUseCaseImpl.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/finance/application/generate_payment_history_report_pdf/GeneratePaymentHistoryReportPdfUseCase.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/finance/application/generate_payment_history_report_pdf/GeneratePaymentHistoryReportPdfUseCase.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/payments/reporting/application/generate_payment_history_report_pdf/GeneratePaymentHistoryReportPdfUseCase.java"
+        "src/main/java/com/parsun/parsun_api/payments/reporting/application/generate_payment_history_report_pdf/GeneratePaymentHistoryReportPdfUseCase.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/finance/application/generate_payment_pdf/GeneratePaymentPdfUseCaseImpl.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/finance/application/generate_payment_pdf/GeneratePaymentPdfUseCaseImpl.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/payments/reporting/application/generate_payment_pdf/GeneratePaymentPdfUseCaseImpl.java"
+        "src/main/java/com/parsun/parsun_api/payments/reporting/application/generate_payment_pdf/GeneratePaymentPdfUseCaseImpl.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/finance/application/generate_payment_pdf/GeneratePaymentPdfUseCase.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/finance/application/generate_payment_pdf/GeneratePaymentPdfUseCase.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/payments/reporting/application/generate_payment_pdf/GeneratePaymentPdfUseCase.java"
+        "src/main/java/com/parsun/parsun_api/payments/reporting/application/generate_payment_pdf/GeneratePaymentPdfUseCase.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/finance/application/generate_collections_report_pdf/GenerateCollectionsReportPdfUseCase.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/finance/application/generate_collections_report_pdf/GenerateCollectionsReportPdfUseCase.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/receivables/reporting/application/generate_collections_report_pdf/GenerateCollectionsReportPdfUseCase.java"
+        "src/main/java/com/parsun/parsun_api/receivables/reporting/application/generate_collections_report_pdf/GenerateCollectionsReportPdfUseCase.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/finance/application/generate_collections_report_pdf/GenerateCollectionsReportPdfUseCaseImpl.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/finance/application/generate_collections_report_pdf/GenerateCollectionsReportPdfUseCaseImpl.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/receivables/reporting/application/generate_collections_report_pdf/GenerateCollectionsReportPdfUseCaseImpl.java"
+        "src/main/java/com/parsun/parsun_api/receivables/reporting/application/generate_collections_report_pdf/GenerateCollectionsReportPdfUseCaseImpl.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/finance/application/ports/out/PaymentReportQueryGateway.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/finance/application/ports/out/PaymentReportQueryGateway.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/payments/reporting/application/ports/out/PaymentReportQueryGateway.java"
+        "src/main/java/com/parsun/parsun_api/payments/reporting/application/ports/out/PaymentReportQueryGateway.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/finance/application/ports/out/CollectionsReportPdfPort.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/finance/application/ports/out/CollectionsReportPdfPort.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/receivables/reporting/application/ports/out/CollectionsReportPdfPort.java"
+        "src/main/java/com/parsun/parsun_api/receivables/reporting/application/ports/out/CollectionsReportPdfPort.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/finance/application/ports/out/AccountsReceivableQueryGateway.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/finance/application/ports/out/AccountsReceivableQueryGateway.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/receivables/reporting/application/ports/out/AccountsReceivableQueryGateway.java"
+        "src/main/java/com/parsun/parsun_api/receivables/reporting/application/ports/out/AccountsReceivableQueryGateway.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/finance/application/ports/out/PaymentPdfPort.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/finance/application/ports/out/PaymentPdfPort.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/payments/reporting/application/ports/out/PaymentPdfPort.java"
+        "src/main/java/com/parsun/parsun_api/payments/reporting/application/ports/out/PaymentPdfPort.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/finance/application/ports/out/AccountsReceivableReportPdfPort.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/finance/application/ports/out/AccountsReceivableReportPdfPort.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/receivables/reporting/application/ports/out/AccountsReceivableReportPdfPort.java"
+        "src/main/java/com/parsun/parsun_api/receivables/reporting/application/ports/out/AccountsReceivableReportPdfPort.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/finance/application/ports/out/PaymentHistoryReportPdfPort.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/finance/application/ports/out/PaymentHistoryReportPdfPort.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/payments/reporting/application/ports/out/PaymentHistoryReportPdfPort.java"
+        "src/main/java/com/parsun/parsun_api/payments/reporting/application/ports/out/PaymentHistoryReportPdfPort.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/inventory/infrastructure/config/InventoryReportConfig.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/inventory/infrastructure/config/InventoryReportConfig.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/infrastructure/config/WarehouseCatalogReportingConfig.java",
-        "src/main/java/com/cashly/cashly_api/products/reporting/infrastructure/config/CommercialCatalogReportingConfig.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/infrastructure/config/WarehouseCatalogReportingConfig.java",
+        "src/main/java/com/parsun/parsun_api/products/reporting/infrastructure/config/CommercialCatalogReportingConfig.java"
       ],
       "original_methods": 7,
       "final_methods": 7,
@@ -482,627 +482,627 @@
       "class_security_and_basepaths_preserved": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/inventory/infrastructure/web/CommercialCatalogController.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/inventory/infrastructure/web/CommercialCatalogController.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/products/reporting/infrastructure/web/CommercialCatalogController.java"
+        "src/main/java/com/parsun/parsun_api/products/reporting/infrastructure/web/CommercialCatalogController.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/inventory/infrastructure/web/CatalogReportController.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/inventory/infrastructure/web/CatalogReportController.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/infrastructure/web/CatalogReportController.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/infrastructure/web/CatalogReportController.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/inventory/infrastructure/integration/FileStorageMediaAdapter.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/inventory/infrastructure/integration/FileStorageMediaAdapter.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/products/reporting/infrastructure/integration/FileStorageMediaAdapter.java"
+        "src/main/java/com/parsun/parsun_api/products/reporting/infrastructure/integration/FileStorageMediaAdapter.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/inventory/infrastructure/pdf/CommercialCatalogPdfGenerator.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/inventory/infrastructure/pdf/CommercialCatalogPdfGenerator.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/products/reporting/infrastructure/pdf/CommercialCatalogPdfGenerator.java"
+        "src/main/java/com/parsun/parsun_api/products/reporting/infrastructure/pdf/CommercialCatalogPdfGenerator.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/inventory/infrastructure/pdf/CatalogPdfGenerator.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/inventory/infrastructure/pdf/CatalogPdfGenerator.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/infrastructure/pdf/CatalogPdfGenerator.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/infrastructure/pdf/CatalogPdfGenerator.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/inventory/infrastructure/persistence/repositories/CommercialCatalogJpaRepository.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/inventory/infrastructure/persistence/repositories/CommercialCatalogJpaRepository.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/products/reporting/infrastructure/persistence/repositories/CommercialCatalogJpaRepository.java"
+        "src/main/java/com/parsun/parsun_api/products/reporting/infrastructure/persistence/repositories/CommercialCatalogJpaRepository.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/inventory/infrastructure/persistence/repositories/CatalogReportJpaRepository.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/inventory/infrastructure/persistence/repositories/CatalogReportJpaRepository.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/infrastructure/persistence/repositories/CatalogReportJpaRepository.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/infrastructure/persistence/repositories/CatalogReportJpaRepository.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/inventory/infrastructure/persistence/projections/CommercialCatalogProjection.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/inventory/infrastructure/persistence/projections/CommercialCatalogProjection.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/products/reporting/infrastructure/persistence/projections/CommercialCatalogProjection.java"
+        "src/main/java/com/parsun/parsun_api/products/reporting/infrastructure/persistence/projections/CommercialCatalogProjection.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/inventory/infrastructure/persistence/projections/CatalogReportProjection.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/inventory/infrastructure/persistence/projections/CatalogReportProjection.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/infrastructure/persistence/projections/CatalogReportProjection.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/infrastructure/persistence/projections/CatalogReportProjection.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/inventory/infrastructure/persistence/adapters/CatalogReportRepositoryAdapter.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/inventory/infrastructure/persistence/adapters/CatalogReportRepositoryAdapter.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/infrastructure/persistence/adapters/CatalogReportRepositoryAdapter.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/infrastructure/persistence/adapters/CatalogReportRepositoryAdapter.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/inventory/infrastructure/persistence/adapters/CommercialCatalogRepositoryAdapter.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/inventory/infrastructure/persistence/adapters/CommercialCatalogRepositoryAdapter.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/products/reporting/infrastructure/persistence/adapters/CommercialCatalogRepositoryAdapter.java"
+        "src/main/java/com/parsun/parsun_api/products/reporting/infrastructure/persistence/adapters/CommercialCatalogRepositoryAdapter.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/inventory/application/get_catalog_report/GetCatalogReportUseCaseImpl.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/inventory/application/get_catalog_report/GetCatalogReportUseCaseImpl.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/application/get_catalog_report/GetCatalogReportUseCaseImpl.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/application/get_catalog_report/GetCatalogReportUseCaseImpl.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/inventory/application/get_catalog_report/GetCatalogReportUseCase.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/inventory/application/get_catalog_report/GetCatalogReportUseCase.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/application/get_catalog_report/GetCatalogReportUseCase.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/application/get_catalog_report/GetCatalogReportUseCase.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/inventory/application/generate_commercial_catalog_pdf/GenerateCommercialCatalogPdfUseCase.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/inventory/application/generate_commercial_catalog_pdf/GenerateCommercialCatalogPdfUseCase.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/products/reporting/application/generate_commercial_catalog_pdf/GenerateCommercialCatalogPdfUseCase.java"
+        "src/main/java/com/parsun/parsun_api/products/reporting/application/generate_commercial_catalog_pdf/GenerateCommercialCatalogPdfUseCase.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/inventory/application/generate_commercial_catalog_pdf/GenerateCommercialCatalogPdfUseCaseImpl.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/inventory/application/generate_commercial_catalog_pdf/GenerateCommercialCatalogPdfUseCaseImpl.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/products/reporting/application/generate_commercial_catalog_pdf/GenerateCommercialCatalogPdfUseCaseImpl.java"
+        "src/main/java/com/parsun/parsun_api/products/reporting/application/generate_commercial_catalog_pdf/GenerateCommercialCatalogPdfUseCaseImpl.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/inventory/application/generate_catalog_pdf/GenerateCatalogPdfUseCaseImpl.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/inventory/application/generate_catalog_pdf/GenerateCatalogPdfUseCaseImpl.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/application/generate_catalog_pdf/GenerateCatalogPdfUseCaseImpl.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/application/generate_catalog_pdf/GenerateCatalogPdfUseCaseImpl.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/inventory/application/generate_catalog_pdf/GenerateCatalogPdfUseCase.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/inventory/application/generate_catalog_pdf/GenerateCatalogPdfUseCase.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/application/generate_catalog_pdf/GenerateCatalogPdfUseCase.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/application/generate_catalog_pdf/GenerateCatalogPdfUseCase.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/inventory/application/ports/out/CommercialCatalogPdfPort.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/inventory/application/ports/out/CommercialCatalogPdfPort.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/products/reporting/application/ports/out/CommercialCatalogPdfPort.java"
+        "src/main/java/com/parsun/parsun_api/products/reporting/application/ports/out/CommercialCatalogPdfPort.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/inventory/application/ports/out/MediaGateway.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/inventory/application/ports/out/MediaGateway.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/products/reporting/application/ports/out/MediaGateway.java"
+        "src/main/java/com/parsun/parsun_api/products/reporting/application/ports/out/MediaGateway.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/inventory/application/ports/out/CommercialCatalogRepositoryPort.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/inventory/application/ports/out/CommercialCatalogRepositoryPort.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/products/reporting/application/ports/out/CommercialCatalogRepositoryPort.java"
+        "src/main/java/com/parsun/parsun_api/products/reporting/application/ports/out/CommercialCatalogRepositoryPort.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/inventory/application/ports/out/CatalogPdfPort.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/inventory/application/ports/out/CatalogPdfPort.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/application/ports/out/CatalogPdfPort.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/application/ports/out/CatalogPdfPort.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/inventory/application/ports/out/CatalogReportRepositoryPort.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/inventory/application/ports/out/CatalogReportRepositoryPort.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/application/ports/out/CatalogReportRepositoryPort.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/application/ports/out/CatalogReportRepositoryPort.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/inventory/application/dto/response/CatalogReportResponse.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/inventory/application/dto/response/CatalogReportResponse.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/application/dto/response/CatalogReportResponse.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/application/dto/response/CatalogReportResponse.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/inventory/application/dto/response/CommercialCatalogResponse.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/inventory/application/dto/response/CommercialCatalogResponse.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/products/reporting/application/dto/response/CommercialCatalogResponse.java"
+        "src/main/java/com/parsun/parsun_api/products/reporting/application/dto/response/CommercialCatalogResponse.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/inventory/application/dto/query/CatalogPdfQuery.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/inventory/application/dto/query/CatalogPdfQuery.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/application/dto/query/CatalogPdfQuery.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/application/dto/query/CatalogPdfQuery.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/inventory/application/dto/query/CommercialCatalogQuery.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/inventory/application/dto/query/CommercialCatalogQuery.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/products/reporting/application/dto/query/CommercialCatalogQuery.java"
+        "src/main/java/com/parsun/parsun_api/products/reporting/application/dto/query/CommercialCatalogQuery.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/inventory/application/dto/query/CatalogReportQuery.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/inventory/application/dto/query/CatalogReportQuery.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/application/dto/query/CatalogReportQuery.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/application/dto/query/CatalogReportQuery.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/movements/infrastructure/config/MovementsReportConfig.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/movements/infrastructure/config/MovementsReportConfig.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/infrastructure/config/MovementsReportConfig.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/infrastructure/config/MovementsReportConfig.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/movements/infrastructure/web/MovementsReportController.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/movements/infrastructure/web/MovementsReportController.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/infrastructure/web/MovementsReportController.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/infrastructure/web/MovementsReportController.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/movements/infrastructure/excel/MovementsExcelGenerator.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/movements/infrastructure/excel/MovementsExcelGenerator.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/infrastructure/excel/MovementsExcelGenerator.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/infrastructure/excel/MovementsExcelGenerator.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/movements/infrastructure/pdf/MovementsPdfGenerator.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/movements/infrastructure/pdf/MovementsPdfGenerator.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/infrastructure/pdf/MovementsPdfGenerator.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/infrastructure/pdf/MovementsPdfGenerator.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/movements/infrastructure/persistence/repositories/MovementsReportJpaRepository.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/movements/infrastructure/persistence/repositories/MovementsReportJpaRepository.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/infrastructure/persistence/repositories/MovementsReportJpaRepository.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/infrastructure/persistence/repositories/MovementsReportJpaRepository.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/movements/infrastructure/persistence/projections/MovementsReportProjection.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/movements/infrastructure/persistence/projections/MovementsReportProjection.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/infrastructure/persistence/projections/MovementsReportProjection.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/infrastructure/persistence/projections/MovementsReportProjection.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/movements/infrastructure/persistence/adapters/MovementsReportRepositoryAdapter.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/movements/infrastructure/persistence/adapters/MovementsReportRepositoryAdapter.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/infrastructure/persistence/adapters/MovementsReportRepositoryAdapter.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/infrastructure/persistence/adapters/MovementsReportRepositoryAdapter.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/movements/application/generate_movements_pdf/GenerateMovementsPdfUseCase.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/movements/application/generate_movements_pdf/GenerateMovementsPdfUseCase.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/application/generate_movements_pdf/GenerateMovementsPdfUseCase.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/application/generate_movements_pdf/GenerateMovementsPdfUseCase.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/movements/application/generate_movements_pdf/GenerateMovementsPdfUseCaseImpl.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/movements/application/generate_movements_pdf/GenerateMovementsPdfUseCaseImpl.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/application/generate_movements_pdf/GenerateMovementsPdfUseCaseImpl.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/application/generate_movements_pdf/GenerateMovementsPdfUseCaseImpl.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/movements/application/generate_movements_excel/GenerateMovementsExcelUseCaseImpl.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/movements/application/generate_movements_excel/GenerateMovementsExcelUseCaseImpl.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/application/generate_movements_excel/GenerateMovementsExcelUseCaseImpl.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/application/generate_movements_excel/GenerateMovementsExcelUseCaseImpl.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/movements/application/generate_movements_excel/GenerateMovementsExcelUseCase.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/movements/application/generate_movements_excel/GenerateMovementsExcelUseCase.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/application/generate_movements_excel/GenerateMovementsExcelUseCase.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/application/generate_movements_excel/GenerateMovementsExcelUseCase.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/movements/application/ports/out/MovementsExcelPort.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/movements/application/ports/out/MovementsExcelPort.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/application/ports/out/MovementsExcelPort.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/application/ports/out/MovementsExcelPort.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/movements/application/ports/out/MovementsPdfPort.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/movements/application/ports/out/MovementsPdfPort.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/application/ports/out/MovementsPdfPort.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/application/ports/out/MovementsPdfPort.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/movements/application/ports/out/MovementsReportRepositoryPort.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/movements/application/ports/out/MovementsReportRepositoryPort.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/application/ports/out/MovementsReportRepositoryPort.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/application/ports/out/MovementsReportRepositoryPort.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/movements/application/dto/response/MovementReportResponse.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/movements/application/dto/response/MovementReportResponse.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/application/dto/response/MovementReportResponse.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/application/dto/response/MovementReportResponse.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/movements/application/dto/query/MovementsPdfQuery.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/movements/application/dto/query/MovementsPdfQuery.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/warehouses/reporting/application/dto/query/MovementsPdfQuery.java"
+        "src/main/java/com/parsun/parsun_api/warehouses/reporting/application/dto/query/MovementsPdfQuery.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/quotes/infrastructure/config/QuotesReportConfig.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/quotes/infrastructure/config/QuotesReportConfig.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/quotes/reporting/infrastructure/config/QuotesReportConfig.java"
+        "src/main/java/com/parsun/parsun_api/quotes/reporting/infrastructure/config/QuotesReportConfig.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/quotes/infrastructure/web/QuotesReportController.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/quotes/infrastructure/web/QuotesReportController.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/quotes/reporting/infrastructure/web/QuotesReportController.java"
+        "src/main/java/com/parsun/parsun_api/quotes/reporting/infrastructure/web/QuotesReportController.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/quotes/infrastructure/integration/QuoteDocumentQueryAdapter.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/quotes/infrastructure/integration/QuoteDocumentQueryAdapter.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/quotes/reporting/infrastructure/integration/QuoteDocumentQueryAdapter.java"
+        "src/main/java/com/parsun/parsun_api/quotes/reporting/infrastructure/integration/QuoteDocumentQueryAdapter.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/quotes/infrastructure/pdf/QuotePdfGenerator.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/quotes/infrastructure/pdf/QuotePdfGenerator.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/quotes/reporting/infrastructure/pdf/QuotePdfGenerator.java"
+        "src/main/java/com/parsun/parsun_api/quotes/reporting/infrastructure/pdf/QuotePdfGenerator.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/quotes/infrastructure/pdf/QuotesReportPdfGenerator.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/quotes/infrastructure/pdf/QuotesReportPdfGenerator.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/quotes/reporting/infrastructure/pdf/QuotesReportPdfGenerator.java"
+        "src/main/java/com/parsun/parsun_api/quotes/reporting/infrastructure/pdf/QuotesReportPdfGenerator.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/quotes/application/dto/QuoteReportRow.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/quotes/application/dto/QuoteReportRow.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/quotes/reporting/application/dto/QuoteReportRow.java"
+        "src/main/java/com/parsun/parsun_api/quotes/reporting/application/dto/QuoteReportRow.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/quotes/application/dto/QuoteReportFilter.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/quotes/application/dto/QuoteReportFilter.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/quotes/reporting/application/dto/QuoteReportFilter.java"
+        "src/main/java/com/parsun/parsun_api/quotes/reporting/application/dto/QuoteReportFilter.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/quotes/application/dto/QuoteReportData.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/quotes/application/dto/QuoteReportData.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/quotes/reporting/application/dto/QuoteReportData.java"
+        "src/main/java/com/parsun/parsun_api/quotes/reporting/application/dto/QuoteReportData.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/quotes/application/generate_quote_pdf/GenerateQuotePdfUseCase.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/quotes/application/generate_quote_pdf/GenerateQuotePdfUseCase.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/quotes/reporting/application/generate_quote_pdf/GenerateQuotePdfUseCase.java"
+        "src/main/java/com/parsun/parsun_api/quotes/reporting/application/generate_quote_pdf/GenerateQuotePdfUseCase.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/quotes/application/generate_quote_pdf/GenerateQuotePdfUseCaseImpl.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/quotes/application/generate_quote_pdf/GenerateQuotePdfUseCaseImpl.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/quotes/reporting/application/generate_quote_pdf/GenerateQuotePdfUseCaseImpl.java"
+        "src/main/java/com/parsun/parsun_api/quotes/reporting/application/generate_quote_pdf/GenerateQuotePdfUseCaseImpl.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/quotes/application/generate_quotes_report_pdf/GenerateQuotesReportPdfUseCase.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/quotes/application/generate_quotes_report_pdf/GenerateQuotesReportPdfUseCase.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/quotes/reporting/application/generate_quotes_report_pdf/GenerateQuotesReportPdfUseCase.java"
+        "src/main/java/com/parsun/parsun_api/quotes/reporting/application/generate_quotes_report_pdf/GenerateQuotesReportPdfUseCase.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/quotes/application/generate_quotes_report_pdf/GenerateQuotesReportPdfUseCaseImpl.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/quotes/application/generate_quotes_report_pdf/GenerateQuotesReportPdfUseCaseImpl.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/quotes/reporting/application/generate_quotes_report_pdf/GenerateQuotesReportPdfUseCaseImpl.java"
+        "src/main/java/com/parsun/parsun_api/quotes/reporting/application/generate_quotes_report_pdf/GenerateQuotesReportPdfUseCaseImpl.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/quotes/application/ports/out/QuotesReportPdfPort.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/quotes/application/ports/out/QuotesReportPdfPort.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/quotes/reporting/application/ports/out/QuotesReportPdfPort.java"
+        "src/main/java/com/parsun/parsun_api/quotes/reporting/application/ports/out/QuotesReportPdfPort.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/quotes/application/ports/out/QuotePdfPort.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/quotes/application/ports/out/QuotePdfPort.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/quotes/reporting/application/ports/out/QuotePdfPort.java"
+        "src/main/java/com/parsun/parsun_api/quotes/reporting/application/ports/out/QuotePdfPort.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/quotes/application/ports/out/QuoteReportQueryGateway.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/quotes/application/ports/out/QuoteReportQueryGateway.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/quotes/reporting/application/ports/out/QuoteReportQueryGateway.java"
+        "src/main/java/com/parsun/parsun_api/quotes/reporting/application/ports/out/QuoteReportQueryGateway.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/invoices/infrastructure/config/InvoicesReportConfig.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/invoices/infrastructure/config/InvoicesReportConfig.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/invoices/reporting/infrastructure/config/InvoicesReportConfig.java"
+        "src/main/java/com/parsun/parsun_api/invoices/reporting/infrastructure/config/InvoicesReportConfig.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/invoices/infrastructure/web/InvoicesReportController.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/invoices/infrastructure/web/InvoicesReportController.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/invoices/reporting/infrastructure/web/InvoicesReportController.java"
+        "src/main/java/com/parsun/parsun_api/invoices/reporting/infrastructure/web/InvoicesReportController.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/invoices/infrastructure/integration/InvoiceDocumentQueryAdapter.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/invoices/infrastructure/integration/InvoiceDocumentQueryAdapter.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/invoices/reporting/infrastructure/integration/InvoiceDocumentQueryAdapter.java"
+        "src/main/java/com/parsun/parsun_api/invoices/reporting/infrastructure/integration/InvoiceDocumentQueryAdapter.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/invoices/infrastructure/pdf/InvoicesReportPdfGenerator.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/invoices/infrastructure/pdf/InvoicesReportPdfGenerator.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/invoices/reporting/infrastructure/pdf/InvoicesReportPdfGenerator.java"
+        "src/main/java/com/parsun/parsun_api/invoices/reporting/infrastructure/pdf/InvoicesReportPdfGenerator.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/invoices/infrastructure/pdf/InvoicePdfGenerator.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/invoices/infrastructure/pdf/InvoicePdfGenerator.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/invoices/reporting/infrastructure/pdf/InvoicePdfGenerator.java"
+        "src/main/java/com/parsun/parsun_api/invoices/reporting/infrastructure/pdf/InvoicePdfGenerator.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/invoices/application/dto/InvoiceReportData.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/invoices/application/dto/InvoiceReportData.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/invoices/reporting/application/dto/InvoiceReportData.java"
+        "src/main/java/com/parsun/parsun_api/invoices/reporting/application/dto/InvoiceReportData.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/invoices/application/dto/InvoiceReportRow.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/invoices/application/dto/InvoiceReportRow.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/invoices/reporting/application/dto/InvoiceReportRow.java"
+        "src/main/java/com/parsun/parsun_api/invoices/reporting/application/dto/InvoiceReportRow.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/invoices/application/dto/InvoiceReportFilter.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/invoices/application/dto/InvoiceReportFilter.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/invoices/reporting/application/dto/InvoiceReportFilter.java"
+        "src/main/java/com/parsun/parsun_api/invoices/reporting/application/dto/InvoiceReportFilter.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/invoices/application/generate_invoice_pdf/GenerateInvoicePdfUseCase.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/invoices/application/generate_invoice_pdf/GenerateInvoicePdfUseCase.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/invoices/reporting/application/generate_invoice_pdf/GenerateInvoicePdfUseCase.java"
+        "src/main/java/com/parsun/parsun_api/invoices/reporting/application/generate_invoice_pdf/GenerateInvoicePdfUseCase.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/invoices/application/generate_invoice_pdf/GenerateInvoicePdfUseCaseImpl.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/invoices/application/generate_invoice_pdf/GenerateInvoicePdfUseCaseImpl.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/invoices/reporting/application/generate_invoice_pdf/GenerateInvoicePdfUseCaseImpl.java"
+        "src/main/java/com/parsun/parsun_api/invoices/reporting/application/generate_invoice_pdf/GenerateInvoicePdfUseCaseImpl.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/invoices/application/generate_invoices_report_pdf/GenerateInvoicesReportPdfUseCaseImpl.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/invoices/application/generate_invoices_report_pdf/GenerateInvoicesReportPdfUseCaseImpl.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/invoices/reporting/application/generate_invoices_report_pdf/GenerateInvoicesReportPdfUseCaseImpl.java"
+        "src/main/java/com/parsun/parsun_api/invoices/reporting/application/generate_invoices_report_pdf/GenerateInvoicesReportPdfUseCaseImpl.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/invoices/application/generate_invoices_report_pdf/GenerateInvoicesReportPdfUseCase.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/invoices/application/generate_invoices_report_pdf/GenerateInvoicesReportPdfUseCase.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/invoices/reporting/application/generate_invoices_report_pdf/GenerateInvoicesReportPdfUseCase.java"
+        "src/main/java/com/parsun/parsun_api/invoices/reporting/application/generate_invoices_report_pdf/GenerateInvoicesReportPdfUseCase.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/invoices/application/ports/out/InvoiceReportQueryGateway.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/invoices/application/ports/out/InvoiceReportQueryGateway.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/invoices/reporting/application/ports/out/InvoiceReportQueryGateway.java"
+        "src/main/java/com/parsun/parsun_api/invoices/reporting/application/ports/out/InvoiceReportQueryGateway.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/invoices/application/ports/out/InvoicesReportPdfPort.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/invoices/application/ports/out/InvoicesReportPdfPort.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/invoices/reporting/application/ports/out/InvoicesReportPdfPort.java"
+        "src/main/java/com/parsun/parsun_api/invoices/reporting/application/ports/out/InvoicesReportPdfPort.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/invoices/application/ports/out/InvoicePdfPort.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/invoices/application/ports/out/InvoicePdfPort.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/invoices/reporting/application/ports/out/InvoicePdfPort.java"
+        "src/main/java/com/parsun/parsun_api/invoices/reporting/application/ports/out/InvoicePdfPort.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/purchases/infrastructure/config/PurchasesReportConfig.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/purchases/infrastructure/config/PurchasesReportConfig.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/purchases/reporting/infrastructure/config/PurchasesReportConfig.java"
+        "src/main/java/com/parsun/parsun_api/purchases/reporting/infrastructure/config/PurchasesReportConfig.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/purchases/infrastructure/web/PurchasesReportController.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/purchases/infrastructure/web/PurchasesReportController.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/purchases/reporting/infrastructure/web/PurchasesReportController.java"
+        "src/main/java/com/parsun/parsun_api/purchases/reporting/infrastructure/web/PurchasesReportController.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/purchases/infrastructure/integration/PurchaseDocumentQueryAdapter.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/purchases/infrastructure/integration/PurchaseDocumentQueryAdapter.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/purchases/reporting/infrastructure/integration/PurchaseDocumentQueryAdapter.java"
+        "src/main/java/com/parsun/parsun_api/purchases/reporting/infrastructure/integration/PurchaseDocumentQueryAdapter.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/purchases/infrastructure/pdf/PurchasePdfGenerator.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/purchases/infrastructure/pdf/PurchasePdfGenerator.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/purchases/reporting/infrastructure/pdf/PurchasePdfGenerator.java"
+        "src/main/java/com/parsun/parsun_api/purchases/reporting/infrastructure/pdf/PurchasePdfGenerator.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/purchases/infrastructure/pdf/PurchasesReportPdfGenerator.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/purchases/infrastructure/pdf/PurchasesReportPdfGenerator.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/purchases/reporting/infrastructure/pdf/PurchasesReportPdfGenerator.java"
+        "src/main/java/com/parsun/parsun_api/purchases/reporting/infrastructure/pdf/PurchasesReportPdfGenerator.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/purchases/application/dto/PurchaseReportRow.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/purchases/application/dto/PurchaseReportRow.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/purchases/reporting/application/dto/PurchaseReportRow.java"
+        "src/main/java/com/parsun/parsun_api/purchases/reporting/application/dto/PurchaseReportRow.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/purchases/application/dto/PurchaseReportFilter.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/purchases/application/dto/PurchaseReportFilter.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/purchases/reporting/application/dto/PurchaseReportFilter.java"
+        "src/main/java/com/parsun/parsun_api/purchases/reporting/application/dto/PurchaseReportFilter.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/purchases/application/dto/PurchaseReportData.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/purchases/application/dto/PurchaseReportData.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/purchases/reporting/application/dto/PurchaseReportData.java"
+        "src/main/java/com/parsun/parsun_api/purchases/reporting/application/dto/PurchaseReportData.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/purchases/application/generate_purchase_pdf/GeneratePurchasePdfUseCase.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/purchases/application/generate_purchase_pdf/GeneratePurchasePdfUseCase.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/purchases/reporting/application/generate_purchase_pdf/GeneratePurchasePdfUseCase.java"
+        "src/main/java/com/parsun/parsun_api/purchases/reporting/application/generate_purchase_pdf/GeneratePurchasePdfUseCase.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/purchases/application/generate_purchase_pdf/GeneratePurchasePdfUseCaseImpl.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/purchases/application/generate_purchase_pdf/GeneratePurchasePdfUseCaseImpl.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/purchases/reporting/application/generate_purchase_pdf/GeneratePurchasePdfUseCaseImpl.java"
+        "src/main/java/com/parsun/parsun_api/purchases/reporting/application/generate_purchase_pdf/GeneratePurchasePdfUseCaseImpl.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/purchases/application/generate_purchases_report_pdf/GeneratePurchasesReportPdfUseCaseImpl.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/purchases/application/generate_purchases_report_pdf/GeneratePurchasesReportPdfUseCaseImpl.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/purchases/reporting/application/generate_purchases_report_pdf/GeneratePurchasesReportPdfUseCaseImpl.java"
+        "src/main/java/com/parsun/parsun_api/purchases/reporting/application/generate_purchases_report_pdf/GeneratePurchasesReportPdfUseCaseImpl.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/purchases/application/generate_purchases_report_pdf/GeneratePurchasesReportPdfUseCase.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/purchases/application/generate_purchases_report_pdf/GeneratePurchasesReportPdfUseCase.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/purchases/reporting/application/generate_purchases_report_pdf/GeneratePurchasesReportPdfUseCase.java"
+        "src/main/java/com/parsun/parsun_api/purchases/reporting/application/generate_purchases_report_pdf/GeneratePurchasesReportPdfUseCase.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/purchases/application/ports/out/PurchaseReportQueryGateway.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/purchases/application/ports/out/PurchaseReportQueryGateway.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/purchases/reporting/application/ports/out/PurchaseReportQueryGateway.java"
+        "src/main/java/com/parsun/parsun_api/purchases/reporting/application/ports/out/PurchaseReportQueryGateway.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/purchases/application/ports/out/PurchasePdfPort.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/purchases/application/ports/out/PurchasePdfPort.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/purchases/reporting/application/ports/out/PurchasePdfPort.java"
+        "src/main/java/com/parsun/parsun_api/purchases/reporting/application/ports/out/PurchasePdfPort.java"
       ],
       "body_unchanged": true
     },
     {
-      "old": "src/main/java/com/cashly/cashly_api/reports/purchases/application/ports/out/PurchasesReportPdfPort.java",
+      "old": "src/main/java/com/parsun/parsun_api/reports/purchases/application/ports/out/PurchasesReportPdfPort.java",
       "new": [
-        "src/main/java/com/cashly/cashly_api/purchases/reporting/application/ports/out/PurchasesReportPdfPort.java"
+        "src/main/java/com/parsun/parsun_api/purchases/reporting/application/ports/out/PurchasesReportPdfPort.java"
       ],
       "body_unchanged": true
     }
   ],
   "test_checks": [
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/infrastructure/pdf/PdfStatusColorsTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/infrastructure/pdf/PdfStatusColorsTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/shared/infrastructure/pdf/PdfStatusColorsTest.java"
+        "src/test/java/com/parsun/parsun_api/shared/infrastructure/pdf/PdfStatusColorsTest.java"
       ],
       "original_test_methods": {
         "shouldUseApplicationSemanticColorsForStatuses": 1,
@@ -1117,9 +1117,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/stock/infrastructure/config/StockReportConfigTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/stock/infrastructure/config/StockReportConfigTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/warehouses/reporting/infrastructure/config/StockReportConfigTest.java"
+        "src/test/java/com/parsun/parsun_api/warehouses/reporting/infrastructure/config/StockReportConfigTest.java"
       ],
       "original_test_methods": {
         "should_create_use_case_beans": 1,
@@ -1134,9 +1134,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/stock/infrastructure/web/StockReportControllerTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/stock/infrastructure/web/StockReportControllerTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/warehouses/reporting/infrastructure/web/StockReportControllerTest.java"
+        "src/test/java/com/parsun/parsun_api/warehouses/reporting/infrastructure/web/StockReportControllerTest.java"
       ],
       "original_test_methods": {
         "should_get_stock_pdf": 1,
@@ -1153,9 +1153,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/stock/infrastructure/persistence/projections/StockReportProjectionTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/stock/infrastructure/persistence/projections/StockReportProjectionTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/warehouses/reporting/infrastructure/persistence/projections/StockReportProjectionTest.java"
+        "src/test/java/com/parsun/parsun_api/warehouses/reporting/infrastructure/persistence/projections/StockReportProjectionTest.java"
       ],
       "original_test_methods": {
         "should_be_accessible": 1
@@ -1168,9 +1168,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/stock/infrastructure/persistence/adapters/StockReportRepositoryAdapterTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/stock/infrastructure/persistence/adapters/StockReportRepositoryAdapterTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/warehouses/reporting/infrastructure/persistence/adapters/StockReportRepositoryAdapterTest.java"
+        "src/test/java/com/parsun/parsun_api/warehouses/reporting/infrastructure/persistence/adapters/StockReportRepositoryAdapterTest.java"
       ],
       "original_test_methods": {
         "should_find_stock": 1,
@@ -1187,9 +1187,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/stock/application/generate_stock_excel/GenerateStockExcelUseCaseImplTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/stock/application/generate_stock_excel/GenerateStockExcelUseCaseImplTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/warehouses/reporting/application/generate_stock_excel/GenerateStockExcelUseCaseImplTest.java"
+        "src/test/java/com/parsun/parsun_api/warehouses/reporting/application/generate_stock_excel/GenerateStockExcelUseCaseImplTest.java"
       ],
       "original_test_methods": {
         "should_generate_stock_excel": 1,
@@ -1204,9 +1204,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/stock/application/generate_stock_pdf/GenerateStockPdfUseCaseImplTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/stock/application/generate_stock_pdf/GenerateStockPdfUseCaseImplTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/warehouses/reporting/application/generate_stock_pdf/GenerateStockPdfUseCaseImplTest.java"
+        "src/test/java/com/parsun/parsun_api/warehouses/reporting/application/generate_stock_pdf/GenerateStockPdfUseCaseImplTest.java"
       ],
       "original_test_methods": {
         "should_generate_stock_pdf": 1,
@@ -1221,9 +1221,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/stock/application/ports/out/StockPdfPortTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/stock/application/ports/out/StockPdfPortTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/warehouses/reporting/application/ports/out/StockPdfPortTest.java"
+        "src/test/java/com/parsun/parsun_api/warehouses/reporting/application/ports/out/StockPdfPortTest.java"
       ],
       "original_test_methods": {
         "should_be_accessible": 1
@@ -1236,9 +1236,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/stock/application/dto/response/StockReportResponseTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/stock/application/dto/response/StockReportResponseTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/warehouses/reporting/application/dto/response/StockReportResponseTest.java"
+        "src/test/java/com/parsun/parsun_api/warehouses/reporting/application/dto/response/StockReportResponseTest.java"
       ],
       "original_test_methods": {
         "should_create_stock_report_response": 1,
@@ -1253,9 +1253,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/stock/application/dto/query/StockPdfQueryTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/stock/application/dto/query/StockPdfQueryTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/warehouses/reporting/application/dto/query/StockPdfQueryTest.java"
+        "src/test/java/com/parsun/parsun_api/warehouses/reporting/application/dto/query/StockPdfQueryTest.java"
       ],
       "original_test_methods": {
         "should_create_query_with_all_fields": 1,
@@ -1270,9 +1270,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/orders/infrastructure/config/OrdersReportConfigTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/orders/infrastructure/config/OrdersReportConfigTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/orders/reporting/infrastructure/config/OrdersReportConfigTest.java"
+        "src/test/java/com/parsun/parsun_api/orders/reporting/infrastructure/config/OrdersReportConfigTest.java"
       ],
       "original_test_methods": {
         "should_create_use_case_beans": 1,
@@ -1287,9 +1287,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/orders/infrastructure/web/OrdersReportControllerTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/orders/infrastructure/web/OrdersReportControllerTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/orders/reporting/infrastructure/web/OrdersReportControllerTest.java"
+        "src/test/java/com/parsun/parsun_api/orders/reporting/infrastructure/web/OrdersReportControllerTest.java"
       ],
       "original_test_methods": {
         "should_get_order_pdf": 1,
@@ -1306,9 +1306,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/orders/infrastructure/integration/OrderDocumentQueryAdapterTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/orders/infrastructure/integration/OrderDocumentQueryAdapterTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/orders/reporting/infrastructure/integration/OrderDocumentQueryAdapterTest.java"
+        "src/test/java/com/parsun/parsun_api/orders/reporting/infrastructure/integration/OrderDocumentQueryAdapterTest.java"
       ],
       "original_test_methods": {
         "listPreservesAllFiltersOrderingAndAmounts": 1,
@@ -1323,9 +1323,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/orders/infrastructure/pdf/OrderPdfContentTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/orders/infrastructure/pdf/OrderPdfContentTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/orders/reporting/infrastructure/pdf/OrderPdfContentTest.java"
+        "src/test/java/com/parsun/parsun_api/orders/reporting/infrastructure/pdf/OrderPdfContentTest.java"
       ],
       "original_test_methods": {},
       "final_test_methods": {},
@@ -1334,9 +1334,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/orders/application/generate_order_pdf/GenerateOrderPdfUseCaseImplTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/orders/application/generate_order_pdf/GenerateOrderPdfUseCaseImplTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/orders/reporting/application/generate_order_pdf/GenerateOrderPdfUseCaseImplTest.java"
+        "src/test/java/com/parsun/parsun_api/orders/reporting/application/generate_order_pdf/GenerateOrderPdfUseCaseImplTest.java"
       ],
       "original_test_methods": {
         "should_generate_order_pdf": 1,
@@ -1353,9 +1353,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/orders/application/generate_orders_report_pdf/GenerateOrdersReportPdfUseCaseImplTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/orders/application/generate_orders_report_pdf/GenerateOrdersReportPdfUseCaseImplTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/orders/reporting/application/generate_orders_report_pdf/GenerateOrdersReportPdfUseCaseImplTest.java"
+        "src/test/java/com/parsun/parsun_api/orders/reporting/application/generate_orders_report_pdf/GenerateOrdersReportPdfUseCaseImplTest.java"
       ],
       "original_test_methods": {
         "should_generate_orders_report_pdf": 1,
@@ -1370,9 +1370,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/application/architecture/InvoiceReportsBoundaryTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/application/architecture/InvoiceReportsBoundaryTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/invoices/reporting/application/architecture/InvoiceReportsBoundaryTest.java"
+        "src/test/java/com/parsun/parsun_api/invoices/reporting/application/architecture/InvoiceReportsBoundaryTest.java"
       ],
       "original_test_methods": {
         "applicationContractsDoNotExposeInvoiceModuleDtosOrConcreteUseCases": 1
@@ -1385,9 +1385,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/application/architecture/AccountsReceivableReportsBoundaryTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/application/architecture/AccountsReceivableReportsBoundaryTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/receivables/reporting/application/architecture/AccountsReceivableReportsBoundaryTest.java"
+        "src/test/java/com/parsun/parsun_api/receivables/reporting/application/architecture/AccountsReceivableReportsBoundaryTest.java"
       ],
       "original_test_methods": {
         "reportDoesNotDependOnReceivablesInternalContracts": 1
@@ -1400,9 +1400,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/application/architecture/QuoteReportsBoundaryTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/application/architecture/QuoteReportsBoundaryTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/quotes/reporting/application/architecture/QuoteReportsBoundaryTest.java"
+        "src/test/java/com/parsun/parsun_api/quotes/reporting/application/architecture/QuoteReportsBoundaryTest.java"
       ],
       "original_test_methods": {
         "applicationDoesNotDependOnForeignDtosRepositoriesOrAggregates": 1
@@ -1415,9 +1415,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/application/architecture/PaymentReportsBoundaryTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/application/architecture/PaymentReportsBoundaryTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/payments/reporting/application/architecture/PaymentReportsBoundaryTest.java"
+        "src/test/java/com/parsun/parsun_api/payments/reporting/application/architecture/PaymentReportsBoundaryTest.java"
       ],
       "original_test_methods": {
         "applicationUsesOwnContractsAndDtos": 1
@@ -1430,9 +1430,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/application/architecture/CommercialCatalogBoundaryTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/application/architecture/CommercialCatalogBoundaryTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/products/reporting/application/architecture/CommercialCatalogBoundaryTest.java"
+        "src/test/java/com/parsun/parsun_api/products/reporting/application/architecture/CommercialCatalogBoundaryTest.java"
       ],
       "original_test_methods": {
         "coreDoesNotInjectSharedStorageAndPdfContractContainsOnlyData": 1
@@ -1445,9 +1445,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/application/architecture/OrderReportsBoundaryTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/application/architecture/OrderReportsBoundaryTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/orders/reporting/application/architecture/OrderReportsBoundaryTest.java"
+        "src/test/java/com/parsun/parsun_api/orders/reporting/application/architecture/OrderReportsBoundaryTest.java"
       ],
       "original_test_methods": {
         "applicationDoesNotDependOnForeignDtosRepositoriesOrAggregates": 1
@@ -1460,9 +1460,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/application/architecture/PurchaseReportsBoundaryTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/application/architecture/PurchaseReportsBoundaryTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/purchases/reporting/application/architecture/PurchaseReportsBoundaryTest.java"
+        "src/test/java/com/parsun/parsun_api/purchases/reporting/application/architecture/PurchaseReportsBoundaryTest.java"
       ],
       "original_test_methods": {
         "applicationDoesNotDependOnForeignDtosRepositoriesOrAggregates": 1
@@ -1475,10 +1475,10 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/finance/infrastructure/config/FinancesReportConfigTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/finance/infrastructure/config/FinancesReportConfigTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/payments/reporting/infrastructure/config/PaymentReportingConfigTest.java",
-        "src/test/java/com/cashly/cashly_api/receivables/reporting/infrastructure/config/ReceivablesReportingConfigTest.java"
+        "src/test/java/com/parsun/parsun_api/payments/reporting/infrastructure/config/PaymentReportingConfigTest.java",
+        "src/test/java/com/parsun/parsun_api/receivables/reporting/infrastructure/config/ReceivablesReportingConfigTest.java"
       ],
       "original_test_methods": {
         "should_create_use_case_beans": 1,
@@ -1493,10 +1493,10 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/finance/infrastructure/web/FinancesReportControllerTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/finance/infrastructure/web/FinancesReportControllerTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/payments/reporting/infrastructure/web/PaymentReportsControllerTest.java",
-        "src/test/java/com/cashly/cashly_api/receivables/reporting/infrastructure/web/ReceivablesReportsControllerTest.java"
+        "src/test/java/com/parsun/parsun_api/payments/reporting/infrastructure/web/PaymentReportsControllerTest.java",
+        "src/test/java/com/parsun/parsun_api/receivables/reporting/infrastructure/web/ReceivablesReportsControllerTest.java"
       ],
       "original_test_methods": {
         "shouldGetPaymentPdf": 1,
@@ -1519,9 +1519,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/finance/infrastructure/integration/ReceivablesReportQueryAdapterTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/finance/infrastructure/integration/ReceivablesReportQueryAdapterTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/receivables/reporting/infrastructure/integration/ReceivablesReportQueryAdapterTest.java"
+        "src/test/java/com/parsun/parsun_api/receivables/reporting/infrastructure/integration/ReceivablesReportQueryAdapterTest.java"
       ],
       "original_test_methods": {
         "filtersAndEveryCreditAgingAmountArePreserved": 1,
@@ -1538,9 +1538,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/finance/infrastructure/integration/PaymentDocumentQueryAdapterTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/finance/infrastructure/integration/PaymentDocumentQueryAdapterTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/payments/reporting/infrastructure/integration/PaymentDocumentQueryAdapterTest.java"
+        "src/test/java/com/parsun/parsun_api/payments/reporting/infrastructure/integration/PaymentDocumentQueryAdapterTest.java"
       ],
       "original_test_methods": {
         "providerAndAdapterPreserveEveryRenderedFieldWithoutRecalculatingAmount": 1,
@@ -1557,9 +1557,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/finance/infrastructure/pdf/PaymentPdfContentTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/finance/infrastructure/pdf/PaymentPdfContentTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/payments/reporting/infrastructure/pdf/PaymentPdfContentTest.java"
+        "src/test/java/com/parsun/parsun_api/payments/reporting/infrastructure/pdf/PaymentPdfContentTest.java"
       ],
       "original_test_methods": {},
       "final_test_methods": {},
@@ -1568,9 +1568,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/finance/infrastructure/pdf/AccountsReceivablePdfContentTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/finance/infrastructure/pdf/AccountsReceivablePdfContentTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/receivables/reporting/infrastructure/pdf/AccountsReceivablePdfContentTest.java"
+        "src/test/java/com/parsun/parsun_api/receivables/reporting/infrastructure/pdf/AccountsReceivablePdfContentTest.java"
       ],
       "original_test_methods": {},
       "final_test_methods": {},
@@ -1579,9 +1579,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/finance/application/dto/AccountsReceivableReportDataTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/finance/application/dto/AccountsReceivableReportDataTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/receivables/reporting/application/dto/AccountsReceivableReportDataTest.java"
+        "src/test/java/com/parsun/parsun_api/receivables/reporting/application/dto/AccountsReceivableReportDataTest.java"
       ],
       "original_test_methods": {
         "should_create_report_data": 1,
@@ -1596,9 +1596,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/finance/application/dto/CollectionsReportDataTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/finance/application/dto/CollectionsReportDataTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/receivables/reporting/application/dto/CollectionsReportDataTest.java"
+        "src/test/java/com/parsun/parsun_api/receivables/reporting/application/dto/CollectionsReportDataTest.java"
       ],
       "original_test_methods": {
         "should_create_collections_data": 1,
@@ -1613,9 +1613,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/finance/application/dto/PaymentHistoryReportDataTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/finance/application/dto/PaymentHistoryReportDataTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/payments/reporting/application/dto/PaymentHistoryReportDataTest.java"
+        "src/test/java/com/parsun/parsun_api/payments/reporting/application/dto/PaymentHistoryReportDataTest.java"
       ],
       "original_test_methods": {
         "should_create_payment_history_data": 1,
@@ -1630,9 +1630,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/finance/application/generate_accounts_receivable_report_pdf/GenerateAccountsReceivableReportPdfUseCaseImplTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/finance/application/generate_accounts_receivable_report_pdf/GenerateAccountsReceivableReportPdfUseCaseImplTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/receivables/reporting/application/generate_accounts_receivable_report_pdf/GenerateAccountsReceivableReportPdfUseCaseImplTest.java"
+        "src/test/java/com/parsun/parsun_api/receivables/reporting/application/generate_accounts_receivable_report_pdf/GenerateAccountsReceivableReportPdfUseCaseImplTest.java"
       ],
       "original_test_methods": {
         "should_generate_accounts_receivable_pdf": 1,
@@ -1649,9 +1649,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/finance/application/generate_payment_history_report_pdf/GeneratePaymentHistoryReportPdfUseCaseImplTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/finance/application/generate_payment_history_report_pdf/GeneratePaymentHistoryReportPdfUseCaseImplTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/payments/reporting/application/generate_payment_history_report_pdf/GeneratePaymentHistoryReportPdfUseCaseImplTest.java"
+        "src/test/java/com/parsun/parsun_api/payments/reporting/application/generate_payment_history_report_pdf/GeneratePaymentHistoryReportPdfUseCaseImplTest.java"
       ],
       "original_test_methods": {
         "should_generate_payment_history_pdf": 1,
@@ -1666,9 +1666,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/finance/application/generate_payment_pdf/GeneratePaymentPdfUseCaseImplTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/finance/application/generate_payment_pdf/GeneratePaymentPdfUseCaseImplTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/payments/reporting/application/generate_payment_pdf/GeneratePaymentPdfUseCaseImplTest.java"
+        "src/test/java/com/parsun/parsun_api/payments/reporting/application/generate_payment_pdf/GeneratePaymentPdfUseCaseImplTest.java"
       ],
       "original_test_methods": {
         "should_generate_payment_pdf": 1
@@ -1681,9 +1681,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/finance/application/generate_collections_report_pdf/GenerateCollectionsReportPdfUseCaseImplTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/finance/application/generate_collections_report_pdf/GenerateCollectionsReportPdfUseCaseImplTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/receivables/reporting/application/generate_collections_report_pdf/GenerateCollectionsReportPdfUseCaseImplTest.java"
+        "src/test/java/com/parsun/parsun_api/receivables/reporting/application/generate_collections_report_pdf/GenerateCollectionsReportPdfUseCaseImplTest.java"
       ],
       "original_test_methods": {
         "should_generate_collections_pdf": 1,
@@ -1698,9 +1698,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/finance/application/ports/out/PaymentPdfPortTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/finance/application/ports/out/PaymentPdfPortTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/payments/reporting/application/ports/out/PaymentPdfPortTest.java"
+        "src/test/java/com/parsun/parsun_api/payments/reporting/application/ports/out/PaymentPdfPortTest.java"
       ],
       "original_test_methods": {
         "should_be_accessible": 1
@@ -1713,9 +1713,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/inventory/infrastructure/config/InventoryReportConfigTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/inventory/infrastructure/config/InventoryReportConfigTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/warehouses/reporting/infrastructure/config/WarehouseCatalogReportingConfigTest.java"
+        "src/test/java/com/parsun/parsun_api/warehouses/reporting/infrastructure/config/WarehouseCatalogReportingConfigTest.java"
       ],
       "original_test_methods": {
         "should_create_use_case_beans": 1,
@@ -1730,9 +1730,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/inventory/infrastructure/web/CatalogReportControllerTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/inventory/infrastructure/web/CatalogReportControllerTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/warehouses/reporting/infrastructure/web/CatalogReportControllerTest.java"
+        "src/test/java/com/parsun/parsun_api/warehouses/reporting/infrastructure/web/CatalogReportControllerTest.java"
       ],
       "original_test_methods": {
         "should_get_catalog_report": 1,
@@ -1751,9 +1751,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/inventory/infrastructure/web/CommercialCatalogControllerTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/inventory/infrastructure/web/CommercialCatalogControllerTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/products/reporting/infrastructure/web/CommercialCatalogControllerTest.java"
+        "src/test/java/com/parsun/parsun_api/products/reporting/infrastructure/web/CommercialCatalogControllerTest.java"
       ],
       "original_test_methods": {
         "should_get_commercial_catalog_pdf": 1,
@@ -1768,9 +1768,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/inventory/infrastructure/integration/FileStorageMediaAdapterTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/inventory/infrastructure/integration/FileStorageMediaAdapterTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/products/reporting/infrastructure/integration/FileStorageMediaAdapterTest.java"
+        "src/test/java/com/parsun/parsun_api/products/reporting/infrastructure/integration/FileStorageMediaAdapterTest.java"
       ],
       "original_test_methods": {
         "actualIOExceptionPreservesFailureIdentity": 2,
@@ -1785,9 +1785,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/inventory/infrastructure/pdf/CommercialCatalogPdfContentTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/inventory/infrastructure/pdf/CommercialCatalogPdfContentTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/products/reporting/infrastructure/pdf/CommercialCatalogPdfContentTest.java"
+        "src/test/java/com/parsun/parsun_api/products/reporting/infrastructure/pdf/CommercialCatalogPdfContentTest.java"
       ],
       "original_test_methods": {
         "PdfDocument": 1
@@ -1800,9 +1800,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/inventory/infrastructure/persistence/projections/CatalogReportProjectionTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/inventory/infrastructure/persistence/projections/CatalogReportProjectionTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/warehouses/reporting/infrastructure/persistence/projections/CatalogReportProjectionTest.java"
+        "src/test/java/com/parsun/parsun_api/warehouses/reporting/infrastructure/persistence/projections/CatalogReportProjectionTest.java"
       ],
       "original_test_methods": {
         "should_be_accessible": 1
@@ -1815,9 +1815,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/inventory/infrastructure/persistence/adapters/CatalogReportRepositoryAdapterTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/inventory/infrastructure/persistence/adapters/CatalogReportRepositoryAdapterTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/warehouses/reporting/infrastructure/persistence/adapters/CatalogReportRepositoryAdapterTest.java"
+        "src/test/java/com/parsun/parsun_api/warehouses/reporting/infrastructure/persistence/adapters/CatalogReportRepositoryAdapterTest.java"
       ],
       "original_test_methods": {
         "should_find_catalog": 1,
@@ -1832,9 +1832,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/inventory/application/get_catalog_report/GetCatalogReportUseCaseImplTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/inventory/application/get_catalog_report/GetCatalogReportUseCaseImplTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/warehouses/reporting/application/get_catalog_report/GetCatalogReportUseCaseImplTest.java"
+        "src/test/java/com/parsun/parsun_api/warehouses/reporting/application/get_catalog_report/GetCatalogReportUseCaseImplTest.java"
       ],
       "original_test_methods": {
         "should_get_catalog_report": 1,
@@ -1849,9 +1849,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/inventory/application/generate_commercial_catalog_pdf/GenerateCommercialCatalogPdfUseCaseImplTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/inventory/application/generate_commercial_catalog_pdf/GenerateCommercialCatalogPdfUseCaseImplTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/products/reporting/application/generate_commercial_catalog_pdf/GenerateCommercialCatalogPdfUseCaseImplTest.java"
+        "src/test/java/com/parsun/parsun_api/products/reporting/application/generate_commercial_catalog_pdf/GenerateCommercialCatalogPdfUseCaseImplTest.java"
       ],
       "original_test_methods": {
         "should_generate_commercial_catalog_pdf": 1,
@@ -1866,9 +1866,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/inventory/application/generate_catalog_pdf/GenerateCatalogPdfUseCaseImplTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/inventory/application/generate_catalog_pdf/GenerateCatalogPdfUseCaseImplTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/warehouses/reporting/application/generate_catalog_pdf/GenerateCatalogPdfUseCaseImplTest.java"
+        "src/test/java/com/parsun/parsun_api/warehouses/reporting/application/generate_catalog_pdf/GenerateCatalogPdfUseCaseImplTest.java"
       ],
       "original_test_methods": {
         "should_generate_catalog_pdf": 1,
@@ -1883,9 +1883,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/inventory/application/ports/out/CatalogPdfPortTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/inventory/application/ports/out/CatalogPdfPortTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/warehouses/reporting/application/ports/out/CatalogPdfPortTest.java"
+        "src/test/java/com/parsun/parsun_api/warehouses/reporting/application/ports/out/CatalogPdfPortTest.java"
       ],
       "original_test_methods": {
         "should_be_accessible": 1
@@ -1898,9 +1898,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/inventory/application/dto/response/CatalogReportResponseTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/inventory/application/dto/response/CatalogReportResponseTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/warehouses/reporting/application/dto/response/CatalogReportResponseTest.java"
+        "src/test/java/com/parsun/parsun_api/warehouses/reporting/application/dto/response/CatalogReportResponseTest.java"
       ],
       "original_test_methods": {
         "should_create_catalog_report_response": 1,
@@ -1915,9 +1915,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/inventory/application/dto/response/CommercialCatalogResponseTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/inventory/application/dto/response/CommercialCatalogResponseTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/products/reporting/application/dto/response/CommercialCatalogResponseTest.java"
+        "src/test/java/com/parsun/parsun_api/products/reporting/application/dto/response/CommercialCatalogResponseTest.java"
       ],
       "original_test_methods": {
         "should_create_response_with_price": 1,
@@ -1932,9 +1932,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/inventory/application/dto/query/CatalogReportQueryTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/inventory/application/dto/query/CatalogReportQueryTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/warehouses/reporting/application/dto/query/CatalogReportQueryTest.java"
+        "src/test/java/com/parsun/parsun_api/warehouses/reporting/application/dto/query/CatalogReportQueryTest.java"
       ],
       "original_test_methods": {
         "should_create_query_with_all_fields": 1,
@@ -1949,9 +1949,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/inventory/application/dto/query/CatalogPdfQueryTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/inventory/application/dto/query/CatalogPdfQueryTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/warehouses/reporting/application/dto/query/CatalogPdfQueryTest.java"
+        "src/test/java/com/parsun/parsun_api/warehouses/reporting/application/dto/query/CatalogPdfQueryTest.java"
       ],
       "original_test_methods": {
         "should_create_query_with_all_fields": 1,
@@ -1966,9 +1966,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/movements/infrastructure/config/MovementsReportConfigTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/movements/infrastructure/config/MovementsReportConfigTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/warehouses/reporting/infrastructure/config/MovementsReportConfigTest.java"
+        "src/test/java/com/parsun/parsun_api/warehouses/reporting/infrastructure/config/MovementsReportConfigTest.java"
       ],
       "original_test_methods": {
         "should_create_use_case_beans": 1,
@@ -1983,9 +1983,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/movements/infrastructure/web/MovementsReportControllerTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/movements/infrastructure/web/MovementsReportControllerTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/warehouses/reporting/infrastructure/web/MovementsReportControllerTest.java"
+        "src/test/java/com/parsun/parsun_api/warehouses/reporting/infrastructure/web/MovementsReportControllerTest.java"
       ],
       "original_test_methods": {
         "should_get_movements_pdf": 1,
@@ -2002,9 +2002,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/movements/infrastructure/persistence/projections/MovementsReportProjectionTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/movements/infrastructure/persistence/projections/MovementsReportProjectionTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/warehouses/reporting/infrastructure/persistence/projections/MovementsReportProjectionTest.java"
+        "src/test/java/com/parsun/parsun_api/warehouses/reporting/infrastructure/persistence/projections/MovementsReportProjectionTest.java"
       ],
       "original_test_methods": {
         "should_be_accessible": 1
@@ -2017,9 +2017,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/movements/infrastructure/persistence/adapters/MovementsReportRepositoryAdapterTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/movements/infrastructure/persistence/adapters/MovementsReportRepositoryAdapterTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/warehouses/reporting/infrastructure/persistence/adapters/MovementsReportRepositoryAdapterTest.java"
+        "src/test/java/com/parsun/parsun_api/warehouses/reporting/infrastructure/persistence/adapters/MovementsReportRepositoryAdapterTest.java"
       ],
       "original_test_methods": {
         "should_find_movements": 1,
@@ -2034,9 +2034,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/movements/application/generate_movements_pdf/GenerateMovementsPdfUseCaseImplTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/movements/application/generate_movements_pdf/GenerateMovementsPdfUseCaseImplTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/warehouses/reporting/application/generate_movements_pdf/GenerateMovementsPdfUseCaseImplTest.java"
+        "src/test/java/com/parsun/parsun_api/warehouses/reporting/application/generate_movements_pdf/GenerateMovementsPdfUseCaseImplTest.java"
       ],
       "original_test_methods": {
         "should_generate_movements_pdf": 1,
@@ -2051,9 +2051,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/movements/application/generate_movements_excel/GenerateMovementsExcelUseCaseImplTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/movements/application/generate_movements_excel/GenerateMovementsExcelUseCaseImplTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/warehouses/reporting/application/generate_movements_excel/GenerateMovementsExcelUseCaseImplTest.java"
+        "src/test/java/com/parsun/parsun_api/warehouses/reporting/application/generate_movements_excel/GenerateMovementsExcelUseCaseImplTest.java"
       ],
       "original_test_methods": {
         "should_generate_movements_excel": 1,
@@ -2068,9 +2068,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/movements/application/ports/out/MovementsPdfPortTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/movements/application/ports/out/MovementsPdfPortTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/warehouses/reporting/application/ports/out/MovementsPdfPortTest.java"
+        "src/test/java/com/parsun/parsun_api/warehouses/reporting/application/ports/out/MovementsPdfPortTest.java"
       ],
       "original_test_methods": {
         "should_be_accessible": 1
@@ -2083,9 +2083,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/movements/application/dto/response/MovementReportResponseTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/movements/application/dto/response/MovementReportResponseTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/warehouses/reporting/application/dto/response/MovementReportResponseTest.java"
+        "src/test/java/com/parsun/parsun_api/warehouses/reporting/application/dto/response/MovementReportResponseTest.java"
       ],
       "original_test_methods": {
         "should_create_movement_report_response": 1,
@@ -2100,9 +2100,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/movements/application/dto/query/MovementsPdfQueryTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/movements/application/dto/query/MovementsPdfQueryTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/warehouses/reporting/application/dto/query/MovementsPdfQueryTest.java"
+        "src/test/java/com/parsun/parsun_api/warehouses/reporting/application/dto/query/MovementsPdfQueryTest.java"
       ],
       "original_test_methods": {
         "should_create_query_with_all_fields": 1,
@@ -2117,9 +2117,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/quotes/infrastructure/config/QuotesReportConfigTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/quotes/infrastructure/config/QuotesReportConfigTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/quotes/reporting/infrastructure/config/QuotesReportConfigTest.java"
+        "src/test/java/com/parsun/parsun_api/quotes/reporting/infrastructure/config/QuotesReportConfigTest.java"
       ],
       "original_test_methods": {
         "should_create_use_case_beans": 1,
@@ -2134,9 +2134,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/quotes/infrastructure/web/QuotesReportControllerTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/quotes/infrastructure/web/QuotesReportControllerTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/quotes/reporting/infrastructure/web/QuotesReportControllerTest.java"
+        "src/test/java/com/parsun/parsun_api/quotes/reporting/infrastructure/web/QuotesReportControllerTest.java"
       ],
       "original_test_methods": {
         "should_get_quote_pdf": 1,
@@ -2153,9 +2153,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/quotes/infrastructure/integration/QuoteDocumentQueryAdapterTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/quotes/infrastructure/integration/QuoteDocumentQueryAdapterTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/quotes/reporting/infrastructure/integration/QuoteDocumentQueryAdapterTest.java"
+        "src/test/java/com/parsun/parsun_api/quotes/reporting/infrastructure/integration/QuoteDocumentQueryAdapterTest.java"
       ],
       "original_test_methods": {
         "listPreservesAllFiltersOrderingAndAmounts": 1,
@@ -2170,9 +2170,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/quotes/infrastructure/pdf/QuotePdfContentTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/quotes/infrastructure/pdf/QuotePdfContentTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/quotes/reporting/infrastructure/pdf/QuotePdfContentTest.java"
+        "src/test/java/com/parsun/parsun_api/quotes/reporting/infrastructure/pdf/QuotePdfContentTest.java"
       ],
       "original_test_methods": {},
       "final_test_methods": {},
@@ -2181,9 +2181,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/quotes/application/generate_quote_pdf/GenerateQuotePdfUseCaseImplTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/quotes/application/generate_quote_pdf/GenerateQuotePdfUseCaseImplTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/quotes/reporting/application/generate_quote_pdf/GenerateQuotePdfUseCaseImplTest.java"
+        "src/test/java/com/parsun/parsun_api/quotes/reporting/application/generate_quote_pdf/GenerateQuotePdfUseCaseImplTest.java"
       ],
       "original_test_methods": {
         "should_generate_quote_pdf": 1,
@@ -2198,9 +2198,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/quotes/application/generate_quotes_report_pdf/GenerateQuotesReportPdfUseCaseImplTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/quotes/application/generate_quotes_report_pdf/GenerateQuotesReportPdfUseCaseImplTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/quotes/reporting/application/generate_quotes_report_pdf/GenerateQuotesReportPdfUseCaseImplTest.java"
+        "src/test/java/com/parsun/parsun_api/quotes/reporting/application/generate_quotes_report_pdf/GenerateQuotesReportPdfUseCaseImplTest.java"
       ],
       "original_test_methods": {
         "should_generate_quotes_report_pdf": 1,
@@ -2215,9 +2215,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/invoices/infrastructure/config/InvoicesReportConfigTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/invoices/infrastructure/config/InvoicesReportConfigTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/invoices/reporting/infrastructure/config/InvoicesReportConfigTest.java"
+        "src/test/java/com/parsun/parsun_api/invoices/reporting/infrastructure/config/InvoicesReportConfigTest.java"
       ],
       "original_test_methods": {
         "should_create_use_case_beans": 1,
@@ -2232,9 +2232,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/invoices/infrastructure/web/InvoicesReportControllerTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/invoices/infrastructure/web/InvoicesReportControllerTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/invoices/reporting/infrastructure/web/InvoicesReportControllerTest.java"
+        "src/test/java/com/parsun/parsun_api/invoices/reporting/infrastructure/web/InvoicesReportControllerTest.java"
       ],
       "original_test_methods": {
         "should_get_invoice_pdf": 1,
@@ -2251,9 +2251,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/invoices/infrastructure/integration/InvoiceDocumentQueryAdapterTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/invoices/infrastructure/integration/InvoiceDocumentQueryAdapterTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/invoices/reporting/infrastructure/integration/InvoiceDocumentQueryAdapterTest.java"
+        "src/test/java/com/parsun/parsun_api/invoices/reporting/infrastructure/integration/InvoiceDocumentQueryAdapterTest.java"
       ],
       "original_test_methods": {
         "providerAndAdapterPreserveEveryDocumentFieldAndLineAmount": 1,
@@ -2272,9 +2272,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/invoices/infrastructure/pdf/InvoicePdfContentTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/invoices/infrastructure/pdf/InvoicePdfContentTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/invoices/reporting/infrastructure/pdf/InvoicePdfContentTest.java"
+        "src/test/java/com/parsun/parsun_api/invoices/reporting/infrastructure/pdf/InvoicePdfContentTest.java"
       ],
       "original_test_methods": {},
       "final_test_methods": {},
@@ -2283,9 +2283,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/invoices/application/generate_invoice_pdf/GenerateInvoicePdfUseCaseImplTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/invoices/application/generate_invoice_pdf/GenerateInvoicePdfUseCaseImplTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/invoices/reporting/application/generate_invoice_pdf/GenerateInvoicePdfUseCaseImplTest.java"
+        "src/test/java/com/parsun/parsun_api/invoices/reporting/application/generate_invoice_pdf/GenerateInvoicePdfUseCaseImplTest.java"
       ],
       "original_test_methods": {
         "should_generate_invoice_pdf": 1
@@ -2298,9 +2298,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/invoices/application/generate_invoices_report_pdf/GenerateInvoicesReportPdfUseCaseImplTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/invoices/application/generate_invoices_report_pdf/GenerateInvoicesReportPdfUseCaseImplTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/invoices/reporting/application/generate_invoices_report_pdf/GenerateInvoicesReportPdfUseCaseImplTest.java"
+        "src/test/java/com/parsun/parsun_api/invoices/reporting/application/generate_invoices_report_pdf/GenerateInvoicesReportPdfUseCaseImplTest.java"
       ],
       "original_test_methods": {
         "should_generate_invoices_report_pdf": 1,
@@ -2315,9 +2315,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/purchases/infrastructure/config/PurchasesReportConfigTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/purchases/infrastructure/config/PurchasesReportConfigTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/purchases/reporting/infrastructure/config/PurchasesReportConfigTest.java"
+        "src/test/java/com/parsun/parsun_api/purchases/reporting/infrastructure/config/PurchasesReportConfigTest.java"
       ],
       "original_test_methods": {
         "should_create_use_case_beans": 1,
@@ -2332,9 +2332,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/purchases/infrastructure/web/PurchasesReportControllerTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/purchases/infrastructure/web/PurchasesReportControllerTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/purchases/reporting/infrastructure/web/PurchasesReportControllerTest.java"
+        "src/test/java/com/parsun/parsun_api/purchases/reporting/infrastructure/web/PurchasesReportControllerTest.java"
       ],
       "original_test_methods": {
         "should_get_purchase_pdf": 1,
@@ -2351,9 +2351,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/purchases/infrastructure/integration/PurchaseDocumentQueryAdapterTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/purchases/infrastructure/integration/PurchaseDocumentQueryAdapterTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/purchases/reporting/infrastructure/integration/PurchaseDocumentQueryAdapterTest.java"
+        "src/test/java/com/parsun/parsun_api/purchases/reporting/infrastructure/integration/PurchaseDocumentQueryAdapterTest.java"
       ],
       "original_test_methods": {
         "listPreservesAllFiltersOrderingAndAmounts": 1,
@@ -2372,9 +2372,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/purchases/infrastructure/pdf/PurchasePdfContentTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/purchases/infrastructure/pdf/PurchasePdfContentTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/purchases/reporting/infrastructure/pdf/PurchasePdfContentTest.java"
+        "src/test/java/com/parsun/parsun_api/purchases/reporting/infrastructure/pdf/PurchasePdfContentTest.java"
       ],
       "original_test_methods": {},
       "final_test_methods": {},
@@ -2383,9 +2383,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/purchases/application/generate_purchase_pdf/GeneratePurchasePdfUseCaseImplTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/purchases/application/generate_purchase_pdf/GeneratePurchasePdfUseCaseImplTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/purchases/reporting/application/generate_purchase_pdf/GeneratePurchasePdfUseCaseImplTest.java"
+        "src/test/java/com/parsun/parsun_api/purchases/reporting/application/generate_purchase_pdf/GeneratePurchasePdfUseCaseImplTest.java"
       ],
       "original_test_methods": {
         "returnsPdfForTheRequestedPurchaseWithoutChangingProjection": 1,
@@ -2400,9 +2400,9 @@
       "assertion_counts_preserved": true
     },
     {
-      "old": "src/test/java/com/cashly/cashly_api/reports/purchases/application/generate_purchases_report_pdf/GeneratePurchasesReportPdfUseCaseImplTest.java",
+      "old": "src/test/java/com/parsun/parsun_api/reports/purchases/application/generate_purchases_report_pdf/GeneratePurchasesReportPdfUseCaseImplTest.java",
       "new": [
-        "src/test/java/com/cashly/cashly_api/purchases/reporting/application/generate_purchases_report_pdf/GeneratePurchasesReportPdfUseCaseImplTest.java"
+        "src/test/java/com/parsun/parsun_api/purchases/reporting/application/generate_purchases_report_pdf/GeneratePurchasesReportPdfUseCaseImplTest.java"
       ],
       "original_test_methods": {
         "should_generate_purchases_report_pdf": 1,

@@ -10,8 +10,8 @@ Java 24 and Maven are only needed if you run the build outside Docker.
 ## Clone
 
 ```bash
-git clone git@gitlab.com:personal-proyect-gabriel/cashly/cashly-api.git
-cd cashly-api
+git clone git@gitlab.com:personal-proyect-gabriel/parsun/parsun-api.git
+cd parsun-api
 ```
 
 ## Start the API
@@ -42,11 +42,11 @@ docker compose --profile test up --build
 
 | Service | Container | Purpose |
 | --- | --- | --- |
-| `app` | `cashly-api-app` | API with the `dev` profile and hot reload |
-| `app-prod` | `cashly-api-app-prod` | Production image, enabled with `--profile prod` |
-| `mysql` | `cashly-api-mysql` | MySQL 8.0 on port 3306 |
-| `mysql-test` | `cashly-api-mysql-test` | Isolated test MySQL on port 3307 |
-| `minio` | `cashly-api-minio` | S3-compatible local storage |
+| `app` | `parsun-api-app` | API with the `dev` profile and hot reload |
+| `app-prod` | `parsun-api-app-prod` | Production image, enabled with `--profile prod` |
+| `mysql` | `parsun-api-mysql` | MySQL 8.0 on port 3306 |
+| `mysql-test` | `parsun-api-mysql-test` | Isolated test MySQL on port 3307 |
+| `minio` | `parsun-api-minio` | S3-compatible local storage |
 | `minio-init` | — | Creates the local bucket and exits |
 
 ## Configuration
@@ -65,12 +65,12 @@ Values are read from `.env` by Docker Compose. The main variables are:
 | `JWT_ACCESS_TOKEN_EXPIRATION` | `900000` | Access token lifetime in ms |
 | `JWT_REFRESH_TOKEN_EXPIRATION` | `604800000` | Refresh token lifetime in ms |
 | `MFA_ENCRYPTION_KEY` | empty | AES key for authenticator secrets |
-| `CASHLY_SEED_ENABLED` | `false` | Runs the Java seed on startup |
+| `PARSUN_SEED_ENABLED` | `false` | Runs the Java seed on startup |
 | `CORS_ALLOWED_ORIGINS` | `http://localhost:4200` | Allowed frontend origin |
 | `STORAGE_S3_ENDPOINT` | `http://minio:9000` | Local S3 endpoint |
 | `STORAGE_S3_ACCESS_KEY` | `minioadmin` | Local S3 access key |
 | `STORAGE_S3_SECRET_KEY` | `minioadmin` | Local S3 secret key |
-| `STORAGE_S3_BUCKET` | `cashly-files` | Local S3 bucket |
+| `STORAGE_S3_BUCKET` | `parsun-files` | Local S3 bucket |
 
 The application profiles are in `src/main/resources/application-dev.properties` and `application-production.properties`.
 
@@ -86,7 +86,7 @@ This drops the local database and lets Flyway rebuild it:
 
 ```bash
 docker compose stop app
-docker exec cashly-api-mysql mysql -uroot -pverysecret \
+docker exec parsun-api-mysql mysql -uroot -pverysecret \
   -e "DROP DATABASE mydatabase; CREATE DATABASE mydatabase CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;"
 docker compose start app
 ```
@@ -100,7 +100,7 @@ Seeding is implemented as 29 ordered Java steps in `infrastructure/seed/steps` a
 Enable it in `.env`:
 
 ```dotenv
-CASHLY_SEED_ENABLED=true
+PARSUN_SEED_ENABLED=true
 ```
 
 The seed is idempotent and runs after startup. Leave it disabled for production-like data.
@@ -151,7 +151,7 @@ docker compose down -v   # removes volumes and database data
 
 ## Authenticator MFA
 
-Cashly supports six-digit TOTP codes from Microsoft Authenticator, Google Authenticator,
+Parsun supports six-digit TOTP codes from Microsoft Authenticator, Google Authenticator,
 1Password, and other RFC 6238 compatible authenticators. Google sign-in is separate and
 is not enabled by this feature.
 

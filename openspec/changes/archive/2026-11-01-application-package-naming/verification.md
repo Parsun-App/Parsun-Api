@@ -44,4 +44,4 @@ Tests ran with Maven 3.9.9 and Java 24 inside Docker, against an isolated MySQL 
 The successful verification covers the default Surefire suite. The configured `StockReservationIntegrationTest` exclusion remains in effect; explicitly named `*IT` integration suites are not selected by default `verify`. No frontend code changed, so no frontend coverage run was required.
 
 Existing deprecation, unchecked-operation, Commons Logging, native-access, Unsafe, and JDK agent warnings remain. They did not fail the build.
-Temporary verification containers and the isolated network were removed after exporting reports. The running Cashly API, frontend, MySQL and MinIO remained healthy.
+Temporary verification containers and the isolated network were removed after exporting reports. The running Parsun API, frontend, MySQL and MinIO remained healthy.

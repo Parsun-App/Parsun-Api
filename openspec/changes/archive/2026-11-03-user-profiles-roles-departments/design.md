@@ -42,11 +42,11 @@ Inventory every controller mapping and client route/action before implementation
 
 | Paths (relative to API unless prefixed) | Changes |
 |---|---|
-| `src/main/java/com/cashly/cashly_api/platform/auth/{user,authentication,token}/` | Profile/reference DTOs, policy integration, JWT/session refresh |
-| `src/main/java/com/cashly/cashly_api/platform/auth/{role,department}/` | New domain/use cases/adapters/controllers |
+| `src/main/java/com/parsun/parsun_api/platform/auth/{user,authentication,token}/` | Profile/reference DTOs, policy integration, JWT/session refresh |
+| `src/main/java/com/parsun/parsun_api/platform/auth/{role,department}/` | New domain/use cases/adapters/controllers |
 | `src/main/resources/db/migration/`, `db/seed.sql`, `db/seeds/*.sql` | Fresh beta schema and fully reconciled seed dependency graph |
-| `src/test/`, `../cashly-app/src/`, `../cashly-app/e2e/` | Fixtures/mocks, API/action/guard/form tests, demo flow |
-| `../cashly-app/src/app/{features/platform/auth,core/layouts}/` | New pages/selects, permission state/navigation |
+| `src/test/`, `../parsun-app/src/`, `../parsun-app/e2e/` | Fixtures/mocks, API/action/guard/form tests, demo flow |
+| `../parsun-app/src/app/{features/platform/auth,core/layouts}/` | New pages/selects, permission state/navigation |
 
 ## Beta Reset and Verification
 

@@ -37,7 +37,7 @@ This change supersedes **only infrastructure layout** in active `application-pac
 
 | Area | Impact |
 |---|---|
-| `src/main/java/com/cashly/cashly_api` | Proposed complete package mapping |
+| `src/main/java/com/parsun/parsun_api` | Proposed complete package mapping |
 | `src/test`, test artifacts and build verification | Proposed mirrored ownership and executable evidence |
 | OpenSpec/current documentation | New change artifacts and explicit convention reconciliation |
 

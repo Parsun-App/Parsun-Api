@@ -23,6 +23,6 @@ Engram no está disponible en este entorno.
 
 ## Riesgos y rollback
 
-Cambiar wiring puede romper contexto Spring; mover stock puede alterar metadata/atomicidad; separar consultas puede cambiar paginación; diferir delivery puede perder notificaciones si falla el transporte. Se conservaron assertions de regresión, pruebas específicas y transacciones locales. Por instrucción expresa del usuario, se consolidó la historia Flyway para instalación limpia porque Cashly no está en producción; bases que conserven la historia anterior deben recrearse. No se introdujeron Domain Events. Revertir cada unidad de cambio requiere revisar su diff sin borrar trabajo ajeno.
+Cambiar wiring puede romper contexto Spring; mover stock puede alterar metadata/atomicidad; separar consultas puede cambiar paginación; diferir delivery puede perder notificaciones si falla el transporte. Se conservaron assertions de regresión, pruebas específicas y transacciones locales. Por instrucción expresa del usuario, se consolidó la historia Flyway para instalación limpia porque Parsun no está en producción; bases que conserven la historia anterior deben recrearse. No se introdujeron Domain Events. Revertir cada unidad de cambio requiere revisar su diff sin borrar trabajo ajeno.
 
 No hay autorización nueva de commit/push. La implementación queda revisable en el checkout.

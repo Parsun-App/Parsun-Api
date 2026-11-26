@@ -2,12 +2,12 @@
 
 ## Purpose
 
-Define stable behavior and module boundaries for Cashly's modular architecture while preserving the current ERP contracts during internal refactoring.
+Define stable behavior and module boundaries for Parsun's modular architecture while preserving the current ERP contracts during internal refactoring.
 
 ## ADDED Requirements
 
 ### Requirement: Existing ERP contracts remain stable
-Cashly MUST preserve existing endpoints, permissions, HTTP DTOs, and business rules unless a separately specified correction changes them.
+Parsun MUST preserve existing endpoints, permissions, HTTP DTOs, and business rules unless a separately specified correction changes them.
 
 #### Scenario: Internal module refactor
 - **WHEN** a module replaces a direct dependency with a public contract
@@ -28,7 +28,7 @@ Domain behavior MUST remain independent of frameworks and persistence, and appli
 - **THEN** domain rules and application contracts remain usable without importing the replaced technology
 
 ### Requirement: Failed cross-module operations do not leave partial business state
-Cashly MUST report failures from required cross-module operations and MUST roll back local transactional changes when the operation cannot complete atomically.
+Parsun MUST report failures from required cross-module operations and MUST roll back local transactional changes when the operation cannot complete atomically.
 
 #### Scenario: Required provider operation fails
 - **WHEN** a transaction performs local writes and a required provider operation fails

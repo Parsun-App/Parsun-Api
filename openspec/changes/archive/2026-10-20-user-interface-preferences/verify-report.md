@@ -10,10 +10,10 @@ All 19 implementation/verification tasks are complete. Source inspection, execut
 
 | Layer | Command / method | Confirmed result |
 |---|---|---|
-| Backend | `docker exec cashly-api-app ./mvnw test -Dtest=UserPreferencesServiceTest,UserPreferencesControllerTest,EndpointPermissionCoverageTest,EndpointPermissionEnforcementTest -q` | 585 passed; 0 failures/errors/skips |
+| Backend | `docker exec parsun-api-app ./mvnw test -Dtest=UserPreferencesServiceTest,UserPreferencesControllerTest,EndpointPermissionCoverageTest,EndpointPermissionEnforcementTest -q` | 585 passed; 0 failures/errors/skips |
 | Database/API | Actual HTTP requests using disposable accounts and independent login sessions; MySQL metadata queries | V32 success; defaults, persistence, account isolation, validation, concurrent first upserts and company ownership passed |
-| Frontend | Targeted Docker Vitest/V8 run; `/tmp/cashly-preferences-coverage.log` | 102 passed in 12 files; 0 failures |
-| Frontend regression | Profile/users/login/security/company; `/tmp/cashly-preferences-regression-unit-final.log` | 47 passed |
+| Frontend | Targeted Docker Vitest/V8 run; `/tmp/parsun-preferences-coverage.log` | 102 passed in 12 files; 0 failures |
+| Frontend regression | Profile/users/login/security/company; `/tmp/parsun-preferences-regression-unit-final.log` | 47 passed |
 | Dialog controls | Targeted Vitest run | 23 passed; change-email/password, note and invoice-picker suites |
 | Browser | `npx playwright test --config e2e/preferences.config.ts` in development container | 7 preferences + 10 company + 10 MFA browser tests passed (27 total) |
 | Build | Angular production build in development container | Passed; existing qrcode/STOMP CommonJS warnings only |
@@ -57,4 +57,4 @@ Active-form submit/cancel from an editable control is an intentional refinement 
 
 PASS WITH WARNINGS — all specified scenarios have passing runtime coverage; no critical or untested scenario remains. Coverage scope and existing build warnings are recorded above.
 
-Evidence logs: `/tmp/cashly-preferences-coverage.log`, `/tmp/cashly-preferences-regression-unit-final.log`, `/tmp/cashly-preferences-e2e-final.log`, `/tmp/cashly-preferences-company-regression.log`, `/tmp/cashly-preferences-mfa-regression.log`, `/tmp/cashly-preferences-build-final.log`, `/tmp/cashly-preferences-backend-coverage.log`. Backend execution and disposable-account cleanup details are retained in backend-apply-progress.md. Routine independent QA/security review was performed; Judgment Day was not requested or invoked.
+Evidence logs: `/tmp/parsun-preferences-coverage.log`, `/tmp/parsun-preferences-regression-unit-final.log`, `/tmp/parsun-preferences-e2e-final.log`, `/tmp/parsun-preferences-company-regression.log`, `/tmp/parsun-preferences-mfa-regression.log`, `/tmp/parsun-preferences-build-final.log`, `/tmp/parsun-preferences-backend-coverage.log`. Backend execution and disposable-account cleanup details are retained in backend-apply-progress.md. Routine independent QA/security review was performed; Judgment Day was not requested or invoked.

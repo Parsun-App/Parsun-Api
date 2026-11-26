@@ -2,7 +2,7 @@
   "scope": "Clean isolated compilation and architecture suites; no development database",
   "suites": [
     {
-      "name": "com.cashly.cashly_api.architecture.ApplicationPackageConventionTest",
+      "name": "com.parsun.parsun_api.architecture.ApplicationPackageConventionTest",
       "tests": 7,
       "failures": 0,
       "errors": 0,
@@ -10,7 +10,7 @@
       "xml_sha256": "1bd02d5f06aae856446be49d6f44a6c45d0dee8aa1feca6985f84a3463ef1718"
     },
     {
-      "name": "com.cashly.cashly_api.architecture.CapabilityStructureTest",
+      "name": "com.parsun.parsun_api.architecture.CapabilityStructureTest",
       "tests": 4,
       "failures": 0,
       "errors": 0,
@@ -18,7 +18,7 @@
       "xml_sha256": "afd820d8b8d1811d47ba6a0fe92e8464f768728581b2b7fb659d6741128f7e02"
     },
     {
-      "name": "com.cashly.cashly_api.architecture.LayerDependencyTest",
+      "name": "com.parsun.parsun_api.architecture.LayerDependencyTest",
       "tests": 8,
       "failures": 0,
       "errors": 0,
@@ -26,7 +26,7 @@
       "xml_sha256": "3f78d5ff477f88b888ff28597d9c56516dbc956f9ac036566f09494fb49fb0c4"
     },
     {
-      "name": "com.cashly.cashly_api.architecture.ReportingOwnershipTest",
+      "name": "com.parsun.parsun_api.architecture.ReportingOwnershipTest",
       "tests": 5,
       "failures": 0,
       "errors": 0,
@@ -34,7 +34,7 @@
       "xml_sha256": "316dca366dfdf4c3593b189cfc6137c93d1ccd1df693f52c0dc4148328dccb8c"
     },
     {
-      "name": "com.cashly.cashly_api.dashboard.application.summary.architecture.DashboardArchitectureTest",
+      "name": "com.parsun.parsun_api.dashboard.application.summary.architecture.DashboardArchitectureTest",
       "tests": 1,
       "failures": 0,
       "errors": 0,
@@ -42,7 +42,7 @@
       "xml_sha256": "866f67e71804a6e7feacc2063e7ee0cc14525f0bb19ff03a031679b2fad09308"
     },
     {
-      "name": "com.cashly.cashly_api.invoices.application.issue.architecture.InvoiceIssuanceArchitectureTest",
+      "name": "com.parsun.parsun_api.invoices.application.issue.architecture.InvoiceIssuanceArchitectureTest",
       "tests": 5,
       "failures": 0,
       "errors": 0,
@@ -50,7 +50,7 @@
       "xml_sha256": "14e6104fa98a02b408f018f9d3b61b087456f7e99624272512209494882f8804"
     },
     {
-      "name": "com.cashly.cashly_api.shared.application.architecture.ResponsibilityStructureTest",
+      "name": "com.parsun.parsun_api.shared.application.architecture.ResponsibilityStructureTest",
       "tests": 5,
       "failures": 0,
       "errors": 0,

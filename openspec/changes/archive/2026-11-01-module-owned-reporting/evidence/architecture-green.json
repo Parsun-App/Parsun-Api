@@ -12,5 +12,5 @@
     "ReportingOwnershipTest": 5
   },
   "database_contexts": false,
-  "raw_local_log": "/tmp/cashly-reporting-guards-green.log"
+  "raw_local_log": "/tmp/parsun-reporting-guards-green.log"
 }

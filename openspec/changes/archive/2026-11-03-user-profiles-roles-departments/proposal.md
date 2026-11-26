@@ -33,10 +33,10 @@ Extend the modular backend and Angular features. Replace enum/direct-grant admin
 
 | Area | Impact |
 |---|---|
-| `src/main/java/com/cashly/cashly_api/platform/auth/` | Profile, role, department and token authorization contracts |
+| `src/main/java/com/parsun/parsun_api/platform/auth/` | Profile, role, department and token authorization contracts |
 | `src/main/resources/db/migration/`, `db/` | Fresh beta schema and complete consistent seed reset |
-| `../cashly-app/src/app/features/platform/auth/` | User forms, new management pages, permission state/guards |
-| `../cashly-app/src/app/core/layouts/` | Permission-filtered navigation |
+| `../parsun-app/src/app/features/platform/auth/` | User forms, new management pages, permission state/guards |
+| `../parsun-app/src/app/core/layouts/` | Permission-filtered navigation |
 | Business controllers and Angular feature actions | Module/action enforcement |
 
 ## Risks

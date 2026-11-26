@@ -232,80 +232,80 @@
     "source_sha256": "c0f008c2fe9e751264f859863b21178d3d5783b7199fa6cad7724b28481d0b9c"
   },
   {
-    "old": "src/main/resources/pdf/cashly-logo.png",
-    "new": "src/main/resources/pdf/cashly-logo.png",
+    "old": "src/main/resources/pdf/parsun-logo.png",
+    "new": "src/main/resources/pdf/parsun-logo.png",
     "owner": "pdf",
     "disposition": "retain",
     "reason": "Preserve resource path and bytes; historical migrations are immutable.",
     "source_sha256": "1a48b798cc554978a43cfb53deff77303bea2d235c295f8e175b83a3a3ed6f5a"
   },
   {
-    "old": "src/test/java/com/cashly/cashly_api/auth/user/infrastructure/persistence/UserEntityUnitTest.java.bak",
-    "new": "src/test/java/com/cashly/cashly_api/auth/user/infrastructure/persistence/UserEntityUnitTest.java.bak",
+    "old": "src/test/java/com/parsun/parsun_api/auth/user/infrastructure/persistence/UserEntityUnitTest.java.bak",
+    "new": "src/test/java/com/parsun/parsun_api/auth/user/infrastructure/persistence/UserEntityUnitTest.java.bak",
     "owner": "com",
     "disposition": "retain",
     "reason": "Preserve noncompiled backup bytes; follow test relocation when a current peer exists.",
     "source_sha256": "7cadca5eea56abd2b8fb2307246f9a05eb898650e67f1ec1c908718577955f79"
   },
   {
-    "old": "src/test/java/com/cashly/cashly_api/invoices/application/usecases/ConfirmInvoiceUseCaseUnitTest.java.bak",
-    "new": "src/test/java/com/cashly/cashly_api/invoices/application/usecases/ConfirmInvoiceUseCaseUnitTest.java.bak",
+    "old": "src/test/java/com/parsun/parsun_api/invoices/application/usecases/ConfirmInvoiceUseCaseUnitTest.java.bak",
+    "new": "src/test/java/com/parsun/parsun_api/invoices/application/usecases/ConfirmInvoiceUseCaseUnitTest.java.bak",
     "owner": "com",
     "disposition": "retain",
     "reason": "Preserve noncompiled backup bytes; follow test relocation when a current peer exists.",
     "source_sha256": "ebc4af12777cb68e6f9315bb9229ba54c47c52483a3ab25adf09c9a7a93cc1bf"
   },
   {
-    "old": "src/test/java/com/cashly/cashly_api/invoices/application/usecases/CreateInvoiceUseCaseUnitTest.java.bak",
-    "new": "src/test/java/com/cashly/cashly_api/invoices/application/usecases/CreateInvoiceUseCaseUnitTest.java.bak",
+    "old": "src/test/java/com/parsun/parsun_api/invoices/application/usecases/CreateInvoiceUseCaseUnitTest.java.bak",
+    "new": "src/test/java/com/parsun/parsun_api/invoices/application/usecases/CreateInvoiceUseCaseUnitTest.java.bak",
     "owner": "com",
     "disposition": "retain",
     "reason": "Preserve noncompiled backup bytes; follow test relocation when a current peer exists.",
     "source_sha256": "ddb25b209703e0fb702a68ae3ef5383f1b5b69a05491c994991f6eb4de92396d"
   },
   {
-    "old": "src/test/java/com/cashly/cashly_api/invoices/application/usecases/DeleteInvoiceUseCaseUnitTest.java.bak",
-    "new": "src/test/java/com/cashly/cashly_api/invoices/application/usecases/DeleteInvoiceUseCaseUnitTest.java.bak",
+    "old": "src/test/java/com/parsun/parsun_api/invoices/application/usecases/DeleteInvoiceUseCaseUnitTest.java.bak",
+    "new": "src/test/java/com/parsun/parsun_api/invoices/application/usecases/DeleteInvoiceUseCaseUnitTest.java.bak",
     "owner": "com",
     "disposition": "retain",
     "reason": "Preserve noncompiled backup bytes; follow test relocation when a current peer exists.",
     "source_sha256": "b58c4bc9c65715ae725474e317249f50ccc2ca7ce0b64f1db4f3c8c4ecffd806"
   },
   {
-    "old": "src/test/java/com/cashly/cashly_api/invoices/application/usecases/DuplicateInvoiceUseCaseUnitTest.java.bak",
-    "new": "src/test/java/com/cashly/cashly_api/invoices/application/usecases/DuplicateInvoiceUseCaseUnitTest.java.bak",
+    "old": "src/test/java/com/parsun/parsun_api/invoices/application/usecases/DuplicateInvoiceUseCaseUnitTest.java.bak",
+    "new": "src/test/java/com/parsun/parsun_api/invoices/application/usecases/DuplicateInvoiceUseCaseUnitTest.java.bak",
     "owner": "com",
     "disposition": "retain",
     "reason": "Preserve noncompiled backup bytes; follow test relocation when a current peer exists.",
     "source_sha256": "b6659b62b576ba29f335432a9e9190639975250f27e7c47b4b9e490fc798717a"
   },
   {
-    "old": "src/test/java/com/cashly/cashly_api/invoices/application/usecases/GetInvoicesUseCaseUnitTest.java.bak",
-    "new": "src/test/java/com/cashly/cashly_api/invoices/application/usecases/GetInvoicesUseCaseUnitTest.java.bak",
+    "old": "src/test/java/com/parsun/parsun_api/invoices/application/usecases/GetInvoicesUseCaseUnitTest.java.bak",
+    "new": "src/test/java/com/parsun/parsun_api/invoices/application/usecases/GetInvoicesUseCaseUnitTest.java.bak",
     "owner": "com",
     "disposition": "retain",
     "reason": "Preserve noncompiled backup bytes; follow test relocation when a current peer exists.",
     "source_sha256": "7c9ffc58b5febdbf3305628f9d83fa07d345d00ef6b95f5954c6a48b08cf5b87"
   },
   {
-    "old": "src/test/java/com/cashly/cashly_api/invoices/application/usecases/UpdateInvoiceUseCaseUnitTest.java.bak",
-    "new": "src/test/java/com/cashly/cashly_api/invoices/application/usecases/UpdateInvoiceUseCaseUnitTest.java.bak",
+    "old": "src/test/java/com/parsun/parsun_api/invoices/application/usecases/UpdateInvoiceUseCaseUnitTest.java.bak",
+    "new": "src/test/java/com/parsun/parsun_api/invoices/application/usecases/UpdateInvoiceUseCaseUnitTest.java.bak",
     "owner": "com",
     "disposition": "retain",
     "reason": "Preserve noncompiled backup bytes; follow test relocation when a current peer exists.",
     "source_sha256": "0dfb76be8557fa17db4a2b16070e315a58cee74d926bcf47f6b3a60b93b96cde"
   },
   {
-    "old": "src/test/java/com/cashly/cashly_api/orders/application/usecases/GetOrdersUseCaseUnitTest.java.bak",
-    "new": "src/test/java/com/cashly/cashly_api/orders/application/usecases/GetOrdersUseCaseUnitTest.java.bak",
+    "old": "src/test/java/com/parsun/parsun_api/orders/application/usecases/GetOrdersUseCaseUnitTest.java.bak",
+    "new": "src/test/java/com/parsun/parsun_api/orders/application/usecases/GetOrdersUseCaseUnitTest.java.bak",
     "owner": "com",
     "disposition": "retain",
     "reason": "Preserve noncompiled backup bytes; follow test relocation when a current peer exists.",
     "source_sha256": "f056f0dd263b815aa81f76986adfa659e5e009faa88985802cc9f88ce78c1605"
   },
   {
-    "old": "src/test/java/com/cashly/cashly_api/price_types/application/usecases/ListPriceTypesUseCaseUnitTest.java.bak",
-    "new": "src/test/java/com/cashly/cashly_api/price_types/application/usecases/ListPriceTypesUseCaseUnitTest.java.bak",
+    "old": "src/test/java/com/parsun/parsun_api/price_types/application/usecases/ListPriceTypesUseCaseUnitTest.java.bak",
+    "new": "src/test/java/com/parsun/parsun_api/price_types/application/usecases/ListPriceTypesUseCaseUnitTest.java.bak",
     "owner": "com",
     "disposition": "retain",
     "reason": "Preserve noncompiled backup bytes; follow test relocation when a current peer exists.",

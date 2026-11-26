@@ -776,7 +776,7 @@
         "line_coverage_percent": 43.9056
       }
     },
-    "relocated/com/cashly/cashly_api/auth/authentication/application/login/request/LoginRequest": {
+    "relocated/com/parsun/parsun_api/auth/authentication/application/login/request/LoginRequest": {
       "baseline": {
         "covered": 6,
         "missed": 0,
@@ -788,7 +788,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/auth/authentication/application/login/use_case/LoginUserUseCase": {
+    "relocated/com/parsun/parsun_api/auth/authentication/application/login/use_case/LoginUserUseCase": {
       "baseline": {
         "covered": 22,
         "missed": 1,
@@ -800,7 +800,7 @@
         "line_coverage_percent": 95.6522
       }
     },
-    "relocated/com/cashly/cashly_api/auth/authentication/domain/entity/Authenticable": {
+    "relocated/com/parsun/parsun_api/auth/authentication/domain/entity/Authenticable": {
       "baseline": {
         "covered": 3,
         "missed": 0,
@@ -812,7 +812,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/auth/authentication/domain/valueobjects/AuthenticableType": {
+    "relocated/com/parsun/parsun_api/auth/authentication/domain/valueobjects/AuthenticableType": {
       "baseline": {
         "covered": 2,
         "missed": 0,
@@ -824,7 +824,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/auth/token/application/logout/request/LogoutRequest": {
+    "relocated/com/parsun/parsun_api/auth/token/application/logout/request/LogoutRequest": {
       "baseline": {
         "covered": 4,
         "missed": 0,
@@ -836,7 +836,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/auth/token/application/logout/use_case/LogoutUserUseCase": {
+    "relocated/com/parsun/parsun_api/auth/token/application/logout/use_case/LogoutUserUseCase": {
       "baseline": {
         "covered": 8,
         "missed": 0,
@@ -848,7 +848,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/auth/token/application/refresh/request/RefreshTokenRequest": {
+    "relocated/com/parsun/parsun_api/auth/token/application/refresh/request/RefreshTokenRequest": {
       "baseline": {
         "covered": 4,
         "missed": 0,
@@ -860,7 +860,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/auth/token/application/refresh/use_case/RefreshTokenUseCase": {
+    "relocated/com/parsun/parsun_api/auth/token/application/refresh/use_case/RefreshTokenUseCase": {
       "baseline": {
         "covered": 23,
         "missed": 0,
@@ -872,7 +872,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/auth/token/domain/entity/RefreshToken": {
+    "relocated/com/parsun/parsun_api/auth/token/domain/entity/RefreshToken": {
       "baseline": {
         "covered": 51,
         "missed": 6,
@@ -884,7 +884,7 @@
         "line_coverage_percent": 89.4737
       }
     },
-    "relocated/com/cashly/cashly_api/auth/user/application/delete/use_case/DeleteUserUseCase": {
+    "relocated/com/parsun/parsun_api/auth/user/application/delete/use_case/DeleteUserUseCase": {
       "baseline": {
         "covered": 4,
         "missed": 11,
@@ -896,7 +896,7 @@
         "line_coverage_percent": 26.6667
       }
     },
-    "relocated/com/cashly/cashly_api/auth/user/application/email/request/UpdateUserEmailRequest": {
+    "relocated/com/parsun/parsun_api/auth/user/application/email/request/UpdateUserEmailRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -908,7 +908,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/auth/user/application/email/use_case/UpdateUserEmailUseCase": {
+    "relocated/com/parsun/parsun_api/auth/user/application/email/use_case/UpdateUserEmailUseCase": {
       "baseline": {
         "covered": 12,
         "missed": 0,
@@ -920,7 +920,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/auth/user/application/password/request/UpdateUserPasswordRequest": {
+    "relocated/com/parsun/parsun_api/auth/user/application/password/request/UpdateUserPasswordRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -932,7 +932,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/auth/user/application/password/use_case/UpdateUserPasswordUseCase": {
+    "relocated/com/parsun/parsun_api/auth/user/application/password/use_case/UpdateUserPasswordUseCase": {
       "baseline": {
         "covered": 14,
         "missed": 1,
@@ -944,7 +944,7 @@
         "line_coverage_percent": 93.3333
       }
     },
-    "relocated/com/cashly/cashly_api/auth/user/application/permissions/request/UpdateUserModulePermissionsRequest": {
+    "relocated/com/parsun/parsun_api/auth/user/application/permissions/request/UpdateUserModulePermissionsRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -956,7 +956,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/auth/user/application/permissions/use_case/UpdateUserModulePermissionsUseCase": {
+    "relocated/com/parsun/parsun_api/auth/user/application/permissions/use_case/UpdateUserModulePermissionsUseCase": {
       "baseline": {
         "covered": 9,
         "missed": 0,
@@ -968,7 +968,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/auth/user/application/queries/services/RepositoryActorIdentityQuery": {
+    "relocated/com/parsun/parsun_api/auth/user/application/queries/services/RepositoryActorIdentityQuery": {
       "baseline": {
         "covered": 7,
         "missed": 0,
@@ -980,7 +980,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/auth/user/application/queries/services/RepositoryNotificationRecipientsQuery": {
+    "relocated/com/parsun/parsun_api/auth/user/application/queries/services/RepositoryNotificationRecipientsQuery": {
       "baseline": {
         "covered": 4,
         "missed": 0,
@@ -992,7 +992,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/auth/user/application/queries/use_case/GetAllUsersUseCase": {
+    "relocated/com/parsun/parsun_api/auth/user/application/queries/use_case/GetAllUsersUseCase": {
       "baseline": {
         "covered": 21,
         "missed": 0,
@@ -1004,7 +1004,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/auth/user/application/queries/use_case/GetUserByIdUseCase": {
+    "relocated/com/parsun/parsun_api/auth/user/application/queries/use_case/GetUserByIdUseCase": {
       "baseline": {
         "covered": 7,
         "missed": 0,
@@ -1016,7 +1016,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/auth/user/application/register/request/RegisterUserRequest": {
+    "relocated/com/parsun/parsun_api/auth/user/application/register/request/RegisterUserRequest": {
       "baseline": {
         "covered": 14,
         "missed": 1,
@@ -1028,7 +1028,7 @@
         "line_coverage_percent": 93.3333
       }
     },
-    "relocated/com/cashly/cashly_api/auth/user/application/register/use_case/RegisterUserUseCase": {
+    "relocated/com/parsun/parsun_api/auth/user/application/register/use_case/RegisterUserUseCase": {
       "baseline": {
         "covered": 14,
         "missed": 0,
@@ -1040,7 +1040,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/auth/user/application/update/request/UpdateUserRequest": {
+    "relocated/com/parsun/parsun_api/auth/user/application/update/request/UpdateUserRequest": {
       "baseline": {
         "covered": 0,
         "missed": 1,
@@ -1052,7 +1052,7 @@
         "line_coverage_percent": 0.0
       }
     },
-    "relocated/com/cashly/cashly_api/auth/user/application/update/use_case/UpdateUserUseCase": {
+    "relocated/com/parsun/parsun_api/auth/user/application/update/use_case/UpdateUserUseCase": {
       "baseline": {
         "covered": 3,
         "missed": 13,
@@ -1064,7 +1064,7 @@
         "line_coverage_percent": 18.75
       }
     },
-    "relocated/com/cashly/cashly_api/auth/user/domain/entity/User": {
+    "relocated/com/parsun/parsun_api/auth/user/domain/entity/User": {
       "baseline": {
         "covered": 73,
         "missed": 25,
@@ -1076,7 +1076,7 @@
         "line_coverage_percent": 74.4898
       }
     },
-    "relocated/com/cashly/cashly_api/cash_register/reporting/application/dto/model/CashRegisterExportRow": {
+    "relocated/com/parsun/parsun_api/cash_register/reporting/application/dto/model/CashRegisterExportRow": {
       "baseline": {
         "covered": 9,
         "missed": 0,
@@ -1088,7 +1088,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/cash_register/reporting/application/dto/model/CashRegisterReportFilter": {
+    "relocated/com/parsun/parsun_api/cash_register/reporting/application/dto/model/CashRegisterReportFilter": {
       "baseline": {
         "covered": 5,
         "missed": 2,
@@ -1100,7 +1100,7 @@
         "line_coverage_percent": 71.4286
       }
     },
-    "relocated/com/cashly/cashly_api/cash_register/reporting/application/dto/model/CustomerSummary": {
+    "relocated/com/parsun/parsun_api/cash_register/reporting/application/dto/model/CustomerSummary": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -1112,7 +1112,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/cash_register/reporting/application/dto/model/ReportFormat": {
+    "relocated/com/parsun/parsun_api/cash_register/reporting/application/dto/model/ReportFormat": {
       "baseline": {
         "covered": 3,
         "missed": 0,
@@ -1124,7 +1124,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/cash_register/reporting/application/dto/model/ReportType": {
+    "relocated/com/parsun/parsun_api/cash_register/reporting/application/dto/model/ReportType": {
       "baseline": {
         "covered": 4,
         "missed": 0,
@@ -1136,7 +1136,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/cash_register/reporting/application/excel/services/GenerateCashRegisterExcelUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/cash_register/reporting/application/excel/services/GenerateCashRegisterExcelUseCaseImpl": {
       "baseline": {
         "covered": 15,
         "missed": 0,
@@ -1148,7 +1148,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/cash_register/reporting/application/range/use_case/GenerateCashRegisterRangeReportUseCase": {
+    "relocated/com/parsun/parsun_api/cash_register/reporting/application/range/use_case/GenerateCashRegisterRangeReportUseCase": {
       "baseline": {
         "covered": 5,
         "missed": 0,
@@ -1160,7 +1160,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/cash_register/reporting/application/session/use_case/GenerateCashRegisterReportUseCase": {
+    "relocated/com/parsun/parsun_api/cash_register/reporting/application/session/use_case/GenerateCashRegisterReportUseCase": {
       "baseline": {
         "covered": 16,
         "missed": 0,
@@ -1172,7 +1172,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/cash_register/sessions/application/close/request/CloseRegisterRequest": {
+    "relocated/com/parsun/parsun_api/cash_register/sessions/application/close/request/CloseRegisterRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -1184,7 +1184,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/cash_register/sessions/application/close/use_case/CloseRegisterUseCase": {
+    "relocated/com/parsun/parsun_api/cash_register/sessions/application/close/use_case/CloseRegisterUseCase": {
       "baseline": {
         "covered": 20,
         "missed": 0,
@@ -1196,7 +1196,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/cash_register/sessions/application/dto/response/CashRegisterDetailResponse": {
+    "relocated/com/parsun/parsun_api/cash_register/sessions/application/dto/response/CashRegisterDetailResponse": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -1208,7 +1208,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/cash_register/sessions/application/dto/response/CashRegisterMetrics": {
+    "relocated/com/parsun/parsun_api/cash_register/sessions/application/dto/response/CashRegisterMetrics": {
       "baseline": {
         "covered": 6,
         "missed": 0,
@@ -1220,7 +1220,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/cash_register/sessions/application/dto/response/CashRegisterResponse": {
+    "relocated/com/parsun/parsun_api/cash_register/sessions/application/dto/response/CashRegisterResponse": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -1232,7 +1232,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/cash_register/sessions/application/dto/response/DailyTotals": {
+    "relocated/com/parsun/parsun_api/cash_register/sessions/application/dto/response/DailyTotals": {
       "baseline": {
         "covered": 5,
         "missed": 0,
@@ -1244,7 +1244,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/cash_register/sessions/application/dto/response/ExpenseSummaryItem": {
+    "relocated/com/parsun/parsun_api/cash_register/sessions/application/dto/response/ExpenseSummaryItem": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -1256,7 +1256,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/cash_register/sessions/application/dto/response/RevenueSummaryItem": {
+    "relocated/com/parsun/parsun_api/cash_register/sessions/application/dto/response/RevenueSummaryItem": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -1268,7 +1268,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/cash_register/sessions/application/mappers/CashRegisterMapper": {
+    "relocated/com/parsun/parsun_api/cash_register/sessions/application/mappers/CashRegisterMapper": {
       "baseline": {
         "covered": 55,
         "missed": 0,
@@ -1280,7 +1280,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/cash_register/sessions/application/movements/request/CashMovementRequest": {
+    "relocated/com/parsun/parsun_api/cash_register/sessions/application/movements/request/CashMovementRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -1292,7 +1292,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/cash_register/sessions/application/movements/response/CashMovementResponse": {
+    "relocated/com/parsun/parsun_api/cash_register/sessions/application/movements/response/CashMovementResponse": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -1304,7 +1304,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/cash_register/sessions/application/movements/services/CashMovementService": {
+    "relocated/com/parsun/parsun_api/cash_register/sessions/application/movements/services/CashMovementService": {
       "baseline": {
         "covered": 19,
         "missed": 1,
@@ -1316,7 +1316,7 @@
         "line_coverage_percent": 95.0
       }
     },
-    "relocated/com/cashly/cashly_api/cash_register/sessions/application/movements/use_case/RecordCashMovementUseCase": {
+    "relocated/com/parsun/parsun_api/cash_register/sessions/application/movements/use_case/RecordCashMovementUseCase": {
       "baseline": {
         "covered": 17,
         "missed": 1,
@@ -1328,7 +1328,7 @@
         "line_coverage_percent": 94.4444
       }
     },
-    "relocated/com/cashly/cashly_api/cash_register/sessions/application/open/request/OpenRegisterRequest": {
+    "relocated/com/parsun/parsun_api/cash_register/sessions/application/open/request/OpenRegisterRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -1340,7 +1340,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/cash_register/sessions/application/open/use_case/OpenRegisterUseCase": {
+    "relocated/com/parsun/parsun_api/cash_register/sessions/application/open/use_case/OpenRegisterUseCase": {
       "baseline": {
         "covered": 9,
         "missed": 0,
@@ -1352,7 +1352,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/cash_register/sessions/application/queries/use_case/GetActiveRegisterUseCase": {
+    "relocated/com/parsun/parsun_api/cash_register/sessions/application/queries/use_case/GetActiveRegisterUseCase": {
       "baseline": {
         "covered": 17,
         "missed": 0,
@@ -1364,7 +1364,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/cash_register/sessions/application/queries/use_case/GetRegisterHistoryUseCase": {
+    "relocated/com/parsun/parsun_api/cash_register/sessions/application/queries/use_case/GetRegisterHistoryUseCase": {
       "baseline": {
         "covered": 17,
         "missed": 0,
@@ -1376,7 +1376,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/cash_register/sessions/domain/entity/CashMovement": {
+    "relocated/com/parsun/parsun_api/cash_register/sessions/domain/entity/CashMovement": {
       "baseline": {
         "covered": 42,
         "missed": 1,
@@ -1388,7 +1388,7 @@
         "line_coverage_percent": 97.6744
       }
     },
-    "relocated/com/cashly/cashly_api/cash_register/sessions/domain/entity/CashRegister": {
+    "relocated/com/parsun/parsun_api/cash_register/sessions/domain/entity/CashRegister": {
       "baseline": {
         "covered": 135,
         "missed": 3,
@@ -1400,7 +1400,7 @@
         "line_coverage_percent": 97.8261
       }
     },
-    "relocated/com/cashly/cashly_api/cash_register/sessions/domain/entity/CashRegisterDetail": {
+    "relocated/com/parsun/parsun_api/cash_register/sessions/domain/entity/CashRegisterDetail": {
       "baseline": {
         "covered": 17,
         "missed": 0,
@@ -1412,7 +1412,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/categories/application/create/request/CreateCategoryRequest": {
+    "relocated/com/parsun/parsun_api/categories/application/create/request/CreateCategoryRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -1424,7 +1424,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/categories/application/create/use_case/CreateCategoryUseCase": {
+    "relocated/com/parsun/parsun_api/categories/application/create/use_case/CreateCategoryUseCase": {
       "baseline": {
         "covered": 9,
         "missed": 0,
@@ -1436,7 +1436,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/categories/application/delete/use_case/DeleteCategoryUseCase": {
+    "relocated/com/parsun/parsun_api/categories/application/delete/use_case/DeleteCategoryUseCase": {
       "baseline": {
         "covered": 12,
         "missed": 0,
@@ -1448,7 +1448,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/categories/application/queries/services/RepositoryProductCategoryQuery": {
+    "relocated/com/parsun/parsun_api/categories/application/queries/services/RepositoryProductCategoryQuery": {
       "baseline": {
         "covered": 4,
         "missed": 0,
@@ -1460,7 +1460,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/categories/application/queries/use_case/GetCategoryUseCase": {
+    "relocated/com/parsun/parsun_api/categories/application/queries/use_case/GetCategoryUseCase": {
       "baseline": {
         "covered": 9,
         "missed": 0,
@@ -1472,7 +1472,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/categories/application/queries/use_case/ListCategoriesUseCase": {
+    "relocated/com/parsun/parsun_api/categories/application/queries/use_case/ListCategoriesUseCase": {
       "baseline": {
         "covered": 14,
         "missed": 0,
@@ -1484,7 +1484,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/categories/application/update/request/UpdateCategoryRequest": {
+    "relocated/com/parsun/parsun_api/categories/application/update/request/UpdateCategoryRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -1496,7 +1496,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/categories/application/update/use_case/UpdateCategoryUseCase": {
+    "relocated/com/parsun/parsun_api/categories/application/update/use_case/UpdateCategoryUseCase": {
       "baseline": {
         "covered": 11,
         "missed": 0,
@@ -1508,7 +1508,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/categories/domain/entity/Category": {
+    "relocated/com/parsun/parsun_api/categories/domain/entity/Category": {
       "baseline": {
         "covered": 45,
         "missed": 1,
@@ -1520,7 +1520,7 @@
         "line_coverage_percent": 97.8261
       }
     },
-    "relocated/com/cashly/cashly_api/credit_notes/application/create/request/CreateCreditNoteRequest": {
+    "relocated/com/parsun/parsun_api/credit_notes/application/create/request/CreateCreditNoteRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -1532,7 +1532,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/credit_notes/application/create/use_case/CreateCreditNoteUseCase": {
+    "relocated/com/parsun/parsun_api/credit_notes/application/create/use_case/CreateCreditNoteUseCase": {
       "baseline": {
         "covered": 29,
         "missed": 0,
@@ -1544,7 +1544,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/credit_notes/application/delete/use_case/DeleteCreditNoteUseCase": {
+    "relocated/com/parsun/parsun_api/credit_notes/application/delete/use_case/DeleteCreditNoteUseCase": {
       "baseline": {
         "covered": 11,
         "missed": 0,
@@ -1556,7 +1556,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/credit_notes/application/get/use_case/GetCreditNoteByIdUseCase": {
+    "relocated/com/parsun/parsun_api/credit_notes/application/get/use_case/GetCreditNoteByIdUseCase": {
       "baseline": {
         "covered": 11,
         "missed": 0,
@@ -1568,7 +1568,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/credit_notes/application/list/use_case/GetCreditNotesUseCase": {
+    "relocated/com/parsun/parsun_api/credit_notes/application/list/use_case/GetCreditNotesUseCase": {
       "baseline": {
         "covered": 18,
         "missed": 0,
@@ -1580,7 +1580,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/credit_notes/application/queries/services/InvoiceCreditNoteDetailsQueryService": {
+    "relocated/com/parsun/parsun_api/credit_notes/application/queries/services/InvoiceCreditNoteDetailsQueryService": {
       "baseline": {
         "covered": 4,
         "missed": 2,
@@ -1592,7 +1592,7 @@
         "line_coverage_percent": 66.6667
       }
     },
-    "relocated/com/cashly/cashly_api/credit_notes/application/queries/services/RepositoryCreditNoteLedgerQuery": {
+    "relocated/com/parsun/parsun_api/credit_notes/application/queries/services/RepositoryCreditNoteLedgerQuery": {
       "baseline": {
         "covered": 2,
         "missed": 0,
@@ -1604,7 +1604,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/credit_notes/domain/entity/CreditNote": {
+    "relocated/com/parsun/parsun_api/credit_notes/domain/entity/CreditNote": {
       "baseline": {
         "covered": 42,
         "missed": 0,
@@ -1616,7 +1616,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/customers/balance/application/add/use_case/AddToCustomerBalanceUseCase": {
+    "relocated/com/parsun/parsun_api/customers/balance/application/add/use_case/AddToCustomerBalanceUseCase": {
       "baseline": {
         "covered": 12,
         "missed": 0,
@@ -1628,7 +1628,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/customers/balance/application/advance/request/CreateAdvanceRequest": {
+    "relocated/com/parsun/parsun_api/customers/balance/application/advance/request/CreateAdvanceRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -1640,7 +1640,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/customers/balance/application/advance/use_case/CreateCustomerAdvanceUseCase": {
+    "relocated/com/parsun/parsun_api/customers/balance/application/advance/use_case/CreateCustomerAdvanceUseCase": {
       "baseline": {
         "covered": 15,
         "missed": 0,
@@ -1652,7 +1652,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/customers/balance/application/consume/use_case/ConsumeCustomerBalanceUseCase": {
+    "relocated/com/parsun/parsun_api/customers/balance/application/consume/use_case/ConsumeCustomerBalanceUseCase": {
       "baseline": {
         "covered": 13,
         "missed": 0,
@@ -1664,7 +1664,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/customers/balance/application/get/use_case/GetCustomerBalanceUseCase": {
+    "relocated/com/parsun/parsun_api/customers/balance/application/get/use_case/GetCustomerBalanceUseCase": {
       "baseline": {
         "covered": 19,
         "missed": 0,
@@ -1676,7 +1676,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/customers/balance/application/refund/request/CreateRefundRequest": {
+    "relocated/com/parsun/parsun_api/customers/balance/application/refund/request/CreateRefundRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -1688,7 +1688,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/customers/balance/application/refund/use_case/RefundCustomerBalanceUseCase": {
+    "relocated/com/parsun/parsun_api/customers/balance/application/refund/use_case/RefundCustomerBalanceUseCase": {
       "baseline": {
         "covered": 15,
         "missed": 0,
@@ -1700,7 +1700,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/customers/balance/domain/entity/BalanceTransaction": {
+    "relocated/com/parsun/parsun_api/customers/balance/domain/entity/BalanceTransaction": {
       "baseline": {
         "covered": 36,
         "missed": 1,
@@ -1712,7 +1712,7 @@
         "line_coverage_percent": 97.2973
       }
     },
-    "relocated/com/cashly/cashly_api/customers/balance/domain/entity/CustomerBalance": {
+    "relocated/com/parsun/parsun_api/customers/balance/domain/entity/CustomerBalance": {
       "baseline": {
         "covered": 36,
         "missed": 1,
@@ -1724,7 +1724,7 @@
         "line_coverage_percent": 97.2973
       }
     },
-    "relocated/com/cashly/cashly_api/customers/credit/application/overdue/use_case/GetOverdueInvoicesUseCase": {
+    "relocated/com/parsun/parsun_api/customers/credit/application/overdue/use_case/GetOverdueInvoicesUseCase": {
       "baseline": {
         "covered": 4,
         "missed": 0,
@@ -1736,7 +1736,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/customers/credit/application/queries/services/RepositoryCustomerCreditContextQuery": {
+    "relocated/com/parsun/parsun_api/customers/credit/application/queries/services/RepositoryCustomerCreditContextQuery": {
       "baseline": {
         "covered": 7,
         "missed": 0,
@@ -1748,7 +1748,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/customers/credit/application/status/use_case/GetCustomerCreditStatusUseCase": {
+    "relocated/com/parsun/parsun_api/customers/credit/application/status/use_case/GetCustomerCreditStatusUseCase": {
       "baseline": {
         "covered": 4,
         "missed": 0,
@@ -1760,7 +1760,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/customers/profile/application/delete/services/CustomerHasAssociatedRecordsException": {
+    "relocated/com/parsun/parsun_api/customers/profile/application/delete/services/CustomerHasAssociatedRecordsException": {
       "baseline": {
         "covered": 0,
         "missed": 2,
@@ -1772,7 +1772,7 @@
         "line_coverage_percent": 0.0
       }
     },
-    "relocated/com/cashly/cashly_api/customers/profile/application/delete/use_case/DeleteCustomerUseCase": {
+    "relocated/com/parsun/parsun_api/customers/profile/application/delete/use_case/DeleteCustomerUseCase": {
       "baseline": {
         "covered": 9,
         "missed": 1,
@@ -1784,7 +1784,7 @@
         "line_coverage_percent": 90.0
       }
     },
-    "relocated/com/cashly/cashly_api/customers/profile/application/get/use_case/GetCustomerUseCase": {
+    "relocated/com/parsun/parsun_api/customers/profile/application/get/use_case/GetCustomerUseCase": {
       "baseline": {
         "covered": 8,
         "missed": 0,
@@ -1796,7 +1796,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/customers/profile/application/list/use_case/ListCustomersUseCase": {
+    "relocated/com/parsun/parsun_api/customers/profile/application/list/use_case/ListCustomersUseCase": {
       "baseline": {
         "covered": 21,
         "missed": 0,
@@ -1808,7 +1808,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/customers/profile/application/queries/services/RepositoryCustomerCreditTermsQuery": {
+    "relocated/com/parsun/parsun_api/customers/profile/application/queries/services/RepositoryCustomerCreditTermsQuery": {
       "baseline": {
         "covered": 6,
         "missed": 0,
@@ -1820,7 +1820,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/customers/profile/application/queries/services/RepositoryCustomerProductPricingQuery": {
+    "relocated/com/parsun/parsun_api/customers/profile/application/queries/services/RepositoryCustomerProductPricingQuery": {
       "baseline": {
         "covered": 5,
         "missed": 0,
@@ -1832,7 +1832,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/customers/profile/application/queries/services/RepositoryCustomerProfileQuery": {
+    "relocated/com/parsun/parsun_api/customers/profile/application/queries/services/RepositoryCustomerProfileQuery": {
       "baseline": {
         "covered": 4,
         "missed": 35,
@@ -1844,7 +1844,7 @@
         "line_coverage_percent": 10.2564
       }
     },
-    "relocated/com/cashly/cashly_api/customers/profile/application/queries/services/RepositoryInvoiceCustomerQuery": {
+    "relocated/com/parsun/parsun_api/customers/profile/application/queries/services/RepositoryInvoiceCustomerQuery": {
       "baseline": {
         "covered": 3,
         "missed": 0,
@@ -1856,7 +1856,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/customers/profile/application/register/request/CreateCustomerRequest": {
+    "relocated/com/parsun/parsun_api/customers/profile/application/register/request/CreateCustomerRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -1868,7 +1868,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/customers/profile/application/register/response/CustomerCreateResponse": {
+    "relocated/com/parsun/parsun_api/customers/profile/application/register/response/CustomerCreateResponse": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -1880,7 +1880,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/customers/profile/application/register/use_case/RegisterCustomerUseCase": {
+    "relocated/com/parsun/parsun_api/customers/profile/application/register/use_case/RegisterCustomerUseCase": {
       "baseline": {
         "covered": 34,
         "missed": 0,
@@ -1892,7 +1892,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/customers/profile/application/update/request/UpdateCustomerRequest": {
+    "relocated/com/parsun/parsun_api/customers/profile/application/update/request/UpdateCustomerRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -1904,7 +1904,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/customers/profile/application/update/use_case/UpdateCustomerUseCase": {
+    "relocated/com/parsun/parsun_api/customers/profile/application/update/use_case/UpdateCustomerUseCase": {
       "baseline": {
         "covered": 31,
         "missed": 0,
@@ -1916,7 +1916,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/customers/profile/domain/entity/Customer": {
+    "relocated/com/parsun/parsun_api/customers/profile/domain/entity/Customer": {
       "baseline": {
         "covered": 105,
         "missed": 1,
@@ -1928,7 +1928,7 @@
         "line_coverage_percent": 99.0566
       }
     },
-    "relocated/com/cashly/cashly_api/customers/profile/domain/entity/CustomerAddress": {
+    "relocated/com/parsun/parsun_api/customers/profile/domain/entity/CustomerAddress": {
       "baseline": {
         "covered": 35,
         "missed": 0,
@@ -1940,7 +1940,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/customers/profile/domain/entity/CustomerEmail": {
+    "relocated/com/parsun/parsun_api/customers/profile/domain/entity/CustomerEmail": {
       "baseline": {
         "covered": 17,
         "missed": 0,
@@ -1952,7 +1952,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/customers/profile/domain/entity/CustomerPhone": {
+    "relocated/com/parsun/parsun_api/customers/profile/domain/entity/CustomerPhone": {
       "baseline": {
         "covered": 17,
         "missed": 0,
@@ -1964,7 +1964,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/customers/warehouse_access/application/grant/use_case/GrantWarehouseAccessUseCase": {
+    "relocated/com/parsun/parsun_api/customers/warehouse_access/application/grant/use_case/GrantWarehouseAccessUseCase": {
       "baseline": {
         "covered": 13,
         "missed": 0,
@@ -1976,7 +1976,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/customers/warehouse_access/application/list/use_case/ListCustomerWarehousesUseCase": {
+    "relocated/com/parsun/parsun_api/customers/warehouse_access/application/list/use_case/ListCustomerWarehousesUseCase": {
       "baseline": {
         "covered": 15,
         "missed": 0,
@@ -1988,7 +1988,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/customers/warehouse_access/application/queries/services/RepositoryCustomerWarehouseAccessQuery": {
+    "relocated/com/parsun/parsun_api/customers/warehouse_access/application/queries/services/RepositoryCustomerWarehouseAccessQuery": {
       "baseline": {
         "covered": 5,
         "missed": 0,
@@ -2000,7 +2000,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/customers/warehouse_access/application/revoke/use_case/RevokeWarehouseAccessUseCase": {
+    "relocated/com/parsun/parsun_api/customers/warehouse_access/application/revoke/use_case/RevokeWarehouseAccessUseCase": {
       "baseline": {
         "covered": 8,
         "missed": 0,
@@ -2012,7 +2012,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/customers/warehouse_access/domain/entity/CustomerWarehouseAccess": {
+    "relocated/com/parsun/parsun_api/customers/warehouse_access/domain/entity/CustomerWarehouseAccess": {
       "baseline": {
         "covered": 16,
         "missed": 0,
@@ -2024,7 +2024,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/dashboard/application/summary/use_case/GetDashboardUseCase": {
+    "relocated/com/parsun/parsun_api/dashboard/application/summary/use_case/GetDashboardUseCase": {
       "baseline": {
         "covered": 9,
         "missed": 0,
@@ -2036,7 +2036,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/debit_notes/application/create/request/CreateDebitNoteRequest": {
+    "relocated/com/parsun/parsun_api/debit_notes/application/create/request/CreateDebitNoteRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -2048,7 +2048,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/debit_notes/application/create/use_case/CreateDebitNoteUseCase": {
+    "relocated/com/parsun/parsun_api/debit_notes/application/create/use_case/CreateDebitNoteUseCase": {
       "baseline": {
         "covered": 19,
         "missed": 0,
@@ -2060,7 +2060,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/debit_notes/application/delete/use_case/DeleteDebitNoteUseCase": {
+    "relocated/com/parsun/parsun_api/debit_notes/application/delete/use_case/DeleteDebitNoteUseCase": {
       "baseline": {
         "covered": 11,
         "missed": 0,
@@ -2072,7 +2072,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/debit_notes/application/get/use_case/GetDebitNoteByIdUseCase": {
+    "relocated/com/parsun/parsun_api/debit_notes/application/get/use_case/GetDebitNoteByIdUseCase": {
       "baseline": {
         "covered": 11,
         "missed": 0,
@@ -2084,7 +2084,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/debit_notes/application/list/use_case/GetDebitNotesUseCase": {
+    "relocated/com/parsun/parsun_api/debit_notes/application/list/use_case/GetDebitNotesUseCase": {
       "baseline": {
         "covered": 18,
         "missed": 0,
@@ -2096,7 +2096,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/debit_notes/application/queries/services/InvoiceDebitNoteDetailsQueryService": {
+    "relocated/com/parsun/parsun_api/debit_notes/application/queries/services/InvoiceDebitNoteDetailsQueryService": {
       "baseline": {
         "covered": 4,
         "missed": 2,
@@ -2108,7 +2108,7 @@
         "line_coverage_percent": 66.6667
       }
     },
-    "relocated/com/cashly/cashly_api/debit_notes/application/queries/services/RepositoryDebitNoteLedgerQuery": {
+    "relocated/com/parsun/parsun_api/debit_notes/application/queries/services/RepositoryDebitNoteLedgerQuery": {
       "baseline": {
         "covered": 2,
         "missed": 0,
@@ -2120,7 +2120,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/debit_notes/domain/entity/DebitNote": {
+    "relocated/com/parsun/parsun_api/debit_notes/domain/entity/DebitNote": {
       "baseline": {
         "covered": 42,
         "missed": 0,
@@ -2132,7 +2132,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/application/cancel/request/CancelInvoiceRequest": {
+    "relocated/com/parsun/parsun_api/invoices/application/cancel/request/CancelInvoiceRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -2144,7 +2144,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/application/cancel/use_case/CancelInvoiceUseCase": {
+    "relocated/com/parsun/parsun_api/invoices/application/cancel/use_case/CancelInvoiceUseCase": {
       "baseline": {
         "covered": 16,
         "missed": 0,
@@ -2156,7 +2156,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/application/confirm/request/ConfirmInvoiceRequest": {
+    "relocated/com/parsun/parsun_api/invoices/application/confirm/request/ConfirmInvoiceRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -2168,7 +2168,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/application/confirm/use_case/ConfirmInvoiceUseCase": {
+    "relocated/com/parsun/parsun_api/invoices/application/confirm/use_case/ConfirmInvoiceUseCase": {
       "baseline": {
         "covered": 9,
         "missed": 0,
@@ -2180,7 +2180,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/application/create/from_order/services/OrderInvoiceCreationService": {
+    "relocated/com/parsun/parsun_api/invoices/application/create/from_order/services/OrderInvoiceCreationService": {
       "baseline": {
         "covered": 8,
         "missed": 0,
@@ -2192,7 +2192,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/application/create/from_quote/services/QuoteInvoiceCreationService": {
+    "relocated/com/parsun/parsun_api/invoices/application/create/from_quote/services/QuoteInvoiceCreationService": {
       "baseline": {
         "covered": 24,
         "missed": 0,
@@ -2204,7 +2204,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/application/create/request/CreateInvoiceRequest": {
+    "relocated/com/parsun/parsun_api/invoices/application/create/request/CreateInvoiceRequest": {
       "baseline": {
         "covered": 5,
         "missed": 0,
@@ -2216,7 +2216,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/application/create/request/CreateInvoiceRequest$InvoiceLineRequest": {
+    "relocated/com/parsun/parsun_api/invoices/application/create/request/CreateInvoiceRequest$InvoiceLineRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -2228,7 +2228,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/application/create/request/CreateInvoiceRequest$WarehouseAllocationRequest": {
+    "relocated/com/parsun/parsun_api/invoices/application/create/request/CreateInvoiceRequest$WarehouseAllocationRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -2240,7 +2240,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/application/create/use_case/CreateInvoiceUseCase": {
+    "relocated/com/parsun/parsun_api/invoices/application/create/use_case/CreateInvoiceUseCase": {
       "baseline": {
         "covered": 73,
         "missed": 14,
@@ -2252,7 +2252,7 @@
         "line_coverage_percent": 83.908
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/application/delete/use_case/DeleteInvoiceUseCase": {
+    "relocated/com/parsun/parsun_api/invoices/application/delete/use_case/DeleteInvoiceUseCase": {
       "baseline": {
         "covered": 17,
         "missed": 0,
@@ -2264,7 +2264,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/application/duplicate/request/DuplicateInvoiceRequest": {
+    "relocated/com/parsun/parsun_api/invoices/application/duplicate/request/DuplicateInvoiceRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -2276,7 +2276,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/application/duplicate/use_case/DuplicateInvoiceUseCase": {
+    "relocated/com/parsun/parsun_api/invoices/application/duplicate/use_case/DuplicateInvoiceUseCase": {
       "baseline": {
         "covered": 45,
         "missed": 0,
@@ -2288,7 +2288,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/application/get/use_case/GetInvoiceByIdUseCase": {
+    "relocated/com/parsun/parsun_api/invoices/application/get/use_case/GetInvoiceByIdUseCase": {
       "baseline": {
         "covered": 42,
         "missed": 7,
@@ -2300,7 +2300,7 @@
         "line_coverage_percent": 85.7143
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/application/issue/model/InvoiceOrigin": {
+    "relocated/com/parsun/parsun_api/invoices/application/issue/model/InvoiceOrigin": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -2312,7 +2312,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/application/issue/request/IssueInvoiceCommand": {
+    "relocated/com/parsun/parsun_api/invoices/application/issue/request/IssueInvoiceCommand": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -2324,7 +2324,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/application/issue/services/InvoicePaymentService": {
+    "relocated/com/parsun/parsun_api/invoices/application/issue/services/InvoicePaymentService": {
       "baseline": {
         "covered": 12,
         "missed": 0,
@@ -2336,7 +2336,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/application/issue/services/IssueInvoiceService": {
+    "relocated/com/parsun/parsun_api/invoices/application/issue/services/IssueInvoiceService": {
       "baseline": {
         "covered": 33,
         "missed": 0,
@@ -2348,7 +2348,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/application/issue/validation/InvoiceIssueValidator": {
+    "relocated/com/parsun/parsun_api/invoices/application/issue/validation/InvoiceIssueValidator": {
       "baseline": {
         "covered": 24,
         "missed": 0,
@@ -2360,7 +2360,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/application/issue/validation/InvoiceIssueValidator$CashPaymentPlan": {
+    "relocated/com/parsun/parsun_api/invoices/application/issue/validation/InvoiceIssueValidator$CashPaymentPlan": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -2372,7 +2372,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/application/list/use_case/GetInvoicesUseCase": {
+    "relocated/com/parsun/parsun_api/invoices/application/list/use_case/GetInvoicesUseCase": {
       "baseline": {
         "covered": 16,
         "missed": 0,
@@ -2384,7 +2384,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/application/queries/services/InvoiceDocumentQueryService": {
+    "relocated/com/parsun/parsun_api/invoices/application/queries/services/InvoiceDocumentQueryService": {
       "baseline": {
         "covered": 10,
         "missed": 0,
@@ -2396,7 +2396,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/application/queries/services/RepositoryInvoiceCreditLedgerQuery": {
+    "relocated/com/parsun/parsun_api/invoices/application/queries/services/RepositoryInvoiceCreditLedgerQuery": {
       "baseline": {
         "covered": 6,
         "missed": 0,
@@ -2408,7 +2408,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/application/queries/services/RepositoryInvoiceReturnAdjustments": {
+    "relocated/com/parsun/parsun_api/invoices/application/queries/services/RepositoryInvoiceReturnAdjustments": {
       "baseline": {
         "covered": 16,
         "missed": 0,
@@ -2420,7 +2420,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/application/queries/services/RepositoryReturnInvoiceQuery": {
+    "relocated/com/parsun/parsun_api/invoices/application/queries/services/RepositoryReturnInvoiceQuery": {
       "baseline": {
         "covered": 4,
         "missed": 0,
@@ -2432,7 +2432,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/application/update/request/UpdateInvoiceRequest": {
+    "relocated/com/parsun/parsun_api/invoices/application/update/request/UpdateInvoiceRequest": {
       "baseline": {
         "covered": 3,
         "missed": 0,
@@ -2444,7 +2444,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/application/update/request/UpdateInvoiceRequest$InvoiceLineRequest": {
+    "relocated/com/parsun/parsun_api/invoices/application/update/request/UpdateInvoiceRequest$InvoiceLineRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -2456,7 +2456,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/application/update/request/UpdateInvoiceRequest$WarehouseAllocationRequest": {
+    "relocated/com/parsun/parsun_api/invoices/application/update/request/UpdateInvoiceRequest$WarehouseAllocationRequest": {
       "baseline": {
         "covered": 0,
         "missed": 1,
@@ -2468,7 +2468,7 @@
         "line_coverage_percent": 0.0
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/application/update/use_case/UpdateInvoiceUseCase": {
+    "relocated/com/parsun/parsun_api/invoices/application/update/use_case/UpdateInvoiceUseCase": {
       "baseline": {
         "covered": 41,
         "missed": 10,
@@ -2480,7 +2480,7 @@
         "line_coverage_percent": 80.3922
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/domain/entity/Invoice": {
+    "relocated/com/parsun/parsun_api/invoices/domain/entity/Invoice": {
       "baseline": {
         "covered": 167,
         "missed": 23,
@@ -2492,7 +2492,7 @@
         "line_coverage_percent": 87.8947
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/domain/entity/InvoiceLine": {
+    "relocated/com/parsun/parsun_api/invoices/domain/entity/InvoiceLine": {
       "baseline": {
         "covered": 45,
         "missed": 3,
@@ -2504,7 +2504,7 @@
         "line_coverage_percent": 93.75
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/domain/entity/InvoiceLineAllocation": {
+    "relocated/com/parsun/parsun_api/invoices/domain/entity/InvoiceLineAllocation": {
       "baseline": {
         "covered": 10,
         "missed": 0,
@@ -2516,7 +2516,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/domain/repository/InvoiceRepository": {
+    "relocated/com/parsun/parsun_api/invoices/domain/repository/InvoiceRepository": {
       "baseline": {
         "covered": 0,
         "missed": 10,
@@ -2528,7 +2528,7 @@
         "line_coverage_percent": 0.0
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/reporting/application/dto/model/InvoiceReportData": {
+    "relocated/com/parsun/parsun_api/invoices/reporting/application/dto/model/InvoiceReportData": {
       "baseline": {
         "covered": 3,
         "missed": 0,
@@ -2540,7 +2540,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/reporting/application/dto/model/InvoiceReportData$Line": {
+    "relocated/com/parsun/parsun_api/invoices/reporting/application/dto/model/InvoiceReportData$Line": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -2552,7 +2552,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/reporting/application/dto/model/InvoiceReportFilter": {
+    "relocated/com/parsun/parsun_api/invoices/reporting/application/dto/model/InvoiceReportFilter": {
       "baseline": {
         "covered": 3,
         "missed": 0,
@@ -2564,7 +2564,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/reporting/application/dto/model/InvoiceReportRow": {
+    "relocated/com/parsun/parsun_api/invoices/reporting/application/dto/model/InvoiceReportRow": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -2576,7 +2576,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/reporting/application/generate_invoice_pdf/services/GenerateInvoicePdfUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/invoices/reporting/application/generate_invoice_pdf/services/GenerateInvoicePdfUseCaseImpl": {
       "baseline": {
         "covered": 6,
         "missed": 0,
@@ -2588,7 +2588,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/invoices/reporting/application/generate_invoices_report_pdf/services/GenerateInvoicesReportPdfUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/invoices/reporting/application/generate_invoices_report_pdf/services/GenerateInvoicesReportPdfUseCaseImpl": {
       "baseline": {
         "covered": 5,
         "missed": 0,
@@ -2600,7 +2600,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/notifications/application/quotes/services/QuoteConversionNotificationService": {
+    "relocated/com/parsun/parsun_api/notifications/application/quotes/services/QuoteConversionNotificationService": {
       "baseline": {
         "covered": 7,
         "missed": 0,
@@ -2612,7 +2612,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/notifications/application/quotes/services/QuoteRejectionNotificationService": {
+    "relocated/com/parsun/parsun_api/notifications/application/quotes/services/QuoteRejectionNotificationService": {
       "baseline": {
         "covered": 5,
         "missed": 0,
@@ -2624,7 +2624,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/notifications/domain/entity/Notification": {
+    "relocated/com/parsun/parsun_api/notifications/domain/entity/Notification": {
       "baseline": {
         "covered": 31,
         "missed": 11,
@@ -2636,7 +2636,7 @@
         "line_coverage_percent": 73.8095
       }
     },
-    "relocated/com/cashly/cashly_api/orders/application/cancel/request/CancelOrderRequest": {
+    "relocated/com/parsun/parsun_api/orders/application/cancel/request/CancelOrderRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -2648,7 +2648,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/orders/application/cancel/use_case/CancelOrderUseCase": {
+    "relocated/com/parsun/parsun_api/orders/application/cancel/use_case/CancelOrderUseCase": {
       "baseline": {
         "covered": 22,
         "missed": 0,
@@ -2660,7 +2660,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/orders/application/confirm/use_case/ConfirmOrderUseCase": {
+    "relocated/com/parsun/parsun_api/orders/application/confirm/use_case/ConfirmOrderUseCase": {
       "baseline": {
         "covered": 15,
         "missed": 0,
@@ -2672,7 +2672,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/orders/application/convert_to_invoice/request/ConvertToInvoiceRequest": {
+    "relocated/com/parsun/parsun_api/orders/application/convert_to_invoice/request/ConvertToInvoiceRequest": {
       "baseline": {
         "covered": 3,
         "missed": 0,
@@ -2684,7 +2684,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/orders/application/convert_to_invoice/response/ConvertToInvoiceResponse": {
+    "relocated/com/parsun/parsun_api/orders/application/convert_to_invoice/response/ConvertToInvoiceResponse": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -2696,7 +2696,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/orders/application/convert_to_invoice/use_case/ConvertToInvoiceUseCase": {
+    "relocated/com/parsun/parsun_api/orders/application/convert_to_invoice/use_case/ConvertToInvoiceUseCase": {
       "baseline": {
         "covered": 27,
         "missed": 0,
@@ -2708,7 +2708,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/orders/application/create/from_quote/services/QuoteOrderCreationService": {
+    "relocated/com/parsun/parsun_api/orders/application/create/from_quote/services/QuoteOrderCreationService": {
       "baseline": {
         "covered": 17,
         "missed": 0,
@@ -2720,7 +2720,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/orders/application/create/request/CreateOrderRequest": {
+    "relocated/com/parsun/parsun_api/orders/application/create/request/CreateOrderRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -2732,7 +2732,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/orders/application/create/request/CreateOrderRequest$OrderLineRequest": {
+    "relocated/com/parsun/parsun_api/orders/application/create/request/CreateOrderRequest$OrderLineRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -2744,7 +2744,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/orders/application/create/request/CreateOrderRequest$WarehouseAllocationRequest": {
+    "relocated/com/parsun/parsun_api/orders/application/create/request/CreateOrderRequest$WarehouseAllocationRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -2756,7 +2756,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/orders/application/create/use_case/CreateOrderUseCase": {
+    "relocated/com/parsun/parsun_api/orders/application/create/use_case/CreateOrderUseCase": {
       "baseline": {
         "covered": 44,
         "missed": 0,
@@ -2768,7 +2768,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/orders/application/delete/use_case/DeleteOrderUseCase": {
+    "relocated/com/parsun/parsun_api/orders/application/delete/use_case/DeleteOrderUseCase": {
       "baseline": {
         "covered": 14,
         "missed": 0,
@@ -2780,7 +2780,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/orders/application/get/use_case/GetOrderByIdUseCase": {
+    "relocated/com/parsun/parsun_api/orders/application/get/use_case/GetOrderByIdUseCase": {
       "baseline": {
         "covered": 32,
         "missed": 7,
@@ -2792,7 +2792,7 @@
         "line_coverage_percent": 82.0513
       }
     },
-    "relocated/com/cashly/cashly_api/orders/application/list/use_case/GetOrdersUseCase": {
+    "relocated/com/parsun/parsun_api/orders/application/list/use_case/GetOrdersUseCase": {
       "baseline": {
         "covered": 10,
         "missed": 0,
@@ -2804,7 +2804,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/orders/application/products/use_case/GetProductsForOrderUseCase": {
+    "relocated/com/parsun/parsun_api/orders/application/products/use_case/GetProductsForOrderUseCase": {
       "baseline": {
         "covered": 15,
         "missed": 0,
@@ -2816,7 +2816,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/orders/application/queries/services/OrderDocumentQueryService": {
+    "relocated/com/parsun/parsun_api/orders/application/queries/services/OrderDocumentQueryService": {
       "baseline": {
         "covered": 11,
         "missed": 0,
@@ -2828,7 +2828,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/orders/application/update/request/UpdateOrderRequest": {
+    "relocated/com/parsun/parsun_api/orders/application/update/request/UpdateOrderRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -2840,7 +2840,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/orders/application/update/request/UpdateOrderRequest$OrderLineRequest": {
+    "relocated/com/parsun/parsun_api/orders/application/update/request/UpdateOrderRequest$OrderLineRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -2852,7 +2852,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/orders/application/update/request/UpdateOrderRequest$WarehouseAllocationRequest": {
+    "relocated/com/parsun/parsun_api/orders/application/update/request/UpdateOrderRequest$WarehouseAllocationRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -2864,7 +2864,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/orders/application/update/use_case/UpdateOrderUseCase": {
+    "relocated/com/parsun/parsun_api/orders/application/update/use_case/UpdateOrderUseCase": {
       "baseline": {
         "covered": 38,
         "missed": 0,
@@ -2876,7 +2876,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/orders/domain/entity/Order": {
+    "relocated/com/parsun/parsun_api/orders/domain/entity/Order": {
       "baseline": {
         "covered": 95,
         "missed": 1,
@@ -2888,7 +2888,7 @@
         "line_coverage_percent": 98.9583
       }
     },
-    "relocated/com/cashly/cashly_api/orders/domain/entity/OrderLine": {
+    "relocated/com/parsun/parsun_api/orders/domain/entity/OrderLine": {
       "baseline": {
         "covered": 34,
         "missed": 2,
@@ -2900,7 +2900,7 @@
         "line_coverage_percent": 94.4444
       }
     },
-    "relocated/com/cashly/cashly_api/orders/domain/entity/OrderLineAllocation": {
+    "relocated/com/parsun/parsun_api/orders/domain/entity/OrderLineAllocation": {
       "baseline": {
         "covered": 10,
         "missed": 0,
@@ -2912,7 +2912,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/orders/domain/repository/OrderRepository": {
+    "relocated/com/parsun/parsun_api/orders/domain/repository/OrderRepository": {
       "baseline": {
         "covered": 2,
         "missed": 0,
@@ -2924,7 +2924,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/orders/reporting/application/dto/model/OrderReportData": {
+    "relocated/com/parsun/parsun_api/orders/reporting/application/dto/model/OrderReportData": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -2936,7 +2936,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/orders/reporting/application/dto/model/OrderReportData$Line": {
+    "relocated/com/parsun/parsun_api/orders/reporting/application/dto/model/OrderReportData$Line": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -2948,7 +2948,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/orders/reporting/application/dto/model/OrderReportFilter": {
+    "relocated/com/parsun/parsun_api/orders/reporting/application/dto/model/OrderReportFilter": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -2960,7 +2960,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/orders/reporting/application/dto/model/OrderReportRow": {
+    "relocated/com/parsun/parsun_api/orders/reporting/application/dto/model/OrderReportRow": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -2972,19 +2972,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/orders/reporting/application/generate_order_pdf/services/GenerateOrderPdfUseCaseImpl": {
-      "baseline": {
-        "covered": 5,
-        "missed": 0,
-        "line_coverage_percent": 100.0
-      },
-      "final": {
-        "covered": 5,
-        "missed": 0,
-        "line_coverage_percent": 100.0
-      }
-    },
-    "relocated/com/cashly/cashly_api/orders/reporting/application/generate_orders_report_pdf/services/GenerateOrdersReportPdfUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/orders/reporting/application/generate_order_pdf/services/GenerateOrderPdfUseCaseImpl": {
       "baseline": {
         "covered": 5,
         "missed": 0,
@@ -2996,7 +2984,19 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/payment_methods/application/create/request/CreatePaymentMethodRequest": {
+    "relocated/com/parsun/parsun_api/orders/reporting/application/generate_orders_report_pdf/services/GenerateOrdersReportPdfUseCaseImpl": {
+      "baseline": {
+        "covered": 5,
+        "missed": 0,
+        "line_coverage_percent": 100.0
+      },
+      "final": {
+        "covered": 5,
+        "missed": 0,
+        "line_coverage_percent": 100.0
+      }
+    },
+    "relocated/com/parsun/parsun_api/payment_methods/application/create/request/CreatePaymentMethodRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -3008,7 +3008,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/payment_methods/application/create/use_case/CreatePaymentMethodUseCase": {
+    "relocated/com/parsun/parsun_api/payment_methods/application/create/use_case/CreatePaymentMethodUseCase": {
       "baseline": {
         "covered": 10,
         "missed": 0,
@@ -3020,7 +3020,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/payment_methods/application/delete/use_case/DeletePaymentMethodUseCase": {
+    "relocated/com/parsun/parsun_api/payment_methods/application/delete/use_case/DeletePaymentMethodUseCase": {
       "baseline": {
         "covered": 11,
         "missed": 0,
@@ -3032,7 +3032,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/payment_methods/application/queries/services/RepositoryPaymentMethodDetailsQuery": {
+    "relocated/com/parsun/parsun_api/payment_methods/application/queries/services/RepositoryPaymentMethodDetailsQuery": {
       "baseline": {
         "covered": 5,
         "missed": 0,
@@ -3044,7 +3044,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/payment_methods/application/queries/use_case/GetPaymentMethodByIdUseCase": {
+    "relocated/com/parsun/parsun_api/payment_methods/application/queries/use_case/GetPaymentMethodByIdUseCase": {
       "baseline": {
         "covered": 9,
         "missed": 0,
@@ -3056,7 +3056,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/payment_methods/application/queries/use_case/ListPaymentMethodsUseCase": {
+    "relocated/com/parsun/parsun_api/payment_methods/application/queries/use_case/ListPaymentMethodsUseCase": {
       "baseline": {
         "covered": 11,
         "missed": 0,
@@ -3068,7 +3068,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/payment_methods/application/toggle/use_case/TogglePaymentMethodUseCase": {
+    "relocated/com/parsun/parsun_api/payment_methods/application/toggle/use_case/TogglePaymentMethodUseCase": {
       "baseline": {
         "covered": 9,
         "missed": 0,
@@ -3080,7 +3080,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/payment_methods/application/update/request/UpdatePaymentMethodRequest": {
+    "relocated/com/parsun/parsun_api/payment_methods/application/update/request/UpdatePaymentMethodRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -3092,7 +3092,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/payment_methods/application/update/use_case/UpdatePaymentMethodUseCase": {
+    "relocated/com/parsun/parsun_api/payment_methods/application/update/use_case/UpdatePaymentMethodUseCase": {
       "baseline": {
         "covered": 9,
         "missed": 0,
@@ -3104,7 +3104,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/payment_methods/domain/entity/PaymentMethod": {
+    "relocated/com/parsun/parsun_api/payment_methods/domain/entity/PaymentMethod": {
       "baseline": {
         "covered": 40,
         "missed": 0,
@@ -3116,7 +3116,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/payments/collection/application/approve/request/ApprovePaymentRequest": {
+    "relocated/com/parsun/parsun_api/payments/collection/application/approve/request/ApprovePaymentRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -3128,7 +3128,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/payments/collection/application/approve/use_case/ApprovePaymentUseCase": {
+    "relocated/com/parsun/parsun_api/payments/collection/application/approve/use_case/ApprovePaymentUseCase": {
       "baseline": {
         "covered": 38,
         "missed": 0,
@@ -3140,7 +3140,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/payments/collection/application/create/request/CreatePaymentRequest": {
+    "relocated/com/parsun/parsun_api/payments/collection/application/create/request/CreatePaymentRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -3152,7 +3152,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/payments/collection/application/create/use_case/CreatePaymentUseCase": {
+    "relocated/com/parsun/parsun_api/payments/collection/application/create/use_case/CreatePaymentUseCase": {
       "baseline": {
         "covered": 49,
         "missed": 1,
@@ -3164,7 +3164,7 @@
         "line_coverage_percent": 98.0
       }
     },
-    "relocated/com/cashly/cashly_api/payments/collection/application/delete/use_case/DeletePaymentUseCase": {
+    "relocated/com/parsun/parsun_api/payments/collection/application/delete/use_case/DeletePaymentUseCase": {
       "baseline": {
         "covered": 7,
         "missed": 0,
@@ -3176,7 +3176,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/payments/collection/application/pay_customer_debt/request/PayCustomerDebtRequest": {
+    "relocated/com/parsun/parsun_api/payments/collection/application/pay_customer_debt/request/PayCustomerDebtRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -3188,7 +3188,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/payments/collection/application/pay_customer_debt/use_case/PayAllCustomerDebtUseCase": {
+    "relocated/com/parsun/parsun_api/payments/collection/application/pay_customer_debt/use_case/PayAllCustomerDebtUseCase": {
       "baseline": {
         "covered": 48,
         "missed": 21,
@@ -3200,7 +3200,7 @@
         "line_coverage_percent": 69.5652
       }
     },
-    "relocated/com/cashly/cashly_api/payments/collection/application/pay_invoice/request/PayInvoiceRequest": {
+    "relocated/com/parsun/parsun_api/payments/collection/application/pay_invoice/request/PayInvoiceRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -3212,7 +3212,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/payments/collection/application/pay_invoice/use_case/PayInvoiceUseCase": {
+    "relocated/com/parsun/parsun_api/payments/collection/application/pay_invoice/use_case/PayInvoiceUseCase": {
       "baseline": {
         "covered": 61,
         "missed": 0,
@@ -3224,7 +3224,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/payments/collection/application/pay_partial_debt/request/PayPartialDebtRequest": {
+    "relocated/com/parsun/parsun_api/payments/collection/application/pay_partial_debt/request/PayPartialDebtRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -3236,7 +3236,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/payments/collection/application/pay_partial_debt/use_case/PayPartialDebtUseCase": {
+    "relocated/com/parsun/parsun_api/payments/collection/application/pay_partial_debt/use_case/PayPartialDebtUseCase": {
       "baseline": {
         "covered": 48,
         "missed": 19,
@@ -3248,7 +3248,7 @@
         "line_coverage_percent": 71.6418
       }
     },
-    "relocated/com/cashly/cashly_api/payments/collection/application/queries/use_case/GetAllPaymentsUseCase": {
+    "relocated/com/parsun/parsun_api/payments/collection/application/queries/use_case/GetAllPaymentsUseCase": {
       "baseline": {
         "covered": 8,
         "missed": 0,
@@ -3260,7 +3260,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/payments/collection/application/queries/use_case/GetPaymentByIdUseCase": {
+    "relocated/com/parsun/parsun_api/payments/collection/application/queries/use_case/GetPaymentByIdUseCase": {
       "baseline": {
         "covered": 6,
         "missed": 0,
@@ -3272,7 +3272,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/payments/collection/application/reject/request/RejectPaymentRequest": {
+    "relocated/com/parsun/parsun_api/payments/collection/application/reject/request/RejectPaymentRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -3284,7 +3284,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/payments/collection/application/reject/use_case/RejectPaymentUseCase": {
+    "relocated/com/parsun/parsun_api/payments/collection/application/reject/use_case/RejectPaymentUseCase": {
       "baseline": {
         "covered": 10,
         "missed": 0,
@@ -3296,7 +3296,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/payments/collection/application/update/request/UpdatePaymentRequest": {
+    "relocated/com/parsun/parsun_api/payments/collection/application/update/request/UpdatePaymentRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -3308,7 +3308,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/payments/collection/application/update/use_case/UpdatePaymentUseCase": {
+    "relocated/com/parsun/parsun_api/payments/collection/application/update/use_case/UpdatePaymentUseCase": {
       "baseline": {
         "covered": 12,
         "missed": 0,
@@ -3320,7 +3320,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/payments/collection/domain/entity/Payment": {
+    "relocated/com/parsun/parsun_api/payments/collection/domain/entity/Payment": {
       "baseline": {
         "covered": 116,
         "missed": 7,
@@ -3332,7 +3332,7 @@
         "line_coverage_percent": 94.3089
       }
     },
-    "relocated/com/cashly/cashly_api/payments/collection/domain/entity/PaymentAllocation": {
+    "relocated/com/parsun/parsun_api/payments/collection/domain/entity/PaymentAllocation": {
       "baseline": {
         "covered": 20,
         "missed": 0,
@@ -3344,7 +3344,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/payments/collection/domain/services/PaymentAllocationService": {
+    "relocated/com/parsun/parsun_api/payments/collection/domain/services/PaymentAllocationService": {
       "baseline": {
         "covered": 51,
         "missed": 6,
@@ -3356,7 +3356,7 @@
         "line_coverage_percent": 89.4737
       }
     },
-    "relocated/com/cashly/cashly_api/payments/collection/domain/services/PaymentAllocationService$AllocationRequest": {
+    "relocated/com/parsun/parsun_api/payments/collection/domain/services/PaymentAllocationService$AllocationRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -3368,7 +3368,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/payments/credit/domain/services/CustomerCreditPolicy": {
+    "relocated/com/parsun/parsun_api/payments/credit/domain/services/CustomerCreditPolicy": {
       "baseline": {
         "covered": 4,
         "missed": 0,
@@ -3380,7 +3380,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/payments/credit/domain/services/CustomerCreditPolicy$Decision": {
+    "relocated/com/parsun/parsun_api/payments/credit/domain/services/CustomerCreditPolicy$Decision": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -3392,7 +3392,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/payments/reporting/application/dto/model/PaymentHistoryReportData": {
+    "relocated/com/parsun/parsun_api/payments/reporting/application/dto/model/PaymentHistoryReportData": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -3404,7 +3404,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/payments/reporting/application/dto/model/PaymentHistoryReportData$PaymentHistoryRow": {
+    "relocated/com/parsun/parsun_api/payments/reporting/application/dto/model/PaymentHistoryReportData$PaymentHistoryRow": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -3416,7 +3416,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/payments/reporting/application/dto/model/PaymentHistoryReportData$Summary": {
+    "relocated/com/parsun/parsun_api/payments/reporting/application/dto/model/PaymentHistoryReportData$Summary": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -3428,7 +3428,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/payments/reporting/application/dto/model/PaymentReportData": {
+    "relocated/com/parsun/parsun_api/payments/reporting/application/dto/model/PaymentReportData": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -3440,7 +3440,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/payments/reporting/application/generate_payment_history_report_pdf/services/GeneratePaymentHistoryReportPdfUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/payments/reporting/application/generate_payment_history_report_pdf/services/GeneratePaymentHistoryReportPdfUseCaseImpl": {
       "baseline": {
         "covered": 7,
         "missed": 0,
@@ -3452,7 +3452,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/payments/reporting/application/generate_payment_pdf/services/GeneratePaymentPdfUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/payments/reporting/application/generate_payment_pdf/services/GeneratePaymentPdfUseCaseImpl": {
       "baseline": {
         "covered": 6,
         "missed": 0,
@@ -3464,7 +3464,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/price_types/application/create/request/CreatePriceTypeRequest": {
+    "relocated/com/parsun/parsun_api/price_types/application/create/request/CreatePriceTypeRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -3476,7 +3476,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/price_types/application/create/use_case/CreatePriceTypeUseCase": {
+    "relocated/com/parsun/parsun_api/price_types/application/create/use_case/CreatePriceTypeUseCase": {
       "baseline": {
         "covered": 8,
         "missed": 0,
@@ -3488,7 +3488,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/price_types/application/delete/use_case/DeletePriceTypeUseCase": {
+    "relocated/com/parsun/parsun_api/price_types/application/delete/use_case/DeletePriceTypeUseCase": {
       "baseline": {
         "covered": 10,
         "missed": 0,
@@ -3500,7 +3500,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/price_types/application/queries/services/RepositoryProductPriceTypeQuery": {
+    "relocated/com/parsun/parsun_api/price_types/application/queries/services/RepositoryProductPriceTypeQuery": {
       "baseline": {
         "covered": 4,
         "missed": 0,
@@ -3512,7 +3512,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/price_types/application/queries/use_case/GetPriceTypeUseCase": {
+    "relocated/com/parsun/parsun_api/price_types/application/queries/use_case/GetPriceTypeUseCase": {
       "baseline": {
         "covered": 6,
         "missed": 0,
@@ -3524,7 +3524,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/price_types/application/queries/use_case/ListPriceTypesUseCase": {
+    "relocated/com/parsun/parsun_api/price_types/application/queries/use_case/ListPriceTypesUseCase": {
       "baseline": {
         "covered": 13,
         "missed": 0,
@@ -3536,7 +3536,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/price_types/application/update/request/UpdatePriceTypeRequest": {
+    "relocated/com/parsun/parsun_api/price_types/application/update/request/UpdatePriceTypeRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -3548,7 +3548,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/price_types/application/update/use_case/UpdatePriceTypeUseCase": {
+    "relocated/com/parsun/parsun_api/price_types/application/update/use_case/UpdatePriceTypeUseCase": {
       "baseline": {
         "covered": 10,
         "missed": 0,
@@ -3560,7 +3560,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/price_types/domain/entity/PriceType": {
+    "relocated/com/parsun/parsun_api/price_types/domain/entity/PriceType": {
       "baseline": {
         "covered": 34,
         "missed": 0,
@@ -3572,7 +3572,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/products/application/create/request/CreateProductRequest": {
+    "relocated/com/parsun/parsun_api/products/application/create/request/CreateProductRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -3584,7 +3584,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/products/application/create/request/CreateProductRequest$ComponentRequest": {
+    "relocated/com/parsun/parsun_api/products/application/create/request/CreateProductRequest$ComponentRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -3596,7 +3596,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/products/application/create/use_case/CreateProductUseCase": {
+    "relocated/com/parsun/parsun_api/products/application/create/use_case/CreateProductUseCase": {
       "baseline": {
         "covered": 44,
         "missed": 4,
@@ -3608,7 +3608,7 @@
         "line_coverage_percent": 91.6667
       }
     },
-    "relocated/com/cashly/cashly_api/products/application/delete/use_case/DeleteProductUseCase": {
+    "relocated/com/parsun/parsun_api/products/application/delete/use_case/DeleteProductUseCase": {
       "baseline": {
         "covered": 11,
         "missed": 0,
@@ -3620,7 +3620,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/products/application/photos/use_case/RemoveProductPhotoUseCase": {
+    "relocated/com/parsun/parsun_api/products/application/photos/use_case/RemoveProductPhotoUseCase": {
       "baseline": {
         "covered": 11,
         "missed": 0,
@@ -3632,7 +3632,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/products/application/photos/use_case/UploadProductPhotoUseCase": {
+    "relocated/com/parsun/parsun_api/products/application/photos/use_case/UploadProductPhotoUseCase": {
       "baseline": {
         "covered": 24,
         "missed": 3,
@@ -3644,7 +3644,7 @@
         "line_coverage_percent": 88.8889
       }
     },
-    "relocated/com/cashly/cashly_api/products/application/queries/services/RepositoryPurchaseProductCatalogQuery": {
+    "relocated/com/parsun/parsun_api/products/application/queries/services/RepositoryPurchaseProductCatalogQuery": {
       "baseline": {
         "covered": 8,
         "missed": 0,
@@ -3656,7 +3656,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/products/application/queries/services/RepositoryStockCatalogQuery": {
+    "relocated/com/parsun/parsun_api/products/application/queries/services/RepositoryStockCatalogQuery": {
       "baseline": {
         "covered": 7,
         "missed": 0,
@@ -3668,7 +3668,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/products/application/queries/use_case/GetProductUseCase": {
+    "relocated/com/parsun/parsun_api/products/application/queries/use_case/GetProductUseCase": {
       "baseline": {
         "covered": 17,
         "missed": 3,
@@ -3680,7 +3680,7 @@
         "line_coverage_percent": 85.0
       }
     },
-    "relocated/com/cashly/cashly_api/products/application/queries/use_case/ListProductsUseCase": {
+    "relocated/com/parsun/parsun_api/products/application/queries/use_case/ListProductsUseCase": {
       "baseline": {
         "covered": 20,
         "missed": 0,
@@ -3692,7 +3692,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/products/application/stock/response/ProductStockByWarehouseResponse": {
+    "relocated/com/parsun/parsun_api/products/application/stock/response/ProductStockByWarehouseResponse": {
       "baseline": {
         "covered": 6,
         "missed": 0,
@@ -3704,7 +3704,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/products/application/stock/use_case/GetProductStockUseCase": {
+    "relocated/com/parsun/parsun_api/products/application/stock/use_case/GetProductStockUseCase": {
       "baseline": {
         "covered": 7,
         "missed": 0,
@@ -3716,7 +3716,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/products/application/transactions/response/ProductWithStockResponse": {
+    "relocated/com/parsun/parsun_api/products/application/transactions/response/ProductWithStockResponse": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -3728,7 +3728,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/products/application/transactions/response/ProductWithStockResponse$WarehouseStockItem": {
+    "relocated/com/parsun/parsun_api/products/application/transactions/response/ProductWithStockResponse$WarehouseStockItem": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -3740,7 +3740,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/products/application/transactions/use_case/GetProductsForTransactionUseCase": {
+    "relocated/com/parsun/parsun_api/products/application/transactions/use_case/GetProductsForTransactionUseCase": {
       "baseline": {
         "covered": 45,
         "missed": 0,
@@ -3752,7 +3752,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/products/application/update/request/UpdateProductRequest": {
+    "relocated/com/parsun/parsun_api/products/application/update/request/UpdateProductRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -3764,7 +3764,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/products/application/update/request/UpdateProductRequest$ComponentRequest": {
+    "relocated/com/parsun/parsun_api/products/application/update/request/UpdateProductRequest$ComponentRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -3776,7 +3776,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/products/application/update/use_case/UpdateProductUseCase": {
+    "relocated/com/parsun/parsun_api/products/application/update/use_case/UpdateProductUseCase": {
       "baseline": {
         "covered": 42,
         "missed": 4,
@@ -3788,7 +3788,7 @@
         "line_coverage_percent": 91.3043
       }
     },
-    "relocated/com/cashly/cashly_api/products/domain/entity/Product": {
+    "relocated/com/parsun/parsun_api/products/domain/entity/Product": {
       "baseline": {
         "covered": 80,
         "missed": 0,
@@ -3800,7 +3800,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/products/domain/entity/ProductComponent": {
+    "relocated/com/parsun/parsun_api/products/domain/entity/ProductComponent": {
       "baseline": {
         "covered": 13,
         "missed": 0,
@@ -3812,7 +3812,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/products/reporting/application/dto/query/model/CommercialCatalogQuery": {
+    "relocated/com/parsun/parsun_api/products/reporting/application/dto/query/model/CommercialCatalogQuery": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -3824,7 +3824,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/products/reporting/application/generate_commercial_catalog_pdf/services/GenerateCommercialCatalogPdfUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/products/reporting/application/generate_commercial_catalog_pdf/services/GenerateCommercialCatalogPdfUseCaseImpl": {
       "baseline": {
         "covered": 6,
         "missed": 0,
@@ -3836,7 +3836,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/purchases/application/cancel/request/CancelPurchaseRequest": {
+    "relocated/com/parsun/parsun_api/purchases/application/cancel/request/CancelPurchaseRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -3848,7 +3848,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/purchases/application/cancel/use_case/CancelPurchaseUseCase": {
+    "relocated/com/parsun/parsun_api/purchases/application/cancel/use_case/CancelPurchaseUseCase": {
       "baseline": {
         "covered": 19,
         "missed": 0,
@@ -3860,7 +3860,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/purchases/application/confirm/use_case/ConfirmPurchaseUseCase": {
+    "relocated/com/parsun/parsun_api/purchases/application/confirm/use_case/ConfirmPurchaseUseCase": {
       "baseline": {
         "covered": 16,
         "missed": 0,
@@ -3872,7 +3872,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/purchases/application/create/request/CreatePurchaseRequest": {
+    "relocated/com/parsun/parsun_api/purchases/application/create/request/CreatePurchaseRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -3884,7 +3884,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/purchases/application/create/request/CreatePurchaseRequest$AllocationRequest": {
+    "relocated/com/parsun/parsun_api/purchases/application/create/request/CreatePurchaseRequest$AllocationRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -3896,7 +3896,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/purchases/application/create/request/CreatePurchaseRequest$LineRequest": {
+    "relocated/com/parsun/parsun_api/purchases/application/create/request/CreatePurchaseRequest$LineRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -3908,7 +3908,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/purchases/application/create/use_case/CreatePurchaseUseCase": {
+    "relocated/com/parsun/parsun_api/purchases/application/create/use_case/CreatePurchaseUseCase": {
       "baseline": {
         "covered": 37,
         "missed": 0,
@@ -3920,7 +3920,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/purchases/application/delete/use_case/DeletePurchaseUseCase": {
+    "relocated/com/parsun/parsun_api/purchases/application/delete/use_case/DeletePurchaseUseCase": {
       "baseline": {
         "covered": 3,
         "missed": 5,
@@ -3932,7 +3932,7 @@
         "line_coverage_percent": 37.5
       }
     },
-    "relocated/com/cashly/cashly_api/purchases/application/get/use_case/GetPurchaseByIdUseCase": {
+    "relocated/com/parsun/parsun_api/purchases/application/get/use_case/GetPurchaseByIdUseCase": {
       "baseline": {
         "covered": 4,
         "missed": 10,
@@ -3944,7 +3944,7 @@
         "line_coverage_percent": 28.5714
       }
     },
-    "relocated/com/cashly/cashly_api/purchases/application/list/use_case/ListPurchasesUseCase": {
+    "relocated/com/parsun/parsun_api/purchases/application/list/use_case/ListPurchasesUseCase": {
       "baseline": {
         "covered": 7,
         "missed": 0,
@@ -3956,7 +3956,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/purchases/application/products/use_case/GetProductsForPurchaseUseCase": {
+    "relocated/com/parsun/parsun_api/purchases/application/products/use_case/GetProductsForPurchaseUseCase": {
       "baseline": {
         "covered": 35,
         "missed": 0,
@@ -3968,7 +3968,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/purchases/application/queries/services/PurchaseDocumentQueryService": {
+    "relocated/com/parsun/parsun_api/purchases/application/queries/services/PurchaseDocumentQueryService": {
       "baseline": {
         "covered": 11,
         "missed": 0,
@@ -3980,7 +3980,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/purchases/application/queries/services/RepositorySupplierPurchaseUsageQuery": {
+    "relocated/com/parsun/parsun_api/purchases/application/queries/services/RepositorySupplierPurchaseUsageQuery": {
       "baseline": {
         "covered": 6,
         "missed": 1,
@@ -3992,7 +3992,7 @@
         "line_coverage_percent": 85.7143
       }
     },
-    "relocated/com/cashly/cashly_api/purchases/application/update/request/UpdatePurchaseRequest": {
+    "relocated/com/parsun/parsun_api/purchases/application/update/request/UpdatePurchaseRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -4004,7 +4004,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/purchases/application/update/request/UpdatePurchaseRequest$AllocationRequest": {
+    "relocated/com/parsun/parsun_api/purchases/application/update/request/UpdatePurchaseRequest$AllocationRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -4016,7 +4016,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/purchases/application/update/request/UpdatePurchaseRequest$LineRequest": {
+    "relocated/com/parsun/parsun_api/purchases/application/update/request/UpdatePurchaseRequest$LineRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -4028,7 +4028,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/purchases/application/update/use_case/UpdatePurchaseUseCase": {
+    "relocated/com/parsun/parsun_api/purchases/application/update/use_case/UpdatePurchaseUseCase": {
       "baseline": {
         "covered": 24,
         "missed": 0,
@@ -4040,7 +4040,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/purchases/domain/entity/Purchase": {
+    "relocated/com/parsun/parsun_api/purchases/domain/entity/Purchase": {
       "baseline": {
         "covered": 78,
         "missed": 0,
@@ -4052,7 +4052,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/purchases/domain/entity/PurchaseLine": {
+    "relocated/com/parsun/parsun_api/purchases/domain/entity/PurchaseLine": {
       "baseline": {
         "covered": 29,
         "missed": 1,
@@ -4064,7 +4064,7 @@
         "line_coverage_percent": 96.6667
       }
     },
-    "relocated/com/cashly/cashly_api/purchases/domain/entity/PurchaseLineAllocation": {
+    "relocated/com/parsun/parsun_api/purchases/domain/entity/PurchaseLineAllocation": {
       "baseline": {
         "covered": 15,
         "missed": 0,
@@ -4076,7 +4076,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/purchases/reporting/application/dto/model/PurchaseReportData": {
+    "relocated/com/parsun/parsun_api/purchases/reporting/application/dto/model/PurchaseReportData": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -4088,7 +4088,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/purchases/reporting/application/dto/model/PurchaseReportData$Line": {
+    "relocated/com/parsun/parsun_api/purchases/reporting/application/dto/model/PurchaseReportData$Line": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -4100,7 +4100,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/purchases/reporting/application/dto/model/PurchaseReportFilter": {
+    "relocated/com/parsun/parsun_api/purchases/reporting/application/dto/model/PurchaseReportFilter": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -4112,7 +4112,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/purchases/reporting/application/dto/model/PurchaseReportRow": {
+    "relocated/com/parsun/parsun_api/purchases/reporting/application/dto/model/PurchaseReportRow": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -4124,19 +4124,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/purchases/reporting/application/generate_purchase_pdf/services/GeneratePurchasePdfUseCaseImpl": {
-      "baseline": {
-        "covered": 5,
-        "missed": 0,
-        "line_coverage_percent": 100.0
-      },
-      "final": {
-        "covered": 5,
-        "missed": 0,
-        "line_coverage_percent": 100.0
-      }
-    },
-    "relocated/com/cashly/cashly_api/purchases/reporting/application/generate_purchases_report_pdf/services/GeneratePurchasesReportPdfUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/purchases/reporting/application/generate_purchase_pdf/services/GeneratePurchasePdfUseCaseImpl": {
       "baseline": {
         "covered": 5,
         "missed": 0,
@@ -4148,7 +4136,19 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/quotes/application/cancel/request/CancelQuoteRequest": {
+    "relocated/com/parsun/parsun_api/purchases/reporting/application/generate_purchases_report_pdf/services/GeneratePurchasesReportPdfUseCaseImpl": {
+      "baseline": {
+        "covered": 5,
+        "missed": 0,
+        "line_coverage_percent": 100.0
+      },
+      "final": {
+        "covered": 5,
+        "missed": 0,
+        "line_coverage_percent": 100.0
+      }
+    },
+    "relocated/com/parsun/parsun_api/quotes/application/cancel/request/CancelQuoteRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -4160,7 +4160,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/quotes/application/cancel/use_case/CancelQuoteUseCase": {
+    "relocated/com/parsun/parsun_api/quotes/application/cancel/use_case/CancelQuoteUseCase": {
       "baseline": {
         "covered": 10,
         "missed": 0,
@@ -4172,7 +4172,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/quotes/application/convert_to_invoice/request/ConvertQuoteToInvoiceRequest": {
+    "relocated/com/parsun/parsun_api/quotes/application/convert_to_invoice/request/ConvertQuoteToInvoiceRequest": {
       "baseline": {
         "covered": 3,
         "missed": 0,
@@ -4184,7 +4184,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/quotes/application/convert_to_invoice/response/QuoteConvertedToInvoiceResponse": {
+    "relocated/com/parsun/parsun_api/quotes/application/convert_to_invoice/response/QuoteConvertedToInvoiceResponse": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -4196,7 +4196,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/quotes/application/convert_to_invoice/use_case/ConvertQuoteToInvoiceUseCase": {
+    "relocated/com/parsun/parsun_api/quotes/application/convert_to_invoice/use_case/ConvertQuoteToInvoiceUseCase": {
       "baseline": {
         "covered": 19,
         "missed": 0,
@@ -4208,7 +4208,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/quotes/application/convert_to_order/response/QuoteConvertedToOrderResponse": {
+    "relocated/com/parsun/parsun_api/quotes/application/convert_to_order/response/QuoteConvertedToOrderResponse": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -4220,7 +4220,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/quotes/application/convert_to_order/use_case/ConvertQuoteToOrderUseCase": {
+    "relocated/com/parsun/parsun_api/quotes/application/convert_to_order/use_case/ConvertQuoteToOrderUseCase": {
       "baseline": {
         "covered": 20,
         "missed": 0,
@@ -4232,7 +4232,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/quotes/application/create/request/CreateQuoteRequest": {
+    "relocated/com/parsun/parsun_api/quotes/application/create/request/CreateQuoteRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -4244,7 +4244,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/quotes/application/create/request/CreateQuoteRequest$QuoteLineRequest": {
+    "relocated/com/parsun/parsun_api/quotes/application/create/request/CreateQuoteRequest$QuoteLineRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -4256,7 +4256,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/quotes/application/create/request/CreateQuoteRequest$WarehouseAllocationRequest": {
+    "relocated/com/parsun/parsun_api/quotes/application/create/request/CreateQuoteRequest$WarehouseAllocationRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -4268,7 +4268,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/quotes/application/create/use_case/CreateQuoteUseCase": {
+    "relocated/com/parsun/parsun_api/quotes/application/create/use_case/CreateQuoteUseCase": {
       "baseline": {
         "covered": 37,
         "missed": 5,
@@ -4280,7 +4280,7 @@
         "line_coverage_percent": 88.0952
       }
     },
-    "relocated/com/cashly/cashly_api/quotes/application/delete/use_case/DeleteQuoteUseCase": {
+    "relocated/com/parsun/parsun_api/quotes/application/delete/use_case/DeleteQuoteUseCase": {
       "baseline": {
         "covered": 9,
         "missed": 0,
@@ -4292,7 +4292,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/quotes/application/get/use_case/GetQuoteByIdUseCase": {
+    "relocated/com/parsun/parsun_api/quotes/application/get/use_case/GetQuoteByIdUseCase": {
       "baseline": {
         "covered": 15,
         "missed": 0,
@@ -4304,7 +4304,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/quotes/application/list/use_case/GetQuotesUseCase": {
+    "relocated/com/parsun/parsun_api/quotes/application/list/use_case/GetQuotesUseCase": {
       "baseline": {
         "covered": 10,
         "missed": 0,
@@ -4316,7 +4316,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/quotes/application/products/use_case/GetProductsForQuoteUseCase": {
+    "relocated/com/parsun/parsun_api/quotes/application/products/use_case/GetProductsForQuoteUseCase": {
       "baseline": {
         "covered": 13,
         "missed": 0,
@@ -4328,7 +4328,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/quotes/application/queries/services/QuoteDocumentQueryService": {
+    "relocated/com/parsun/parsun_api/quotes/application/queries/services/QuoteDocumentQueryService": {
       "baseline": {
         "covered": 11,
         "missed": 0,
@@ -4340,7 +4340,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/quotes/application/update/request/UpdateQuoteRequest": {
+    "relocated/com/parsun/parsun_api/quotes/application/update/request/UpdateQuoteRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -4352,7 +4352,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/quotes/application/update/use_case/UpdateQuoteUseCase": {
+    "relocated/com/parsun/parsun_api/quotes/application/update/use_case/UpdateQuoteUseCase": {
       "baseline": {
         "covered": 33,
         "missed": 0,
@@ -4364,7 +4364,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/quotes/application/warehouses/use_case/GetWarehousesForQuoteUseCase": {
+    "relocated/com/parsun/parsun_api/quotes/application/warehouses/use_case/GetWarehousesForQuoteUseCase": {
       "baseline": {
         "covered": 9,
         "missed": 0,
@@ -4376,7 +4376,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/quotes/domain/entity/Quote": {
+    "relocated/com/parsun/parsun_api/quotes/domain/entity/Quote": {
       "baseline": {
         "covered": 112,
         "missed": 2,
@@ -4388,7 +4388,7 @@
         "line_coverage_percent": 98.2456
       }
     },
-    "relocated/com/cashly/cashly_api/quotes/domain/entity/QuoteAllocation": {
+    "relocated/com/parsun/parsun_api/quotes/domain/entity/QuoteAllocation": {
       "baseline": {
         "covered": 32,
         "missed": 0,
@@ -4400,7 +4400,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/quotes/domain/entity/QuoteLine": {
+    "relocated/com/parsun/parsun_api/quotes/domain/entity/QuoteLine": {
       "baseline": {
         "covered": 56,
         "missed": 3,
@@ -4412,7 +4412,7 @@
         "line_coverage_percent": 94.9153
       }
     },
-    "relocated/com/cashly/cashly_api/quotes/domain/repository/QuoteRepository": {
+    "relocated/com/parsun/parsun_api/quotes/domain/repository/QuoteRepository": {
       "baseline": {
         "covered": 2,
         "missed": 0,
@@ -4424,7 +4424,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/quotes/reporting/application/dto/model/QuoteReportData": {
+    "relocated/com/parsun/parsun_api/quotes/reporting/application/dto/model/QuoteReportData": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -4436,7 +4436,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/quotes/reporting/application/dto/model/QuoteReportData$Line": {
+    "relocated/com/parsun/parsun_api/quotes/reporting/application/dto/model/QuoteReportData$Line": {
       "baseline": {
         "covered": 0,
         "missed": 1,
@@ -4448,7 +4448,7 @@
         "line_coverage_percent": 0.0
       }
     },
-    "relocated/com/cashly/cashly_api/quotes/reporting/application/dto/model/QuoteReportFilter": {
+    "relocated/com/parsun/parsun_api/quotes/reporting/application/dto/model/QuoteReportFilter": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -4460,7 +4460,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/quotes/reporting/application/dto/model/QuoteReportRow": {
+    "relocated/com/parsun/parsun_api/quotes/reporting/application/dto/model/QuoteReportRow": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -4472,7 +4472,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/quotes/reporting/application/generate_quote_pdf/services/GenerateQuotePdfUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/quotes/reporting/application/generate_quote_pdf/services/GenerateQuotePdfUseCaseImpl": {
       "baseline": {
         "covered": 5,
         "missed": 0,
@@ -4484,7 +4484,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/quotes/reporting/application/generate_quotes_report_pdf/services/GenerateQuotesReportPdfUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/quotes/reporting/application/generate_quotes_report_pdf/services/GenerateQuotesReportPdfUseCaseImpl": {
       "baseline": {
         "covered": 5,
         "missed": 0,
@@ -4496,7 +4496,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/receivables/application/customer_debt/use_case/GetCustomerDebtUseCase": {
+    "relocated/com/parsun/parsun_api/receivables/application/customer_debt/use_case/GetCustomerDebtUseCase": {
       "baseline": {
         "covered": 4,
         "missed": 0,
@@ -4508,7 +4508,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/receivables/application/customer_debt/use_case/SearchCustomerDebtUseCase": {
+    "relocated/com/parsun/parsun_api/receivables/application/customer_debt/use_case/SearchCustomerDebtUseCase": {
       "baseline": {
         "covered": 5,
         "missed": 0,
@@ -4520,7 +4520,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/receivables/application/customer_invoices/use_case/GetCustomerInvoicesUseCase": {
+    "relocated/com/parsun/parsun_api/receivables/application/customer_invoices/use_case/GetCustomerInvoicesUseCase": {
       "baseline": {
         "covered": 5,
         "missed": 0,
@@ -4532,7 +4532,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/receivables/application/payment_history/use_case/GetPaymentHistoryUseCase": {
+    "relocated/com/parsun/parsun_api/receivables/application/payment_history/use_case/GetPaymentHistoryUseCase": {
       "baseline": {
         "covered": 7,
         "missed": 0,
@@ -4544,7 +4544,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/receivables/application/summary/use_case/GetReceivablesSummaryUseCase": {
+    "relocated/com/parsun/parsun_api/receivables/application/summary/use_case/GetReceivablesSummaryUseCase": {
       "baseline": {
         "covered": 4,
         "missed": 0,
@@ -4556,7 +4556,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/receivables/reporting/application/dto/model/AccountsReceivableReportData": {
+    "relocated/com/parsun/parsun_api/receivables/reporting/application/dto/model/AccountsReceivableReportData": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -4568,7 +4568,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/receivables/reporting/application/dto/model/AccountsReceivableReportData$AccountReceivableRow": {
+    "relocated/com/parsun/parsun_api/receivables/reporting/application/dto/model/AccountsReceivableReportData$AccountReceivableRow": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -4580,7 +4580,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/receivables/reporting/application/dto/model/AccountsReceivableReportData$Summary": {
+    "relocated/com/parsun/parsun_api/receivables/reporting/application/dto/model/AccountsReceivableReportData$Summary": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -4592,7 +4592,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/receivables/reporting/application/dto/model/CollectionsReportData": {
+    "relocated/com/parsun/parsun_api/receivables/reporting/application/dto/model/CollectionsReportData": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -4604,7 +4604,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/receivables/reporting/application/dto/model/CollectionsReportData$CollectionRow": {
+    "relocated/com/parsun/parsun_api/receivables/reporting/application/dto/model/CollectionsReportData$CollectionRow": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -4616,7 +4616,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/receivables/reporting/application/dto/model/CollectionsReportData$Summary": {
+    "relocated/com/parsun/parsun_api/receivables/reporting/application/dto/model/CollectionsReportData$Summary": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -4628,7 +4628,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/receivables/reporting/application/generate_accounts_receivable_report_pdf/services/GenerateAccountsReceivableReportPdfUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/receivables/reporting/application/generate_accounts_receivable_report_pdf/services/GenerateAccountsReceivableReportPdfUseCaseImpl": {
       "baseline": {
         "covered": 26,
         "missed": 0,
@@ -4640,7 +4640,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/receivables/reporting/application/generate_collections_report_pdf/services/GenerateCollectionsReportPdfUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/receivables/reporting/application/generate_collections_report_pdf/services/GenerateCollectionsReportPdfUseCaseImpl": {
       "baseline": {
         "covered": 8,
         "missed": 0,
@@ -4652,7 +4652,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/returns/application/create/request/CreateReturnRequest": {
+    "relocated/com/parsun/parsun_api/returns/application/create/request/CreateReturnRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -4664,7 +4664,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/returns/application/create/request/CreateReturnRequest$ReturnLineRequest": {
+    "relocated/com/parsun/parsun_api/returns/application/create/request/CreateReturnRequest$ReturnLineRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -4676,7 +4676,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/returns/application/create/request/CreateReturnRequest$ReturnLineRequest$AllocationRequest": {
+    "relocated/com/parsun/parsun_api/returns/application/create/request/CreateReturnRequest$ReturnLineRequest$AllocationRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -4688,7 +4688,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/returns/application/create/use_case/CreateReturnUseCase": {
+    "relocated/com/parsun/parsun_api/returns/application/create/use_case/CreateReturnUseCase": {
       "baseline": {
         "covered": 56,
         "missed": 0,
@@ -4700,7 +4700,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/returns/application/delete/use_case/DeleteReturnUseCase": {
+    "relocated/com/parsun/parsun_api/returns/application/delete/use_case/DeleteReturnUseCase": {
       "baseline": {
         "covered": 44,
         "missed": 2,
@@ -4712,7 +4712,7 @@
         "line_coverage_percent": 95.6522
       }
     },
-    "relocated/com/cashly/cashly_api/returns/application/get/use_case/GetReturnByIdUseCase": {
+    "relocated/com/parsun/parsun_api/returns/application/get/use_case/GetReturnByIdUseCase": {
       "baseline": {
         "covered": 7,
         "missed": 0,
@@ -4724,7 +4724,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/returns/application/get/use_case/GetReturnByIdUseCase$ReturnNotFoundException": {
+    "relocated/com/parsun/parsun_api/returns/application/get/use_case/GetReturnByIdUseCase$ReturnNotFoundException": {
       "baseline": {
         "covered": 2,
         "missed": 0,
@@ -4736,7 +4736,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/returns/application/list/use_case/GetAllReturnsUseCase": {
+    "relocated/com/parsun/parsun_api/returns/application/list/use_case/GetAllReturnsUseCase": {
       "baseline": {
         "covered": 8,
         "missed": 0,
@@ -4748,7 +4748,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/returns/application/queries/services/InvoiceReturnDetailsQueryService": {
+    "relocated/com/parsun/parsun_api/returns/application/queries/services/InvoiceReturnDetailsQueryService": {
       "baseline": {
         "covered": 3,
         "missed": 6,
@@ -4760,7 +4760,7 @@
         "line_coverage_percent": 33.3333
       }
     },
-    "relocated/com/cashly/cashly_api/returns/domain/entity/CancelledAllocation": {
+    "relocated/com/parsun/parsun_api/returns/domain/entity/CancelledAllocation": {
       "baseline": {
         "covered": 22,
         "missed": 0,
@@ -4772,7 +4772,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/returns/domain/entity/Return": {
+    "relocated/com/parsun/parsun_api/returns/domain/entity/Return": {
       "baseline": {
         "covered": 55,
         "missed": 0,
@@ -4784,7 +4784,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/returns/domain/entity/ReturnLine": {
+    "relocated/com/parsun/parsun_api/returns/domain/entity/ReturnLine": {
       "baseline": {
         "covered": 32,
         "missed": 1,
@@ -4796,7 +4796,7 @@
         "line_coverage_percent": 96.9697
       }
     },
-    "relocated/com/cashly/cashly_api/returns/domain/entity/ReturnLineAllocation": {
+    "relocated/com/parsun/parsun_api/returns/domain/entity/ReturnLineAllocation": {
       "baseline": {
         "covered": 10,
         "missed": 0,
@@ -4808,7 +4808,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/returns/domain/valueobjects/ReturnId": {
+    "relocated/com/parsun/parsun_api/returns/domain/valueobjects/ReturnId": {
       "baseline": {
         "covered": 5,
         "missed": 0,
@@ -4820,7 +4820,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/returns/domain/valueobjects/ReturnNumber": {
+    "relocated/com/parsun/parsun_api/returns/domain/valueobjects/ReturnNumber": {
       "baseline": {
         "covered": 8,
         "missed": 0,
@@ -4832,7 +4832,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/returns/domain/valueobjects/ReturnStatus": {
+    "relocated/com/parsun/parsun_api/returns/domain/valueobjects/ReturnStatus": {
       "baseline": {
         "covered": 0,
         "missed": 4,
@@ -4844,7 +4844,7 @@
         "line_coverage_percent": 0.0
       }
     },
-    "relocated/com/cashly/cashly_api/returns/domain/valueobjects/ReturnType": {
+    "relocated/com/parsun/parsun_api/returns/domain/valueobjects/ReturnType": {
       "baseline": {
         "covered": 3,
         "missed": 0,
@@ -4856,7 +4856,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/shared/storage/domain/exceptions/FileNotFoundException": {
+    "relocated/com/parsun/parsun_api/shared/storage/domain/exceptions/FileNotFoundException": {
       "baseline": {
         "covered": 2,
         "missed": 0,
@@ -4868,7 +4868,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/shared/storage/domain/exceptions/StorageException": {
+    "relocated/com/parsun/parsun_api/shared/storage/domain/exceptions/StorageException": {
       "baseline": {
         "covered": 4,
         "missed": 0,
@@ -4880,7 +4880,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/suppliers/application/delete/use_case/DeleteSupplierUseCase": {
+    "relocated/com/parsun/parsun_api/suppliers/application/delete/use_case/DeleteSupplierUseCase": {
       "baseline": {
         "covered": 11,
         "missed": 0,
@@ -4892,7 +4892,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/suppliers/application/queries/use_case/GetSupplierUseCase": {
+    "relocated/com/parsun/parsun_api/suppliers/application/queries/use_case/GetSupplierUseCase": {
       "baseline": {
         "covered": 4,
         "missed": 4,
@@ -4904,7 +4904,7 @@
         "line_coverage_percent": 50.0
       }
     },
-    "relocated/com/cashly/cashly_api/suppliers/application/queries/use_case/ListSuppliersUseCase": {
+    "relocated/com/parsun/parsun_api/suppliers/application/queries/use_case/ListSuppliersUseCase": {
       "baseline": {
         "covered": 24,
         "missed": 0,
@@ -4916,7 +4916,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/suppliers/application/register/request/CreateSupplierRequest": {
+    "relocated/com/parsun/parsun_api/suppliers/application/register/request/CreateSupplierRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -4928,7 +4928,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/suppliers/application/register/use_case/RegisterSupplierUseCase": {
+    "relocated/com/parsun/parsun_api/suppliers/application/register/use_case/RegisterSupplierUseCase": {
       "baseline": {
         "covered": 5,
         "missed": 14,
@@ -4940,7 +4940,7 @@
         "line_coverage_percent": 26.3158
       }
     },
-    "relocated/com/cashly/cashly_api/suppliers/application/update/request/UpdateSupplierRequest": {
+    "relocated/com/parsun/parsun_api/suppliers/application/update/request/UpdateSupplierRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -4952,7 +4952,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/suppliers/application/update/use_case/UpdateSupplierUseCase": {
+    "relocated/com/parsun/parsun_api/suppliers/application/update/use_case/UpdateSupplierUseCase": {
       "baseline": {
         "covered": 4,
         "missed": 21,
@@ -4964,7 +4964,7 @@
         "line_coverage_percent": 16.0
       }
     },
-    "relocated/com/cashly/cashly_api/suppliers/domain/entity/Supplier": {
+    "relocated/com/parsun/parsun_api/suppliers/domain/entity/Supplier": {
       "baseline": {
         "covered": 85,
         "missed": 1,
@@ -4976,7 +4976,7 @@
         "line_coverage_percent": 98.8372
       }
     },
-    "relocated/com/cashly/cashly_api/suppliers/domain/entity/SupplierAddress": {
+    "relocated/com/parsun/parsun_api/suppliers/domain/entity/SupplierAddress": {
       "baseline": {
         "covered": 18,
         "missed": 17,
@@ -4988,7 +4988,7 @@
         "line_coverage_percent": 51.4286
       }
     },
-    "relocated/com/cashly/cashly_api/suppliers/domain/entity/SupplierEmail": {
+    "relocated/com/parsun/parsun_api/suppliers/domain/entity/SupplierEmail": {
       "baseline": {
         "covered": 10,
         "missed": 7,
@@ -5000,7 +5000,7 @@
         "line_coverage_percent": 58.8235
       }
     },
-    "relocated/com/cashly/cashly_api/suppliers/domain/entity/SupplierPhone": {
+    "relocated/com/parsun/parsun_api/suppliers/domain/entity/SupplierPhone": {
       "baseline": {
         "covered": 10,
         "missed": 7,
@@ -5012,7 +5012,7 @@
         "line_coverage_percent": 58.8235
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/management/application/create/request/CreateWarehouseRequest": {
+    "relocated/com/parsun/parsun_api/warehouses/management/application/create/request/CreateWarehouseRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -5024,7 +5024,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/management/application/create/services/DuplicateWarehouseCodeException": {
+    "relocated/com/parsun/parsun_api/warehouses/management/application/create/services/DuplicateWarehouseCodeException": {
       "baseline": {
         "covered": 2,
         "missed": 0,
@@ -5036,7 +5036,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/management/application/create/use_case/CreateWarehouseUseCase": {
+    "relocated/com/parsun/parsun_api/warehouses/management/application/create/use_case/CreateWarehouseUseCase": {
       "baseline": {
         "covered": 11,
         "missed": 0,
@@ -5048,7 +5048,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/management/application/delete/services/WarehouseHasActiveStockException": {
+    "relocated/com/parsun/parsun_api/warehouses/management/application/delete/services/WarehouseHasActiveStockException": {
       "baseline": {
         "covered": 0,
         "missed": 2,
@@ -5060,7 +5060,7 @@
         "line_coverage_percent": 0.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/management/application/delete/use_case/DeleteWarehouseUseCase": {
+    "relocated/com/parsun/parsun_api/warehouses/management/application/delete/use_case/DeleteWarehouseUseCase": {
       "baseline": {
         "covered": 9,
         "missed": 1,
@@ -5072,7 +5072,7 @@
         "line_coverage_percent": 90.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/management/application/dto/response/WarehouseDetailResponse": {
+    "relocated/com/parsun/parsun_api/warehouses/management/application/dto/response/WarehouseDetailResponse": {
       "baseline": {
         "covered": 6,
         "missed": 0,
@@ -5084,7 +5084,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/management/application/dto/response/WarehouseListResponse": {
+    "relocated/com/parsun/parsun_api/warehouses/management/application/dto/response/WarehouseListResponse": {
       "baseline": {
         "covered": 5,
         "missed": 1,
@@ -5096,7 +5096,7 @@
         "line_coverage_percent": 83.3333
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/management/application/queries/services/RepositoryWarehouseDirectoryQuery": {
+    "relocated/com/parsun/parsun_api/warehouses/management/application/queries/services/RepositoryWarehouseDirectoryQuery": {
       "baseline": {
         "covered": 5,
         "missed": 0,
@@ -5108,7 +5108,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/management/application/queries/use_case/GetWarehouseUseCase": {
+    "relocated/com/parsun/parsun_api/warehouses/management/application/queries/use_case/GetWarehouseUseCase": {
       "baseline": {
         "covered": 7,
         "missed": 0,
@@ -5120,7 +5120,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/management/application/queries/use_case/ListWarehousesUseCase": {
+    "relocated/com/parsun/parsun_api/warehouses/management/application/queries/use_case/ListWarehousesUseCase": {
       "baseline": {
         "covered": 18,
         "missed": 0,
@@ -5132,7 +5132,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/management/application/update/request/UpdateWarehouseRequest": {
+    "relocated/com/parsun/parsun_api/warehouses/management/application/update/request/UpdateWarehouseRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -5144,7 +5144,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/management/application/update/use_case/UpdateWarehouseUseCase": {
+    "relocated/com/parsun/parsun_api/warehouses/management/application/update/use_case/UpdateWarehouseUseCase": {
       "baseline": {
         "covered": 10,
         "missed": 0,
@@ -5156,7 +5156,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/management/domain/entity/Warehouse": {
+    "relocated/com/parsun/parsun_api/warehouses/management/domain/entity/Warehouse": {
       "baseline": {
         "covered": 52,
         "missed": 0,
@@ -5168,7 +5168,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/application/dto/query/model/CatalogPdfQuery": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/application/dto/query/model/CatalogPdfQuery": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -5180,7 +5180,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/application/dto/query/model/CatalogReportQuery": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/application/dto/query/model/CatalogReportQuery": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -5192,7 +5192,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/application/dto/query/model/MovementsPdfQuery": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/application/dto/query/model/MovementsPdfQuery": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -5204,7 +5204,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/application/dto/query/model/StockPdfQuery": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/application/dto/query/model/StockPdfQuery": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -5216,7 +5216,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/application/generate_catalog_pdf/services/GenerateCatalogPdfUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/application/generate_catalog_pdf/services/GenerateCatalogPdfUseCaseImpl": {
       "baseline": {
         "covered": 13,
         "missed": 0,
@@ -5228,7 +5228,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/application/generate_movements_excel/services/GenerateMovementsExcelUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/application/generate_movements_excel/services/GenerateMovementsExcelUseCaseImpl": {
       "baseline": {
         "covered": 6,
         "missed": 0,
@@ -5240,7 +5240,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/application/generate_movements_pdf/services/GenerateMovementsPdfUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/application/generate_movements_pdf/services/GenerateMovementsPdfUseCaseImpl": {
       "baseline": {
         "covered": 6,
         "missed": 0,
@@ -5252,7 +5252,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/application/generate_stock_excel/services/GenerateStockExcelUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/application/generate_stock_excel/services/GenerateStockExcelUseCaseImpl": {
       "baseline": {
         "covered": 6,
         "missed": 0,
@@ -5264,7 +5264,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/application/generate_stock_pdf/services/GenerateStockPdfUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/application/generate_stock_pdf/services/GenerateStockPdfUseCaseImpl": {
       "baseline": {
         "covered": 6,
         "missed": 0,
@@ -5276,7 +5276,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/application/get_catalog_report/services/GetCatalogReportUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/application/get_catalog_report/services/GetCatalogReportUseCaseImpl": {
       "baseline": {
         "covered": 4,
         "missed": 0,
@@ -5288,7 +5288,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/stock/application/adjustment/request/StockAdjustmentRequest": {
+    "relocated/com/parsun/parsun_api/warehouses/stock/application/adjustment/request/StockAdjustmentRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -5300,7 +5300,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/stock/application/adjustment/use_case/StockAdjustmentUseCase": {
+    "relocated/com/parsun/parsun_api/warehouses/stock/application/adjustment/use_case/StockAdjustmentUseCase": {
       "baseline": {
         "covered": 23,
         "missed": 0,
@@ -5312,7 +5312,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/stock/application/deduction/services/StockDeductionService": {
+    "relocated/com/parsun/parsun_api/warehouses/stock/application/deduction/services/StockDeductionService": {
       "baseline": {
         "covered": 11,
         "missed": 0,
@@ -5324,7 +5324,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/stock/application/dto/response/StockBatchItem": {
+    "relocated/com/parsun/parsun_api/warehouses/stock/application/dto/response/StockBatchItem": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -5336,7 +5336,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/stock/application/dto/response/WarehouseStockResponse": {
+    "relocated/com/parsun/parsun_api/warehouses/stock/application/dto/response/WarehouseStockResponse": {
       "baseline": {
         "covered": 6,
         "missed": 0,
@@ -5348,7 +5348,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/stock/application/entry/request/StockEntryRequest": {
+    "relocated/com/parsun/parsun_api/warehouses/stock/application/entry/request/StockEntryRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -5360,7 +5360,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/stock/application/entry/use_case/StockEntryUseCase": {
+    "relocated/com/parsun/parsun_api/warehouses/stock/application/entry/use_case/StockEntryUseCase": {
       "baseline": {
         "covered": 66,
         "missed": 1,
@@ -5372,7 +5372,7 @@
         "line_coverage_percent": 98.5075
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/stock/application/exit/request/StockExitRequest": {
+    "relocated/com/parsun/parsun_api/warehouses/stock/application/exit/request/StockExitRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -5384,7 +5384,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/stock/application/exit/use_case/StockExitUseCase": {
+    "relocated/com/parsun/parsun_api/warehouses/stock/application/exit/use_case/StockExitUseCase": {
       "baseline": {
         "covered": 35,
         "missed": 1,
@@ -5396,7 +5396,7 @@
         "line_coverage_percent": 97.2222
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/stock/application/invoices/services/InvoiceInventoryService": {
+    "relocated/com/parsun/parsun_api/warehouses/stock/application/invoices/services/InvoiceInventoryService": {
       "baseline": {
         "covered": 38,
         "missed": 0,
@@ -5408,7 +5408,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/stock/application/movements/response/StockMovementResponse": {
+    "relocated/com/parsun/parsun_api/warehouses/stock/application/movements/response/StockMovementResponse": {
       "baseline": {
         "covered": 13,
         "missed": 0,
@@ -5420,7 +5420,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/stock/application/movements/use_case/GetStockMovementsUseCase": {
+    "relocated/com/parsun/parsun_api/warehouses/stock/application/movements/use_case/GetStockMovementsUseCase": {
       "baseline": {
         "covered": 29,
         "missed": 0,
@@ -5432,7 +5432,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/stock/application/purchases/services/PurchaseInventoryService": {
+    "relocated/com/parsun/parsun_api/warehouses/stock/application/purchases/services/PurchaseInventoryService": {
       "baseline": {
         "covered": 27,
         "missed": 0,
@@ -5444,7 +5444,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/stock/application/queries/services/RepositoryProductStockQuery": {
+    "relocated/com/parsun/parsun_api/warehouses/stock/application/queries/services/RepositoryProductStockQuery": {
       "baseline": {
         "covered": 10,
         "missed": 0,
@@ -5456,7 +5456,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/stock/application/queries/services/RepositoryPurchaseWarehouseQuery": {
+    "relocated/com/parsun/parsun_api/warehouses/stock/application/queries/services/RepositoryPurchaseWarehouseQuery": {
       "baseline": {
         "covered": 5,
         "missed": 4,
@@ -5468,7 +5468,7 @@
         "line_coverage_percent": 55.5556
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/stock/application/queries/services/StockAvailabilityQueryService": {
+    "relocated/com/parsun/parsun_api/warehouses/stock/application/queries/services/StockAvailabilityQueryService": {
       "baseline": {
         "covered": 54,
         "missed": 0,
@@ -5480,7 +5480,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/stock/application/queries/services/StockAvailabilityQueryService$Key": {
+    "relocated/com/parsun/parsun_api/warehouses/stock/application/queries/services/StockAvailabilityQueryService$Key": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -5492,7 +5492,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/stock/application/queries/use_case/GetWarehouseStockUseCase": {
+    "relocated/com/parsun/parsun_api/warehouses/stock/application/queries/use_case/GetWarehouseStockUseCase": {
       "baseline": {
         "covered": 24,
         "missed": 0,
@@ -5504,7 +5504,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/stock/application/returns/services/ReturnInventoryService": {
+    "relocated/com/parsun/parsun_api/warehouses/stock/application/returns/services/ReturnInventoryService": {
       "baseline": {
         "covered": 25,
         "missed": 0,
@@ -5516,7 +5516,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/stock/application/transfer/request/TransferStockRequest": {
+    "relocated/com/parsun/parsun_api/warehouses/stock/application/transfer/request/TransferStockRequest": {
       "baseline": {
         "covered": 1,
         "missed": 0,
@@ -5528,7 +5528,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/stock/application/transfer/use_case/TransferStockUseCase": {
+    "relocated/com/parsun/parsun_api/warehouses/stock/application/transfer/use_case/TransferStockUseCase": {
       "baseline": {
         "covered": 47,
         "missed": 0,
@@ -5540,7 +5540,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/stock/domain/entity/StockMovement": {
+    "relocated/com/parsun/parsun_api/warehouses/stock/domain/entity/StockMovement": {
       "baseline": {
         "covered": 34,
         "missed": 0,
@@ -5552,7 +5552,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/stock/domain/entity/WarehouseStock": {
+    "relocated/com/parsun/parsun_api/warehouses/stock/domain/entity/WarehouseStock": {
       "baseline": {
         "covered": 59,
         "missed": 1,
@@ -5564,7 +5564,7 @@
         "line_coverage_percent": 98.3333
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/stock/domain/valueobjects/MovementType": {
+    "relocated/com/parsun/parsun_api/warehouses/stock/domain/valueobjects/MovementType": {
       "baseline": {
         "covered": 10,
         "missed": 0,
@@ -5576,7 +5576,7 @@
         "line_coverage_percent": 100.0
       }
     },
-    "relocated/com/cashly/cashly_api/warehouses/stock/domain/valueobjects/ReferenceType": {
+    "relocated/com/parsun/parsun_api/warehouses/stock/domain/valueobjects/ReferenceType": {
       "baseline": {
         "covered": 7,
         "missed": 0,

@@ -2,7 +2,7 @@
 
 ## Intent
 
-Make application package names describe ownership and responsibility consistently across Cashly modules without changing HTTP contracts, database schema, or business behavior.
+Make application package names describe ownership and responsibility consistently across Parsun modules without changing HTTP contracts, database schema, or business behavior.
 
 ## Scope
 

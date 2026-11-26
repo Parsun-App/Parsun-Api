@@ -9,8 +9,8 @@ The pre-relocation capture includes the new area guard added during this change;
     ├── main
     │   └── java
     │       └── com
-    │           └── cashly
-    │               └── cashly_api
+    │           └── parsun
+    │               └── parsun_api
     │                   ├── auth
     │                   │   ├── authentication
     │                   │   │   ├── application
@@ -2367,12 +2367,12 @@ The pre-relocation capture includes the new area guard added during this change;
     │                   │           └── web
     │                   │               ├── StockMovementController.java
     │                   │               └── WarehouseStockController.java
-    │                   └── CashlyApplication.java
+    │                   └── ParsunApplication.java
     └── test
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         ├── architecture
                         │   ├── ApplicationPackageConventionTest.java
                         │   ├── CapabilityStructureTest.java
@@ -3509,8 +3509,8 @@ The pre-relocation capture includes the new area guard added during this change;
                         │   │   └── PageResponseBoundaryTest.java
                         │   ├── infrastructure
                         │   │   ├── bootstrap
-                        │   │   │   ├── CashlyApplicationTests.java
-                        │   │   │   └── TestCashlyApplication.java
+                        │   │   │   ├── ParsunApplicationTests.java
+                        │   │   │   └── TestParsunApplication.java
                         │   │   ├── config
                         │   │   │   ├── DatabaseCleaner.java
                         │   │   │   ├── H2DialectWithoutEngineSupport.java
@@ -3704,8 +3704,8 @@ The pre-relocation capture includes the new area guard added during this change;
     ├── main
     │   └── java
     │       └── com
-    │           └── cashly
-    │               └── cashly_api
+    │           └── parsun
+    │               └── parsun_api
     │                   ├── analytics
     │                   │   └── dashboard
     │                   │       ├── application
@@ -6072,12 +6072,12 @@ The pre-relocation capture includes the new area guard added during this change;
     │                   │           │   └── StorageConfig.java
     │                   │           └── web
     │                   │               └── FileController.java
-    │                   └── CashlyApplication.java
+    │                   └── ParsunApplication.java
     └── test
         └── java
             └── com
-                └── cashly
-                    └── cashly_api
+                └── parsun
+                    └── parsun_api
                         ├── analytics
                         │   └── dashboard
                         │       ├── application
@@ -7392,8 +7392,8 @@ The pre-relocation capture includes the new area guard added during this change;
                             │   └── PageResponseBoundaryTest.java
                             ├── infrastructure
                             │   ├── bootstrap
-                            │   │   ├── CashlyApplicationTests.java
-                            │   │   └── TestCashlyApplication.java
+                            │   │   ├── ParsunApplicationTests.java
+                            │   │   └── TestParsunApplication.java
                             │   ├── config
                             │   │   ├── DatabaseCleaner.java
                             │   │   ├── H2DialectWithoutEngineSupport.java

@@ -20,7 +20,7 @@ Inspected the current source inventory, aggregate ownership, application/control
 3. Shared test fixtures include package-private methods. Distributed suites need explicit test-only fixture access changes or maintained package groups; production visibility must not be widened.
 4. Source-scanning tests can pass vacuously if they scan old paths. New checks must assert nonempty coverage of every intended owner.
 5. Spring scans, configuration references, entity names and repository discovery must remain valid after capability nesting.
-6. Default Maven discovery omits seven MySQL/concurrency IT suites. An obsolete exclusion names a nonexistent StockReservationIntegrationTest. Existing CashlyApplicationTests is empty and provides no startup proof.
+6. Default Maven discovery omits seven MySQL/concurrency IT suites. An obsolete exclusion names a nonexistent StockReservationIntegrationTest. Existing ParsunApplicationTests is empty and provides no startup proof.
 7. Inventory IT uses create-drop; financial/persistence IT uses Flyway. Running both against one database can invalidate the other suite. A dedicated two-database test harness is required.
 8. The existing test runner tears down its Compose project with volumes, and the Returns test Compose file declares global names. Neither is suitable as-is for safe all-module baseline execution beside development services.
 

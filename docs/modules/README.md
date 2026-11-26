@@ -1,6 +1,6 @@
 # Module documentation
 
-This directory contains module-level references for the Cashly API. Source ownership and package boundaries are defined in [ARCHITECTURE.md](../ARCHITECTURE.md); this index only links each module to its guide.
+This directory contains module-level references for the Parsun API. Source ownership and package boundaries are defined in [ARCHITECTURE.md](../ARCHITECTURE.md); this index only links each module to its guide.
 
 ## Current modules
 

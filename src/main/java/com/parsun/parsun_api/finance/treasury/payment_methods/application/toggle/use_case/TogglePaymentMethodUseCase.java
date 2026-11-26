@@ -1,0 +1,58 @@
+package com.parsun.parsun_api.finance.treasury.payment_methods.application.toggle.use_case;
+
+import com.parsun.parsun_api.platform.notifications.application.ports.in.ActivityEvent;
+
+import com.parsun.parsun_api.platform.notifications.application.ports.in.ActivityNotificationRecorder;
+
+import com.parsun.parsun_api.finance.treasury.payment_methods.application.dto.response.PaymentMethodResponse;
+import com.parsun.parsun_api.finance.treasury.payment_methods.application.mappers.PaymentMethodMapper;
+import com.parsun.parsun_api.finance.treasury.payment_methods.domain.entity.PaymentMethod;
+import com.parsun.parsun_api.finance.treasury.payment_methods.application.ports.out.PaymentMethodUsageGateway;
+import com.parsun.parsun_api.finance.treasury.payment_methods.domain.repository.PaymentMethodRepository;
+import com.parsun.parsun_api.finance.treasury.payment_methods.domain.valueobjects.PaymentMethodId;
+import com.parsun.parsun_api.shared.application.ports.in.ActiveTogglePermission;
+import jakarta.transaction.Transactional;
+import org.springframework.stereotype.Service;
+
+import java.util.UUID;
+import com.parsun.parsun_api.platform.audit.application.ports.in.Audited;
+
+@Service
+public class TogglePaymentMethodUseCase {
+
+    private final PaymentMethodRepository repository;
+    private final PaymentMethodUsageGateway usageGateway;
+    private final ActiveTogglePermission access;
+
+    private final ActivityNotificationRecorder activityNotifications;
+
+    public TogglePaymentMethodUseCase(PaymentMethodRepository repository,
+            PaymentMethodUsageGateway usageGateway, ActiveTogglePermission access,
+            ActivityNotificationRecorder activityNotifications) {
+        this.activityNotifications = activityNotifications != null
+                ? activityNotifications
+                : ActivityNotificationRecorder.NONE;
+        this.repository = repository;
+        this.usageGateway = usageGateway;
+        this.access = access;
+    }
+
+    @Transactional
+    @Audited(module = "finance", entityType = "PAYMENT_METHOD", action = "TOGGLE")
+    public PaymentMethodResponse execute(UUID id) {
+        access.requireActiveToggle();
+        PaymentMethod paymentMethod = repository
+                .findById(PaymentMethodId.of(id))
+                .orElseThrow(() -> new IllegalArgumentException(
+                        "Payment method not found: " + id));
+
+        paymentMethod.toggleActive();
+        PaymentMethod saved = repository.save(paymentMethod);
+
+        activityNotifications.record(ActivityEvent.of("FINANCE_TREASURY_PAYMENT_METHODS",
+                "EDIT", "PAYMENT_METHOD",
+                saved.getId().value(), saved.getName(), null));
+        return PaymentMethodMapper.toResponse(saved,
+                usageGateway.hasAssociatedRecords(saved.getId().value()));
+    }
+}

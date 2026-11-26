@@ -1,13 +1,13 @@
 # Verification: installation company and user photos
 
 ## Delivered scope
-One company per installation, as explicitly selected by the user. Settings include legal/trade names, fiscal identifier, fiscal address and contact details. Company branding appears only after authentication and preserves existing Cashly assets as fallback. User administration and own-profile editing support image upload/removal; navbar, profile and user list/details use authenticated image loading with initials fallback.
+One company per installation, as explicitly selected by the user. Settings include legal/trade names, fiscal identifier, fiscal address and contact details. Company branding appears only after authentication and preserves existing Parsun assets as fallback. User administration and own-profile editing support image upload/removal; navbar, profile and user list/details use authenticated image loading with initials fallback.
 
 ## Automated checks
 - Docker Maven: 580 tests passed across company/avatar/image handling and endpoint permission coverage/enforcement. Includes verification that the generic catalog file endpoint cannot serve identity media.
 - Docker Vitest: 60 tests passed across layout, company image state, avatars, shared file input and profile/user forms. After adding two creation/photo-failure cases, all eight affected user-form tests passed (62 distinct frontend tests across scoped runs).
 - Production Angular build passed. Existing qrcode/STOMP CommonJS notices remain.
-- Five Chromium browser scenarios passed: company field/logo persistence and bounded media reads; mobile shared panel/fallback/no horizontal overflow; denied company route without permission; logo removal restores Cashly icon; own-photo upload updates navbar and persists on reload.
+- Five Chromium browser scenarios passed: company field/logo persistence and bounded media reads; mobile shared panel/fallback/no horizontal overflow; denied company route without permission; logo removal restores Parsun icon; own-photo upload updates navbar and persists on reload.
 - Desktop/mobile screenshots reviewed under the neighboring frontend checkout's `output/playwright/company/`.
 - Prettier checks and both repositories' `git diff --check` passed.
 

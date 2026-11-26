@@ -7,8 +7,8 @@ src/
 ├── main
 │   ├── java
 │   │   └── com
-│   │       └── cashly
-│   │           └── cashly_api
+│   │       └── parsun
+│   │           └── parsun_api
 │   │               ├── auth
 │   │               │   ├── authentication
 │   │               │   │   ├── application
@@ -2038,7 +2038,7 @@ src/
 │   │               │           └── web
 │   │               │               ├── StockMovementController.java
 │   │               │               └── WarehouseStockController.java
-│   │               └── CashlyApplication.java
+│   │               └── ParsunApplication.java
 │   └── resources
 │       ├── db
 │       │   └── migration
@@ -2068,7 +2068,7 @@ src/
 │       │       ├── V8__create_product_prices.sql
 │       │       └── V9__create_orders_tables.sql
 │       ├── pdf
-│       │   └── cashly-logo.png
+│       │   └── parsun-logo.png
 │       ├── application-dev.properties
 │       ├── application-production.properties
 │       ├── application.properties
@@ -2076,8 +2076,8 @@ src/
 └── test
     ├── java
     │   └── com
-    │       └── cashly
-    │           └── cashly_api
+    │       └── parsun
+    │           └── parsun_api
     │               ├── architecture
     │               │   ├── ApplicationPackageConventionTest.java
     │               │   ├── CapabilityStructureTest.java
@@ -3203,8 +3203,8 @@ src/
     │               │           └── web
     │               │               ├── StockMovementControllerTest.java
     │               │               └── WarehouseStockControllerTest.java
-    │               ├── CashlyApplicationTests.java
-    │               ├── TestCashlyApplication.java
+    │               ├── ParsunApplicationTests.java
+    │               ├── TestParsunApplication.java
     │               ├── TestJpaConfig.java
     │               └── TestcontainersConfiguration.java
     └── resources

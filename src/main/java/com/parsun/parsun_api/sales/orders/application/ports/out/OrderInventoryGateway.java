@@ -1,0 +1,23 @@
+package com.parsun.parsun_api.sales.orders.application.ports.out;
+
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.UUID;
+
+public interface OrderInventoryGateway {
+    void deduct(List<Allocation> allocations);
+
+    void reserve(List<Allocation> allocations);
+
+    void release(List<Allocation> allocations);
+
+    void deductReservations(List<Allocation> allocations, Reference reference);
+
+    void restore(List<Allocation> allocations, Reference reference);
+
+    record Allocation(UUID warehouseId, UUID productId, BigDecimal quantity) {
+    }
+
+    record Reference(UUID id, String number, String description) {
+    }
+}

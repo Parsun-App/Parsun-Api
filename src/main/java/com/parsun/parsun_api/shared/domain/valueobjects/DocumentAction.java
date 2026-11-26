@@ -1,0 +1,5 @@
+package com.parsun.parsun_api.shared.domain.valueobjects;
+
+public enum DocumentAction {
+    EDIT, CONFIRM, CANCEL, CONVERT_TO_ORDER, CONVERT_TO_INVOICE, DUPLICATE, DELETE
+}

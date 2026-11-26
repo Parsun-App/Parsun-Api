@@ -1,0 +1,17 @@
+package com.parsun.parsun_api.procurement.purchases.application.ports.out;
+
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
+public interface PurchaseWarehouseGateway {
+    Optional<Warehouse> findById(UUID id);
+    List<Warehouse> activeWarehouses();
+    List<Stock> findByProductId(UUID productId);
+    record Warehouse(UUID id, String code, String name) {
+    }
+    record Stock(UUID warehouseId, BigDecimal quantity, BigDecimal reserved,
+            BigDecimal available) {
+    }
+}

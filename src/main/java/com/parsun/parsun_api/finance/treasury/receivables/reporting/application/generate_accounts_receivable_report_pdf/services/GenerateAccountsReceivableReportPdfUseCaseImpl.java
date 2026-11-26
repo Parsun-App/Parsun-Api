@@ -1,0 +1,69 @@
+package com.parsun.parsun_api.finance.treasury.receivables.reporting.application.generate_accounts_receivable_report_pdf.services;
+
+import com.parsun.parsun_api.finance.treasury.receivables.reporting.application.generate_accounts_receivable_report_pdf.use_case.GenerateAccountsReceivableReportPdfUseCase;
+
+import com.parsun.parsun_api.finance.treasury.receivables.reporting.application.ports.out.AccountsReceivableQueryGateway;
+import com.parsun.parsun_api.finance.treasury.receivables.reporting.application.dto.model.AccountsReceivableReportData;
+import com.parsun.parsun_api.finance.treasury.receivables.reporting.application.dto.model.AccountsReceivableReportData.AccountReceivableRow;
+import com.parsun.parsun_api.finance.treasury.receivables.reporting.application.ports.out.AccountsReceivableReportPdfPort;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.List;
+import java.util.UUID;
+
+public class GenerateAccountsReceivableReportPdfUseCaseImpl
+        implements
+            GenerateAccountsReceivableReportPdfUseCase {
+
+    private final AccountsReceivableQueryGateway receivablesRepository;
+    private final AccountsReceivableReportPdfPort pdfPort;
+
+    public GenerateAccountsReceivableReportPdfUseCaseImpl(
+            AccountsReceivableQueryGateway receivablesRepository,
+            AccountsReceivableReportPdfPort pdfPort) {
+        this.receivablesRepository = receivablesRepository;
+        this.pdfPort = pdfPort;
+    }
+
+    @Override
+    public byte[] execute(UUID customerId, boolean overdueOnly,
+            LocalDate dateFrom, LocalDate dateTo) {
+        AccountsReceivableReportData data = buildReportData(customerId,
+                overdueOnly, dateFrom, dateTo);
+        return pdfPort.generateReport(data);
+    }
+
+    private AccountsReceivableReportData buildReportData(UUID customerId,
+            boolean overdueOnly, LocalDate dateFrom, LocalDate dateTo) {
+        List<AccountReceivableRow> reportRows = receivablesRepository
+                .findAccountsReceivableForReport(customerId, overdueOnly,
+                        dateFrom, dateTo);
+
+        BigDecimal totalReceivable = BigDecimal.ZERO;
+        BigDecimal notYetDue = BigDecimal.ZERO;
+        BigDecimal overdue = BigDecimal.ZERO;
+        int customersExceededCredit = 0;
+
+        for (AccountReceivableRow row : reportRows) {
+            BigDecimal rowBalance = row.pendingBalance();
+            totalReceivable = totalReceivable.add(rowBalance);
+
+            BigDecimal rowAge0_30 = row.age0_30();
+            notYetDue = notYetDue.add(rowAge0_30);
+
+            BigDecimal rowOverdue = row.age31_60().add(row.age61_90())
+                    .add(row.age91_120()).add(row.age120Plus());
+            overdue = overdue.add(rowOverdue);
+
+            if (row.pendingBalance().compareTo(row.creditLimit()) > 0) {
+                customersExceededCredit++;
+            }
+        }
+
+        return new AccountsReceivableReportData(java.time.LocalDate.now(),
+                overdueOnly, dateFrom, dateTo, reportRows,
+                new AccountsReceivableReportData.Summary(totalReceivable,
+                        notYetDue, overdue, customersExceededCredit));
+    }
+}

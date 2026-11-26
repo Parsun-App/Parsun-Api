@@ -1,6 +1,6 @@
-# Cashly API
+# Parsun API
 
-Cashly API is the backend for the Cashly business management platform. It exposes the HTTP contracts used by the back-office application and owns transactional data, domain rules, persistence, authentication and reporting.
+Parsun API is the backend for the Parsun business management platform. It exposes the HTTP contracts used by the back-office application and owns transactional data, domain rules, persistence, authentication and reporting.
 
 ## Business modules
 
@@ -71,13 +71,13 @@ Configuration, storage and seeding are documented in [docs/SETUP.md](docs/SETUP.
 - Migrations live in `src/main/resources/db/migration`. The current baseline ends at **V25** and is consolidated by domain (one migration per bounded context).
 - Migrations create the final schema for a fresh database.
 - Seed data is implemented as 29 ordered Java steps in `infrastructure/seed/steps`, orchestrated by `DatabaseSeedRunner`.
-- Set `CASHLY_SEED_ENABLED=true` to run the seed after startup. The default is `false`.
+- Set `PARSUN_SEED_ENABLED=true` to run the seed after startup. The default is `false`.
 
 To recreate a disposable database from scratch:
 
 ```bash
 docker compose stop app
-docker exec cashly-api-mysql mysql -uroot -pverysecret \
+docker exec parsun-api-mysql mysql -uroot -pverysecret \
   -e "DROP DATABASE mydatabase; CREATE DATABASE mydatabase CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;"
 docker compose start app
 ```
@@ -99,7 +99,7 @@ This is **not** a migration problem. Wipe the compiled output and recreate the A
 ./scripts/reset-target.sh
 ```
 
-The script stops only `app`, removes the root-owned `target/` through a throwaway container, rebuilds and recreates `app`, and verifies `Started CashlyApplication` in the logs. Run it whenever you refactor package/class names.
+The script stops only `app`, removes the root-owned `target/` through a throwaway container, rebuilds and recreates `app`, and verifies `Started ParsunApplication` in the logs. Run it whenever you refactor package/class names.
 
 ## Permissions
 

@@ -1,0 +1,22 @@
+package com.parsun.parsun_api.partners.customers.credit.application.overdue.use_case;
+
+import com.parsun.parsun_api.partners.customers.credit.application.dto.response.OverdueInvoiceResponse;
+import com.parsun.parsun_api.partners.customers.credit.application.ports.out.CreditValidationGateway;
+import jakarta.transaction.Transactional;
+
+import java.util.List;
+
+public class GetOverdueInvoicesUseCase {
+
+    private final CreditValidationGateway creditValidationGateway;
+
+    public GetOverdueInvoicesUseCase(
+            CreditValidationGateway creditValidationGateway) {
+        this.creditValidationGateway = creditValidationGateway;
+    }
+
+    @Transactional
+    public List<OverdueInvoiceResponse> execute() {
+        return creditValidationGateway.findAllOverdueInvoices();
+    }
+}

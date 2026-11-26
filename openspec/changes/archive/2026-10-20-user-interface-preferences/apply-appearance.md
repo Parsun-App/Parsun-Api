@@ -15,7 +15,7 @@ Autonomous local work unit: appearance foundation and module/chart accents (task
 
 - RED: module-appearance and ThemeService tests failed import resolution before new implementations existed.
 - GREEN: ThemeService5, module appearance3, Dashboard5 pass in Docker Vitest.
-- Build: `docker exec cashly-app-dev node node_modules/@angular/cli/bin/ng.js build` passed (existing CommonJS qrcode/stomp warnings).
+- Build: `docker exec parsun-app-dev node node_modules/@angular/cli/bin/ng.js build` passed (existing CommonJS qrcode/stomp warnings).
 - Layout25 passed after updating stale profile-nav expectations and adding group-inheritance/settings-route assertions. Combined appearance/layout suite38 passed.
 - Browser probe validated light informative, dark informative and restoration to dark minimal. Module icons and metric tints changed as intended; computed radius28px and complete box-shadow string stayed identical across states. Light/dark screenshots inspected under output/playwright/preferences-appearance-{light,dark}.png. Full six-combination/responsive matrix remains integration verification responsibility.
 

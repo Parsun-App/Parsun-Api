@@ -41,13 +41,13 @@ sleep 20
 if "${COMPOSE_CMD[@]}" ps app | grep -q "Up"; then
     echo ""
     echo "✅ Container is up. Verifying startup in logs..."
-    "${COMPOSE_CMD[@]}" logs app --tail=200 2>&1 | grep -E "Started CashlyApplication" && {
+    "${COMPOSE_CMD[@]}" logs app --tail=200 2>&1 | grep -E "Started ParsunApplication" && {
         echo ""
-        echo "✅ Cashly API started successfully!"
+        echo "✅ Parsun API started successfully!"
         exit 0
     }
     echo ""
-    echo "⚠️  Container is up but 'Started CashlyApplication' not found yet."
+    echo "⚠️  Container is up but 'Started ParsunApplication' not found yet."
     echo "   Inspect logs with: ${COMPOSE_CMD[*]} logs -f app"
     exit 1
 fi

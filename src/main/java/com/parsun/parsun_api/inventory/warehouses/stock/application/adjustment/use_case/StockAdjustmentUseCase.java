@@ -1,0 +1,82 @@
+package com.parsun.parsun_api.inventory.warehouses.stock.application.adjustment.use_case;
+
+import com.parsun.parsun_api.platform.notifications.application.ports.in.ActivityEvent;
+
+import com.parsun.parsun_api.platform.notifications.application.ports.in.ActivityNotificationRecorder;
+
+import com.parsun.parsun_api.inventory.warehouses.stock.application.adjustment.request.StockAdjustmentRequest;
+import com.parsun.parsun_api.inventory.warehouses.stock.application.movements.response.StockMovementResponse;
+import com.parsun.parsun_api.inventory.warehouses.management.application.exceptions.WarehouseNotFoundException;
+import com.parsun.parsun_api.inventory.warehouses.management.application.exceptions.WarehouseNotActiveException;
+import com.parsun.parsun_api.inventory.warehouses.stock.domain.valueobjects.MovementType;
+import com.parsun.parsun_api.inventory.warehouses.stock.domain.entity.StockMovement;
+import com.parsun.parsun_api.inventory.warehouses.management.domain.entity.Warehouse;
+import com.parsun.parsun_api.inventory.warehouses.stock.domain.entity.WarehouseStock;
+import com.parsun.parsun_api.inventory.warehouses.stock.domain.repository.StockMovementRepository;
+import com.parsun.parsun_api.inventory.warehouses.management.domain.repository.WarehouseRepository;
+import com.parsun.parsun_api.inventory.warehouses.stock.domain.repository.WarehouseStockRepository;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.math.BigDecimal;
+import java.util.UUID;
+import com.parsun.parsun_api.inventory.warehouses.stock.application.ports.out.StockCatalogGateway;
+import com.parsun.parsun_api.inventory.warehouses.stock.application.ports.out.StockCatalogGateway.CatalogProduct;
+import com.parsun.parsun_api.platform.audit.application.ports.in.Audited;
+
+public class StockAdjustmentUseCase {
+
+    private final WarehouseRepository warehouseRepository;
+    private final WarehouseStockRepository warehouseStockRepository;
+    private final StockMovementRepository stockMovementRepository;
+    private final StockCatalogGateway catalog;
+
+    private final ActivityNotificationRecorder activityNotifications;
+
+    public StockAdjustmentUseCase(WarehouseRepository warehouseRepository,
+            WarehouseStockRepository warehouseStockRepository,
+            StockMovementRepository stockMovementRepository,
+            StockCatalogGateway catalog,
+            ActivityNotificationRecorder activityNotifications) {
+        this.activityNotifications = activityNotifications != null
+                ? activityNotifications
+                : ActivityNotificationRecorder.NONE;
+        this.warehouseRepository = warehouseRepository;
+        this.warehouseStockRepository = warehouseStockRepository;
+        this.stockMovementRepository = stockMovementRepository;
+        this.catalog = catalog;
+    }
+
+    @Transactional
+    @Audited(module = "inventory", entityType = "WAREHOUSE", action = "ADJUST")
+    public StockMovementResponse execute(UUID warehouseId,
+            StockAdjustmentRequest request) {
+        Warehouse warehouse = warehouseRepository.findById(warehouseId)
+                .orElseThrow(() -> new WarehouseNotFoundException(warehouseId));
+        if (!warehouse.isActive()) {
+            throw new WarehouseNotActiveException(warehouseId);
+        }
+
+        CatalogProduct product = catalog.getProduct(request.productId());
+
+        WarehouseStock stock = warehouseStockRepository
+                .findOrCreateByWarehouseIdAndProductIdForUpdate(warehouseId,
+                        product.id());
+
+        BigDecimal prevQty = stock.getQuantity();
+        BigDecimal delta = request.newQuantity().subtract(prevQty).abs();
+        stock.adjustStock(request.newQuantity());
+        WarehouseStock savedStock = warehouseStockRepository.save(stock);
+
+        StockMovement movement = StockMovement.create(warehouseId, product.id(),
+                MovementType.ADJUSTMENT, delta, prevQty,
+                savedStock.getQuantity(), null, null, request.notes());
+        StockMovement saved = stockMovementRepository.save(movement);
+        activityNotifications.record(ActivityEvent.of("INVENTORY_WAREHOUSES",
+                savedStock.getQuantity().compareTo(prevQty) >= 0
+                        ? "RECORD_ENTRY"
+                        : "RECORD_EXIT",
+                "WAREHOUSE", warehouseId, warehouse.getName(), null));
+        return StockMovementResponse.from(saved, product.code(),
+                product.name());
+    }
+}

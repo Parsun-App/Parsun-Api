@@ -1,7 +1,7 @@
 # Installation company and user photos
 
 ## Intent and confirmed scope
-The user explicitly selected one company per installation. All existing and future installation records belong to that company. Add company legal/contact details and branding, plus user avatars in administration and self-profile editing. Preserve the existing Cashly design system and its shared card shadows.
+The user explicitly selected one company per installation. All existing and future installation records belong to that company. Add company legal/contact details and branding, plus user avatars in administration and self-profile editing. Preserve the existing Parsun design system and its shared card shadows.
 
 ## Scope
 - One immutable company identity; editable legal name, trade name, fiscal identifier, fiscal address, email, telephone and website.

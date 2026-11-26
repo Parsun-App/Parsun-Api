@@ -14,4 +14,4 @@ Expected failures:
 - `ReportingOwnershipTest.should_keep_document_generation_and_visual_helpers_in_their_approved_owner`: original generators are outside their owner reporting submodule.
 - `ReportingOwnershipTest.should_have_application_infrastructure_and_tests_for_every_document_report_owner`: new owner trees do not exist in original snapshot.
 
-The remaining five tests passed, including positive/negative path fixtures and package/path consistency. Raw local log: `/tmp/cashly-reporting-isolated-red.log`; XML remains in the container temporary directory. Full XML properties are intentionally not committed.
+The remaining five tests passed, including positive/negative path fixtures and package/path consistency. Raw local log: `/tmp/parsun-reporting-isolated-red.log`; XML remains in the container temporary directory. Full XML properties are intentionally not committed.

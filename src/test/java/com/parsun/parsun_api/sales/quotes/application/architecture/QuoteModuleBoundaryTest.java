@@ -1,0 +1,33 @@
+package com.parsun.parsun_api.sales.quotes.application.architecture;
+
+import com.parsun.parsun_api.sales.quotes.application.create.use_case.CreateQuoteUseCase;
+import com.parsun.parsun_api.sales.quotes.application.products.use_case.GetProductsForQuoteUseCase;
+import com.parsun.parsun_api.sales.quotes.application.get.use_case.GetQuoteByIdUseCase;
+import com.parsun.parsun_api.sales.quotes.application.list.use_case.GetQuotesUseCase;
+import com.parsun.parsun_api.sales.quotes.application.warehouses.use_case.GetWarehousesForQuoteUseCase;
+import com.parsun.parsun_api.sales.quotes.application.update.use_case.UpdateQuoteUseCase;
+import org.junit.jupiter.api.Test;
+
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+class QuoteModuleBoundaryTest {
+    @Test
+    void application_use_cases_depend_only_on_quote_owned_types() {
+        Class<?>[] useCases = {CreateQuoteUseCase.class,
+                UpdateQuoteUseCase.class, GetQuotesUseCase.class,
+                GetQuoteByIdUseCase.class, GetProductsForQuoteUseCase.class,
+                GetWarehousesForQuoteUseCase.class};
+
+        for (Class<?> useCase : useCases) {
+            for (var constructor : useCase.getConstructors()) {
+                assertTrue(Arrays.stream(constructor.getParameterTypes())
+                        .allMatch(type -> (type.getPackageName().startsWith(
+                                "com.parsun.parsun_api.sales.quotes.") || type.getPackageName().startsWith("com.parsun.parsun_api.platform.notifications.application.ports.in"))),
+                        useCase.getSimpleName()
+                                + " imports an external module into its constructor");
+            }
+        }
+    }
+}

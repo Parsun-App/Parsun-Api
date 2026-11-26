@@ -1,0 +1,8 @@
+package com.parsun.parsun_api.finance.treasury.payments.collection.application.ports.out;
+
+import java.util.Optional;
+import java.util.UUID;
+
+public interface PaymentActorGateway {
+    Optional<String> findName(UUID actorId);
+}

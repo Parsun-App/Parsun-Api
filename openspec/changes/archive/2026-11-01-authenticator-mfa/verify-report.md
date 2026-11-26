@@ -7,7 +7,7 @@ MFA only, as explicitly confirmed by the user. No Google identity integration.
 - Backend: 64 focused authentication, refresh, controller, authorization coverage, cryptography and MFA tests passed across scoped Docker runs, including three real MySQL transaction/concurrency tests in the dedicated `mfa_verification` schema.
 - Frontend: 120 focused authentication, login, layout, route, interceptor and Security component tests passed in Docker. After the final lockout-message improvement, the 43 affected tests passed, including two new regression tests. Production Angular build passed before that message-only improvement.
 - Browser: 10 Chromium scenarios passed in Docker covering challenge login, recovery, invalid/expired verification, desktop/mobile Security navigation, enrollment QR/recovery presentation and disable. Mobile layout checked for horizontal overflow.
-- Manual visual review: clean desktop/mobile Security and mobile MFA login screenshots reviewed. Screenshots are under `cashly-app/output/playwright/mfa/` in the neighboring frontend checkout.
+- Manual visual review: clean desktop/mobile Security and mobile MFA login screenshots reviewed. Screenshots are under `parsun-app/output/playwright/mfa/` in the neighboring frontend checkout.
 - Independent security reviews found no blocking bypass/replay issue. A refresh/enrollment race identified during implementation was addressed by locking the MFA row before a locking read of the refresh token.
 
 ## Operational configuration

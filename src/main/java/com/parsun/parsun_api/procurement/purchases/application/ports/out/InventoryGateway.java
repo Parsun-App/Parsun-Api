@@ -1,0 +1,15 @@
+package com.parsun.parsun_api.procurement.purchases.application.ports.out;
+
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.UUID;
+
+public interface InventoryGateway {
+    void receive(UUID purchaseId, String purchaseNumber,
+            List<Allocation> allocations);
+    void reverseReceipt(UUID purchaseId, String purchaseNumber,
+            List<Allocation> allocations);
+
+    record Allocation(UUID warehouseId, UUID productId, BigDecimal quantity) {
+    }
+}

@@ -41,7 +41,7 @@ The back-office client maps current `referenceType` values to existing `/{resour
 | Area | Impact | Description |
 |------|--------|-------------|
 | `notifications/application/services/NotificationService.java` | Modified | Standardize visible budget copy. |
-| `cashly-app/src/app/core/notifications/` | Modified | Route clicks and fallback. |
+| `parsun-app/src/app/core/notifications/` | Modified | Route clicks and fallback. |
 
 ## Risks
 

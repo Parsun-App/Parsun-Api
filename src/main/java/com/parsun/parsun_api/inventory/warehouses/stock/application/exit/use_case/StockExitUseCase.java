@@ -1,0 +1,109 @@
+package com.parsun.parsun_api.inventory.warehouses.stock.application.exit.use_case;
+
+import com.parsun.parsun_api.platform.notifications.application.ports.in.ActivityEvent;
+
+import com.parsun.parsun_api.platform.notifications.application.ports.in.ActivityNotificationRecorder;
+
+import com.parsun.parsun_api.inventory.warehouses.stock.application.dto.response.StockBatchItem;
+import com.parsun.parsun_api.inventory.warehouses.stock.application.exit.request.StockExitRequest;
+import com.parsun.parsun_api.inventory.warehouses.stock.application.movements.response.StockMovementResponse;
+import com.parsun.parsun_api.inventory.warehouses.stock.application.exceptions.InsufficientStockException;
+import com.parsun.parsun_api.inventory.warehouses.stock.application.exceptions.ProductNotInWarehouseException;
+import com.parsun.parsun_api.inventory.warehouses.management.application.exceptions.WarehouseNotFoundException;
+import com.parsun.parsun_api.inventory.warehouses.management.application.exceptions.WarehouseNotActiveException;
+import com.parsun.parsun_api.inventory.warehouses.stock.domain.valueobjects.MovementType;
+import com.parsun.parsun_api.inventory.warehouses.stock.domain.valueobjects.ReferenceType;
+import com.parsun.parsun_api.inventory.warehouses.stock.domain.entity.StockMovement;
+import com.parsun.parsun_api.inventory.warehouses.management.domain.entity.Warehouse;
+import com.parsun.parsun_api.inventory.warehouses.stock.domain.entity.WarehouseStock;
+import com.parsun.parsun_api.inventory.warehouses.stock.domain.repository.StockMovementRepository;
+import com.parsun.parsun_api.inventory.warehouses.management.domain.repository.WarehouseRepository;
+import com.parsun.parsun_api.inventory.warehouses.stock.domain.repository.WarehouseStockRepository;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+import com.parsun.parsun_api.inventory.warehouses.stock.application.ports.out.StockCatalogGateway;
+import com.parsun.parsun_api.inventory.warehouses.stock.application.ports.out.StockCatalogGateway.CatalogProduct;
+import com.parsun.parsun_api.platform.audit.application.ports.in.Audited;
+
+public class StockExitUseCase {
+
+    private final WarehouseRepository warehouseRepository;
+    private final WarehouseStockRepository warehouseStockRepository;
+    private final StockMovementRepository stockMovementRepository;
+    private final StockCatalogGateway catalog;
+
+    private final ActivityNotificationRecorder activityNotifications;
+
+    public StockExitUseCase(WarehouseRepository warehouseRepository,
+            WarehouseStockRepository warehouseStockRepository,
+            StockMovementRepository stockMovementRepository,
+            StockCatalogGateway catalog,
+            ActivityNotificationRecorder activityNotifications) {
+        this.activityNotifications = activityNotifications != null
+                ? activityNotifications
+                : ActivityNotificationRecorder.NONE;
+        this.warehouseRepository = warehouseRepository;
+        this.warehouseStockRepository = warehouseStockRepository;
+        this.stockMovementRepository = stockMovementRepository;
+        this.catalog = catalog;
+    }
+
+    @Transactional
+    @Audited(module = "inventory", entityType = "WAREHOUSE", action = "RECORD_EXIT")
+    public List<StockMovementResponse> execute(UUID warehouseId,
+            StockExitRequest request) {
+        Warehouse warehouse = warehouseRepository.findById(warehouseId)
+                .orElseThrow(() -> new WarehouseNotFoundException(warehouseId));
+        if (!warehouse.isActive()) {
+            throw new WarehouseNotActiveException(warehouseId);
+        }
+
+        for (StockBatchItem item : request.items()) {
+            CatalogProduct product = catalog.getProduct(item.productId());
+
+            WarehouseStock stock = warehouseStockRepository
+                    .findByWarehouseIdAndProductIdForUpdate(warehouseId,
+                            product.id())
+                    .orElseThrow(() -> new ProductNotInWarehouseException(
+                            product.id(), warehouseId));
+
+            if (stock.getQuantity().compareTo(item.quantity()) < 0) {
+                throw new InsufficientStockException(product.id(), warehouseId,
+                        stock.getQuantity(), item.quantity());
+            }
+        }
+
+        List<StockMovementResponse> movements = new ArrayList<>();
+
+        for (StockBatchItem item : request.items()) {
+            CatalogProduct product = catalog.getProduct(item.productId());
+
+            WarehouseStock stock = warehouseStockRepository
+                    .findByWarehouseIdAndProductIdForUpdate(warehouseId,
+                            product.id())
+                    .orElseThrow(() -> new ProductNotInWarehouseException(
+                            product.id(), warehouseId));
+
+            BigDecimal prevQty = stock.getQuantity();
+            stock.removeStock(item.quantity());
+            WarehouseStock savedStock = warehouseStockRepository.save(stock);
+
+            StockMovement movement = StockMovement.createWithReference(
+                    warehouseId, product.id(), MovementType.EXIT,
+                    item.quantity(), prevQty, savedStock.getQuantity(), null,
+                    null, ReferenceType.MANUAL, null, null, item.notes());
+            StockMovement saved = stockMovementRepository.save(movement);
+            movements.add(StockMovementResponse.from(saved, product.code(),
+                    product.name()));
+        }
+
+        activityNotifications.record(ActivityEvent.of("INVENTORY_WAREHOUSES",
+                "RECORD_EXIT", "WAREHOUSE", warehouseId,
+                warehouse.getName(), null));
+        return movements;
+    }
+}

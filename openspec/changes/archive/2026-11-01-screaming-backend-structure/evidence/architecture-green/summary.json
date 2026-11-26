@@ -9,28 +9,28 @@
   },
   "suites": [
     {
-      "name": "com.cashly.cashly_api.architecture.ApplicationPackageConventionTest",
+      "name": "com.parsun.parsun_api.architecture.ApplicationPackageConventionTest",
       "tests": "7",
       "failures": "0",
       "errors": "0",
       "skipped": "0"
     },
     {
-      "name": "com.cashly.cashly_api.architecture.LayerDependencyTest",
+      "name": "com.parsun.parsun_api.architecture.LayerDependencyTest",
       "tests": "8",
       "failures": "0",
       "errors": "0",
       "skipped": "0"
     },
     {
-      "name": "com.cashly.cashly_api.architecture.CapabilityStructureTest",
+      "name": "com.parsun.parsun_api.architecture.CapabilityStructureTest",
       "tests": "4",
       "failures": "0",
       "errors": "0",
       "skipped": "0"
     },
     {
-      "name": "com.cashly.cashly_api.customers.warehouse_access.application.CustomerWarehouseBoundaryTest",
+      "name": "com.parsun.parsun_api.customers.warehouse_access.application.CustomerWarehouseBoundaryTest",
       "tests": "2",
       "failures": "0",
       "errors": "0",

@@ -1,0 +1,24 @@
+package com.parsun.parsun_api.finance.treasury.cash_register.sessions.application.dto.response;
+
+import com.parsun.parsun_api.finance.treasury.cash_register.sessions.application.movements.response.CashMovementResponse;
+
+import com.parsun.parsun_api.finance.treasury.cash_register.sessions.domain.valueobjects.RegisterStatus;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.UUID;
+
+public record CashRegisterResponse(UUID id, LocalDate closureDate,
+        RegisterStatus status, UUID openedBy, String openedByName,
+        LocalDateTime openedAt, UUID closedBy, String closedByName,
+        LocalDateTime closedAt, String closingNotes,
+        List<CashRegisterDetailResponse> details, BigDecimal totalInvoiced,
+        BigDecimal totalRevenue, BigDecimal totalExpenses, BigDecimal balance,
+        List<RevenueSummaryItem> revenueSummary,
+        List<ExpenseSummaryItem> expenseSummary,
+        BigDecimal totalIncome, BigDecimal totalExpense,
+        BigDecimal declaredBalance, BigDecimal difference,
+        List<CashMovementResponse> movements) {
+}

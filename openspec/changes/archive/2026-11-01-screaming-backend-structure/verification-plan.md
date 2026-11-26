@@ -31,7 +31,7 @@ Inventory and map every source, helper, resource and backup individually. Every 
 - `ReturnsFinancialRollbackMySqlIT` requires `RETURNS_MYSQL_URL`, `RETURNS_MYSQL_USERNAME`, `RETURNS_MYSQL_PASSWORD`, or the corresponding `returns.mysql.*` system properties. The ordinary Spring datasource environment variables are insufficient for that test.
 - Orders and Products IT use the `test` profile with real MySQL, Flyway and database replacement disabled. Returns also validates the real schema.
 - `application-test.properties` defaults to MySQL at localhost:3307. Override it explicitly with the isolated database. `application-web-test.properties` uses H2/create-drop with Flyway disabled; it cannot substitute for MySQL verification.
-- `CashlyApplicationTests` is empty. It is not application-startup evidence. Add a meaningful full-context startup check during implementation.
+- `ParsunApplicationTests` is empty. It is not application-startup evidence. Add a meaningful full-context startup check during implementation.
 - `TestcontainersConfiguration` is profile-gated by `testcontainers`; `TestJpaConfig` scans the root package. Preserve the intended test configuration discovery.
 - Existing CI invokes Maven on the host without provisioning the complete MySQL verification environment or selecting all `*IT`. Update both workflows to reproduce the complete isolated verification and publish reports even when a gate fails.
 
@@ -125,41 +125,41 @@ volumes:
   maven_cache:
 ```
 
-These credentials are synthetic test values. Relative source mounts resolve against the file in `cashly-api`. Use a unique Compose project for the run and validate its resolved configuration before executing it.
+These credentials are synthetic test values. Relative source mounts resolve against the file in `parsun-api`. Use a unique Compose project for the run and validate its resolved configuration before executing it.
 
 ### Planned commands
 
-Run from `cashly-api` only **after** implementing and reviewing the dedicated harness:
+Run from `parsun-api` only **after** implementing and reviewing the dedicated harness:
 
 ```sh
-docker compose -p cashly-screaming-20261016 -f compose.screaming-test.yaml config --quiet
-docker compose -p cashly-screaming-20261016 -f compose.screaming-test.yaml up -d --wait suite-db inventory-db runner
+docker compose -p parsun-screaming-20261016 -f compose.screaming-test.yaml config --quiet
+docker compose -p parsun-screaming-20261016 -f compose.screaming-test.yaml up -d --wait suite-db inventory-db runner
 ```
 
 Capture a complete baseline before migration, then repeat the same clean command after migration. The explicit selector includes ordinary tests and all IT:
 
 ```sh
-docker compose -p cashly-screaming-20261016 -f compose.screaming-test.yaml exec -T runner ./mvnw -B clean verify '-Dtest=Test*,*Test,*Tests,*TestCase,*IT' -DfailIfNoTests=true -Dinventory.test.url=jdbc:mysql://inventory-db:3306/screaming_inventory -Dinventory.test.username=screaming_test -Dinventory.test.password=screaming_test
+docker compose -p parsun-screaming-20261016 -f compose.screaming-test.yaml exec -T runner ./mvnw -B clean verify '-Dtest=Test*,*Test,*Tests,*TestCase,*IT' -DfailIfNoTests=true -Dinventory.test.url=jdbc:mysql://inventory-db:3306/screaming_inventory -Dinventory.test.username=screaming_test -Dinventory.test.password=screaming_test
 ```
 
 If a focused integration rerun is necessary, export the full-run evidence first:
 
 ```sh
-docker compose -p cashly-screaming-20261016 -f compose.screaming-test.yaml exec -T runner ./mvnw -B test -Dtest=ProductPersistenceQueriesMySqlIT,OrderHistoricalCategoryMySqlIT,ReturnsFinancialRollbackMySqlIT,InvoiceInventoryConcurrencyIT,ManualStockConcurrencyIT,StockDeductionConcurrencyIT,WarehouseStockConcurrencyIT -DfailIfNoTests=true -Dinventory.test.url=jdbc:mysql://inventory-db:3306/screaming_inventory -Dinventory.test.username=screaming_test -Dinventory.test.password=screaming_test
+docker compose -p parsun-screaming-20261016 -f compose.screaming-test.yaml exec -T runner ./mvnw -B test -Dtest=ProductPersistenceQueriesMySqlIT,OrderHistoricalCategoryMySqlIT,ReturnsFinancialRollbackMySqlIT,InvoiceInventoryConcurrencyIT,ManualStockConcurrencyIT,StockDeductionConcurrencyIT,WarehouseStockConcurrencyIT -DfailIfNoTests=true -Dinventory.test.url=jdbc:mysql://inventory-db:3306/screaming_inventory -Dinventory.test.username=screaming_test -Dinventory.test.password=screaming_test
 ```
 
 Create distinct baseline/final output directories before export, and export before a subsequent `clean` or teardown. Original reports can contain environment properties; retain originals in restricted local/CI artifacts and publish sanitized summaries in the change documentation.
 
 ```sh
-docker compose -p cashly-screaming-20261016 -f compose.screaming-test.yaml cp runner:/workspace/target/surefire-reports ./output/screaming-verification/final/surefire-reports
-docker compose -p cashly-screaming-20261016 -f compose.screaming-test.yaml cp runner:/workspace/target/site/jacoco ./output/screaming-verification/final/jacoco
-docker compose -p cashly-screaming-20261016 -f compose.screaming-test.yaml cp runner:/workspace/target/jacoco.exec ./output/screaming-verification/final/jacoco.exec
+docker compose -p parsun-screaming-20261016 -f compose.screaming-test.yaml cp runner:/workspace/target/surefire-reports ./output/screaming-verification/final/surefire-reports
+docker compose -p parsun-screaming-20261016 -f compose.screaming-test.yaml cp runner:/workspace/target/site/jacoco ./output/screaming-verification/final/jacoco
+docker compose -p parsun-screaming-20261016 -f compose.screaming-test.yaml cp runner:/workspace/target/jacoco.exec ./output/screaming-verification/final/jacoco.exec
 ```
 
 Only after evidence export, remove resources belonging to the unique verification project:
 
 ```sh
-docker compose -p cashly-screaming-20261016 -f compose.screaming-test.yaml down --volumes --remove-orphans
+docker compose -p parsun-screaming-20261016 -f compose.screaming-test.yaml down --volumes --remove-orphans
 ```
 
 Do not run `run-tests.sh`: its cleanup executes `docker-compose --profile test down -v` without dedicated project isolation. Do not run `clean-test-db.sh` on shared resources. `compose.returns-it.yaml` has globally fixed container/network/volume names, so merely adding `-p` does not fully isolate it. Do not run any full suite in the existing development app/database.

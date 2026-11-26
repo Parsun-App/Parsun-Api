@@ -1,6 +1,6 @@
 # Tareas por módulo
 
-Estado: Apply, tandas incrementales. `[x]` significa verificado; `[ ]` pendiente. Cada tarea ejecutable requiere Red → Green → Refactor y regresión del módulo. Rutas bajo `src/main/java/com/cashly/cashly_api`.
+Estado: Apply, tandas incrementales. `[x]` significa verificado; `[ ]` pendiente. Cada tarea ejecutable requiere Red → Green → Refactor y regresión del módulo. Rutas bajo `src/main/java/com/parsun/parsun_api`.
 
 ## 1. Preparación
 - [x] 1.1 Explore: auditoría A01–A32 y comprobación de stack/estado heredado.

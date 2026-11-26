@@ -1,16 +1,16 @@
 {
   "coverage": {
-    "family/com/cashly/cashly_api/reports/finance/infrastructure/config/FinancesReportConfig": {
+    "family/com/parsun/parsun_api/reports/finance/infrastructure/config/FinancesReportConfig": {
       "covered": 9,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "family/com/cashly/cashly_api/reports/finance/infrastructure/web/FinancesReportController": {
+    "family/com/parsun/parsun_api/reports/finance/infrastructure/web/FinancesReportController": {
       "covered": 29,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "family/com/cashly/cashly_api/reports/inventory/infrastructure/config/InventoryReportConfig": {
+    "family/com/parsun/parsun_api/reports/inventory/infrastructure/config/InventoryReportConfig": {
       "covered": 8,
       "missed": 0,
       "line_coverage_percent": 100.0
@@ -35,7 +35,7 @@
       "missed": 2,
       "line_coverage_percent": 50.0
     },
-    "module/CashlyApplication/unclassified": {
+    "module/ParsunApplication/unclassified": {
       "covered": 1,
       "missed": 2,
       "line_coverage_percent": 33.3333
@@ -350,577 +350,577 @@
       "missed": 428,
       "line_coverage_percent": 43.5356
     },
-    "relocated/com/cashly/cashly_api/invoices/reporting/application/dto/InvoiceReportData": {
+    "relocated/com/parsun/parsun_api/invoices/reporting/application/dto/InvoiceReportData": {
       "covered": 3,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/invoices/reporting/application/dto/InvoiceReportData$Line": {
+    "relocated/com/parsun/parsun_api/invoices/reporting/application/dto/InvoiceReportData$Line": {
       "covered": 1,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/invoices/reporting/application/dto/InvoiceReportFilter": {
+    "relocated/com/parsun/parsun_api/invoices/reporting/application/dto/InvoiceReportFilter": {
       "covered": 3,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/invoices/reporting/application/dto/InvoiceReportRow": {
+    "relocated/com/parsun/parsun_api/invoices/reporting/application/dto/InvoiceReportRow": {
       "covered": 1,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/invoices/reporting/application/generate_invoice_pdf/GenerateInvoicePdfUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/invoices/reporting/application/generate_invoice_pdf/GenerateInvoicePdfUseCaseImpl": {
       "covered": 6,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/invoices/reporting/application/generate_invoices_report_pdf/GenerateInvoicesReportPdfUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/invoices/reporting/application/generate_invoices_report_pdf/GenerateInvoicesReportPdfUseCaseImpl": {
       "covered": 5,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/invoices/reporting/infrastructure/config/InvoicesReportConfig": {
+    "relocated/com/parsun/parsun_api/invoices/reporting/infrastructure/config/InvoicesReportConfig": {
       "covered": 5,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/invoices/reporting/infrastructure/integration/InvoiceDocumentQueryAdapter": {
+    "relocated/com/parsun/parsun_api/invoices/reporting/infrastructure/integration/InvoiceDocumentQueryAdapter": {
       "covered": 7,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/invoices/reporting/infrastructure/pdf/InvoicePdfGenerator": {
+    "relocated/com/parsun/parsun_api/invoices/reporting/infrastructure/pdf/InvoicePdfGenerator": {
       "covered": 127,
       "missed": 5,
       "line_coverage_percent": 96.2121
     },
-    "relocated/com/cashly/cashly_api/invoices/reporting/infrastructure/pdf/InvoicePdfGenerator$PageFooterHandler": {
+    "relocated/com/parsun/parsun_api/invoices/reporting/infrastructure/pdf/InvoicePdfGenerator$PageFooterHandler": {
       "covered": 17,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/invoices/reporting/infrastructure/pdf/InvoicesReportPdfGenerator": {
+    "relocated/com/parsun/parsun_api/invoices/reporting/infrastructure/pdf/InvoicesReportPdfGenerator": {
       "covered": 115,
       "missed": 11,
       "line_coverage_percent": 91.2698
     },
-    "relocated/com/cashly/cashly_api/invoices/reporting/infrastructure/pdf/InvoicesReportPdfGenerator$PageFooterHandler": {
+    "relocated/com/parsun/parsun_api/invoices/reporting/infrastructure/pdf/InvoicesReportPdfGenerator$PageFooterHandler": {
       "covered": 17,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/invoices/reporting/infrastructure/web/InvoicesReportController": {
+    "relocated/com/parsun/parsun_api/invoices/reporting/infrastructure/web/InvoicesReportController": {
       "covered": 16,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/orders/reporting/application/dto/OrderReportData": {
+    "relocated/com/parsun/parsun_api/orders/reporting/application/dto/OrderReportData": {
       "covered": 1,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/orders/reporting/application/dto/OrderReportData$Line": {
+    "relocated/com/parsun/parsun_api/orders/reporting/application/dto/OrderReportData$Line": {
       "covered": 1,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/orders/reporting/application/dto/OrderReportFilter": {
+    "relocated/com/parsun/parsun_api/orders/reporting/application/dto/OrderReportFilter": {
       "covered": 1,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/orders/reporting/application/dto/OrderReportRow": {
+    "relocated/com/parsun/parsun_api/orders/reporting/application/dto/OrderReportRow": {
       "covered": 1,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/orders/reporting/application/generate_order_pdf/GenerateOrderPdfUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/orders/reporting/application/generate_order_pdf/GenerateOrderPdfUseCaseImpl": {
       "covered": 5,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/orders/reporting/application/generate_orders_report_pdf/GenerateOrdersReportPdfUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/orders/reporting/application/generate_orders_report_pdf/GenerateOrdersReportPdfUseCaseImpl": {
       "covered": 5,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/orders/reporting/infrastructure/config/OrdersReportConfig": {
+    "relocated/com/parsun/parsun_api/orders/reporting/infrastructure/config/OrdersReportConfig": {
       "covered": 5,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/orders/reporting/infrastructure/integration/OrderDocumentQueryAdapter": {
+    "relocated/com/parsun/parsun_api/orders/reporting/infrastructure/integration/OrderDocumentQueryAdapter": {
       "covered": 7,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/orders/reporting/infrastructure/pdf/OrderPdfGenerator": {
+    "relocated/com/parsun/parsun_api/orders/reporting/infrastructure/pdf/OrderPdfGenerator": {
       "covered": 122,
       "missed": 3,
       "line_coverage_percent": 97.6
     },
-    "relocated/com/cashly/cashly_api/orders/reporting/infrastructure/pdf/OrderPdfGenerator$PageFooterHandler": {
+    "relocated/com/parsun/parsun_api/orders/reporting/infrastructure/pdf/OrderPdfGenerator$PageFooterHandler": {
       "covered": 17,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/orders/reporting/infrastructure/pdf/OrdersReportPdfGenerator": {
+    "relocated/com/parsun/parsun_api/orders/reporting/infrastructure/pdf/OrdersReportPdfGenerator": {
       "covered": 112,
       "missed": 18,
       "line_coverage_percent": 86.1538
     },
-    "relocated/com/cashly/cashly_api/orders/reporting/infrastructure/pdf/OrdersReportPdfGenerator$PageFooterHandler": {
+    "relocated/com/parsun/parsun_api/orders/reporting/infrastructure/pdf/OrdersReportPdfGenerator$PageFooterHandler": {
       "covered": 17,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/orders/reporting/infrastructure/web/OrdersReportController": {
+    "relocated/com/parsun/parsun_api/orders/reporting/infrastructure/web/OrdersReportController": {
       "covered": 16,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/payments/reporting/application/dto/PaymentHistoryReportData": {
+    "relocated/com/parsun/parsun_api/payments/reporting/application/dto/PaymentHistoryReportData": {
       "covered": 1,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/payments/reporting/application/dto/PaymentHistoryReportData$PaymentHistoryRow": {
+    "relocated/com/parsun/parsun_api/payments/reporting/application/dto/PaymentHistoryReportData$PaymentHistoryRow": {
       "covered": 1,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/payments/reporting/application/dto/PaymentHistoryReportData$Summary": {
+    "relocated/com/parsun/parsun_api/payments/reporting/application/dto/PaymentHistoryReportData$Summary": {
       "covered": 1,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/payments/reporting/application/dto/PaymentReportData": {
+    "relocated/com/parsun/parsun_api/payments/reporting/application/dto/PaymentReportData": {
       "covered": 1,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/payments/reporting/application/generate_payment_history_report_pdf/GeneratePaymentHistoryReportPdfUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/payments/reporting/application/generate_payment_history_report_pdf/GeneratePaymentHistoryReportPdfUseCaseImpl": {
       "covered": 7,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/payments/reporting/application/generate_payment_pdf/GeneratePaymentPdfUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/payments/reporting/application/generate_payment_pdf/GeneratePaymentPdfUseCaseImpl": {
       "covered": 6,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/payments/reporting/infrastructure/integration/PaymentDocumentQueryAdapter": {
+    "relocated/com/parsun/parsun_api/payments/reporting/infrastructure/integration/PaymentDocumentQueryAdapter": {
       "covered": 3,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/payments/reporting/infrastructure/pdf/PaymentHistoryReportPdfGenerator": {
+    "relocated/com/parsun/parsun_api/payments/reporting/infrastructure/pdf/PaymentHistoryReportPdfGenerator": {
       "covered": 7,
       "missed": 88,
       "line_coverage_percent": 7.3684
     },
-    "relocated/com/cashly/cashly_api/payments/reporting/infrastructure/pdf/PaymentHistoryReportPdfGenerator$PageFooterHandler": {
+    "relocated/com/parsun/parsun_api/payments/reporting/infrastructure/pdf/PaymentHistoryReportPdfGenerator$PageFooterHandler": {
       "covered": 0,
       "missed": 17,
       "line_coverage_percent": 0.0
     },
-    "relocated/com/cashly/cashly_api/payments/reporting/infrastructure/pdf/PaymentPdfGenerator": {
+    "relocated/com/parsun/parsun_api/payments/reporting/infrastructure/pdf/PaymentPdfGenerator": {
       "covered": 63,
       "missed": 2,
       "line_coverage_percent": 96.9231
     },
-    "relocated/com/cashly/cashly_api/payments/reporting/infrastructure/pdf/PaymentPdfGenerator$PageFooterHandler": {
+    "relocated/com/parsun/parsun_api/payments/reporting/infrastructure/pdf/PaymentPdfGenerator$PageFooterHandler": {
       "covered": 17,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/products/reporting/application/dto/query/CommercialCatalogQuery": {
+    "relocated/com/parsun/parsun_api/products/reporting/application/dto/query/CommercialCatalogQuery": {
       "covered": 1,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/products/reporting/application/dto/response/CommercialCatalogResponse": {
+    "relocated/com/parsun/parsun_api/products/reporting/application/dto/response/CommercialCatalogResponse": {
       "covered": 1,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/products/reporting/application/generate_commercial_catalog_pdf/GenerateCommercialCatalogPdfUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/products/reporting/application/generate_commercial_catalog_pdf/GenerateCommercialCatalogPdfUseCaseImpl": {
       "covered": 6,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/products/reporting/infrastructure/integration/FileStorageMediaAdapter": {
+    "relocated/com/parsun/parsun_api/products/reporting/infrastructure/integration/FileStorageMediaAdapter": {
       "covered": 2,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/products/reporting/infrastructure/pdf/CommercialCatalogPdfGenerator": {
+    "relocated/com/parsun/parsun_api/products/reporting/infrastructure/pdf/CommercialCatalogPdfGenerator": {
       "covered": 146,
       "missed": 2,
       "line_coverage_percent": 98.6486
     },
-    "relocated/com/cashly/cashly_api/products/reporting/infrastructure/pdf/CommercialCatalogPdfGenerator$PageFooterHandler": {
+    "relocated/com/parsun/parsun_api/products/reporting/infrastructure/pdf/CommercialCatalogPdfGenerator$PageFooterHandler": {
       "covered": 17,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/products/reporting/infrastructure/persistence/adapters/CommercialCatalogRepositoryAdapter": {
+    "relocated/com/parsun/parsun_api/products/reporting/infrastructure/persistence/adapters/CommercialCatalogRepositoryAdapter": {
       "covered": 3,
       "missed": 17,
       "line_coverage_percent": 15.0
     },
-    "relocated/com/cashly/cashly_api/products/reporting/infrastructure/web/CommercialCatalogController": {
+    "relocated/com/parsun/parsun_api/products/reporting/infrastructure/web/CommercialCatalogController": {
       "covered": 9,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/purchases/reporting/application/dto/PurchaseReportData": {
+    "relocated/com/parsun/parsun_api/purchases/reporting/application/dto/PurchaseReportData": {
       "covered": 1,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/purchases/reporting/application/dto/PurchaseReportData$Line": {
+    "relocated/com/parsun/parsun_api/purchases/reporting/application/dto/PurchaseReportData$Line": {
       "covered": 1,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/purchases/reporting/application/dto/PurchaseReportFilter": {
+    "relocated/com/parsun/parsun_api/purchases/reporting/application/dto/PurchaseReportFilter": {
       "covered": 1,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/purchases/reporting/application/dto/PurchaseReportRow": {
+    "relocated/com/parsun/parsun_api/purchases/reporting/application/dto/PurchaseReportRow": {
       "covered": 1,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/purchases/reporting/application/generate_purchase_pdf/GeneratePurchasePdfUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/purchases/reporting/application/generate_purchase_pdf/GeneratePurchasePdfUseCaseImpl": {
       "covered": 5,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/purchases/reporting/application/generate_purchases_report_pdf/GeneratePurchasesReportPdfUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/purchases/reporting/application/generate_purchases_report_pdf/GeneratePurchasesReportPdfUseCaseImpl": {
       "covered": 5,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/purchases/reporting/infrastructure/config/PurchasesReportConfig": {
+    "relocated/com/parsun/parsun_api/purchases/reporting/infrastructure/config/PurchasesReportConfig": {
       "covered": 5,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/purchases/reporting/infrastructure/integration/PurchaseDocumentQueryAdapter": {
+    "relocated/com/parsun/parsun_api/purchases/reporting/infrastructure/integration/PurchaseDocumentQueryAdapter": {
       "covered": 7,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/purchases/reporting/infrastructure/pdf/PurchasePdfGenerator": {
+    "relocated/com/parsun/parsun_api/purchases/reporting/infrastructure/pdf/PurchasePdfGenerator": {
       "covered": 119,
       "missed": 4,
       "line_coverage_percent": 96.748
     },
-    "relocated/com/cashly/cashly_api/purchases/reporting/infrastructure/pdf/PurchasePdfGenerator$PageFooterHandler": {
+    "relocated/com/parsun/parsun_api/purchases/reporting/infrastructure/pdf/PurchasePdfGenerator$PageFooterHandler": {
       "covered": 17,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/purchases/reporting/infrastructure/pdf/PurchasesReportPdfGenerator": {
+    "relocated/com/parsun/parsun_api/purchases/reporting/infrastructure/pdf/PurchasesReportPdfGenerator": {
       "covered": 99,
       "missed": 6,
       "line_coverage_percent": 94.2857
     },
-    "relocated/com/cashly/cashly_api/purchases/reporting/infrastructure/pdf/PurchasesReportPdfGenerator$PageFooterHandler": {
+    "relocated/com/parsun/parsun_api/purchases/reporting/infrastructure/pdf/PurchasesReportPdfGenerator$PageFooterHandler": {
       "covered": 17,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/purchases/reporting/infrastructure/web/PurchasesReportController": {
+    "relocated/com/parsun/parsun_api/purchases/reporting/infrastructure/web/PurchasesReportController": {
       "covered": 16,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/quotes/reporting/application/dto/QuoteReportData": {
+    "relocated/com/parsun/parsun_api/quotes/reporting/application/dto/QuoteReportData": {
       "covered": 1,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/quotes/reporting/application/dto/QuoteReportData$Line": {
+    "relocated/com/parsun/parsun_api/quotes/reporting/application/dto/QuoteReportData$Line": {
       "covered": 0,
       "missed": 1,
       "line_coverage_percent": 0.0
     },
-    "relocated/com/cashly/cashly_api/quotes/reporting/application/dto/QuoteReportFilter": {
+    "relocated/com/parsun/parsun_api/quotes/reporting/application/dto/QuoteReportFilter": {
       "covered": 1,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/quotes/reporting/application/dto/QuoteReportRow": {
+    "relocated/com/parsun/parsun_api/quotes/reporting/application/dto/QuoteReportRow": {
       "covered": 1,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/quotes/reporting/application/generate_quote_pdf/GenerateQuotePdfUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/quotes/reporting/application/generate_quote_pdf/GenerateQuotePdfUseCaseImpl": {
       "covered": 5,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/quotes/reporting/application/generate_quotes_report_pdf/GenerateQuotesReportPdfUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/quotes/reporting/application/generate_quotes_report_pdf/GenerateQuotesReportPdfUseCaseImpl": {
       "covered": 5,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/quotes/reporting/infrastructure/config/QuotesReportConfig": {
+    "relocated/com/parsun/parsun_api/quotes/reporting/infrastructure/config/QuotesReportConfig": {
       "covered": 5,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/quotes/reporting/infrastructure/integration/QuoteDocumentQueryAdapter": {
+    "relocated/com/parsun/parsun_api/quotes/reporting/infrastructure/integration/QuoteDocumentQueryAdapter": {
       "covered": 7,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/quotes/reporting/infrastructure/pdf/QuotePdfGenerator": {
+    "relocated/com/parsun/parsun_api/quotes/reporting/infrastructure/pdf/QuotePdfGenerator": {
       "covered": 119,
       "missed": 4,
       "line_coverage_percent": 96.748
     },
-    "relocated/com/cashly/cashly_api/quotes/reporting/infrastructure/pdf/QuotePdfGenerator$PageFooterHandler": {
+    "relocated/com/parsun/parsun_api/quotes/reporting/infrastructure/pdf/QuotePdfGenerator$PageFooterHandler": {
       "covered": 17,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/quotes/reporting/infrastructure/pdf/QuotesReportPdfGenerator": {
+    "relocated/com/parsun/parsun_api/quotes/reporting/infrastructure/pdf/QuotesReportPdfGenerator": {
       "covered": 110,
       "missed": 8,
       "line_coverage_percent": 93.2203
     },
-    "relocated/com/cashly/cashly_api/quotes/reporting/infrastructure/pdf/QuotesReportPdfGenerator$PageFooterHandler": {
+    "relocated/com/parsun/parsun_api/quotes/reporting/infrastructure/pdf/QuotesReportPdfGenerator$PageFooterHandler": {
       "covered": 17,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/quotes/reporting/infrastructure/web/QuotesReportController": {
+    "relocated/com/parsun/parsun_api/quotes/reporting/infrastructure/web/QuotesReportController": {
       "covered": 16,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/receivables/reporting/application/dto/AccountsReceivableReportData": {
+    "relocated/com/parsun/parsun_api/receivables/reporting/application/dto/AccountsReceivableReportData": {
       "covered": 1,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/receivables/reporting/application/dto/AccountsReceivableReportData$AccountReceivableRow": {
+    "relocated/com/parsun/parsun_api/receivables/reporting/application/dto/AccountsReceivableReportData$AccountReceivableRow": {
       "covered": 1,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/receivables/reporting/application/dto/AccountsReceivableReportData$Summary": {
+    "relocated/com/parsun/parsun_api/receivables/reporting/application/dto/AccountsReceivableReportData$Summary": {
       "covered": 1,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/receivables/reporting/application/dto/CollectionsReportData": {
+    "relocated/com/parsun/parsun_api/receivables/reporting/application/dto/CollectionsReportData": {
       "covered": 1,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/receivables/reporting/application/dto/CollectionsReportData$CollectionRow": {
+    "relocated/com/parsun/parsun_api/receivables/reporting/application/dto/CollectionsReportData$CollectionRow": {
       "covered": 1,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/receivables/reporting/application/dto/CollectionsReportData$Summary": {
+    "relocated/com/parsun/parsun_api/receivables/reporting/application/dto/CollectionsReportData$Summary": {
       "covered": 1,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/receivables/reporting/application/generate_accounts_receivable_report_pdf/GenerateAccountsReceivableReportPdfUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/receivables/reporting/application/generate_accounts_receivable_report_pdf/GenerateAccountsReceivableReportPdfUseCaseImpl": {
       "covered": 26,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/receivables/reporting/application/generate_collections_report_pdf/GenerateCollectionsReportPdfUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/receivables/reporting/application/generate_collections_report_pdf/GenerateCollectionsReportPdfUseCaseImpl": {
       "covered": 8,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/receivables/reporting/infrastructure/integration/ReceivablesReportQueryAdapter": {
+    "relocated/com/parsun/parsun_api/receivables/reporting/infrastructure/integration/ReceivablesReportQueryAdapter": {
       "covered": 3,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/receivables/reporting/infrastructure/pdf/AccountsReceivableReportPdfGenerator": {
+    "relocated/com/parsun/parsun_api/receivables/reporting/infrastructure/pdf/AccountsReceivableReportPdfGenerator": {
       "covered": 85,
       "missed": 3,
       "line_coverage_percent": 96.5909
     },
-    "relocated/com/cashly/cashly_api/receivables/reporting/infrastructure/pdf/AccountsReceivableReportPdfGenerator$PageFooterHandler": {
+    "relocated/com/parsun/parsun_api/receivables/reporting/infrastructure/pdf/AccountsReceivableReportPdfGenerator$PageFooterHandler": {
       "covered": 17,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/receivables/reporting/infrastructure/pdf/CollectionsReportPdfGenerator": {
+    "relocated/com/parsun/parsun_api/receivables/reporting/infrastructure/pdf/CollectionsReportPdfGenerator": {
       "covered": 6,
       "missed": 81,
       "line_coverage_percent": 6.8966
     },
-    "relocated/com/cashly/cashly_api/receivables/reporting/infrastructure/pdf/CollectionsReportPdfGenerator$PageFooterHandler": {
+    "relocated/com/parsun/parsun_api/receivables/reporting/infrastructure/pdf/CollectionsReportPdfGenerator$PageFooterHandler": {
       "covered": 0,
       "missed": 17,
       "line_coverage_percent": 0.0
     },
-    "relocated/com/cashly/cashly_api/shared/infrastructure/pdf/PdfBranding": {
+    "relocated/com/parsun/parsun_api/shared/infrastructure/pdf/PdfBranding": {
       "covered": 6,
       "missed": 3,
       "line_coverage_percent": 66.6667
     },
-    "relocated/com/cashly/cashly_api/shared/infrastructure/pdf/PdfStatusColors": {
+    "relocated/com/parsun/parsun_api/shared/infrastructure/pdf/PdfStatusColors": {
       "covered": 10,
       "missed": 1,
       "line_coverage_percent": 90.9091
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/application/dto/query/CatalogPdfQuery": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/application/dto/query/CatalogPdfQuery": {
       "covered": 1,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/application/dto/query/CatalogReportQuery": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/application/dto/query/CatalogReportQuery": {
       "covered": 1,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/application/dto/query/MovementsPdfQuery": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/application/dto/query/MovementsPdfQuery": {
       "covered": 1,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/application/dto/query/StockPdfQuery": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/application/dto/query/StockPdfQuery": {
       "covered": 1,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/application/dto/response/CatalogReportResponse": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/application/dto/response/CatalogReportResponse": {
       "covered": 1,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/application/dto/response/MovementReportResponse": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/application/dto/response/MovementReportResponse": {
       "covered": 1,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/application/dto/response/StockReportResponse": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/application/dto/response/StockReportResponse": {
       "covered": 1,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/application/generate_catalog_pdf/GenerateCatalogPdfUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/application/generate_catalog_pdf/GenerateCatalogPdfUseCaseImpl": {
       "covered": 13,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/application/generate_movements_excel/GenerateMovementsExcelUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/application/generate_movements_excel/GenerateMovementsExcelUseCaseImpl": {
       "covered": 6,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/application/generate_movements_pdf/GenerateMovementsPdfUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/application/generate_movements_pdf/GenerateMovementsPdfUseCaseImpl": {
       "covered": 6,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/application/generate_stock_excel/GenerateStockExcelUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/application/generate_stock_excel/GenerateStockExcelUseCaseImpl": {
       "covered": 6,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/application/generate_stock_pdf/GenerateStockPdfUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/application/generate_stock_pdf/GenerateStockPdfUseCaseImpl": {
       "covered": 6,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/application/get_catalog_report/GetCatalogReportUseCaseImpl": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/application/get_catalog_report/GetCatalogReportUseCaseImpl": {
       "covered": 4,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/infrastructure/config/MovementsReportConfig": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/infrastructure/config/MovementsReportConfig": {
       "covered": 6,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/infrastructure/config/StockReportConfig": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/infrastructure/config/StockReportConfig": {
       "covered": 6,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/infrastructure/excel/MovementsExcelGenerator": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/infrastructure/excel/MovementsExcelGenerator": {
       "covered": 2,
       "missed": 91,
       "line_coverage_percent": 2.1505
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/infrastructure/excel/StockExcelGenerator": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/infrastructure/excel/StockExcelGenerator": {
       "covered": 2,
       "missed": 84,
       "line_coverage_percent": 2.3256
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/infrastructure/pdf/CatalogPdfGenerator": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/infrastructure/pdf/CatalogPdfGenerator": {
       "covered": 4,
       "missed": 62,
       "line_coverage_percent": 6.0606
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/infrastructure/pdf/CatalogPdfGenerator$PageFooterHandler": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/infrastructure/pdf/CatalogPdfGenerator$PageFooterHandler": {
       "covered": 0,
       "missed": 17,
       "line_coverage_percent": 0.0
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/infrastructure/pdf/MovementsPdfGenerator": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/infrastructure/pdf/MovementsPdfGenerator": {
       "covered": 4,
       "missed": 65,
       "line_coverage_percent": 5.7971
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/infrastructure/pdf/MovementsPdfGenerator$PageFooterHandler": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/infrastructure/pdf/MovementsPdfGenerator$PageFooterHandler": {
       "covered": 0,
       "missed": 17,
       "line_coverage_percent": 0.0
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/infrastructure/pdf/StockPdfGenerator": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/infrastructure/pdf/StockPdfGenerator": {
       "covered": 4,
       "missed": 67,
       "line_coverage_percent": 5.6338
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/infrastructure/pdf/StockPdfGenerator$PageFooterHandler": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/infrastructure/pdf/StockPdfGenerator$PageFooterHandler": {
       "covered": 0,
       "missed": 17,
       "line_coverage_percent": 0.0
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/infrastructure/persistence/adapters/CatalogReportRepositoryAdapter": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/infrastructure/persistence/adapters/CatalogReportRepositoryAdapter": {
       "covered": 23,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/infrastructure/persistence/adapters/MovementsReportRepositoryAdapter": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/infrastructure/persistence/adapters/MovementsReportRepositoryAdapter": {
       "covered": 22,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/infrastructure/persistence/adapters/StockReportRepositoryAdapter": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/infrastructure/persistence/adapters/StockReportRepositoryAdapter": {
       "covered": 16,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/infrastructure/web/CatalogReportController": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/infrastructure/web/CatalogReportController": {
       "covered": 12,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/infrastructure/web/MovementsReportController": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/infrastructure/web/MovementsReportController": {
       "covered": 16,
       "missed": 0,
       "line_coverage_percent": 100.0
     },
-    "relocated/com/cashly/cashly_api/warehouses/reporting/infrastructure/web/StockReportController": {
+    "relocated/com/parsun/parsun_api/warehouses/reporting/infrastructure/web/StockReportController": {
       "covered": 16,
       "missed": 0,
       "line_coverage_percent": 100.0
@@ -936,9 +936,9 @@
       "missed": 2529
     },
     "split_families": [
-      "com/cashly/cashly_api/reports/finance/infrastructure/config/FinancesReportConfig",
-      "com/cashly/cashly_api/reports/finance/infrastructure/web/FinancesReportController",
-      "com/cashly/cashly_api/reports/inventory/infrastructure/config/InventoryReportConfig"
+      "com/parsun/parsun_api/reports/finance/infrastructure/config/FinancesReportConfig",
+      "com/parsun/parsun_api/reports/finance/infrastructure/web/FinancesReportController",
+      "com/parsun/parsun_api/reports/inventory/infrastructure/config/InventoryReportConfig"
     ],
     "policy": "All classes remain in layer gates. Split counters are compared strictly as explicit families and excluded symmetrically from module groups; all other moved classes also have individual nonregression gates."
   }

@@ -1,0 +1,67 @@
+package com.parsun.parsun_api.partners.customers.balance.application.refund.use_case;
+
+import com.parsun.parsun_api.platform.notifications.application.ports.in.ActivityEvent;
+
+import com.parsun.parsun_api.platform.notifications.application.ports.in.ActivityNotificationRecorder;
+
+import com.parsun.parsun_api.partners.customers.balance.application.consume.use_case.ConsumeCustomerBalanceUseCase;
+
+import com.parsun.parsun_api.partners.customers.balance.application.ports.out.CustomerActorGateway;
+import com.parsun.parsun_api.partners.customers.balance.application.ports.out.CustomerCashGateway;
+import com.parsun.parsun_api.partners.customers.balance.application.ports.out.CustomerCashGateway.CustomerCashMovement;
+import com.parsun.parsun_api.partners.customers.balance.application.dto.response.CustomerBalanceResponse;
+import com.parsun.parsun_api.partners.customers.balance.domain.valueobjects.BalanceType;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.math.BigDecimal;
+import java.util.UUID;
+import com.parsun.parsun_api.platform.audit.application.ports.in.Audited;
+
+public class RefundCustomerBalanceUseCase {
+
+    private final ConsumeCustomerBalanceUseCase consumeBalance;
+    private final CustomerCashGateway cashGateway;
+    private final CustomerActorGateway actorGateway;
+
+    private final ActivityNotificationRecorder activityNotifications;
+
+    public RefundCustomerBalanceUseCase(
+            ConsumeCustomerBalanceUseCase consumeBalance,
+            CustomerCashGateway cashGateway,
+            CustomerActorGateway actorGateway,
+            ActivityNotificationRecorder activityNotifications) {
+        this.activityNotifications = activityNotifications != null
+                ? activityNotifications
+                : ActivityNotificationRecorder.NONE;
+        this.consumeBalance = consumeBalance;
+        this.cashGateway = cashGateway;
+        this.actorGateway = actorGateway;
+    }
+
+    @Transactional
+    @Audited(module = "partners", entityType = "CUSTOMER", action = "REFUND")
+    public CustomerBalanceResponse execute(UUID customerId, BigDecimal amount,
+            UUID paymentMethodId, String notes, UUID userId) {
+        cashGateway.requireOpenRegister();
+        String userName = userName(userId);
+        String description = notes == null || notes.isBlank()
+                ? "Devolución de saldo a favor"
+                : notes;
+        var mutation = consumeBalance.executeWithTransaction(customerId,
+                BalanceType.REFUND, amount, BalanceType.REFUND, null,
+                description, null, userId);
+        cashGateway.record(new CustomerCashMovement("OUT", "REFUND", amount,
+                paymentMethodId, description, "CUSTOMER_BALANCE",
+                mutation.transactionId(), userId, userName));
+        activityNotifications.record(ActivityEvent.of("CONTACTS_CUSTOMERS",
+                "BALANCE", "CUSTOMER", customerId,
+                customerId.toString(), userId));
+        return mutation.balance();
+    }
+
+    private String userName(UUID userId) {
+        return actorGateway.findById(userId).orElseThrow(
+                () -> new IllegalArgumentException("User not found: " + userId))
+                .name();
+    }
+}
