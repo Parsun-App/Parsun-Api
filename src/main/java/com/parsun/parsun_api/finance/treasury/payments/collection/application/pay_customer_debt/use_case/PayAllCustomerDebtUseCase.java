@@ -1,5 +1,6 @@
 package com.parsun.parsun_api.finance.treasury.payments.collection.application.pay_customer_debt.use_case;
 
+
 import com.parsun.parsun_api.platform.notifications.application.ports.in.ActivityEvent;
 
 import com.parsun.parsun_api.platform.notifications.application.ports.in.ActivityNotificationRecorder;
@@ -24,9 +25,14 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.LinkedHashSet;
+import java.util.Set;
 import java.util.UUID;
 
 public class PayAllCustomerDebtUseCase {
+
 
     private final PaymentRepository paymentRepository;
     private final PaymentAllocationRepository allocationRepository;
@@ -61,9 +67,15 @@ public class PayAllCustomerDebtUseCase {
         List<PaymentInvoiceGateway.InvoiceSnapshot> unpaidInvoices = invoices
                 .findUnpaidByCustomerId(customerId);
 
+
+        Map<UUID, BigDecimal> allocatedByInvoice = unpaidInvoices.isEmpty()
+                ? Map.of()
+                : allocationRepository.sumByInvoiceIds(unpaidInvoices.stream()
+                        .map(PaymentInvoiceGateway.InvoiceSnapshot::id).toList());
         List<InvoiceRemainingBalance> remainingBalances = unpaidInvoices.stream()
                 .map(invoice -> new InvoiceRemainingBalance(invoice.id(),
-                        invoiceRemainingBalance(invoice)))
+                        invoice.total().subtract(allocatedByInvoice
+                                .getOrDefault(invoice.id(), BigDecimal.ZERO))))
                 .filter(balance -> balance.remainingAmount()
                         .compareTo(BigDecimal.ZERO) > 0)
                 .toList();
@@ -96,11 +108,15 @@ public class PayAllCustomerDebtUseCase {
                             authenticatedUserId));
         }
 
-        BigDecimal cashAllocated = applyPlannedPayments(remainingBalances,
+        Map<UUID, BigDecimal> paidByInvoice = new java.util.LinkedHashMap<>();
+        List<CashRegisterGateway.Movement> cashMovements = new ArrayList<>();
+        List<PaymentAllocation> newAllocations = new ArrayList<>();
+        BigDecimal cashAllocated = applyPlannedPayments(paidByInvoice, cashMovements, newAllocations,
+                remainingBalances,
                 paymentAmount, request, customerId, authenticatedUserId,
                 authenticatedUserName, PaymentStatus.APPLIED,
                 PaymentSource.PAYMENT_METHOD, "Pago total de deuda del cliente");
-        BigDecimal balanceAllocated = applyPlannedPayments(
+        BigDecimal balanceAllocated = applyPlannedPayments(paidByInvoice, cashMovements, newAllocations,
                 subtract(remainingBalances, paymentAmount), balanceUsed, request,
                 customerId, authenticatedUserId, authenticatedUserName,
                 PaymentStatus.APPLIED, PaymentSource.CUSTOMER_BALANCE,
@@ -112,9 +128,33 @@ public class PayAllCustomerDebtUseCase {
                     "Payment could not be fully allocated to invoices");
         }
 
-        for (PaymentInvoiceGateway.InvoiceSnapshot invoice : unpaidInvoices) {
-            invoices.recalculateStatus(invoice.id());
+        if (!newAllocations.isEmpty()) {
+            allocationRepository.insertAll(newAllocations);
         }
+        if (!cashMovements.isEmpty()) {
+            cashRegister.recordMovements(cashMovements);
+        }
+        Map<UUID, BigDecimal> totalsByInvoice = new HashMap<>();
+        for (InvoiceRemainingBalance balance : remainingBalances) {
+            totalsByInvoice.put(balance.invoiceId(), balance.remainingAmount()
+                    .add(allocatedByInvoice.getOrDefault(balance.invoiceId(),
+                            BigDecimal.ZERO)));
+        }
+        Map<String, List<UUID>> byStatus = new java.util.LinkedHashMap<>();
+        for (Map.Entry<UUID, BigDecimal> entry : paidByInvoice.entrySet()) {
+            BigDecimal total = totalsByInvoice.getOrDefault(entry.getKey(),
+                    BigDecimal.ZERO);
+            BigDecimal paid = allocatedByInvoice
+                    .getOrDefault(entry.getKey(), BigDecimal.ZERO)
+                    .add(entry.getValue());
+            String status = paid.compareTo(total) >= 0
+                    ? "PAID"
+                    : paid.signum() > 0 ? "PARTIALLY_PAID"
+                            : "PENDING_PAYMENT";
+            byStatus.computeIfAbsent(status,
+                    key -> new ArrayList<>()).add(entry.getKey());
+        }
+        byStatus.forEach((status, ids) -> invoices.updateStatuses(ids, status));
 
         activityNotifications.record(ActivityEvent.of("FINANCE_TREASURY_RECEIVABLES",
                 "PAY_ALL", "RECEIVABLE", customerId,
@@ -146,6 +186,9 @@ public class PayAllCustomerDebtUseCase {
     }
 
     private BigDecimal applyPlannedPayments(
+            Map<UUID, BigDecimal> paidByInvoice,
+            List<CashRegisterGateway.Movement> cashMovements,
+            List<PaymentAllocation> newAllocations,
             List<InvoiceRemainingBalance> balances, BigDecimal amount,
             PayCustomerDebtRequest request, UUID customerId,
             UUID authenticatedUserId, String authenticatedUserName,
@@ -155,12 +198,13 @@ public class PayAllCustomerDebtUseCase {
         }
 
         int year = LocalDate.now().getYear();
+        int nextSequence = paymentRepository.getNextSequenceForYear(year);
         BigDecimal allocated = BigDecimal.ZERO;
 
         for (PaymentAllocationService.AllocationPlan plan : paymentAllocationService
                 .planOldestFirst(balances, amount)) {
-            int sequence = paymentRepository.getNextSequenceForYear(year);
-            PaymentNumber paymentNumber = PaymentNumber.of(year, sequence);
+            PaymentNumber paymentNumber = PaymentNumber.of(year,
+                    nextSequence++);
             UUID paymentMethodId = source == PaymentSource.CUSTOMER_BALANCE
                     ? null
                     : request.paymentMethodId();
@@ -171,31 +215,34 @@ public class PayAllCustomerDebtUseCase {
                     authenticatedUserId, authenticatedUserName, status,
                     plan.invoiceId(), null);
 
-            Payment saved = paymentRepository.save(payment);
-            registerCashMovement(saved, authenticatedUserId,
-                    authenticatedUserName);
-            allocationRepository.save(PaymentAllocation.create(
-                    saved.getId().value(), plan.invoiceId(), plan.amount()));
-
             payment.apply(plan.amount());
-            paymentRepository.save(payment);
+            Payment saved = paymentRepository.insert(payment);
+            CashRegisterGateway.Movement movement = cashMovement(saved,
+                    authenticatedUserId, authenticatedUserName);
+            if (movement != null) {
+                cashMovements.add(movement);
+            }
+            newAllocations.add(PaymentAllocation.create(
+                    saved.getId().value(), plan.invoiceId(), plan.amount()));
+            paidByInvoice.merge(plan.invoiceId(), plan.amount(),
+                    BigDecimal::add);
             allocated = allocated.add(plan.amount());
         }
 
         return allocated;
     }
 
-    private void registerCashMovement(Payment payment, UUID userId,
-            String userName) {
+    private CashRegisterGateway.Movement cashMovement(Payment payment,
+            UUID userId, String userName) {
         if (payment.getSource() != PaymentSource.PAYMENT_METHOD) {
-            return;
+            return null;
         }
-        cashRegister.recordMovement(new CashRegisterGateway.Movement(
+        return new CashRegisterGateway.Movement(
                 CashRegisterGateway.Direction.IN,
                 CashRegisterGateway.Type.PAYMENT,
                 new CashRegisterGateway.PaymentEntry(payment.getAmount(),
                         payment.getPaymentMethodId(), payment.getNotes(),
-                        payment.getId().value(), userId, userName)));
+                        payment.getId().value(), userId, userName));
     }
 
     private List<InvoiceRemainingBalance> subtract(
@@ -218,12 +265,4 @@ public class PayAllCustomerDebtUseCase {
         return remaining;
     }
 
-    private BigDecimal invoiceRemainingBalance(
-            PaymentInvoiceGateway.InvoiceSnapshot invoice) {
-        BigDecimal alreadyAllocated = allocationRepository
-                .findByInvoiceId(invoice.id()).stream()
-                .map(PaymentAllocation::getAllocatedAmount)
-                .reduce(BigDecimal.ZERO, BigDecimal::add);
-        return invoice.total().subtract(alreadyAllocated);
-    }
 }
