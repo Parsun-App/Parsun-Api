@@ -88,24 +88,14 @@ public final class ValeryIds {
         return id("valery.invoice-line." + document + "." + line);
     }
 
-    public static UUID order(String document) {
-        return id("valery.order." + document);
-    }
-
-    public static UUID orderLine(String document, int line) {
-        return id("valery.order-line." + document + "." + line);
-    }
-
-    public static UUID quote(String document) {
-        return id("valery.quote." + document);
-    }
-
-    public static UUID quoteLine(String document, int line) {
-        return id("valery.quote-line." + document + "." + line);
-    }
-
     public static UUID paymentMethod(String key) {
         return id("valery.payment-method." + key);
+    }
+
+    public static UUID customerWarehouse(String customerCode,
+            String warehouseCode) {
+        return id("valery.customer-warehouse." + customerCode + "."
+                + warehouseCode);
     }
 
     public static UUID balanceTransaction(String document) {

@@ -7,9 +7,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class V107ValeryInvoicesSeed implements SeedStep {
 
-    private final ValeryDocumentsSeeder seeder;
+    private final ValeryInvoicesSeeder seeder;
 
-    public V107ValeryInvoicesSeed(ValeryDocumentsSeeder seeder) {
+    public V107ValeryInvoicesSeed(ValeryInvoicesSeeder seeder) {
         this.seeder = seeder;
     }
 
