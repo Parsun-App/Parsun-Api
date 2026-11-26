@@ -613,6 +613,24 @@ public class GlobalExceptionHandler {
                         "Credit limit exceeded", ex.getMessage()));
     }
 
+    @ExceptionHandler(org.springframework.web.bind.MissingServletRequestParameterException.class)
+    public ResponseEntity<Map<String, Object>> handleMissingParameter(
+            org.springframework.web.bind.MissingServletRequestParameterException ex) {
+        return ResponseEntity.badRequest().body(createErrorResponse(
+                HttpStatus.BAD_REQUEST, "Invalid request", ex.getMessage()));
+    }
+
+    @ExceptionHandler({
+            com.parsun.parsun_api.procurement.purchases.domain.exceptions.PurchaseNotFoundException.class,
+            com.parsun.parsun_api.partners.suppliers.application.exceptions.SupplierNotFoundException.class,
+            com.parsun.parsun_api.sales.invoices.returns.application.get.use_case.GetReturnByIdUseCase.ReturnNotFoundException.class})
+    public ResponseEntity<Map<String, Object>> handleResourceNotFound(
+            RuntimeException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(createErrorResponse(HttpStatus.NOT_FOUND, "Not found",
+                        ex.getMessage()));
+    }
+
     @ExceptionHandler(IllegalStateException.class)
     public ResponseEntity<Map<String, Object>> handleIllegalState(
             IllegalStateException ex) {

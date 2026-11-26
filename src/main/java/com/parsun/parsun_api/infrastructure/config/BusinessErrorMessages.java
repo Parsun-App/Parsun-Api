@@ -4,7 +4,10 @@ import com.parsun.parsun_api.shared.infrastructure.i18n.MessageTranslator;
 import java.util.Map;
 
 final class BusinessErrorMessages {
-    private static final Map<String, String> EXACT = Map.ofEntries(Map.entry(
+    private static final Map<String, String> EXACT = Map.ofEntries(
+            Map.entry(
+                    "A cash register must be open before registering a monetary operation",
+                    "finance.treasury.cash_register.sessions.errors.aCashRegisterMustBeOpenBeforeRegisteringAMonetaryOperation"),Map.entry(
             "A cash register is already open",
             "finance.treasury.cash_register.sessions.errors.aCashRegisterIsAlreadyOpen"),
             Map.entry("Account is not active",
