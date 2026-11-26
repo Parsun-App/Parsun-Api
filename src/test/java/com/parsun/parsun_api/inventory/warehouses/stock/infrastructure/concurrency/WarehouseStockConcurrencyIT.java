@@ -26,6 +26,7 @@ import org.springframework.transaction.support.TransactionTemplate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
+import java.math.BigDecimal;
 import java.util.UUID;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Callable;
@@ -121,10 +122,9 @@ class WarehouseStockConcurrencyIT {
         } finally {
             start.countDown();
         }
-        assertEquals(2,
-                persistedStocks
-                        .findByWarehouseIdAndProductId(warehouseId, productId)
-                        .orElseThrow().getQuantity());
+        assertEquals(0, persistedStocks
+                .findByWarehouseIdAndProductId(warehouseId, productId)
+                .orElseThrow().getQuantity().compareTo(new BigDecimal("2")));
     }
 
     @Test
@@ -170,12 +170,14 @@ class WarehouseStockConcurrencyIT {
         } finally {
             start.countDown();
         }
-        assertEquals(100, persistedStocks
+        assertEquals(0, persistedStocks
                 .findByWarehouseIdAndProductId(firstWarehouse, productId)
-                .orElseThrow().getQuantity());
-        assertEquals(100, persistedStocks
+                .orElseThrow().getQuantity()
+                .compareTo(new BigDecimal("100")));
+        assertEquals(0, persistedStocks
                 .findByWarehouseIdAndProductId(secondWarehouse, productId)
-                .orElseThrow().getQuantity());
+                .orElseThrow().getQuantity()
+                .compareTo(new BigDecimal("100")));
     }
 
     private void addStock(StockEntryUseCase entry, UUID warehouseId,
