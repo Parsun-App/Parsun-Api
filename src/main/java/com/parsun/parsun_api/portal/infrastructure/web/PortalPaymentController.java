@@ -10,6 +10,7 @@ import com.parsun.parsun_api.portal.application.dto.request.PayPortalDebtRequest
 import com.parsun.parsun_api.portal.application.dto.request.PayPortalInvoiceRequest;
 import com.parsun.parsun_api.portal.application.dto.request.PayPortalPartialDebtRequest;
 import com.parsun.parsun_api.portal.application.dto.request.RegisterPortalPaymentRequest;
+import com.parsun.parsun_api.portal.application.dto.response.PortalPaymentSummaryResponse;
 import com.parsun.parsun_api.portal.application.operations.use_case.GetPendingPortalPaymentsUseCase;
 import com.parsun.parsun_api.portal.application.operations.use_case.GetPortalPaymentUseCase;
 import com.parsun.parsun_api.portal.application.operations.use_case.ListPortalPaymentsUseCase;
@@ -17,6 +18,7 @@ import com.parsun.parsun_api.portal.application.operations.use_case.PayPortalAll
 import com.parsun.parsun_api.portal.application.operations.use_case.PayPortalInvoiceUseCase;
 import com.parsun.parsun_api.portal.application.operations.use_case.PayPortalPartialDebtUseCase;
 import com.parsun.parsun_api.portal.application.operations.use_case.RegisterPortalPaymentUseCase;
+import com.parsun.parsun_api.shared.dto.PageResponse;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -68,14 +70,30 @@ public class PortalPaymentController {
     }
 
     @GetMapping("/payments")
-    public ResponseEntity<List<PaymentListResponse>> listPayments(
+    public ResponseEntity<PageResponse<PaymentListResponse>> listPayments(
+            @RequestParam(required = false) LocalDate dateFrom,
+            @RequestParam(required = false) LocalDate dateTo,
+            @RequestParam(required = false) String type,
+            @RequestParam(required = false) String status,
+            @RequestParam(required = false) String search,
+            @RequestParam(required = false) String orderBy,
+            @RequestParam(required = false) String orderDir,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+        PageResponse<PaymentListResponse> response = listPortalPaymentsUseCase.executePage(
+                dateFrom, dateTo, type, status, search, page, size, orderBy,
+                orderDir);
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/payments/summary")
+    public ResponseEntity<PortalPaymentSummaryResponse> getPaymentsSummary(
             @RequestParam(required = false) LocalDate dateFrom,
             @RequestParam(required = false) LocalDate dateTo,
             @RequestParam(required = false) String type,
             @RequestParam(required = false) String status) {
-        List<PaymentListResponse> response = listPortalPaymentsUseCase.execute(
-                dateFrom, dateTo, type, status);
-        return ResponseEntity.ok(response);
+        return ResponseEntity.ok(listPortalPaymentsUseCase.getSummary(dateFrom,
+                dateTo, type, status));
     }
 
     @GetMapping("/payments/{id}")

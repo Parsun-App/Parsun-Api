@@ -1,7 +1,9 @@
 package com.parsun.parsun_api.portal.infrastructure.web;
 
 import com.parsun.parsun_api.sales.orders.application.dto.response.OrderDetailResponse;
+import com.parsun.parsun_api.portal.application.dto.response.PortalOrderSummaryResponse;
 import com.parsun.parsun_api.sales.orders.application.dto.response.OrderListResponse;
+import com.parsun.parsun_api.shared.dto.PageResponse;
 import com.parsun.parsun_api.portal.application.dto.request.CancelPortalOrderRequest;
 import com.parsun.parsun_api.portal.application.dto.request.CreatePortalOrderRequest;
 import com.parsun.parsun_api.portal.application.dto.request.UpdatePortalOrderRequest;
@@ -56,17 +58,32 @@ public class PortalOrderController {
     }
 
     @GetMapping
-    public ResponseEntity<List<OrderListResponse>> listOrders(
+    public ResponseEntity<PageResponse<OrderListResponse>> listOrders(
             @RequestParam(required = false) LocalDate dateFrom,
             @RequestParam(required = false) LocalDate dateTo,
             @RequestParam(required = false) String status,
             @RequestParam(required = false) UUID productId,
             @RequestParam(required = false) UUID categoryId,
+            @RequestParam(required = false) String search,
             @RequestParam(required = false) String orderBy,
-            @RequestParam(required = false) String orderDir) {
-        List<OrderListResponse> response = listPortalOrdersUseCase.execute(
-                dateFrom, dateTo, status, productId, categoryId, orderBy, orderDir);
+            @RequestParam(required = false) String orderDir,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+        PageResponse<OrderListResponse> response = listPortalOrdersUseCase.executePage(
+                dateFrom, dateTo, status, productId, categoryId, search, page,
+                size, orderBy, orderDir);
         return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/summary")
+    public ResponseEntity<PortalOrderSummaryResponse> getSummary(
+            @RequestParam(required = false) LocalDate dateFrom,
+            @RequestParam(required = false) LocalDate dateTo,
+            @RequestParam(required = false) String status,
+            @RequestParam(required = false) UUID productId,
+            @RequestParam(required = false) UUID categoryId) {
+        return ResponseEntity.ok(listPortalOrdersUseCase.getSummary(dateFrom,
+                dateTo, status, productId, categoryId));
     }
 
     @GetMapping("/{id}")
