@@ -67,7 +67,7 @@ public class V106ValerySuppliersSeed implements SeedStep {
                     "PROVEEDOR " + code);
             var supplier = new SupplierEntity();
             supplier.setId(id);
-            supplier.setCode(supplierCode(code, sequence, usedCodes));
+            supplier.setCode(sequentialCode(sequence, usedCodes));
             supplier.setLegalName(ValeryCsv.trim(name, 200));
             supplier.setAlias(ValeryCsv.trim(name, 100));
             supplier.setType(supplierType(ValeryCsv.text(row, 2)));
@@ -142,17 +142,10 @@ public class V106ValerySuppliersSeed implements SeedStep {
         supplier.getPhones().add(entity);
     }
 
-    private long supplierCode(String raw, int sequence, Set<Long> used) {
-        long candidate = -1;
-        String digits = raw.replaceAll("[^0-9]", "");
-        if (!digits.isEmpty() && digits.length() <= 9) {
-            candidate = Long.parseLong(digits);
-        }
-        if (candidate <= 0 || !used.add(candidate)) {
-            candidate = 950000L + sequence;
-            while (!used.add(candidate)) {
-                candidate++;
-            }
+    private long sequentialCode(int sequence, Set<Long> used) {
+        long candidate = sequence;
+        while (!used.add(candidate)) {
+            candidate++;
         }
         return candidate;
     }

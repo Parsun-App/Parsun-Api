@@ -69,7 +69,7 @@ public class V105ValeryCustomersSeed implements SeedStep {
             }
             var customer = new CustomerEntity();
             customer.setId(id);
-            customer.setCode(customerCode(code, sequence, usedCodes));
+            customer.setCode(sequentialCode(sequence, usedCodes));
             String legalName = ValeryCsv.trim(ValeryCsv.text(row, 1), 200);
             if (legalName.length() < 2) {
                 legalName = "CLIENTE " + code;
@@ -98,9 +98,9 @@ public class V105ValeryCustomersSeed implements SeedStep {
                     "Sin direccion"));
             main.setBilling(true);
             main.setActive(true);
-            main.setState(ValeryCsv.trim(ValeryCsv.text(row, 9), 100));
-            main.setMunicipality(ValeryCsv.trim(ValeryCsv.text(row, 10), 100));
-            main.setPostalCode(ValeryCsv.trim(ValeryCsv.text(row, 11), 10));
+            main.setState(defaultState(ValeryCsv.text(row, 9)));
+            main.setMunicipality(defaultMunicipality(ValeryCsv.text(row, 10)));
+            main.setPostalCode(defaultPostalCode(ValeryCsv.text(row, 11)));
             customer.getAddresses().add(main);
             int extra = 0;
             for (String[] address : addresses.getOrDefault(code, List.of())) {
@@ -112,13 +112,21 @@ public class V105ValeryCustomersSeed implements SeedStep {
                 entity.setBilling("S".equalsIgnoreCase(
                         ValeryCsv.text(address, 9)));
                 entity.setActive(true);
-                entity.setState(ValeryCsv.trim(
-                        ValeryCsv.text(address, 5), 100));
-                entity.setMunicipality(ValeryCsv.trim(
-                        ValeryCsv.text(address, 6), 100));
+                entity.setState(defaultState(ValeryCsv.text(address, 5)));
+                entity.setMunicipality(
+                        defaultMunicipality(ValeryCsv.text(address, 6)));
+                entity.setPostalCode("6301");
                 customer.getAddresses().add(entity);
                 addPhone(customer, code + ".a" + extra,
                         ValeryCsv.text(address, 7));
+            }
+            if (customer.getAddresses().isEmpty()) {
+                var fallback = new CustomerAddressEntity();
+                fallback.setId(ValeryIds.customerAddress(code, 99));
+                fallback.setAddress("Sin direccion");
+                fallback.setBilling(true);
+                fallback.setActive(true);
+                customer.getAddresses().add(fallback);
             }
             entityManager.persist(customer);
             persistBalance(code, id);
@@ -185,17 +193,10 @@ public class V105ValeryCustomersSeed implements SeedStep {
         customer.getPhones().add(entity);
     }
 
-    private long customerCode(String raw, int sequence, Set<Long> used) {
-        long candidate = -1;
-        String digits = raw.replaceAll("[^0-9]", "");
-        if (!digits.isEmpty() && digits.length() <= 9) {
-            candidate = Long.parseLong(digits);
-        }
-        if (candidate < 0 || !used.add(candidate)) {
-            candidate = 900000L + sequence;
-            while (!used.add(candidate)) {
-                candidate++;
-            }
+    private long sequentialCode(int sequence, Set<Long> used) {
+        long candidate = sequence;
+        while (!used.add(candidate)) {
+            candidate++;
         }
         return candidate;
     }
@@ -231,6 +232,21 @@ public class V105ValeryCustomersSeed implements SeedStep {
         boolean business = value.startsWith("J") || value.startsWith("G")
                 || value.startsWith("E") || value.startsWith("P");
         return business ? "BUSINESS" : "INDIVIDUAL";
+    }
+
+    private String defaultState(String raw) {
+        String value = ValeryCsv.trim(raw, 100);
+        return value.isEmpty() ? "Nueva Esparta" : value;
+    }
+
+    private String defaultMunicipality(String raw) {
+        String value = ValeryCsv.trim(raw, 100);
+        return value.isEmpty() ? "Tubores" : value;
+    }
+
+    private String defaultPostalCode(String raw) {
+        String value = ValeryCsv.trim(raw, 10);
+        return value.isEmpty() ? "6301" : value;
     }
 
     private int intValue(String raw) {

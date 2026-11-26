@@ -106,10 +106,10 @@ public class V101ValeryCatalogSeed implements SeedStep {
             entity.setCode(code);
             entity.setName(ValeryCsv.trim(ValeryCsv.orDefault(
                     ValeryCsv.text(row, 1), "ALMACEN " + code), 100));
-            entity.setAddress("Sin direccion registrada");
-            entity.setState("Venezuela");
-            entity.setMunicipality("");
-            entity.setPostalCode("");
+            entity.setAddress("Sector Centro, Municipio Tubores");
+            entity.setState("Nueva Esparta");
+            entity.setMunicipality("Tubores");
+            entity.setPostalCode("6301");
             entity.setActive(true);
             entity.setCreatedAt(CREATED_AT);
             entity.setUpdatedAt(CREATED_AT);
