@@ -56,6 +56,12 @@ public class V112ValeryCustomerAccessSeed implements SeedStep {
                 warehouseCodes.add(code);
             }
         }
+        java.util.Set<String> existing = new java.util.HashSet<>();
+        for (Object[] pair : entityManager.createQuery(
+                "select a.customerId, a.warehouseId from CustomerWarehouseAccessEntity a",
+                Object[].class).getResultList()) {
+            existing.add(pair[0] + "|" + pair[1]);
+        }
         int addresses = 0;
         int accesses = 0;
         int pending = 0;
@@ -75,9 +81,8 @@ public class V112ValeryCustomerAccessSeed implements SeedStep {
                         warehouseId) == null) {
                     continue;
                 }
-                if (entityManager.find(CustomerWarehouseAccessEntity.class,
-                        ValeryIds.customerWarehouse(customerCode,
-                                warehouseCode)) != null) {
+                String pairKey = customerId + "|" + warehouseId;
+                if (!existing.add(pairKey)) {
                     continue;
                 }
                 var access = new CustomerWarehouseAccessEntity();

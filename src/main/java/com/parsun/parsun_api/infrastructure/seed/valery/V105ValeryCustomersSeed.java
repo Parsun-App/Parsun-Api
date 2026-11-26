@@ -94,8 +94,7 @@ public class V105ValeryCustomersSeed implements SeedStep {
             addPhone(customer, code + ".m", ValeryCsv.text(row, 4));
             var main = new CustomerAddressEntity();
             main.setId(ValeryIds.customerAddress(code, 0));
-            main.setAddress(ValeryCsv.orDefault(ValeryCsv.text(row, 7),
-                    "Sin direccion"));
+            main.setAddress(resolveAddress(ValeryCsv.text(row, 7), sequence));
             main.setBilling(true);
             main.setActive(true);
             main.setState(defaultState(ValeryCsv.text(row, 9)));
@@ -235,18 +234,26 @@ public class V105ValeryCustomersSeed implements SeedStep {
     }
 
     private String defaultState(String raw) {
-        String value = ValeryCsv.trim(raw, 100);
-        return value.isEmpty() ? "Nueva Esparta" : value;
+        return "Nueva Esparta";
     }
 
     private String defaultMunicipality(String raw) {
-        String value = ValeryCsv.trim(raw, 100);
-        return value.isEmpty() ? "Tubores" : value;
+        return "Tubores";
     }
 
     private String defaultPostalCode(String raw) {
-        String value = ValeryCsv.trim(raw, 10);
-        return value.isEmpty() ? "6301" : value;
+        return "6301";
+    }
+
+    static String resolveAddress(String raw, int index) {
+        String value = ValeryCsv.trim(raw, 500);
+        String normalized = value.toUpperCase(Locale.ROOT);
+        if (value.isEmpty() || "SIN DIRECCION".equals(normalized)
+                || "N/A".equals(normalized) || "01".equals(normalized)
+                || "-".equals(normalized) || ".".equals(normalized)) {
+            return ValeryAddresses.at(index);
+        }
+        return value;
     }
 
     private int intValue(String raw) {

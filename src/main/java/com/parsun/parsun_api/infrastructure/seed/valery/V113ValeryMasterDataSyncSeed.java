@@ -114,40 +114,27 @@ public class V113ValeryMasterDataSyncSeed implements SeedStep {
 
     private void completeCustomerAddresses() {
         int updated = 0;
+        int index = 0;
         for (String[] row : ValeryCsv.load("customers")) {
             String code = ValeryCsv.text(row, 0);
             if (code.isEmpty()) {
                 continue;
             }
+            index++;
             CustomerEntity customer = entityManager.find(CustomerEntity.class,
                     ValeryIds.customer(code));
             if (customer == null) {
                 continue;
             }
+            int addressIndex = 0;
             for (CustomerAddressEntity address : customer.getAddresses()) {
-                boolean changed = false;
-                if (address.getAddress() == null
-                        || address.getAddress().isBlank()) {
-                    address.setAddress("Sin direccion");
-                    changed = true;
-                }
-                if (address.getState() == null || address.getState().isBlank()) {
-                    address.setState("Nueva Esparta");
-                    changed = true;
-                }
-                if (address.getMunicipality() == null
-                        || address.getMunicipality().isBlank()) {
-                    address.setMunicipality("Tubores");
-                    changed = true;
-                }
-                if (address.getPostalCode() == null
-                        || address.getPostalCode().isBlank()) {
-                    address.setPostalCode("6301");
-                    changed = true;
-                }
-                if (changed) {
-                    updated++;
-                }
+                addressIndex++;
+                address.setAddress(V105ValeryCustomersSeed.resolveAddress(
+                        address.getAddress(), index + addressIndex));
+                address.setState("Nueva Esparta");
+                address.setMunicipality("Tubores");
+                address.setPostalCode("6301");
+                updated++;
             }
         }
         log.info("Valery customer addresses completed: {}", updated);
