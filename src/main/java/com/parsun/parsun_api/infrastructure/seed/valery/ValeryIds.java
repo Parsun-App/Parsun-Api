@@ -104,6 +104,10 @@ public final class ValeryIds {
         return id("valery.quote-line." + document + "." + line);
     }
 
+    public static UUID paymentMethod(String key) {
+        return id("valery.payment-method." + key);
+    }
+
     public static UUID balanceTransaction(String document) {
         return id("valery.balance-transaction." + document);
     }
